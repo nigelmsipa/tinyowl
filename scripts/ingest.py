@@ -1,0 +1,342 @@
+#!/usr/bin/env python3
+"""
+TinyOwl Ingestion Script
+
+This script handles the complete ingestion pipeline:
+1. PDF text extraction
+2. Text cleaning and processing
+3. Chunking based on configured strategies
+4. Vector embedding generation
+5. Storage in ChromaDB
+
+Usage:
+    python ingest.py --config configs/sources.yaml --domain theology
+"""
+
+import os
+import sys
+import argparse
+import yaml
+import json
+import logging
+from pathlib import Path
+from typing import Dict, List, Any, Optional
+from datetime import datetime
+
+import chromadb
+from pypdf import PdfReader
+from tqdm import tqdm
+from sentence_transformers import SentenceTransformer
+
+# Set up logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger("tinyowl-ingest")
+
+# Define base paths
+BASE_DIR = Path(__file__).parent.parent.absolute()
+
+
+def load_config(config_path: str) -> Dict[str, Any]:
+    """Load YAML configuration file"""
+    with open(config_path, 'r') as f:
+        return yaml.safe_load(f)
+
+
+def extract_text_from_pdf(pdf_path: str) -> List[Dict[str, Any]]:
+    """
+    Extract text from PDF with metadata
+    
+    Returns:
+        List of pages with text and metadata
+    """
+    logger.info(f"Extracting text from: {pdf_path}")
+    
+    # This is a placeholder for the actual extraction logic
+    # In a real implementation, this would handle complex PDF extraction
+    reader = PdfReader(pdf_path)
+    pages = []
+    
+    for i, page in tqdm(enumerate(reader.pages), total=len(reader.pages)):
+        text = page.extract_text()
+        pages.append({
+            "page_number": i + 1,
+            "text": text,
+            "metadata": {
+                "page_size": (page.mediabox.width, page.mediabox.height),
+            }
+        })
+    
+    logger.info(f"Extracted {len(pages)} pages from {pdf_path}")
+    return pages
+
+
+def process_text(pages: List[Dict[str, Any]], source_config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Clean and process extracted text based on source type
+    
+    Returns:
+        Processed text sections
+    """
+    logger.info(f"Processing text for: {source_config['title']}")
+    
+    # This is a placeholder for actual text processing
+    # In a real implementation, this would:
+    # - Remove headers/footers
+    # - Fix common OCR errors
+    # - Normalize whitespace
+    # - Extract structure (chapters, sections)
+    
+    processed_sections = []
+    
+    # Simple example processing (would be much more complex in reality)
+    current_section = {"title": "", "content": "", "metadata": {}}
+    
+    for page in tqdm(pages):
+        # For demonstration purposes only
+        text = page["text"]
+        lines = text.split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+                
+            # Very simplistic section detection
+            if line.isupper() and len(line) < 100:
+                # Save previous section if it exists
+                if current_section["content"]:
+                    processed_sections.append(current_section)
+                
+                # Start new section
+                current_section = {
+                    "title": line,
+                    "content": "",
+                    "metadata": {
+                        "page_start": page["page_number"],
+                        "source_id": source_config["id"]
+                    }
+                }
+            else:
+                current_section["content"] += line + "\n"
+        
+        # Update page end
+        current_section["metadata"]["page_end"] = page["page_number"]
+    
+    # Add final section
+    if current_section["content"]:
+        processed_sections.append(current_section)
+    
+    logger.info(f"Created {len(processed_sections)} processed sections")
+    return processed_sections
+
+
+def chunk_text(processed_sections: List[Dict[str, Any]], 
+               source_config: Dict[str, Any], 
+               chunking_config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Chunk processed text according to strategy
+    
+    Returns:
+        List of text chunks ready for vectorization
+    """
+    logger.info(f"Chunking text for: {source_config['title']}")
+    
+    # Get chunking strategy from source config
+    strategy_name = source_config.get("chunking_strategy", "default")
+    strategy = chunking_config["strategies"].get(strategy_name, chunking_config["default"])
+    
+    chunks = []
+    chunk_id = 0
+    
+    # This is a placeholder for real chunking logic
+    # Real implementation would respect semantic boundaries based on strategy
+    for section in tqdm(processed_sections):
+        content = section["content"]
+        
+        # Very basic chunking by paragraphs
+        # Real implementation would be much more sophisticated
+        paragraphs = content.split("\n\n")
+        
+        for i, paragraph in enumerate(paragraphs):
+            if not paragraph.strip():
+                continue
+                
+            # Create chunk with metadata
+            chunk_id += 1
+            chunk = {
+                "id": f"{source_config['id']}_{chunk_id:06d}",
+                "text": paragraph.strip(),
+                "metadata": {
+                    "source_id": source_config["id"],
+                    "title": source_config["title"],
+                    "author": source_config["author"],
+                    "domain": source_config.get("domain", "unknown"),
+                    "section_title": section["title"],
+                    "chunk_index": i,
+                    "page_reference": f"{section['metadata']['page_start']}-{section['metadata']['page_end']}",
+                    "chunk_strategy": strategy_name,
+                    "creation_timestamp": datetime.now().isoformat()
+                }
+            }
+            chunks.append(chunk)
+    
+    logger.info(f"Created {len(chunks)} chunks")
+    return chunks
+
+
+def save_processed_data(sections: List[Dict[str, Any]], 
+                       source_config: Dict[str, Any], 
+                       domain: str):
+    """Save processed text sections to disk"""
+    source_id = source_config["id"]
+    output_dir = BASE_DIR / "domains" / domain / "processed"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    output_file = output_dir / f"{source_id}.json"
+    
+    with open(output_file, 'w') as f:
+        json.dump({
+            "source_id": source_id,
+            "title": source_config["title"],
+            "sections": sections
+        }, f, indent=2)
+    
+    logger.info(f"Saved processed data to {output_file}")
+
+
+def save_chunks(chunks: List[Dict[str, Any]], 
+               source_config: Dict[str, Any]], 
+               domain: str):
+    """Save text chunks to disk"""
+    source_id = source_config["id"]
+    output_dir = BASE_DIR / "domains" / domain / "chunks"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    output_file = output_dir / f"{source_id}_chunks.json"
+    
+    with open(output_file, 'w') as f:
+        json.dump({
+            "source_id": source_id,
+            "title": source_config["title"],
+            "chunks": chunks
+        }, f, indent=2)
+    
+    logger.info(f"Saved chunks to {output_file}")
+
+
+def vectorize_chunks(chunks: List[Dict[str, Any]], 
+                    models_config: Dict[str, Any],
+                    domain: str):
+    """Generate embeddings and store in ChromaDB"""
+    # Load embedding model
+    domain_model = models_config["embeddings"].get("domain_specific", {}).get(domain, {})
+    model_name = domain_model.get("name") or models_config["embeddings"]["default"]["name"]
+    
+    logger.info(f"Loading embedding model: {model_name}")
+    model = SentenceTransformer(model_name)
+    
+    # Initialize ChromaDB
+    db_path = BASE_DIR / "vectordb"
+    db_path.mkdir(parents=True, exist_ok=True)
+    
+    client = chromadb.PersistentClient(path=str(db_path))
+    
+    # Get or create collection
+    collection_name = models_config["vector_db"]["collections"].get(domain, {}).get("name", domain)
+    collection = client.get_or_create_collection(
+        name=collection_name,
+        embedding_function=None  # We'll handle embeddings ourselves
+    )
+    
+    # Prepare data for insertion
+    ids = [chunk["id"] for chunk in chunks]
+    texts = [chunk["text"] for chunk in chunks]
+    metadatas = [chunk["metadata"] for chunk in chunks]
+    
+    # Generate embeddings in batches
+    batch_size = 32
+    for i in tqdm(range(0, len(chunks), batch_size)):
+        batch_ids = ids[i:i+batch_size]
+        batch_texts = texts[i:i+batch_size]
+        batch_metadatas = metadatas[i:i+batch_size]
+        
+        # Generate embeddings
+        batch_embeddings = model.encode(batch_texts).tolist()
+        
+        # Add to ChromaDB
+        collection.add(
+            ids=batch_ids,
+            embeddings=batch_embeddings,
+            documents=batch_texts,
+            metadatas=batch_metadatas
+        )
+    
+    logger.info(f"Added {len(chunks)} embeddings to ChromaDB collection '{collection_name}'")
+
+
+def process_source(source_config: Dict[str, Any], 
+                  chunking_config: Dict[str, Any],
+                  models_config: Dict[str, Any],
+                  domain: str):
+    """Process a single source from raw PDF to vector database"""
+    logger.info(f"Processing source: {source_config['title']}")
+    
+    # Resolve path
+    pdf_path = BASE_DIR / source_config["path"]
+    
+    if not pdf_path.exists():
+        logger.error(f"Source file not found: {pdf_path}")
+        return
+    
+    # Extract text from PDF
+    pages = extract_text_from_pdf(str(pdf_path))
+    
+    # Process text
+    processed_sections = process_text(pages, source_config)
+    
+    # Save processed data
+    save_processed_data(processed_sections, source_config, domain)
+    
+    # Chunk text
+    chunks = chunk_text(processed_sections, source_config, chunking_config)
+    
+    # Save chunks
+    save_chunks(chunks, source_config, domain)
+    
+    # Vectorize and store in ChromaDB
+    vectorize_chunks(chunks, models_config, domain)
+    
+    logger.info(f"Completed processing: {source_config['title']}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="TinyOwl Ingestion Script")
+    parser.add_argument("--config", default="configs/sources.yaml", help="Path to sources configuration")
+    parser.add_argument("--domain", default="theology", help="Domain to process")
+    parser.add_argument("--source-id", help="Optional: Process only this source ID")
+    args = parser.parse_args()
+    
+    # Load configurations
+    sources_config = load_config(args.config)
+    chunking_config = load_config(BASE_DIR / "configs" / "chunking.yaml")
+    models_config = load_config(BASE_DIR / "configs" / "models.yaml")
+    
+    domain = args.domain or sources_config.get("domain", "theology")
+    logger.info(f"Processing domain: {domain}")
+    
+    # Process sources
+    for source in sources_config["sources"]:
+        if args.source_id and source["id"] != args.source_id:
+            continue
+            
+        process_source(source, chunking_config, models_config, domain)
+    
+    logger.info("Ingestion process completed!")
+
+
+if __name__ == "__main__":
+    main()

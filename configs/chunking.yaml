@@ -1,0 +1,94 @@
+# Chunking strategies configuration
+# Defines how different types of content should be chunked for vectorization
+
+default:
+  chunk_size: 512            # Default token size for chunks
+  chunk_overlap: 50          # Default overlap between chunks
+  separator: "\n\n"          # Default chunk separator (paragraphs)
+  include_metadata: true     # Always include metadata with chunks
+  tokenizer: "cl100k_base"   # OpenAI tokenizer compatible with most embedding models
+
+strategies:
+  # Scripture specific chunking (Bible)
+  verse:
+    description: "Chunk by individual verses or small verse groups"
+    chunk_type: "semantic_unit"  # Each chunk is a semantic unit
+    chunk_unit: "verse"          # The unit is a verse
+    max_verses_per_chunk: 5      # Maximum verses to include in a chunk
+    include_context:
+      book: true                 # Always include book name
+      chapter: true              # Always include chapter number
+      testament: true            # Include testament (Old/New)
+    special_handling:
+      psalms:
+        max_verses_per_chunk: 3  # Psalms get smaller chunks
+      proverbs:
+        max_verses_per_chunk: 3  # Proverbs get smaller chunks
+    metadata_fields:
+      - book_name
+      - chapter_number
+      - verse_numbers
+      - testament
+
+  # Book chunking (for Conflict of Ages books)
+  paragraph:
+    description: "Chunk by paragraphs with context"
+    chunk_type: "text_window"    # Sliding window of text
+    chunk_size: 750              # Target token count
+    chunk_overlap: 100           # Overlap between chunks
+    respect_boundaries:
+      paragraph: true            # Don't split paragraphs if possible
+      section: true              # Try to respect section boundaries
+      chapter: false             # OK to split across chapters
+    metadata_fields:
+      - book_title
+      - chapter_title
+      - section_title
+      - page_number
+
+  # Chapter chunking (for longer content)
+  chapter:
+    description: "Chunk by chapters with minimal overlap"
+    chunk_type: "document_segments"  # Each chunk is a document segment
+    max_tokens: 1500            # Maximum tokens per chunk
+    chapter_handling:
+      short_chapters:
+        strategy: "combine"      # Combine short chapters
+        threshold: 300           # Threshold for "short" chapter (tokens)
+      long_chapters:
+        strategy: "split"        # Split long chapters
+        target_size: 1000        # Target size for splits
+    metadata_fields:
+      - book_title
+      - chapter_number
+      - chapter_title
+      - timestamp
+
+# Special processors for specific content types
+processors:
+  scripture:
+    - extract_book_chapter_verse  # Extract references
+    - normalize_names             # Normalize character/place names
+    - cross_reference_detector    # Detect and extract cross-references
+    
+  book:
+    - extract_headings            # Extract section headings
+    - page_number_tracker         # Track page numbers
+    - footnote_processor          # Process footnotes
+    - quote_extractor             # Extract and attribute quotes
+
+# Vector storage settings
+vector_storage:
+  chroma_settings:
+    collection_name: "theology"   # Collection name for ChromaDB
+    embedding_function: "sentence-transformers"
+    embedding_model: "all-MiniLM-L6-v2"  # Default embedding model
+    distance_function: "cosine"
+  
+  document_metadata:
+    common_fields:               # Fields common to all document types
+      - source_id                # ID from sources.yaml
+      - domain                   # Knowledge domain
+      - chunk_strategy           # Strategy used for chunking
+      - chunk_id                 # Unique ID for the chunk
+      - creation_timestamp       # When the chunk was created

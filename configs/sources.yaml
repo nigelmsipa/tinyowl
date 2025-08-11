@@ -1,0 +1,108 @@
+# Theology Domain Source Configuration
+# This file defines the sources for the theology domain
+
+domain: theology
+description: "Biblical texts and Conflict of Ages books"
+
+sources:
+  - id: bible_kjv
+    title: "King James Version Bible"
+    type: scripture
+    author: "Various"
+    year: 1611
+    path: "domains/theology/raw/kjv_bible.pdf"
+    language: "english"
+    description: "The King James Version of the Bible"
+    structure:
+      has_chapters: true
+      has_verses: true
+      book_names:
+        - Genesis
+        - Exodus
+        # ... other books would be listed
+        - Revelation
+    metadata:
+      testament_split: 
+        old: ["Genesis", "Exodus", ... "Malachi"]  # Define actual books when implementing
+        new: ["Matthew", "Mark", ... "Revelation"] # Define actual books when implementing
+    chunking_strategy: "verse"
+
+  - id: coa_patriarchs_prophets
+    title: "Patriarchs and Prophets"
+    type: book
+    author: "Ellen G. White"
+    year: 1890
+    path: "domains/theology/raw/patriarchs_and_prophets.pdf"
+    language: "english"
+    description: "Covers Biblical history from creation to the end of David's reign"
+    structure:
+      has_chapters: true
+      has_verses: false
+    metadata:
+      time_period: "Creation to end of David's reign"
+      related_bible_books: ["Genesis", "Exodus", "Numbers", "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel"]
+    chunking_strategy: "paragraph"
+
+  - id: coa_prophets_kings
+    title: "Prophets and Kings"
+    type: book
+    author: "Ellen G. White"
+    year: 1917
+    path: "domains/theology/raw/prophets_and_kings.pdf"
+    language: "english"
+    description: "Covers Biblical history from Solomon to Malachi"
+    structure:
+      has_chapters: true
+      has_verses: false
+    metadata:
+      time_period: "Solomon to Malachi"
+      related_bible_books: ["1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi"]
+    chunking_strategy: "paragraph"
+
+  - id: coa_desire_of_ages
+    title: "The Desire of Ages"
+    type: book
+    author: "Ellen G. White"
+    year: 1898
+    path: "domains/theology/raw/desire_of_ages.pdf"
+    language: "english"
+    description: "Covers the life and ministry of Jesus Christ"
+    structure:
+      has_chapters: true
+      has_verses: false
+    metadata:
+      time_period: "Life of Christ"
+      related_bible_books: ["Matthew", "Mark", "Luke", "John"]
+    chunking_strategy: "paragraph"
+
+  - id: coa_acts_of_apostles
+    title: "The Acts of the Apostles"
+    type: book
+    author: "Ellen G. White"
+    year: 1911
+    path: "domains/theology/raw/acts_of_apostles.pdf"
+    language: "english"
+    description: "Covers the history of the early Christian church"
+    structure:
+      has_chapters: true
+      has_verses: false
+    metadata:
+      time_period: "Early Christian Church"
+      related_bible_books: ["Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude"]
+    chunking_strategy: "paragraph"
+
+  - id: coa_great_controversy
+    title: "The Great Controversy"
+    type: book
+    author: "Ellen G. White"
+    year: 1911
+    path: "domains/theology/raw/great_controversy.pdf"
+    language: "english"
+    description: "Covers Christian history from the destruction of Jerusalem to the end of sin"
+    structure:
+      has_chapters: true
+      has_verses: false
+    metadata:
+      time_period: "Destruction of Jerusalem to End of Sin"
+      related_bible_books: ["Daniel", "Revelation"]
+    chunking_strategy: "paragraph"

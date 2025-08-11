@@ -1,0 +1,61 @@
+# Vector database
+vectordb/
+
+# Raw and processed data files
+domains/*/raw/*
+domains/*/processed/*
+!domains/*/raw/.gitkeep
+!domains/*/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Local environment variables
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# Temp files
+*.tmp
+
+# Model weights and large files
+*.pt
+*.bin
+*.onnx

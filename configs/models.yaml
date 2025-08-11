@@ -1,0 +1,82 @@
+# Models Configuration
+# Defines embedding models and LLMs used in the TinyOwl pipeline
+
+# Embedding Models
+embeddings:
+  default:
+    name: "all-MiniLM-L6-v2"
+    provider: "sentence-transformers"
+    dimensions: 384
+    description: "Efficient general-purpose embedding model"
+    use_case: "general text chunks"
+  
+  alternative:
+    name: "e5-base-v2"
+    provider: "sentence-transformers" 
+    dimensions: 768
+    description: "Higher dimensional model for more nuanced embeddings"
+    use_case: "when precision is critical"
+    
+  domain_specific:
+    theology:
+      name: "all-MiniLM-L6-v2"  # Default for theology domain
+      provider: "sentence-transformers"
+
+# Large Language Models
+llms:
+  rag:
+    name: "gpt-3.5-turbo"  # Used for RAG responses
+    provider: "openai"
+    temperature: 0.2
+    max_tokens: 500
+    system_prompt: "You are an AI assistant with deep knowledge of theology. Answer questions accurately based on the provided context. Always cite your sources."
+  
+  baseline:
+    name: "llama-2-7b"  # Local model for baseline evaluation
+    provider: "local"
+    temperature: 0.1
+    max_tokens: 500
+    model_path: "models/llama-2-7b-chat.gguf"  # Path to local GGUF model
+    
+  target:
+    name: "TinyLlama-1.1B"  # Model to be fine-tuned
+    provider: "local"
+    description: "Compact model to be fine-tuned on theology corpus"
+    base_model: "TinyLlama/TinyLlama-1.1B-intermediate-step-480k-1T"
+    model_path: "models/tinyllama-1.1b.bin"
+
+# Fine-tuning Configuration
+fine_tuning:
+  method: "LoRA"  # Parameter-Efficient Fine-Tuning
+  parameters:
+    r: 16  # LoRA attention dimension
+    alpha: 32  # LoRA alpha parameter
+    dropout: 0.05
+    bias: "none"
+    task_type: "CAUSAL_LM"
+  
+  training:
+    batch_size: 4
+    gradient_accumulation_steps: 4
+    learning_rate: 3e-4
+    epochs: 3
+    warmup_ratio: 0.03
+    
+  evaluation:
+    eval_steps: 200
+    metrics:
+      - "accuracy"
+      - "perplexity"
+      - "rouge"
+
+# ChromaDB Configuration
+vector_db:
+  embedding_function: "sentence-transformers"  # Use sentence-transformers
+  default_model: "all-MiniLM-L6-v2"  # Default embedding model
+  distance_function: "cosine"  # Use cosine similarity
+  
+  collections:
+    theology:
+      name: "theology"
+      description: "Biblical texts and commentary"
+      embedding_model: "all-MiniLM-L6-v2"
