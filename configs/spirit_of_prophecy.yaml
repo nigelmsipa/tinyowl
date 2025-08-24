@@ -1,0 +1,237 @@
+# Spirit of Prophecy Source Configuration
+# Additional Ellen G. White books to add to theology domain
+# Excludes Conflict of Ages series (already ingested)
+
+domain: theology
+description: "Ellen G. White Spirit of Prophecy books"
+
+sources:
+  - id: steps_to_christ
+    title: "Steps to Christ"
+    type: book
+    author: "Ellen G. White"
+    year: 1892
+    path: "domains/theology/raw/Steps to Christ (1892)_.pdf"
+    language: "english"
+    description: "Guide to Christian conversion and growth"
+    chunking_strategy: "paragraph"
+
+  - id: education
+    title: "Education"
+    type: book
+    author: "Ellen G. White"
+    year: 1903
+    path: "domains/theology/raw/Education.pdf"
+    language: "english"
+    description: "Principles of true education"
+    chunking_strategy: "paragraph"
+
+  - id: ministry_of_healing
+    title: "The Ministry of Healing"
+    type: book
+    author: "Ellen G. White"
+    year: 1905
+    path: "domains/theology/raw/The Ministry of Healing (1905)_.pdf"
+    language: "english"
+    description: "Health and healing ministry principles"
+    chunking_strategy: "paragraph"
+
+  - id: christs_object_lessons
+    title: "Christ's Object Lessons"
+    type: book
+    author: "Ellen G. White"
+    year: 1900
+    path: "domains/theology/raw/Christ's Object Lessons.pdf"
+    language: "english"
+    description: "Lessons from Christ's parables"
+    chunking_strategy: "paragraph"
+
+  - id: thoughts_mount_blessing
+    title: "Thoughts from the Mount of Blessing"
+    type: book
+    author: "Ellen G. White"
+    year: 1896
+    path: "domains/theology/raw/Thoughts from the Mount of Blessing (1896)_.pdf"
+    language: "english"
+    description: "Commentary on the Sermon on the Mount"
+    chunking_strategy: "paragraph"
+
+  - id: early_writings
+    title: "Early Writings"
+    type: book
+    author: "Ellen G. White"
+    year: 1882
+    path: "domains/theology/raw/Early Writings (1882)_.pdf"
+    language: "english"
+    description: "Collection of early visions and experiences"
+    chunking_strategy: "paragraph"
+
+  - id: selected_messages_1
+    title: "Selected Messages Book 1"
+    type: book
+    author: "Ellen G. White"
+    year: 1958
+    path: "domains/theology/raw/Selected Messages Book 1 (1958)_.pdf"
+    language: "english"
+    description: "Selected writings on various topics - Volume 1"
+    chunking_strategy: "paragraph"
+
+  - id: selected_messages_2
+    title: "Selected Messages Book 2"
+    type: book
+    author: "Ellen G. White"
+    year: 1958
+    path: "domains/theology/raw/Selected Messages Book 2 (1958)_.pdf"
+    language: "english"
+    description: "Selected writings on various topics - Volume 2"
+    chunking_strategy: "paragraph"
+
+  - id: selected_messages_3
+    title: "Selected Messages Book 3"
+    type: book
+    author: "Ellen G. White"
+    year: 1980
+    path: "domains/theology/raw/Selected Messages Book 3 (1980)_.pdf"
+    language: "english"
+    description: "Selected writings on various topics - Volume 3"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_1
+    title: "Testimonies for the Church Volume 1"
+    type: book
+    author: "Ellen G. White"
+    year: 1868
+    path: "domains/theology/raw/Testimonies for the Church, vol. 1 (1868)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 1"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_2
+    title: "Testimonies for the Church Volume 2"
+    type: book
+    author: "Ellen G. White"
+    year: 1871
+    path: "domains/theology/raw/Testimonies for the Church, vol. 2 (1871)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 2"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_3
+    title: "Testimonies for the Church Volume 3"
+    type: book
+    author: "Ellen G. White"
+    year: 1875
+    path: "domains/theology/raw/Testimonies for the Church, vol. 3 (1875)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 3"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_4
+    title: "Testimonies for the Church Volume 4"
+    type: book
+    author: "Ellen G. White"
+    year: 1881
+    path: "domains/theology/raw/Testimonies for the Church, vol. 4 (1881)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 4"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_5
+    title: "Testimonies for the Church Volume 5"
+    type: book
+    author: "Ellen G. White"
+    year: 1889
+    path: "domains/theology/raw/Testimonies for the Church, vol. 5 (1889)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 5"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_6
+    title: "Testimonies for the Church Volume 6"
+    type: book
+    author: "Ellen G. White"
+    year: 1901
+    path: "domains/theology/raw/Testimonies for the Church, vol. 6 (1901)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 6"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_7
+    title: "Testimonies for the Church Volume 7"
+    type: book
+    author: "Ellen G. White"
+    year: 1902
+    path: "domains/theology/raw/Testimonies for the Church, vol. 7 (1902)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 7"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_8
+    title: "Testimonies for the Church Volume 8"
+    type: book
+    author: "Ellen G. White"
+    year: 1904
+    path: "domains/theology/raw/Testimonies for the Church, vol. 8 (1904)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 8"
+    chunking_strategy: "paragraph"
+
+  - id: testimonies_9
+    title: "Testimonies for the Church Volume 9"
+    type: book
+    author: "Ellen G. White"
+    year: 1909
+    path: "domains/theology/raw/Testimonies for the Church, vol. 9 (1909)_.pdf"
+    language: "english"
+    description: "Testimonies and counsel to the church - Volume 9"
+    chunking_strategy: "paragraph"
+
+  - id: adventist_home
+    title: "The Adventist Home"
+    type: book
+    author: "Ellen G. White"
+    year: 1952
+    path: "domains/theology/raw/The Adventist Home.pdf"
+    language: "english"
+    description: "Guidance for Christian home life"
+    chunking_strategy: "paragraph"
+
+  - id: child_guidance
+    title: "Child Guidance"
+    type: book
+    author: "Ellen G. White"
+    year: 1954
+    path: "domains/theology/raw/Child Guidance.pdf"
+    language: "english"
+    description: "Principles for raising children"
+    chunking_strategy: "paragraph"
+
+  - id: christian_service
+    title: "Christian Service"
+    type: book
+    author: "Ellen G. White"
+    year: 1925
+    path: "domains/theology/raw/Christian Service.pdf"
+    language: "english"
+    description: "Principles of Christian service and witnessing"
+    chunking_strategy: "paragraph"
+
+  - id: evangelism
+    title: "Evangelism"
+    type: book
+    author: "Ellen G. White"
+    year: 1946
+    path: "domains/theology/raw/Evangelism (1946)_.pdf"
+    language: "english"
+    description: "Principles and methods of evangelism"
+    chunking_strategy: "paragraph"
+
+  - id: gospel_workers
+    title: "Gospel Workers"
+    type: book
+    author: "Ellen G. White"
+    year: 1915
+    path: "domains/theology/raw/Gospel Workers.pdf"
+    language: "english"
+    description: "Instruction for ministers and church workers"
+    chunking_strategy: "paragraph"
