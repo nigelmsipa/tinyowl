@@ -10,7 +10,7 @@ sources:
     type: scripture
     author: "Various"
     year: 1611
-    path: "domains/theology/raw/kjv_bible.pdf"
+    path: "domains/theology/raw/KJV.pdf"
     language: "english"
     description: "The King James Version of the Bible"
     structure:
@@ -32,7 +32,7 @@ sources:
     type: book
     author: "Ellen G. White"
     year: 1890
-    path: "domains/theology/raw/patriarchs_and_prophets.pdf"
+    path: "domains/theology/raw/PatriarchsAndProphets.pdf"
     language: "english"
     description: "Covers Biblical history from creation to the end of David's reign"
     structure:
@@ -48,7 +48,7 @@ sources:
     type: book
     author: "Ellen G. White"
     year: 1917
-    path: "domains/theology/raw/prophets_and_kings.pdf"
+    path: "domains/theology/raw/ProphetsAndKings.pdf"
     language: "english"
     description: "Covers Biblical history from Solomon to Malachi"
     structure:
@@ -64,7 +64,7 @@ sources:
     type: book
     author: "Ellen G. White"
     year: 1898
-    path: "domains/theology/raw/desire_of_ages.pdf"
+    path: "domains/theology/raw/DesireofAges.pdf"
     language: "english"
     description: "Covers the life and ministry of Jesus Christ"
     structure:
@@ -80,7 +80,7 @@ sources:
     type: book
     author: "Ellen G. White"
     year: 1911
-    path: "domains/theology/raw/acts_of_apostles.pdf"
+    path: "domains/theology/raw/ActsofTheApostles.pdf"
     language: "english"
     description: "Covers the history of the early Christian church"
     structure:
@@ -96,7 +96,7 @@ sources:
     type: book
     author: "Ellen G. White"
     year: 1911
-    path: "domains/theology/raw/great_controversy.pdf"
+    path: "domains/theology/raw/The Great Controversy.pdf"
     language: "english"
     description: "Covers Christian history from the destruction of Jerusalem to the end of sin"
     structure:

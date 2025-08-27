@@ -74,34 +74,6 @@ def extract_text_from_pdf(pdf_path: str) -> List[Dict[str, Any]]:
     return pages
 
 
-def extract_text_from_markdown(md_path: str) -> List[Dict[str, Any]]:
-    """
-    Extract text from markdown file with metadata
-    
-    Returns:
-        List of sections with text and metadata
-    """
-    logger.info(f"Extracting text from markdown: {md_path}")
-    
-    try:
-        with open(md_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-            
-        # For now, we'll treat the entire markdown as one section
-        # In a more advanced implementation, you could split by headers
-        return [{
-            "section_number": 1,
-            "text": content,
-            "metadata": {
-                "source_type": "markdown",
-                "file_path": md_path
-            }
-        }]
-    except Exception as e:
-        logger.error(f"Error reading markdown file {md_path}: {str(e)}")
-        raise
-
-
 def process_text(pages: List[Dict[str, Any]], source_config: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
     Clean and process extracted text based on source type
@@ -310,28 +282,21 @@ def process_source(source_config: Dict[str, Any],
                   chunking_config: Dict[str, Any],
                   models_config: Dict[str, Any],
                   domain: str):
-    """Process a single source from raw file to vector database"""
+    """Process a single source from raw PDF to vector database"""
     logger.info(f"Processing source: {source_config['title']}")
     
     # Resolve path
-    source_path = BASE_DIR / source_config["path"]
+    pdf_path = BASE_DIR / source_config["path"]
     
-    if not source_path.exists():
-        logger.error(f"Source file not found: {source_path}")
+    if not pdf_path.exists():
+        logger.error(f"Source file not found: {pdf_path}")
         return
     
-    # Extract text based on file type
-    file_ext = source_path.suffix.lower()
-    if file_ext == '.pdf':
-        sections = extract_text_from_pdf(str(source_path))
-    elif file_ext in ['.md', '.markdown']:
-        sections = extract_text_from_markdown(str(source_path))
-    else:
-        logger.error(f"Unsupported file type: {file_ext}")
-        return
+    # Extract text from PDF
+    pages = extract_text_from_pdf(str(pdf_path))
     
     # Process text
-    processed_sections = process_text(sections, source_config)
+    processed_sections = process_text(pages, source_config)
     
     # Save processed data
     save_processed_data(processed_sections, source_config, domain)

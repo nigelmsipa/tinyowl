@@ -1,0 +1,133 @@
+{
+  "timestamp": "20250827_190948",
+  "models_tested": [
+    "mistral:latest",
+    "phi3:mini",
+    "qwen2.5:7b",
+    "qwen2.5-coder:3b"
+  ],
+  "questions": [
+    "Who was Ellen G. White?",
+    "What does the Bible say about the Sabbath?",
+    "What is the Great Controversy about?",
+    "What does the Bible teach about health?"
+  ],
+  "results": {
+    "Who was Ellen G. White?": {
+      "context": "The Great Controversy: The Great Controversy\nEllen G. White\n1911\nCopyright \u00a9 2017\nEllen G. White Estate, Inc.\nInformation about this Book\nOverview\nThis eBook is provided by the Ellen G. White Estate. It is included\nin the l...\\n\\nEarly Writings: Early Writings\nEllen G. White\n1882\nCopyright \u00a9 2017\nEllen G. White Estate, Inc.\nInformation about this Book\nOverview\nThis eBook is provided by the Ellen G. White Estate. It is included\nin the larger f...",
+      "model_results": {
+        "mistral:latest": {
+          "success": true,
+          "answer": "Ellen G. White was an American religious leader and prolific author within the Seventh-day Adventist Church. Born in 1827, she is considered a co-founder of the church due to her visions and writings that helped shape its beliefs. Her works, including \"The Great Controversy\" and \"Early Writings,\" continue to be influential within the denomination.",
+          "time": 2.8306872844696045,
+          "error": null
+        },
+        "phi3:mini": {
+          "success": true,
+          "answer": "Ellen G. White was a co-founder of the Seventh-day Adventist Church and an influential author, educator, and speaker within Christian circles during her lifetime from 1828 to 1915. She wrote extensively on spirituality, health, education, and other topics relevant to Christians' lives based on biblical principles. White was also known for advocating the importance of Sabbath observance among believers.",
+          "time": 4.960542678833008,
+          "error": null
+        },
+        "qwen2.5:7b": {
+          "success": true,
+          "answer": "Ellen G. White (1827-1915) was an American author and a key figure in the Seventh-day Adventist Church, known for her extensive writings that have influenced the faith. She claimed to receive visions from God, which she documented in numerous books, including \"The Great Controversy\" and \"Early Writings.\"",
+          "time": 8.957595586776733,
+          "error": null
+        },
+        "qwen2.5-coder:3b": {
+          "success": true,
+          "answer": "Ellen G. White was a prominent American religious leader and author, best known for her teachings on spiritualism and her work as a prophetess in the Seventh-day Adventist Church. She wrote several books, including \"The Great Controversy\" and \"Early Writings,\" which have been influential in shaping the beliefs of Seventh-day Adventists.",
+          "time": 5.918341875076294,
+          "error": null
+        }
+      }
+    },
+    "What does the Bible say about the Sabbath?": {
+      "context": "King James Version Bible: 32Neither shall ye profane my holy\nname; but I will be hallowed among the\nchildren of Israel: I am the LORD which\nhallow you,\n33That brought you out of the land of\nEgypt, to be your God: I am the LORD...\\n\\nThe Desire of Ages: The Saviour had not come to set aside what patriarchs and\nprophets had spoken; for He Himself had spoken through these\nrepresentative men. All the truths of God\u2019s word came from Him.\nBut these pricele...",
+      "model_results": {
+        "mistral:latest": {
+          "success": true,
+          "answer": "The Bible states that the Sabbath is a day set apart to hallow or honor God, as mentioned in Leviticus 19:30: \"Observe the Sabbath day by keeping it holy, as the LORD your God has commanded you.\" This commandment was given to the Israelites and emphasizes the importance of setting aside one day each week for rest and worship. The Savior also upheld this tradition (Mark 2:27-28).",
+          "time": 10.43131422996521,
+          "error": null
+        },
+        "phi3:mini": {
+          "success": true,
+          "answer": "The King James Version of the Bible states that one should not profane its name, as it is holy and set apart for God. The context provided from \"The Desire of Ages\" suggests a deeper understanding where Jesus Himself affirmed His role in establishing worship practices among Israelites on Sabbath days since He brought them out of Egypt to be their God (Exodus 20:8-11). Therefore, the Bible teaches that observing and honoring the Sabbath is a commandment from God.",
+          "time": 6.138384819030762,
+          "error": null
+        },
+        "qwen2.5:7b": {
+          "success": true,
+          "answer": "The King James Version of the Bible, specifically Exodus 32, emphasizes the importance of not profaning God's holy name and being hallowed among the children of Israel. The book *The Desire of Ages* by Ellen G. White further affirms that Jesus upholds the truths of God\u2019s word, including the Sabbath commandment, which originated from Him through the prophets.",
+          "time": 7.589562177658081,
+          "error": null
+        },
+        "qwen2.5-coder:3b": {
+          "success": true,
+          "answer": "The Bible teaches that the seventh day of the week, known as the Sabbath, is a day set apart for worship and rest. It emphasizes the importance of honoring God's creation and resting from labor on this day.",
+          "time": 4.951329708099365,
+          "error": null
+        }
+      }
+    },
+    "What is the Great Controversy about?": {
+      "context": "The Great Controversy: The Great Controversy\nEllen G. White\n1911\nCopyright \u00a9 2017\nEllen G. White Estate, Inc.\nInformation about this Book\nOverview\nThis eBook is provided by the Ellen G. White Estate. It is included\nin the l...\\n\\nKing James Version Bible: 1Truly God is good to Israel, even to\nsuch as are of a clean heart.\n2But as for me, my feet were almost\ngone; my steps had well nigh slipped.\n3For I was envious at the foolish, when I\nsaw the prosperi...",
+      "model_results": {
+        "mistral:latest": {
+          "success": true,
+          "answer": "The \"Great Controversy\" by Ellen G. White is a religious book that outlines the author's interpretation of the ongoing conflict between good and evil, personified as God and Satan, throughout history and up to the end times in Christian eschatology. It emphasizes the importance of personal character and obedience to God amidst trials and temptations.",
+          "time": 7.871915102005005,
+          "error": null
+        },
+        "phi3:mini": {
+          "success": true,
+          "answer": "The \"Great Controversy\" by Ellen G. White discusses a spiritual conflict between good and evil, particularly focusing on humanity's fall from grace due to original sin and the ensuing struggle for salvation that is central to Christian faith. It examines themes of envy, pride, redemption, and God' enduring love amidst this cosmic battle.",
+          "time": 5.578495264053345,
+          "error": null
+        },
+        "qwen2.5:7b": {
+          "success": true,
+          "answer": "The Great Controversy, authored by Ellen G. White in 1911 and published by the Ellen G. White Estate, Inc., under copyright since 2017, explores the ongoing conflict between good and evil, particularly within the context of religious truth and the role of Christ's church. This work delves into the historical and spiritual aspects of this controversy, emphasizing the importance of maintaining faithfulness to God's truths in the face of opposition.",
+          "time": 9.260027647018433,
+          "error": null
+        },
+        "qwen2.5-coder:3b": {
+          "success": true,
+          "answer": "The Great Controversy describes a conflict between God and Satan over the souls of mankind. The story centers on how God's plan to save humanity was thwarted by Satan, who tried to prevent it from coming to fruition. This led to a series of events that ultimately resulted in the death of Jesus Christ and the subsequent resurrection of Christ as the Son of God.",
+          "time": 4.755180597305298,
+          "error": null
+        }
+      }
+    },
+    "What does the Bible teach about health?": {
+      "context": "King James Version Bible: 59Then the LORD will make thy plagues\nwonderful, and the plagues of thy seed,\neven great plagues, and of long\ncontinuance, and sore sicknesses, and\nof long continuance.\n60Moreover he will bring upon t...\\n\\nTestimonies for the Church Volume 8: \u201cHe turneth rivers into a wilderness,\nAnd water springs into a thirsty ground;\nA fruitful land into a salt desert,\nFor the wickedness of them that dwell therein.\nHe turneth a wilderness into a pool of...",
+      "model_results": {
+        "mistral:latest": {
+          "success": true,
+          "answer": "According to the provided verses from the King James Version Bible, the Bible suggests that illness and sickness can be a result of divine punishment for wickedness. However, it's important to note that these passages are part of prophetic writings and should not be interpreted as a comprehensive guide on health in modern contexts. The Bible also emphasizes the importance of physical health through various teachings about cleanliness, diet, and overall well-being, but these aspects are more broadly discussed in other parts of the scripture.",
+          "time": 8.17890191078186,
+          "error": null
+        },
+        "phi3:mini": {
+          "success": true,
+          "answer": "The King James Version of the Bible contains passages indicating divine intervention in natural phenomena, which can be interpreted as God'nergies or healings. However, it also acknowledges that sickness and suffering are part of life on earth due to human sinfulness (Romans 8:22). The overall message suggests a balance between faith-based hope for divine intervention in health matters and the reality of physical illness as an aspect of mortal existence.",
+          "time": 5.512310266494751,
+          "error": null
+        },
+        "qwen2.5:7b": {
+          "success": true,
+          "answer": "The King James Version of the Bible suggests that God can bring about prolonged and severe plagues upon individuals and their descendants as a form of judgment. In contrast, \"Testimonies for the Church Volume 8\" indicates that God has the power to transform fertile lands into deserts due to wickedness, but also hints at the possibility of reversing such conditions. These passages touch on themes of divine judgment and restoration, indirectly relating to health by suggesting both negative consequences and potential healing or renewal through God's actions.",
+          "time": 12.791285753250122,
+          "error": null
+        },
+        "qwen2.5-coder:3b": {
+          "success": true,
+          "answer": "The Bible teaches that God can bring both good and bad things to people's lives, including physical health. It also emphasizes the importance of faith in maintaining good health and overcoming sicknesses.",
+          "time": 4.860297203063965,
+          "error": null
+        }
+      }
+    }
+  }
+}
