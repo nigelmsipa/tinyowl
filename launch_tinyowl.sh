@@ -67,11 +67,21 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-# Explicitly export Groq API key if found in bashrc
+# Explicitly export API keys if found in bashrc
 GROQ_KEY=$(grep "GROQ_API_KEY" ~/.bashrc | cut -d'"' -f2)
 if [ ! -z "$GROQ_KEY" ]; then
     export GROQ_API_KEY="$GROQ_KEY"
     echo -e "${GREEN}✓ Groq API key loaded${NC}"
+fi
+
+OPENAI_KEY=$(grep "OPENAI_API_KEY" ~/.bashrc | tail -1 | cut -d'"' -f2)
+if [ ! -z "$OPENAI_KEY" ]; then
+    export OPENAI_API_KEY="$OPENAI_KEY"
+    echo -e "${GREEN}✓ OpenAI API key loaded (length: ${#OPENAI_API_KEY})${NC}"
+else
+    # Hardcode as fallback since bashrc parsing is failing
+    export OPENAI_API_KEY="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"
+    echo -e "${GREEN}✓ OpenAI API key set directly${NC}"
 fi
 
 # Check if ChromaDB exists

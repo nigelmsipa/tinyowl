@@ -16,6 +16,7 @@ import os
 import textwrap
 import shutil
 from groq import Groq
+import openai
 
 # Terminal colors and styling
 class Colors:
@@ -84,15 +85,21 @@ class TinyOwlChat:
     def __init__(self):
         self.spinner = LoadingSpinner()
         self.rag_enabled = True
-        self.current_model = "qwen2.5-coder:3b"  # Best performing model from tests
+        self.current_model = "openai:gpt-3.5-turbo"  # Reliable and cheap OpenAI model
         self.available_models = []
-        self.api_models = ["groq:llama-3.1-70b-versatile", "groq:llama-3.1-8b-instant", "groq:mixtral-8x7b-32768"]
+        self.api_models = [
+            "groq:llama-3.1-8b-instant", 
+            "groq:llama-3.3-70b-versatile",
+            "openai:gpt-3.5-turbo",
+            "openai:gpt-4o-mini"
+        ]
         self.collection = None
         self.history = []  # Temporary session memory - cleared when chat ends
         self.session_id = int(time.time())  # Simple session identifier
         
         # API clients
         self.groq_client = None
+        self.openai_client = None
         self.setup_api_clients()
         
         # Get terminal dimensions for responsive design
@@ -105,6 +112,7 @@ class TinyOwlChat:
     
     def setup_api_clients(self):
         """Setup API clients if keys are available"""
+        # Setup Groq
         groq_key = os.getenv('GROQ_API_KEY')
         if groq_key:
             try:
@@ -114,6 +122,17 @@ class TinyOwlChat:
                 print(f"  {Colors.WARNING}⚠ Groq API key found but connection failed{Colors.ENDC}")
         else:
             print(f"  {Colors.DIM}• Set GROQ_API_KEY environment variable to use Groq models{Colors.ENDC}")
+        
+        # Setup OpenAI
+        openai_key = os.getenv('OPENAI_API_KEY')
+        if openai_key:
+            try:
+                self.openai_client = openai.OpenAI(api_key=openai_key)
+                print(f"  {Colors.OKGREEN}✓ OpenAI API connected{Colors.ENDC}")
+            except:
+                print(f"  {Colors.WARNING}⚠ OpenAI API key found but connection failed{Colors.ENDC}")
+        else:
+            print(f"  {Colors.DIM}• Set OPENAI_API_KEY environment variable to use OpenAI models{Colors.ENDC}")
 
     def get_terminal_width(self):
         """Get current terminal width, fallback to reasonable default"""
@@ -199,8 +218,13 @@ class TinyOwlChat:
             self.available_models = []
         
         # Add API models if clients are available
+        api_models_to_add = []
         if self.groq_client:
-            self.available_models.extend(self.api_models)
+            api_models_to_add.extend([m for m in self.api_models if m.startswith("groq:")])
+        if self.openai_client:
+            api_models_to_add.extend([m for m in self.api_models if m.startswith("openai:")])
+        
+        self.available_models.extend(api_models_to_add)
         
         # Set current model to first available if current isn't available
         if self.current_model not in self.available_models and self.available_models:
@@ -292,13 +316,41 @@ class TinyOwlChat:
                     return "Error: Groq API not available"
                 
                 model_name = self.current_model.replace("groq:", "")
+                print(f"  🔧 Using Groq model: {model_name}")  # Debug info
+                
                 response = self.groq_client.chat.completions.create(
                     model=model_name,
                     messages=[{"role": "user", "content": prompt}],
                     temperature=0.7,
-                    max_tokens=300
+                    max_tokens=1000  # Increased for better responses
                 )
-                return response.choices[0].message.content.strip()
+                
+                if response.choices and len(response.choices) > 0:
+                    content = response.choices[0].message.content
+                    return content.strip() if content else "No response generated"
+                else:
+                    return "Error: Empty response from Groq API"
+                    
+            # Handle OpenAI API models
+            elif self.current_model.startswith("openai:"):
+                if not self.openai_client:
+                    return "Error: OpenAI API not available"
+                
+                model_name = self.current_model.replace("openai:", "")
+                print(f"  🔧 Using OpenAI model: {model_name}")  # Debug info
+                
+                response = self.openai_client.chat.completions.create(
+                    model=model_name,
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.7,
+                    max_tokens=1000
+                )
+                
+                if response.choices and len(response.choices) > 0:
+                    content = response.choices[0].message.content
+                    return content.strip() if content else "No response generated"
+                else:
+                    return "Error: Empty response from OpenAI API"
             
             # Handle local Ollama models
             else:
@@ -323,7 +375,10 @@ class TinyOwlChat:
                     return f"Error: HTTP {response.status_code}"
                     
         except Exception as e:
-            return f"Error: {e}"
+            error_msg = str(e)
+            if "groq" in error_msg.lower():
+                return f"Groq API Error: {error_msg}\n(Try switching to a local model with /model)"
+            return f"Error: {error_msg}"
     
     def detect_topic_change(self, current_query):
         """Detect if the current query represents a topic change"""
@@ -440,20 +495,23 @@ class TinyOwlChat:
             conversation_context = self.get_conversation_context()
             
             if context:
-                prompt = f"""You are TinyOwl, a knowledgeable theological assistant. Based on the conversation history and information from religious texts, provide a helpful and accurate response.
+                prompt = f"""You are TinyOwl, a theological assistant specializing in Seventh-day Adventist doctrine and Biblical teachings. 
+
+CRITICAL INSTRUCTIONS:
+- PRIORITIZE the provided religious texts over your general knowledge
+- Answer ONLY based on what the sources explicitly say
+- If the sources don't contain relevant information, say "The provided sources don't address this question"
+- When you reference information, cite which source it comes from
+- Do NOT add general theological knowledge that isn't in the provided texts
 
 {conversation_context}
 
-Context from knowledge base:
+AUTHORITATIVE SOURCES (use these first and foremost):
 {context}
 
-Current question: {query}
+Question: {query}
 
-Please provide a thoughtful response that:
-1. Considers the ongoing conversation context
-2. Uses the provided religious text context
-3. Maintains continuity with previous discussion
-4. If this relates to something discussed before, acknowledge that connection"""
+Response (based strictly on the provided sources):"""
 
             else:
                 prompt = f"""You are TinyOwl, a theological assistant. I couldn't find specific information in the knowledge base for this query.
