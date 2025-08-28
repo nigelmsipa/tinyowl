@@ -15,6 +15,7 @@ from datetime import datetime
 import os
 import textwrap
 import shutil
+from groq import Groq
 
 # Terminal colors and styling
 class Colors:
@@ -85,8 +86,14 @@ class TinyOwlChat:
         self.rag_enabled = True
         self.current_model = "qwen2.5-coder:3b"  # Best performing model from tests
         self.available_models = []
+        self.api_models = ["groq:llama-3.1-70b-versatile", "groq:llama-3.1-8b-instant", "groq:mixtral-8x7b-32768"]
         self.collection = None
-        self.history = []
+        self.history = []  # Temporary session memory - cleared when chat ends
+        self.session_id = int(time.time())  # Simple session identifier
+        
+        # API clients
+        self.groq_client = None
+        self.setup_api_clients()
         
         # Get terminal dimensions for responsive design
         self.terminal_width = self.get_terminal_width()
@@ -96,6 +103,18 @@ class TinyOwlChat:
         self.print_header()
         self.initialize_system()
     
+    def setup_api_clients(self):
+        """Setup API clients if keys are available"""
+        groq_key = os.getenv('GROQ_API_KEY')
+        if groq_key:
+            try:
+                self.groq_client = Groq(api_key=groq_key)
+                print(f"  {Colors.OKGREEN}✓ Groq API connected{Colors.ENDC}")
+            except:
+                print(f"  {Colors.WARNING}⚠ Groq API key found but connection failed{Colors.ENDC}")
+        else:
+            print(f"  {Colors.DIM}• Set GROQ_API_KEY environment variable to use Groq models{Colors.ENDC}")
+
     def get_terminal_width(self):
         """Get current terminal width, fallback to reasonable default"""
         try:
@@ -168,27 +187,34 @@ class TinyOwlChat:
         self.print_help()
     
     def check_available_models(self):
-        """Check which models are available in Ollama"""
+        """Check which models are available (Ollama + API)"""
+        # Check Ollama models
         try:
             response = requests.get("http://localhost:11434/api/tags", timeout=5)
             if response.status_code == 200:
                 models_data = response.json()
                 self.available_models = [model["name"] for model in models_data.get("models", [])]
-                
-                # Set current model to first available if current isn't available
-                if self.current_model not in self.available_models and self.available_models:
-                    self.current_model = self.available_models[0]
-            
         except Exception as e:
-            print(f"{Colors.WARNING}Could not check models: {e}{Colors.ENDC}")
+            print(f"{Colors.WARNING}Could not check Ollama models: {e}{Colors.ENDC}")
+            self.available_models = []
+        
+        # Add API models if clients are available
+        if self.groq_client:
+            self.available_models.extend(self.api_models)
+        
+        # Set current model to first available if current isn't available
+        if self.current_model not in self.available_models and self.available_models:
+            self.current_model = self.available_models[0]
     
     def print_status(self):
         """Print current system status with proper spacing"""
         rag_status = f"{Colors.OKGREEN}ON{Colors.ENDC}" if self.rag_enabled else f"{Colors.WARNING}OFF{Colors.ENDC}"
+        context_status = f"{Colors.OKGREEN}Session memory{Colors.ENDC}" if len(self.history) > 0 else f"{Colors.DIM}No context yet{Colors.ENDC}"
         print(f"  {Colors.BOLD}Status:{Colors.ENDC}")
         print(f"    🤖 Model: {Colors.OKCYAN}{self.current_model}{Colors.ENDC}")
         print(f"    📚 RAG: {rag_status}")
-        print(f"    💬 History: {len(self.history)} messages")
+        print(f"    💬 Context: {context_status} ({len(self.history)} messages)")
+        print(f"    🔄 Session: Temporary (cleared on exit)")
         print()
     
     def print_help(self):
@@ -258,58 +284,194 @@ class TinyOwlChat:
             return ""
     
     def query_llm(self, prompt):
-        """Query the current LLM model"""
+        """Query the current LLM model (Ollama or API)"""
         try:
-            response = requests.post(
-                "http://localhost:11434/api/generate",
-                json={
-                    "model": self.current_model,
-                    "prompt": prompt,
-                    "stream": False,
-                    "options": {
-                        "temperature": 0.7,
-                        "num_predict": 300
-                    }
-                },
-                timeout=60
-            )
-            
-            if response.status_code == 200:
-                result = response.json()
-                return result.get("response", "No response generated").strip()
-            else:
-                return f"Error: HTTP {response.status_code}"
+            # Handle Groq API models
+            if self.current_model.startswith("groq:"):
+                if not self.groq_client:
+                    return "Error: Groq API not available"
                 
+                model_name = self.current_model.replace("groq:", "")
+                response = self.groq_client.chat.completions.create(
+                    model=model_name,
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.7,
+                    max_tokens=300
+                )
+                return response.choices[0].message.content.strip()
+            
+            # Handle local Ollama models
+            else:
+                response = requests.post(
+                    "http://localhost:11434/api/generate",
+                    json={
+                        "model": self.current_model,
+                        "prompt": prompt,
+                        "stream": False,
+                        "options": {
+                            "temperature": 0.7,
+                            "num_predict": 300
+                        }
+                    },
+                    timeout=60
+                )
+                
+                if response.status_code == 200:
+                    result = response.json()
+                    return result.get("response", "No response generated").strip()
+                else:
+                    return f"Error: HTTP {response.status_code}"
+                    
         except Exception as e:
             return f"Error: {e}"
     
+    def detect_topic_change(self, current_query):
+        """Detect if the current query represents a topic change"""
+        if not self.history or len(self.history) < 2:
+            return False
+        
+        # Get recent user questions (excluding current one)
+        recent_user_messages = [entry["content"] for entry in self.history[:-1] if entry["role"] == "user"]
+        if not recent_user_messages:
+            return False
+        
+        last_query = recent_user_messages[-1].lower()
+        current_query_lower = current_query.lower()
+        
+        # Topic change indicators
+        topic_change_phrases = [
+            "let's talk about", "now about", "switching to", "new topic", 
+            "different question", "change subject", "another thing",
+            "moving on", "next question", "what about", "how about"
+        ]
+        
+        # Strong indicators of topic change
+        if any(phrase in current_query_lower for phrase in topic_change_phrases):
+            return True
+        
+        # Simple keyword overlap check
+        def extract_keywords(text):
+            # Remove common words and get meaningful keywords
+            common_words = {"the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for", "of", "with", "by", "is", "are", "was", "were", "what", "how", "why", "when", "where", "who", "does", "do", "did", "can", "could", "would", "should", "will"}
+            words = set(word.strip(".,!?;:\"'()") for word in text.lower().split())
+            return words - common_words
+        
+        last_keywords = extract_keywords(last_query)
+        current_keywords = extract_keywords(current_query_lower)
+        
+        if not last_keywords or not current_keywords:
+            return False
+        
+        # Calculate keyword overlap
+        overlap = len(last_keywords.intersection(current_keywords))
+        similarity = overlap / max(len(last_keywords), len(current_keywords))
+        
+        # If similarity is very low (< 20%), likely a topic change
+        return similarity < 0.2
+
+    def get_conversation_context(self, max_turns=3):
+        """Get recent conversation history for context"""
+        if not self.history:
+            return "Conversation context: This is the start of our conversation."
+        
+        # Check if current query is a topic change
+        current_query = self.history[-1]["content"]
+        if self.detect_topic_change(current_query):
+            return "Conversation context: Starting fresh on a new topic."  # Clear context for topic changes
+        
+        # Get last max_turns exchanges (user + assistant pairs)
+        recent_history = self.history[-max_turns*2:] if len(self.history) > max_turns*2 else self.history[:-1]  # Exclude current user message
+        
+        if not recent_history:
+            return "Conversation context: This is the start of our conversation."
+        
+        context_lines = ["Recent conversation context:"]
+        for entry in recent_history:
+            role = "You" if entry["role"] == "user" else "TinyOwl"
+            # Truncate long messages for context
+            content = entry["content"][:150] + "..." if len(entry["content"]) > 150 else entry["content"]
+            context_lines.append(f"{role}: {content}")
+        
+        return "\n".join(context_lines)
+    
+    def build_contextual_query(self, query):
+        """Build a context-aware query for better RAG retrieval"""
+        if not self.history or len(self.history) < 2:
+            return query
+        
+        # Check if this is a topic change - if so, don't add context
+        if self.detect_topic_change(query):
+            return query
+        
+        # Get recent user questions to understand the conversation thread
+        recent_user_messages = [entry["content"] for entry in self.history[-6:] if entry["role"] == "user"]
+        
+        if len(recent_user_messages) <= 1:
+            return query
+        
+        # If the current query seems to be a follow-up (contains words like "that", "this", "it", etc.)
+        follow_up_indicators = ["that", "this", "it", "they", "them", "which", "what about", "how about", "and", "also", "too", "as well"]
+        
+        query_lower = query.lower()
+        is_follow_up = any(indicator in query_lower for indicator in follow_up_indicators)
+        
+        if is_follow_up and len(recent_user_messages) > 1:
+            # Combine recent context with current query for better retrieval
+            previous_topics = " ".join(recent_user_messages[-3:-1])  # Last 2 questions before current
+            contextual_query = f"{previous_topics} {query}"
+            return contextual_query
+        
+        return query
+    
     def process_query(self, query):
-        """Process a user query"""
+        """Process a user query with conversation context"""
         self.history.append({"role": "user", "content": query, "timestamp": datetime.now()})
+        
+        # Build context-aware query for better RAG retrieval
+        contextual_query = self.build_contextual_query(query)
         
         # Build prompt
         if self.rag_enabled:
             self.spinner.start("searching knowledge base")
-            context = self.get_context(query)
+            context = self.get_context(contextual_query)
             self.spinner.stop()
             
+            # Get recent conversation history for context
+            conversation_context = self.get_conversation_context()
+            
             if context:
-                prompt = f"""Based on the following information from religious texts, please provide a helpful and accurate response.
+                prompt = f"""You are TinyOwl, a knowledgeable theological assistant. Based on the conversation history and information from religious texts, provide a helpful and accurate response.
+
+{conversation_context}
 
 Context from knowledge base:
 {context}
 
-Question: {query}
+Current question: {query}
 
-Please answer based on the provided context. If the context doesn't fully answer the question, say so and provide what information you can."""
+Please provide a thoughtful response that:
+1. Considers the ongoing conversation context
+2. Uses the provided religious text context
+3. Maintains continuity with previous discussion
+4. If this relates to something discussed before, acknowledge that connection"""
+
             else:
-                prompt = f"""I couldn't find specific information in my knowledge base about: {query}
+                prompt = f"""You are TinyOwl, a theological assistant. I couldn't find specific information in the knowledge base for this query.
 
-Please provide a general response based on your training, but note that I don't have specific source material for this topic."""
+{conversation_context}
+
+Current question: {query}
+
+Please provide a helpful response based on the conversation context and general theological knowledge, noting that specific source material wasn't found."""
         else:
-            prompt = f"""Please respond to this question: {query}
+            conversation_context = self.get_conversation_context()
+            prompt = f"""You are TinyOwl, a theological assistant. RAG search is currently disabled.
 
-Note: RAG (knowledge base search) is currently disabled, so I'm responding based on general knowledge only."""
+{conversation_context}
+
+Current question: {query}
+
+Please respond based on the conversation context and general knowledge."""
         
         # Get LLM response
         thinking_word = random.choice(THINKING_WORDS)
@@ -400,7 +562,8 @@ Note: RAG (knowledge base search) is currently disabled, so I'm responding based
     
     def run(self):
         """Main chat loop"""
-        print(f"  {Colors.DIM}Ready to chat! Ask me anything about theology or type /help for commands.{Colors.ENDC}")
+        print(f"  {Colors.DIM}Ready to chat! I'll remember our conversation context during this session.{Colors.ENDC}")
+        print(f"  {Colors.DIM}Ask me anything about theology or type /help for commands.{Colors.ENDC}")
         print()
         print()
         

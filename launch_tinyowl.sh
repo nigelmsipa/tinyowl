@@ -62,6 +62,18 @@ echo -e "${GREEN}✓ Ollama is running${NC}"
 echo -e "${BLUE}Activating virtual environment...${NC}"
 source "$SCRIPT_DIR/venv/bin/activate"
 
+# Load API keys from bashrc
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
+# Explicitly export Groq API key if found in bashrc
+GROQ_KEY=$(grep "GROQ_API_KEY" ~/.bashrc | cut -d'"' -f2)
+if [ ! -z "$GROQ_KEY" ]; then
+    export GROQ_API_KEY="$GROQ_KEY"
+    echo -e "${GREEN}✓ Groq API key loaded${NC}"
+fi
+
 # Check if ChromaDB exists
 if [ ! -d "$SCRIPT_DIR/vectordb" ]; then
     echo -e "${RED}Error: Vector database not found${NC}"
