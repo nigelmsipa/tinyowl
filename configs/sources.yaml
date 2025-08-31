@@ -5,6 +5,16 @@ domain: theology
 description: "Biblical texts and Conflict of Ages books"
 
 sources:
+  - id: bible_geneva
+    title: "Geneva Bible (1560)"
+    type: scripture
+    author: "Various"
+    year: 1560
+    path: "domains/theology/raw/Geneva_Bible_1560.txt"
+    language: "english"
+    description: "The Geneva Bible, one of the most historically significant translations of the Bible"
+    chunking_strategy: "verse"
+
   - id: bible_kjv
     title: "King James Version Bible"
     type: scripture
@@ -25,6 +35,66 @@ sources:
       testament_split: 
         old: ["Genesis", "Exodus", ... "Malachi"]  # Define actual books when implementing
         new: ["Matthew", "Mark", ... "Revelation"] # Define actual books when implementing
+    chunking_strategy: "verse"
+
+  - id: bible_nkjv
+    title: "New King James Version Bible"
+    type: scripture
+    author: "Various"
+    year: 1982
+    path: "domains/theology/raw/Holy_Bible_NKJV.pdf"
+    language: "english"
+    description: "New King James Version - modern revision of the KJV"
+    chunking_strategy: "verse"
+
+  - id: bible_niv
+    title: "New International Version Bible"
+    type: scripture
+    author: "Various"
+    year: 1978
+    path: "domains/theology/raw/Holy_Bible_NIV.pdf"
+    language: "english"
+    description: "New International Version - popular balanced translation"
+    chunking_strategy: "verse"
+
+  - id: bible_esv
+    title: "English Standard Version Bible"
+    type: scripture
+    author: "Various"
+    year: 2001
+    path: "domains/theology/raw/Holy_Bible_ESV.pdf"
+    language: "english"
+    description: "English Standard Version - formal equivalence translation"
+    chunking_strategy: "verse"
+
+  - id: bible_nlt
+    title: "New Living Translation Bible"
+    type: scripture
+    author: "Various"
+    year: 1996
+    path: "domains/theology/raw/Holy_Bible_NLT.pdf"
+    language: "english"
+    description: "New Living Translation - dynamic equivalence translation"
+    chunking_strategy: "verse"
+
+  - id: bible_geneva
+    title: "Geneva Bible 1560"
+    type: scripture
+    author: "Various"
+    year: 1560
+    path: "domains/theology/raw/Geneva_Bible_1560.txt"
+    language: "english"
+    description: "Geneva Bible - historic Protestant translation"
+    chunking_strategy: "verse"
+
+  - id: bible_clear_word
+    title: "Clear Word Bible"
+    type: scripture
+    author: "Jack Blanco"
+    year: 1994
+    path: "domains/theology/raw/Holy_Bible_Clear_Word.pdf"
+    language: "english"
+    description: "Clear Word - paraphrased interpretive version"
     chunking_strategy: "verse"
 
   - id: coa_patriarchs_prophets

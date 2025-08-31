@@ -4,10 +4,10 @@
 # Embedding Models
 embeddings:
   default:
-    name: "all-MiniLM-L6-v2"
+    name: "BAAI/bge-large-en-v1.5"
     provider: "sentence-transformers"
-    dimensions: 384
-    description: "Efficient general-purpose embedding model"
+    dimensions: 1024
+    description: "High-performance embedding model that often outperforms OpenAI"
     use_case: "general text chunks"
   
   alternative:
@@ -19,7 +19,7 @@ embeddings:
     
   domain_specific:
     theology:
-      name: "all-MiniLM-L6-v2"  # Default for theology domain
+      name: "BAAI/bge-large-en-v1.5"  # BGE-large for theology domain
       provider: "sentence-transformers"
 
 # Large Language Models
@@ -72,11 +72,11 @@ fine_tuning:
 # ChromaDB Configuration
 vector_db:
   embedding_function: "sentence-transformers"  # Use sentence-transformers
-  default_model: "all-MiniLM-L6-v2"  # Default embedding model
+  default_model: "BAAI/bge-large-en-v1.5"  # Default embedding model
   distance_function: "cosine"  # Use cosine similarity
   
   collections:
     theology:
       name: "theology"
       description: "Biblical texts and commentary"
-      embedding_model: "all-MiniLM-L6-v2"
+      embedding_model: "BAAI/bge-large-en-v1.5"
