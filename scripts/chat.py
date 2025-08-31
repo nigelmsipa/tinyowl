@@ -16,7 +16,7 @@ import yaml
 import json
 import logging
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Tuple
 import time
 
 import chromadb
@@ -81,8 +81,58 @@ class TinyOwlChat:
                 return None
         return self.collections[domain]
     
+    def get_adjacent_chunks(self, collection, chunk_id: str, n: int = 1) -> List[Dict[str, Any]]:
+        """Get n adjacent chunks before and after the given chunk_id"""
+        try:
+            # Extract the numeric part of the chunk ID (e.g., "bible_geneva_00123" -> 123)
+            chunk_num = int(chunk_id.split('_')[-1])
+            adjacent_chunks = []
+            
+            # Get the chunk and its metadata
+            chunk_data = collection.get(ids=[chunk_id], include=["metadatas", "documents"])
+            if not chunk_data['ids']:
+                return []
+                
+            base_metadata = chunk_data['metadatas'][0]
+            base_source = base_metadata.get('source_id', '')
+            
+            # Get n chunks before and after
+            for offset in range(-n, n + 1):
+                if offset == 0:
+                    continue  # Skip the original chunk
+                    
+                adjacent_num = chunk_num + offset
+                if adjacent_num < 0:
+                    continue  # Skip negative chunk numbers
+                    
+                # Format the adjacent chunk ID with leading zeros
+                adjacent_id = f"{'_'.join(chunk_id.split('_')[:-1])}_{adjacent_num:05d}"
+                
+                try:
+                    # Try to get the adjacent chunk
+                    adj_data = collection.get(
+                        ids=[adjacent_id],
+                        include=["metadatas", "documents"]
+                    )
+                    
+                    if adj_data['ids'] and adj_data['metadatas'][0].get('source_id') == base_source:
+                        adjacent_chunks.append({
+                            'id': adjacent_id,
+                            'text': adj_data['documents'][0],
+                            'metadata': adj_data['metadatas'][0],
+                            'score': 0.9  # Slightly lower score for adjacent chunks
+                        })
+                except Exception as e:
+                    logger.debug(f"Error fetching adjacent chunk {adjacent_id}: {e}")
+            
+            return adjacent_chunks
+            
+        except (ValueError, IndexError, AttributeError) as e:
+            logger.warning(f"Error processing adjacent chunks for {chunk_id}: {e}")
+            return []
+    
     def retrieve(self, query: str, domain: str = None, n_results: int = 5) -> List[Dict[str, Any]]:
-        """Retrieve relevant chunks from the knowledge base"""
+        """Retrieve relevant chunks from the knowledge base with neighbor expansion"""
         domains = [domain] if domain else list(self.models_config["vector_db"]["collections"].keys())
         
         all_results = []
@@ -97,28 +147,91 @@ class TinyOwlChat:
                 continue
                 
             try:
-                results = collection.query(
+                # First, get the top-k results
+                # Get n_results * 2 to have more candidates before neighbor expansion
+                base_results = collection.query(
                     query_embeddings=[query_embedding],
-                    n_results=n_results,
-                    include=["documents", "metadatas", "distances"]
+                    n_results=n_results * 2,
+                    include=["metadatas", "documents", "distances"]
                 )
                 
-                # Format results
-                for i in range(len(results["ids"][0])):
+                # Process base results
+                seen_chunks = set()
+                for i in range(len(base_results['ids'][0])):
+                    chunk_id = base_results['ids'][0][i]
+                    if chunk_id in seen_chunks:
+                        continue
+                        
+                    metadata = base_results['metadatas'][0][i]
+                    text = base_results['documents'][0][i]
+                    distance = base_results['distances'][0][i]
+                    
+                    # Add the main result
                     all_results.append({
-                        "id": results["ids"][0][i],
-                        "text": results["documents"][0][i],
-                        "metadata": results["metadatas"][0][i],
-                        "distance": results["distances"][0][i],
-                        "domain": d
+                        'id': chunk_id,
+                        'text': text,
+                        'metadata': metadata,
+                        'score': 1.0 - distance,  # Convert distance to similarity score
+                        'domain': d
                     })
+                    seen_chunks.add(chunk_id)
+                    
+                    # Get adjacent chunks (±1) for this result
+                    adjacent_chunks = self.get_adjacent_chunks(collection, chunk_id, n=1)
+                    
+                    # Add adjacent chunks if not already in results
+                    for adj in adjacent_chunks:
+                        if adj['id'] not in seen_chunks:
+                            all_results.append({
+                                **adj,
+                                'domain': d,
+                                'is_neighbor': True  # Mark as neighbor for display
+                            })
+                            seen_chunks.add(adj['id'])
             except Exception as e:
                 logger.error(f"Error querying collection for domain '{d}': {e}")
         
         # Sort by distance (similarity)
-        all_results = sorted(all_results, key=lambda x: x["distance"])
-        
-        return all_results[:n_results]
+        all_results = sorted(all_results, key=lambda x: x["score"], reverse=True)
+
+        def fetch_by_id(col, cid: str) -> Optional[Dict[str, Any]]:
+            try:
+                got = col.get(ids=[cid], include=["documents", "metadatas"])
+                if got and got.get("ids") and got["ids"][0]:
+                    return {
+                        "id": got["ids"][0],
+                        "text": got["documents"][0],
+                        "metadata": got["metadatas"][0],
+                        "distance": None,
+                    }
+            except Exception:
+                return None
+            return None
+
+        expanded: List[Dict[str, Any]] = []
+        seen_ids = set()
+        max_context = max(n_results * 2, n_results)  # cap context to avoid bloat
+        for hit in all_results[:n_results]:
+            expanded.append(hit)
+            seen_ids.add(hit["id"])
+            # Try to fetch neighbors from same collection/domain
+            col = self.load_collection(hit["domain"]) if isinstance(hit.get("domain"), str) else None
+            prefix, num = parse_id(hit["id"])
+            if col and num is not None:
+                for delta in (-1, 1):
+                    neighbor_id = f"{prefix}_{num+delta:06d}"
+                    if neighbor_id in seen_ids:
+                        continue
+                    nb = fetch_by_id(col, neighbor_id)
+                    if nb and nb.get("metadata", {}).get("source_id") == hit["metadata"].get("source_id"):
+                        expanded.append({**nb, "domain": hit["domain"]})
+                        seen_ids.add(neighbor_id)
+                        if len(expanded) >= max_context:
+                            break
+            if len(expanded) >= max_context:
+                break
+
+        return expanded
     
     def format_context(self, retrieved_chunks: List[Dict[str, Any]]) -> str:
         """Format retrieved chunks into context for the LLM"""
@@ -126,13 +239,18 @@ class TinyOwlChat:
         
         for i, chunk in enumerate(retrieved_chunks):
             metadata = chunk["metadata"]
-            source_info = f"{metadata.get('title', 'Unknown')}"
-            
-            if "page_reference" in metadata:
+            # Prefer scripture reference when available
+            ref = metadata.get("verse_reference")
+            if ref:
+                source_info = f"{metadata.get('title', 'Unknown')} — {ref}"
+            else:
+                source_info = f"{metadata.get('title', 'Unknown')}"
+
+            if "page_reference" in metadata and not ref:
                 source_info += f", page {metadata['page_reference']}"
             if "author" in metadata:
                 source_info += f" by {metadata['author']}"
-            
+
             context += f"[{i+1}] {chunk['text']}\n"
             context += f"Source: {source_info}\n\n"
         
