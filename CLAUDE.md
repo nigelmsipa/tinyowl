@@ -275,7 +275,69 @@ TinyOwl analysis: [AI interpretation with uncertainty acknowledgment]"
 - **Progressive Enhancement**: Start with core Bible + CoA, expand carefully
 - **Transparency Requirements**: Complete source documentation for religious trust
 
-### 🚀 **Phase 1 MVP Development Roadmap** (Aug 31, 2025)
+## 🏗️ **BULLETPROOF FOUNDATION ARCHITECTURE** (Sept 1, 2025)
+
+### 🎯 **Strategic Restart: Best Practices Implementation**
+
+**Decision**: Start from scratch with bulletproof foundations based on expert feedback
+**Philosophy**: "Move slower, build stronger" - get the spine right first
+
+### 🔧 **Core Infrastructure Components** ✅ IMPLEMENTED
+
+#### **1. OSIS Canonical ID System** (`/configs/osis_canonical.yaml`)
+- ✅ **Canonical verse identification**: `Gen.01.001` format (Book.Chapter.Verse)
+- ✅ **Comprehensive book alias mapping**: handles all variations ("1 Samuel", "1Sam", "I Samuel", etc.)
+- ✅ **Canonical verse count validation**: 31,102 verses total (23,145 OT + 7,957 NT)
+- ✅ **Strict format validation**: ensures every OSIS ID is unique and in range
+
+#### **2. Text Normalization Pipeline** (`/scripts/text_normalizer.py`)
+- ✅ **Lossless text processing**: Unicode normalization (NFKC)
+- ✅ **Character standardization**: smart quotes → straight quotes, em/en dashes → hyphens
+- ✅ **Ornamental cleanup**: removes chapter headers, standalone verse numbers, decorative symbols
+- ✅ **Book name normalization**: handles all translation variations automatically
+
+#### **3. Canonical Validation System** (`/scripts/canonical_validator.py`)
+- ✅ **Coverage verification**: ensures all 66 books, all chapters, all verses present
+- ✅ **Duplicate detection**: catches duplicate OSIS IDs (critical quality control)
+- ✅ **Gap analysis**: identifies missing books/chapters/verses with precise locations
+- ✅ **Quality scoring**: coverage percentage + actionable recommendations
+- ✅ **Fail-fast principle**: blocks embedding until 100% coverage achieved
+
+#### **4. Retrieval Router with RRF Fusion** (`/scripts/retrieval_router.py`)
+- ✅ **Query classification**: verse lookup, doctrinal, SOP-specific, topical, cross-reference
+- ✅ **Smart layer routing**: different k-values and weights per query type
+- ✅ **Reciprocal Rank Fusion**: robust multi-layer result fusion (k=60)
+- ✅ **Rule-based reranking**: prioritizes exact verse hits, book matches, scripture refs
+- ✅ **Retrieval orchestration**: end-to-end query → ranked results pipeline
+
+#### **5. Scripture Reference Extractor** (`/scripts/scripture_extractor.py`)
+- ✅ **Bulletproof regex patterns**: handles 8+ reference formats (standard, cross-chapter, contextual, etc.)
+- ✅ **Comprehensive book aliases**: 100+ variations ("1st Samuel", "I Samuel", "Saint Matthew", etc.)
+- ✅ **Sermon pre-linking**: auto-extracts refs and pre-computes nearest pericope connections
+- ✅ **OSIS normalization**: converts all references to canonical `Gen.01.001` format
+- ✅ **Confidence scoring**: rates extraction accuracy for quality control
+
+#### **6. Humble Response System** (`/scripts/humble_response.py`)
+- ✅ **Authority level distinction**: Scripture > SOP > Commentary > AI Analysis
+- ✅ **Typed response structure**: JSON-serializable with source attribution
+- ✅ **Humility language enforcement**: "Scripture states" vs "Ellen White suggests" vs "TinyOwl analysis"
+- ✅ **Confidence indicators**: High/Medium/Low/Uncertain with automatic caveats
+- ✅ **Cross-reference tracking**: maintains OSIS ID links across sources
+
+### 📋 **Revised Bible Selection Strategy**
+
+**Core Foundation** (Essential Owl):
+- **✅ King James Version (KJV)** - Textus Receptus backbone, familiar to SDA community
+- **✅ World English Bible (WEB)** - Open source, majority text tradition, modern readability
+- **❌ Geneva Bible** - Too archaic for general users (relegated to reference)
+- **❌ ESV** - Critical text manuscript concerns (user preference against)
+
+**Quality Requirements**:
+- High-quality source texts (TXT, HTML, or Markdown - whatever works best)
+- Perfect verse coverage (31,102 verses validated)
+- Clean formatting without artifacts
+
+### 🚀 **Phase 1 MVP Development Roadmap** (Sept 1, 2025)
 
 #### **Phase 1A: Foundation (Months 1-2)**
 - ✅ Core hierarchical chunking implementation completed
