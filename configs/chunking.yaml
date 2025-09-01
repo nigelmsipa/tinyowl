@@ -9,26 +9,73 @@ default:
   tokenizer: "cl100k_base"   # OpenAI tokenizer compatible with most embedding models
 
 strategies:
-  # Scripture specific chunking (Bible)
-  verse:
-    description: "Chunk by individual verses or small verse groups"
-    chunk_type: "semantic_unit"  # Each chunk is a semantic unit
-    chunk_unit: "verse"          # The unit is a verse
-    max_verses_per_chunk: 5      # Maximum verses to include in a chunk
+  # Scripture specific chunking (Bible) - 3 Layer Approach
+  verse_single:
+    description: "Layer A: Single verse chunks for precise citations"
+    chunk_type: "semantic_unit"
+    chunk_unit: "verse"
+    verses_per_chunk: 1
     include_context:
-      book: true                 # Always include book name
-      chapter: true              # Always include chapter number
-      testament: true            # Include testament (Old/New)
-    special_handling:
-      psalms:
-        max_verses_per_chunk: 3  # Psalms get smaller chunks
-      proverbs:
-        max_verses_per_chunk: 3  # Proverbs get smaller chunks
+      book: true
+      chapter: true
+      testament: true
     metadata_fields:
       - book_name
       - chapter_number
       - verse_numbers
       - testament
+      - layer
+      - canonical_refs
+
+  verse_pericope:
+    description: "Layer B: Pericope chunks (3-7 verses with overlap) for main retrieval"
+    chunk_type: "semantic_unit"
+    chunk_unit: "pericope"
+    window_size: 6               # 6 verses per window
+    stride: 3                    # Move 3 verses for next window (50% overlap)
+    min_verses: 3                # Minimum verses in a pericope
+    max_verses: 7                # Maximum verses in a pericope
+    special_handling:
+      narrative_books: 
+        window_size: 6
+        stride: 3
+      epistles:
+        window_size: 4
+        stride: 2
+      poetry:
+        window_size: 3
+        stride: 2
+    include_context:
+      book: true
+      chapter: true
+      testament: true
+    metadata_fields:
+      - book_name
+      - chapter_number
+      - start_verse
+      - end_verse
+      - verse_numbers
+      - testament
+      - layer
+      - window_info
+      - canonical_refs
+      - prev_ref
+      - next_ref
+
+  verse_chapter:
+    description: "Layer C: Chapter-level chunks for broad context"
+    chunk_type: "document_segment"
+    chunk_unit: "chapter"
+    max_tokens: 1600             # Split large chapters
+    include_context:
+      book: true
+      testament: true
+    metadata_fields:
+      - book_name
+      - chapter_number
+      - testament
+      - layer
+      - verse_count
 
   # Book chunking (for Conflict of Ages books)
   paragraph:

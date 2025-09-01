@@ -80,3 +80,18 @@ vector_db:
       name: "theology"
       description: "Biblical texts and commentary"
       embedding_model: "BAAI/bge-large-en-v1.5"
+    
+    theology_verses:
+      name: "theology_verses"
+      description: "Layer A: Single verse chunks for precise citations"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+    
+    theology_pericopes:
+      name: "theology_pericopes"  
+      description: "Layer B: Pericope chunks (3-7 verses) for main retrieval"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+      
+    theology_chapters:
+      name: "theology_chapters"
+      description: "Layer C: Chapter-level chunks for broad context"
+      embedding_model: "BAAI/bge-large-en-v1.5"

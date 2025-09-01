@@ -5,97 +5,76 @@ domain: theology
 description: "Biblical texts and Conflict of Ages books"
 
 sources:
-  - id: bible_geneva
-    title: "Geneva Bible (1560)"
-    type: scripture
-    author: "Various"
-    year: 1560
-    path: "domains/theology/raw/Geneva_Bible_1560.txt"
-    language: "english"
-    description: "The Geneva Bible, one of the most historically significant translations of the Bible"
-    chunking_strategy: "verse"
 
   - id: bible_kjv
     title: "King James Version Bible"
     type: scripture
     author: "Various"
     year: 1611
-    path: "domains/theology/raw/KJV.pdf"
+    path: "domains/theology/raw/KJV.txt"
     language: "english"
     description: "The King James Version of the Bible"
-    structure:
-      has_chapters: true
-      has_verses: true
-      book_names:
-        - Genesis
-        - Exodus
-        # ... other books would be listed
-        - Revelation
-    metadata:
-      testament_split: 
-        old: ["Genesis", "Exodus", ... "Malachi"]  # Define actual books when implementing
-        new: ["Matthew", "Mark", ... "Revelation"] # Define actual books when implementing
-    chunking_strategy: "verse"
+    chunking_strategy: "verse_hierarchical"
 
   - id: bible_nkjv
     title: "New King James Version Bible"
     type: scripture
     author: "Various"
     year: 1982
-    path: "domains/theology/raw/Holy_Bible_NKJV.pdf"
+    path: "domains/theology/raw/Holy Bible 0ANew King James Version.txt"
     language: "english"
     description: "New King James Version - modern revision of the KJV"
-    chunking_strategy: "verse"
+    chunking_strategy: "verse_hierarchical"
 
   - id: bible_niv
     title: "New International Version Bible"
     type: scripture
     author: "Various"
     year: 1978
-    path: "domains/theology/raw/Holy_Bible_NIV.pdf"
+    path: "domains/theology/raw/Holy Bible_ New International Version.txt"
     language: "english"
     description: "New International Version - popular balanced translation"
-    chunking_strategy: "verse"
+    chunking_strategy: "verse_hierarchical"
 
   - id: bible_esv
     title: "English Standard Version Bible"
     type: scripture
     author: "Various"
     year: 2001
-    path: "domains/theology/raw/Holy_Bible_ESV.pdf"
+    path: "domains/theology/raw/The Holy Bible 0AESV.txt"
     language: "english"
     description: "English Standard Version - formal equivalence translation"
-    chunking_strategy: "verse"
+    chunking_strategy: "verse_hierarchical"
 
   - id: bible_nlt
     title: "New Living Translation Bible"
     type: scripture
     author: "Various"
     year: 1996
-    path: "domains/theology/raw/Holy_Bible_NLT.pdf"
+    path: "domains/theology/raw/Holy Bible NLT.txt"
     language: "english"
     description: "New Living Translation - dynamic equivalence translation"
-    chunking_strategy: "verse"
+    chunking_strategy: "verse_hierarchical"
 
-  - id: bible_geneva
+  - id: bible_geneva_1560
     title: "Geneva Bible 1560"
     type: scripture
     author: "Various"
     year: 1560
-    path: "domains/theology/raw/Geneva_Bible_1560.txt"
+    path: "domains/theology/raw/Geneva Bible 1560.txt"
     language: "english"
     description: "Geneva Bible - historic Protestant translation"
-    chunking_strategy: "verse"
+    chunking_strategy: "verse_hierarchical"
 
   - id: bible_clear_word
     title: "Clear Word Bible"
     type: scripture
     author: "Jack Blanco"
     year: 1994
-    path: "domains/theology/raw/Holy_Bible_Clear_Word.pdf"
+    path: "domains/theology/raw/The Holy Bible Clear Word.txt"
     language: "english"
     description: "Clear Word - paraphrased interpretive version"
-    chunking_strategy: "verse"
+    chunking_strategy: "verse_hierarchical"
 
   - id: coa_patriarchs_prophets
     title: "Patriarchs and Prophets"

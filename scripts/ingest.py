@@ -234,57 +234,426 @@ def process_text(pages: List[Dict[str, Any]], source_config: Dict[str, Any]) -> 
 
 def chunk_text(processed_sections: List[Dict[str, Any]], 
                source_config: Dict[str, Any], 
-               chunking_config: Dict[str, Any]) -> List[Dict[str, Any]]:
+               chunking_config: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
     """
-    Chunk processed text according to strategy
+    Chunk processed text according to strategy - now returns hierarchical layers
     
     Returns:
-        List of text chunks ready for vectorization
+        Dict with layers: {"verse_single": [...], "verse_pericope": [...], "verse_chapter": [...]}
+        Or single layer for non-Bible texts: {"default": [...]}
     """
     logger.info(f"Chunking text for: {source_config['title']}")
     
     # Get chunking strategy from source config
     strategy_name = source_config.get("chunking_strategy", "default")
-    strategy = chunking_config["strategies"].get(strategy_name, chunking_config["default"])
     
-    chunks = []
-    chunk_id = 0
+    # Handle hierarchical verse chunking for Bible texts
+    if strategy_name == "verse_hierarchical":
+        return chunk_bible_hierarchical(processed_sections, source_config, chunking_config)
     
-    # Handle verse-level chunking for Bible texts
-    if strategy_name == "verse":
-        return chunk_bible_text(processed_sections, source_config, strategy)
+    # Handle legacy single verse chunking
+    elif strategy_name == "verse":
+        chunks = chunk_bible_text(processed_sections, source_config, chunking_config["strategies"].get("verse", {}))
+        return {"default": chunks}
     
     # Default paragraph chunking for non-Bible texts
-    for section in tqdm(processed_sections):
-        content = section["content"]
+    else:
+        strategy = chunking_config["strategies"].get(strategy_name, chunking_config["default"])
+        chunks = []
+        chunk_id = 0
         
-        # Basic chunking by paragraphs
-        paragraphs = content.split("\n\n")
+        for section in tqdm(processed_sections):
+            content = section["content"]
+            
+            # Basic chunking by paragraphs
+            paragraphs = content.split("\n\n")
+            
+            for i, paragraph in enumerate(paragraphs):
+                if not paragraph.strip():
+                    continue
+                    
+                # Create chunk with metadata
+                chunk_id += 1
+                chunk = {
+                    "id": f"{source_config['id']}_{chunk_id:06d}",
+                    "text": paragraph.strip(),
+                    "metadata": {
+                        "source_id": source_config["id"],
+                        "title": source_config["title"],
+                        "author": source_config["author"],
+                        "domain": "theology",
+                        "section_title": section["title"],
+                        "chunk_index": i,
+                        "page_reference": f"{section['metadata'].get('page_start', 'unknown')}-{section['metadata'].get('page_end', 'unknown')}",
+                        "chunk_strategy": strategy_name,
+                        "creation_timestamp": datetime.now().isoformat()
+                    }
+                }
+                chunks.append(chunk)
         
-        for i, paragraph in enumerate(paragraphs):
-            if not paragraph.strip():
+        logger.info(f"Created {len(chunks)} chunks")
+        return {"default": chunks}
+
+
+def chunk_bible_hierarchical(processed_sections: List[Dict[str, Any]], 
+                           source_config: Dict[str, Any], 
+                           chunking_config: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
+    """
+    Create hierarchical 3-layer chunking for Bible texts:
+    - Layer A: Single verses (precise citations)
+    - Layer B: Pericopes (3-7 verses with overlap, main retrieval)
+    - Layer C: Chapters (broad context)
+    """
+    logger.info(f"Creating hierarchical chunks for: {source_config['title']}")
+    
+    # Parse all verses first
+    verses = parse_bible_verses(processed_sections, source_config)
+    logger.info(f"Parsed {len(verses)} verses")
+    
+    if not verses:
+        logger.warning("No verses parsed - check text format")
+        return {"verse_single": [], "verse_pericope": [], "verse_chapter": []}
+    
+    # Create all three layers
+    verse_chunks = create_verse_layer(verses, source_config)
+    pericope_chunks = create_pericope_layer(verses, source_config, chunking_config)
+    chapter_chunks = create_chapter_layer(verses, source_config, chunking_config)
+    
+    logger.info(f"Created {len(verse_chunks)} verse chunks, {len(pericope_chunks)} pericope chunks, {len(chapter_chunks)} chapter chunks")
+    
+    return {
+        "verse_single": verse_chunks,
+        "verse_pericope": pericope_chunks, 
+        "verse_chapter": chapter_chunks
+    }
+
+
+def parse_bible_verses(processed_sections: List[Dict[str, Any]], source_config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Parse Bible text into structured verses"""
+    import re
+
+    verses = []
+    
+    # Canonical book names
+    canonical_books = [
+        "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
+        "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+        "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes",
+        "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel",
+        "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+        "Zephaniah", "Haggai", "Zechariah", "Malachi",
+        "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+        "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians",
+        "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon",
+        "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation",
+    ]
+    
+    def canonicalize_book(name: str) -> Optional[str]:
+        n = name.strip()
+        n = re.sub(r"\s+", " ", n)
+        aliases = {
+            "Canticles": "Song of Solomon",
+            "Song of Songs": "Song of Solomon", 
+            "Psalm": "Psalms",
+            "I Samuel": "1 Samuel", "II Samuel": "2 Samuel",
+            "I Kings": "1 Kings", "II Kings": "2 Kings", 
+            "I Chronicles": "1 Chronicles", "II Chronicles": "2 Chronicles",
+            "I Corinthians": "1 Corinthians", "II Corinthians": "2 Corinthians",
+            "I Thessalonians": "1 Thessalonians", "II Thessalonians": "2 Thessalonians",
+            "I Timothy": "1 Timothy", "II Timothy": "2 Timothy",
+            "I Peter": "1 Peter", "II Peter": "2 Peter",
+            "I John": "1 John", "II John": "2 John", "III John": "3 John",
+        }
+        if n in aliases:
+            n = aliases[n]
+        return n if n in canonical_books else None
+
+    # Regex patterns
+    full_ref_re = re.compile(r"^\s*([1-3]?\s?[A-Za-z][A-Za-z ]+?)\s+(\d{1,3}):(\d{1,3}(?:-\d{1,3})?)\s+(.*\S)\s*$")
+    book_chap_re = re.compile(r"^\s*([1-3]?\s?[A-Za-z][A-Za-z ]+?)\s+(\d{1,3})\s*$")
+    chap_verse_re = re.compile(r"^\s*(\d{1,3}):(\d{1,3}(?:-\d{1,3})?)\s+(.*\S)\s*$")
+    chapter_header_re = re.compile(r"^(?:Chapter|CHAPTER|CHAP\.?|CH\.?)\s+(\d{1,3})\s*$", re.IGNORECASE)
+    verse_only_re = re.compile(r"^\s*(\d{1,3})\s+(.*\S)\s*$")
+
+    current_book = "Unknown"
+    current_chapter = "1"
+    
+    for section in processed_sections:
+        content = section.get("content") or section.get("text") or ""
+        for raw_line in content.split("\n"):
+            line = raw_line.strip()
+            if not line:
                 continue
                 
-            # Create chunk with metadata
+            # Skip navigation/artifact lines
+            if line.startswith(("↥", "↦", "⇈")) or "index:" in line.lower():
+                continue
+            
+            # Full reference: "Book 1:1 Text"
+            m = full_ref_re.match(line)
+            if m:
+                book_raw, chap, verse, vtext = m.groups()
+                book = canonicalize_book(book_raw)
+                if book:
+                    current_book = book
+                    current_chapter = chap
+                    verses.append({
+                        "book": current_book,
+                        "chapter": int(current_chapter),
+                        "verse": verse,
+                        "text": vtext.strip(),
+                        "canonical_ref": f"{current_book} {current_chapter}:{verse}"
+                    })
+                continue
+                
+            # Book and chapter: "Genesis 1"
+            m = book_chap_re.match(line)
+            if m:
+                book_raw, chap = m.groups()
+                book = canonicalize_book(book_raw)
+                if book:
+                    current_book = book
+                    current_chapter = chap
+                continue
+                
+            # Chapter header: "Chapter 1"
+            m = chapter_header_re.match(line)
+            if m and current_book != "Unknown":
+                current_chapter = m.group(1)
+                continue
+                
+            # Chapter:Verse: "1:1 Text"
+            m = chap_verse_re.match(line)
+            if m and current_book != "Unknown":
+                chap, verse, vtext = m.groups()
+                current_chapter = chap
+                verses.append({
+                    "book": current_book,
+                    "chapter": int(current_chapter),
+                    "verse": verse,
+                    "text": vtext.strip(),
+                    "canonical_ref": f"{current_book} {current_chapter}:{verse}"
+                })
+                continue
+                
+            # Verse only: "1 Text"
+            m = verse_only_re.match(line)
+            if m and current_book != "Unknown":
+                verse, vtext = m.groups()
+                try:
+                    vnum = int(verse.split("-")[0])
+                    if 0 < vnum <= 200:  # Sanity check
+                        verses.append({
+                            "book": current_book,
+                            "chapter": int(current_chapter),
+                            "verse": verse,
+                            "text": vtext.strip(),
+                            "canonical_ref": f"{current_book} {current_chapter}:{verse}"
+                        })
+                except ValueError:
+                    pass
+                continue
+    
+    # Sort verses by book order, chapter, verse
+    book_order = {book: i for i, book in enumerate(canonical_books)}
+    verses.sort(key=lambda v: (book_order.get(v["book"], 999), v["chapter"], int(v["verse"].split("-")[0])))
+    
+    return verses
+
+
+def get_testament(book: str) -> str:
+    """Helper function to determine testament"""
+    old_testament = [
+        "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
+        "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+        "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes",
+        "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel",
+        "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+        "Zephaniah", "Haggai", "Zechariah", "Malachi"
+    ]
+    return "Old" if book in old_testament else "New"
+
+
+def create_verse_layer(verses: List[Dict[str, Any]], source_config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Create Layer A: Single verse chunks"""
+    chunks = []
+    
+    # Define canonical books within this function
+    canonical_books = [
+        "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
+        "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+        "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes",
+        "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel",
+        "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+        "Zephaniah", "Haggai", "Zechariah", "Malachi",
+        "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+        "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians",
+        "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon",
+        "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation",
+    ]
+    
+    for i, verse in enumerate(verses):
+        testament = "Old" if verse["book"] in canonical_books[:39] else "New"
+        
+        chunks.append({
+            "id": f"{source_config['id']}_v_{i+1:06d}",
+            "text": verse["text"],
+            "metadata": {
+                "source_id": source_config["id"],
+                "title": source_config["title"],
+                "author": source_config["author"],
+                "domain": "theology",
+                "layer": "verse_single",
+                "book_name": verse["book"],
+                "chapter_number": verse["chapter"],
+                "verse_numbers": verse["verse"],
+                "canonical_ref": verse["canonical_ref"],
+                "testament": testament,
+                "creation_timestamp": datetime.now().isoformat()
+            }
+        })
+    
+    return chunks
+
+
+def create_pericope_layer(verses: List[Dict[str, Any]], source_config: Dict[str, Any], chunking_config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Create Layer B: Pericope chunks with overlapping windows"""
+    chunks = []
+    pericope_config = chunking_config["strategies"]["verse_pericope"]
+    window_size = pericope_config["window_size"]
+    stride = pericope_config["stride"]
+    
+    # Group verses by book and chapter
+    by_chapter = {}
+    for verse in verses:
+        key = (verse["book"], verse["chapter"])
+        if key not in by_chapter:
+            by_chapter[key] = []
+        by_chapter[key].append(verse)
+    
+    chunk_id = 0
+    for (book, chapter), chapter_verses in by_chapter.items():
+        # Create sliding windows within each chapter
+        for start_idx in range(0, len(chapter_verses), stride):
+            end_idx = min(start_idx + window_size, len(chapter_verses))
+            if end_idx <= start_idx:
+                continue
+                
+            window_verses = chapter_verses[start_idx:end_idx]
+            
+            # Combine verse texts
+            combined_text = " ".join(v["text"] for v in window_verses)
+            
+            # Create verse range
+            start_verse = window_verses[0]["verse"]
+            end_verse = window_verses[-1]["verse"]
+            
+            verse_ref = f"{book} {chapter}:{start_verse}"
+            if len(window_verses) > 1:
+                verse_ref += f"–{end_verse}"
+            
             chunk_id += 1
-            chunk = {
-                "id": f"{source_config['id']}_{chunk_id:06d}",
-                "text": paragraph.strip(),
+            chunks.append({
+                "id": f"{source_config['id']}_p_{chunk_id:06d}",
+                "text": combined_text,
                 "metadata": {
                     "source_id": source_config["id"],
                     "title": source_config["title"],
                     "author": source_config["author"],
                     "domain": "theology",
-                    "section_title": section["title"],
-                    "chunk_index": i,
-                    "page_reference": f"{section['metadata'].get('page_start', 'unknown')}-{section['metadata'].get('page_end', 'unknown')}",
-                    "chunk_strategy": strategy_name,
+                    "layer": "verse_pericope",
+                    "book_name": book,
+                    "chapter_number": chapter,
+                    "start_verse": start_verse,
+                    "end_verse": end_verse,
+                    "verse_numbers": ",".join(v["verse"] for v in window_verses),
+                    "canonical_refs": [v["canonical_ref"] for v in window_verses],
+                    "verse_reference": verse_ref,
+                    "testament": get_testament(book),
+                    "window_info": {"size": len(window_verses), "stride": stride},
                     "creation_timestamp": datetime.now().isoformat()
                 }
-            }
-            chunks.append(chunk)
+            })
     
-    logger.info(f"Created {len(chunks)} chunks")
+    return chunks
+
+
+def create_chapter_layer(verses: List[Dict[str, Any]], source_config: Dict[str, Any], chunking_config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Create Layer C: Chapter-level chunks"""
+    chunks = []
+    chapter_config = chunking_config["strategies"]["verse_chapter"]
+    max_tokens = chapter_config.get("max_tokens", 1600)
+    
+    # Group by chapter
+    by_chapter = {}
+    for verse in verses:
+        key = (verse["book"], verse["chapter"])
+        if key not in by_chapter:
+            by_chapter[key] = []
+        by_chapter[key].append(verse)
+    
+    chunk_id = 0
+    for (book, chapter), chapter_verses in by_chapter.items():
+        # Combine all verses in chapter
+        combined_text = " ".join(v["text"] for v in chapter_verses)
+        
+        # Simple token estimation (split by spaces)
+        est_tokens = len(combined_text.split())
+        
+        # Split large chapters if needed (simple approach)
+        if est_tokens > max_tokens:
+            # Split into roughly equal parts
+            parts = (est_tokens // max_tokens) + 1
+            verses_per_part = len(chapter_verses) // parts
+            
+            for part in range(parts):
+                start_idx = part * verses_per_part
+                end_idx = (part + 1) * verses_per_part if part < parts - 1 else len(chapter_verses)
+                part_verses = chapter_verses[start_idx:end_idx]
+                
+                if not part_verses:
+                    continue
+                    
+                part_text = " ".join(v["text"] for v in part_verses)
+                chunk_id += 1
+                
+                chunks.append({
+                    "id": f"{source_config['id']}_c_{chunk_id:06d}",
+                    "text": part_text,
+                    "metadata": {
+                        "source_id": source_config["id"],
+                        "title": source_config["title"],
+                        "author": source_config["author"],
+                        "domain": "theology",
+                        "layer": "verse_chapter",
+                        "book_name": book,
+                        "chapter_number": chapter,
+                        "verse_count": len(part_verses),
+                        "testament": get_testament(book),
+                        "part": f"{part+1}/{parts}",
+                        "creation_timestamp": datetime.now().isoformat()
+                    }
+                })
+        else:
+            # Single chapter chunk
+            chunk_id += 1
+            chunks.append({
+                "id": f"{source_config['id']}_c_{chunk_id:06d}",
+                "text": combined_text,
+                "metadata": {
+                    "source_id": source_config["id"],
+                    "title": source_config["title"],
+                    "author": source_config["author"],
+                    "domain": "theology",
+                    "layer": "verse_chapter",
+                    "book_name": book,
+                    "chapter_number": chapter,
+                    "verse_count": len(chapter_verses),
+                    "testament": get_testament(book),
+                    "creation_timestamp": datetime.now().isoformat()
+                }
+            })
+    
     return chunks
 
 
@@ -559,10 +928,104 @@ def save_chunks(chunks: List[Dict[str, Any]],
     logger.info(f"Saved chunks to {output_file}")
 
 
+def save_chunks_layer(chunks: List[Dict[str, Any]], 
+                     source_config: Dict[str, Any], 
+                     domain: str,
+                     layer_name: str):
+    """Save chunks for a specific layer"""
+    source_id = source_config["id"]
+    output_dir = BASE_DIR / "domains" / domain / "chunks"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    output_file = output_dir / f"{source_id}_{layer_name}_chunks.json"
+    
+    with open(output_file, 'w') as f:
+        json.dump({
+            "source_id": source_id,
+            "title": source_config["title"],
+            "layer": layer_name,
+            "chunks": chunks
+        }, f, indent=2)
+    
+    logger.info(f"Saved {len(chunks)} {layer_name} chunks to {output_file}")
+
+
+def vectorize_hierarchical_chunks(chunk_layers: Dict[str, List[Dict[str, Any]]], 
+                                 models_config: Dict[str, Any],
+                                 domain: str):
+    """Generate embeddings for hierarchical chunks and store in separate ChromaDB collections"""
+    # Load embedding model once
+    domain_model = models_config["embeddings"].get("domain_specific", {}).get(domain, {})
+    default_model = models_config["embeddings"]["default"]
+    model_name = domain_model.get("name") or default_model["name"]
+    local_path = domain_model.get("local_path") or default_model.get("local_path")
+    
+    logger.info(f"Loading embedding model: {local_path or model_name}")
+    model = SentenceTransformer(local_path) if local_path else SentenceTransformer(model_name)
+    
+    # Initialize ChromaDB
+    db_path = BASE_DIR / "vectordb"
+    db_path.mkdir(parents=True, exist_ok=True)
+    client = chromadb.PersistentClient(path=str(db_path))
+    
+    # Map layer types to collection names
+    layer_to_collection = {
+        "verse_single": "theology_verses",
+        "verse_pericope": "theology_pericopes", 
+        "verse_chapter": "theology_chapters",
+        "default": "theology"
+    }
+    
+    total_chunks = 0
+    
+    for layer_name, chunks in chunk_layers.items():
+        if not chunks:
+            logger.info(f"No chunks in layer '{layer_name}', skipping...")
+            continue
+            
+        collection_name = layer_to_collection.get(layer_name, "theology")
+        
+        # Get or create collection for this layer
+        collection = client.get_or_create_collection(
+            name=collection_name,
+            embedding_function=None
+        )
+        
+        logger.info(f"Vectorizing {len(chunks)} chunks for layer '{layer_name}' → collection '{collection_name}'")
+        
+        # Prepare data for insertion
+        ids = [chunk["id"] for chunk in chunks]
+        texts = [chunk["text"] for chunk in chunks]
+        metadatas = [chunk["metadata"] for chunk in chunks]
+        
+        # Generate embeddings in batches
+        batch_size = 32
+        for i in tqdm(range(0, len(chunks), batch_size), desc=f"Embedding {layer_name}"):
+            batch_ids = ids[i:i+batch_size]
+            batch_texts = texts[i:i+batch_size]
+            batch_metadatas = metadatas[i:i+batch_size]
+            
+            # Generate embeddings
+            batch_embeddings = model.encode(batch_texts).tolist()
+            
+            # Add to ChromaDB
+            collection.add(
+                ids=batch_ids,
+                embeddings=batch_embeddings,
+                documents=batch_texts,
+                metadatas=batch_metadatas
+            )
+        
+        total_chunks += len(chunks)
+        logger.info(f"Added {len(chunks)} embeddings to collection '{collection_name}'")
+    
+    logger.info(f"Total: {total_chunks} chunks vectorized across all layers")
+
+
 def vectorize_chunks(chunks: List[Dict[str, Any]], 
                     models_config: Dict[str, Any],
                     domain: str):
-    """Generate embeddings and store in ChromaDB"""
+    """Generate embeddings and store in ChromaDB (legacy single-layer function)"""
     # Skip if no chunks to process
     if not chunks:
         logger.warning("No chunks to vectorize, skipping...")
@@ -649,18 +1112,37 @@ def process_source(source_config: Dict[str, Any],
     save_processed_data(processed_sections, source_config, domain)
     
     # Chunk text
-    chunks = chunk_text(processed_sections, source_config, chunking_config)
+    chunk_result = chunk_text(processed_sections, source_config, chunking_config)
     
-    # Save chunks
-    save_chunks(chunks, source_config, domain)
-
-    # If no chunks were produced, skip vectorization to avoid unnecessary failures
-    if not chunks:
-        logger.warning("No chunks created; skipping vectorization.")
-        return
-    
-    # Vectorize and store in ChromaDB
-    vectorize_chunks(chunks, models_config, domain)
+    # Handle hierarchical vs single layer chunks
+    if isinstance(chunk_result, dict) and any(key in chunk_result for key in ["verse_single", "verse_pericope", "verse_chapter"]):
+        # Hierarchical chunking
+        total_chunks = sum(len(chunks) for chunks in chunk_result.values())
+        if total_chunks == 0:
+            logger.warning("No chunks created; skipping vectorization.")
+            return
+            
+        logger.info(f"Created hierarchical chunks: {', '.join(f'{k}={len(v)}' for k, v in chunk_result.items() if v)}")
+        
+        # Save each layer separately (for debugging/inspection)
+        for layer_name, chunks in chunk_result.items():
+            if chunks:
+                save_chunks_layer(chunks, source_config, domain, layer_name)
+        
+        # Vectorize and store in separate collections
+        vectorize_hierarchical_chunks(chunk_result, models_config, domain)
+    else:
+        # Legacy single layer
+        chunks = chunk_result.get("default", chunk_result)
+        if not chunks:
+            logger.warning("No chunks created; skipping vectorization.")
+            return
+            
+        # Save chunks
+        save_chunks(chunks, source_config, domain)
+        
+        # Vectorize and store in ChromaDB
+        vectorize_chunks(chunks, models_config, domain)
     
     logger.info(f"Completed processing: {source_config['title']}")
 
