@@ -110,8 +110,8 @@ text_normalization:
   replacements:
     '"': '"'  # Smart quotes to straight
     '"': '"'
-    ''': "'"
-    ''': "'"
+    "'": "'"
+    "'": "'"
     '—': '-'  # Em dash to hyphen
     '–': '-'  # En dash to hyphen
     
