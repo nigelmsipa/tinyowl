@@ -11,6 +11,7 @@ import random
 import threading
 import requests
 import chromadb
+from sentence_transformers import SentenceTransformer
 from datetime import datetime
 import os
 import textwrap
@@ -93,7 +94,8 @@ class TinyOwlChat:
             "openai:gpt-3.5-turbo",
             "openai:gpt-4o-mini"
         ]
-        self.collection = None
+        self.collections = {}
+        self.embedding_model = None
         self.history = []  # Temporary session memory - cleared when chat ends
         self.session_id = int(time.time())  # Simple session identifier
         
@@ -175,13 +177,28 @@ class TinyOwlChat:
         self.spinner.start("initializing knowledge base")
         
         try:
+            # Initialize BGE embedding model
+            self.embedding_model = SentenceTransformer('BAAI/bge-large-en-v1.5')
+            
             # Connect to ChromaDB
             client = chromadb.PersistentClient(path="vectordb")
-            self.collection = client.get_collection("theology")
-            doc_count = self.collection.count()
+            
+            # Load Bible collections
+            bible_collections = ['kjv_verses', 'web_verses', 'kjv_pericopes', 'web_pericopes']
+            total_docs = 0
+            
+            for collection_name in bible_collections:
+                try:
+                    collection = client.get_collection(collection_name)
+                    self.collections[collection_name] = collection
+                    count = collection.count()
+                    total_docs += count
+                    print(f"  {Colors.OKGREEN}✓{Colors.ENDC} {collection_name}: {count:,} chunks")
+                except:
+                    print(f"  {Colors.WARNING}⚠{Colors.ENDC} {collection_name}: Not found")
             
             self.spinner.stop()
-            print(f"  {Colors.OKGREEN}✓{Colors.ENDC} Connected to theology database ({doc_count} documents)")
+            print(f"  {Colors.OKGREEN}✓{Colors.ENDC} Bible foundation loaded ({total_docs:,} total documents)")
             
         except Exception as e:
             self.spinner.stop()
@@ -272,34 +289,60 @@ class TinyOwlChat:
         print()
     
     def get_context(self, query, n_results=3):
-        """Get context from RAG database"""
-        if not self.rag_enabled or not self.collection:
+        """Get context from Bible RAG database"""
+        if not self.rag_enabled or not self.collections or not self.embedding_model:
             return ""
         
         try:
-            results = self.collection.query(
-                query_texts=[query],
-                n_results=n_results,
-                include=["documents", "metadatas", "distances"]
-            )
+            # Generate query embedding manually using BGE
+            query_embedding = self.embedding_model.encode([query]).tolist()
+            
+            # Search primary Bible collections
+            all_results = []
+            for collection_name in ['kjv_verses', 'web_verses']:
+                if collection_name in self.collections:
+                    results = self.collections[collection_name].query(
+                        query_embeddings=query_embedding,
+                        n_results=2,  # Get fewer from each to diversify
+                        include=["documents", "metadatas", "distances"]
+                    )
+                    if results["documents"][0]:
+                        for doc, metadata, distance in zip(results["documents"][0], results["metadatas"][0], results["distances"][0]):
+                            all_results.append((doc, metadata, distance, collection_name))
+            
+            # Sort by similarity and take top results
+            all_results.sort(key=lambda x: x[2])  # Sort by distance (lower = better)
+            all_results = all_results[:n_results]
+            
+            # Format results
+            results = {
+                "documents": [[r[0] for r in all_results]],
+                "metadatas": [[r[1] for r in all_results]], 
+                "distances": [[r[2] for r in all_results]]
+            }
             
             if not results["documents"][0]:
                 return ""
             
-            # Format context
+            # Format context with proper Bible references
             context_parts = []
             for doc, metadata in zip(results["documents"][0], results["metadatas"][0]):
-                title = metadata.get("title", "Unknown")
-                author = metadata.get("author", "")
+                book = metadata.get("book_id", "Unknown")
+                chapter = metadata.get("chapter", "")
+                verse = metadata.get("verse", "")
+                translation = metadata.get("translation", "")
                 
-                # Limit context to prevent token overflow
-                short_doc = doc[:300] + "..." if len(doc) > 300 else doc
+                # Create proper Bible reference
+                if chapter and verse:
+                    bible_ref = f"{book} {chapter}:{verse}"
+                else:
+                    bible_ref = f"{book}"
                 
-                source_info = f"{title}"
-                if author:
-                    source_info += f" by {author}"
+                if translation:
+                    bible_ref += f" ({translation})"
                 
-                context_parts.append(f"[{source_info}]: {short_doc}")
+                # Include full verse text for Bible content
+                context_parts.append(f"[{bible_ref}]: {doc}")
             
             return "\\n\\n".join(context_parts)
             
