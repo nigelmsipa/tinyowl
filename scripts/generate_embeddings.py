@@ -24,9 +24,8 @@ def generate_embeddings():
     print("\n💾 Initializing ChromaDB...")
     client = chromadb.PersistentClient(path="vectordb")
     
-    # Process remaining layers (verses already complete)
+    # Process only chapters (verses and pericopes already complete)
     layers = [
-        ("pericopes", "kjv_pericopes_chunks.json", "narrative context"), 
         ("chapters", "kjv_chapters_chunks.json", "broad themes")
     ]
     
@@ -80,10 +79,10 @@ def generate_embeddings():
                     metadata = {'osis_id': chunk['osis_id']}
                 elif 'osis_id_start' in chunk:
                     chunk_id = chunk['id']  # Use the generated ID for pericopes/chapters
-                    metadata = {
-                        'osis_id_start': chunk['osis_id_start'],
-                        'osis_id_end': chunk['osis_id_end']
-                    }
+                    metadata = {'osis_id_start': chunk['osis_id_start']}
+                    # Only add osis_id_end if it exists (pericopes have it, chapters might not)
+                    if 'osis_id_end' in chunk:
+                        metadata['osis_id_end'] = chunk['osis_id_end']
                 else:
                     chunk_id = chunk['id']
                     metadata = {}
