@@ -538,23 +538,16 @@ class TinyOwlChat:
             conversation_context = self.get_conversation_context()
             
             if context:
-                prompt = f"""You are TinyOwl, a theological assistant specializing in Seventh-day Adventist doctrine and Biblical teachings. 
-
-CRITICAL INSTRUCTIONS:
-- PRIORITIZE the provided religious texts over your general knowledge
-- Answer ONLY based on what the sources explicitly say
-- If the sources don't contain relevant information, say "The provided sources don't address this question"
-- When you reference information, cite which source it comes from
-- Do NOT add general theological knowledge that isn't in the provided texts
+                prompt = f"""You are TinyOwl, a knowledgeable theological assistant with access to Biblical texts. You have both comprehensive theological knowledge AND specific Bible verses that are relevant to this question.
 
 {conversation_context}
 
-AUTHORITATIVE SOURCES (use these first and foremost):
+RELEVANT BIBLE PASSAGES:
 {context}
 
 Question: {query}
 
-Response (based strictly on the provided sources):"""
+Please provide a thorough, helpful response. Use the Bible verses provided when they're relevant, and feel free to draw from your broader theological knowledge to give a complete answer. Always cite specific verses when you reference them."""
 
             else:
                 prompt = f"""You are TinyOwl, a theological assistant. I couldn't find specific information in the knowledge base for this query.
