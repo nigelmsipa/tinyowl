@@ -69,17 +69,31 @@ class TextNormalizer:
     
     def normalize_book_name(self, book_name: str) -> Optional[str]:
         """Normalize book name to canonical OSIS ID"""
-        # Direct lookup
+        # Get list of canonical book IDs first
+        canonical_books = []
+        if 'canonical_books' in self.config:
+            canonical_books.extend([book['id'] for book in self.config['canonical_books'].get('old_testament', [])])
+            canonical_books.extend([book['id'] for book in self.config['canonical_books'].get('new_testament', [])])
+        
+        # First check if it's already a canonical form
+        if book_name in canonical_books:
+            return book_name
+        
+        # Clean input (remove periods, etc.)
+        book_clean = book_name.strip().replace('.', '').replace(',', '')
+        if book_clean in canonical_books:
+            return book_clean
+        
+        # Direct alias lookup
         if book_name in self.book_aliases:
             return self.book_aliases[book_name]
         
-        # Case-insensitive lookup
+        # Case-insensitive alias lookup  
         for alias, canonical in self.book_aliases.items():
             if alias.lower() == book_name.lower():
                 return canonical
         
         # Partial matching for complex cases like "1 Samuel"
-        book_clean = book_name.strip().replace('.', '').replace(',', '')
         for alias, canonical in self.book_aliases.items():
             if alias.lower() == book_clean.lower():
                 return canonical

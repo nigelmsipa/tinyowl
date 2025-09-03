@@ -74,20 +74,359 @@ canonical_books:
 
 # Book Alias Mapping for Text Normalization
 book_aliases:
+  # Genesis
   "Genesis": "Gen"
   "Ge": "Gen"
   "Gn": "Gen"
+  
+  # Exodus  
+  "Exodus": "Exod"
+  "Ex": "Exod"
+  "Exo": "Exod"
+  
+  # Leviticus
+  "Leviticus": "Lev"
+  "Le": "Lev"
+  "Lv": "Lev"
+  
+  # Numbers
+  "Numbers": "Num"
+  "Nu": "Num"
+  "Nm": "Num"
+  
+  # Deuteronomy
+  "Deuteronomy": "Deut"
+  "De": "Deut"
+  "Dt": "Deut"
+  "Deu": "Deut"
+  
+  # Joshua
+  "Joshua": "Josh"
+  "Jo": "Josh"
+  "Jos": "Josh"
+  
+  # Judges
+  "Judges": "Judg"
+  "Jg": "Judg"
+  "Jud": "Judg"
+  
+  # Ruth
+  "Ruth": "Ruth"
+  "Ru": "Ruth"
+  "Rut": "Ruth"
+  
+  # 1 Samuel
   "1 Samuel": "1Sam"
   "1Samuel": "1Sam"
   "I Samuel": "1Sam"
   "1Sa": "1Sam"
   "First Samuel": "1Sam"
+  
+  # 2 Samuel  
+  "2 Samuel": "2Sam"
+  "2Samuel": "2Sam"
+  "II Samuel": "2Sam"
+  "2Sa": "2Sam"
+  "Second Samuel": "2Sam"
+  
+  # 1 Kings
+  "1 Kings": "1Kgs"
+  "1Kings": "1Kgs"
+  "I Kings": "1Kgs"
+  "1Ki": "1Kgs"
+  "1Kg": "1Kgs"
+  "First Kings": "1Kgs"
+  
+  # 2 Kings
+  "2 Kings": "2Kgs"
+  "2Kings": "2Kgs" 
+  "II Kings": "2Kgs"
+  "2Ki": "2Kgs"
+  "2Kg": "2Kgs"
+  "Second Kings": "2Kgs"
+  
+  # 1 Chronicles
+  "1 Chronicles": "1Chr"
+  "1Chronicles": "1Chr"
+  "I Chronicles": "1Chr"
+  "1Ch": "1Chr"
+  "First Chronicles": "1Chr"
+  
+  # 2 Chronicles
+  "2 Chronicles": "2Chr"
+  "2Chronicles": "2Chr"
+  "II Chronicles": "2Chr"
+  "2Ch": "2Chr"
+  "Second Chronicles": "2Chr"
+  
+  # Ezra
+  "Ezra": "Ezra"
+  "Ez": "Ezra"
+  "Ezr": "Ezra"
+  
+  # Nehemiah
+  "Nehemiah": "Neh"
+  "Ne": "Neh"
+  
+  # Esther
+  "Esther": "Esth"
+  "Es": "Esth"
+  "Est": "Esth"
+  
+  # Job
+  "Job": "Job"
+  "Jb": "Job"
+  
+  # Psalms
+  "Psalms": "Ps"
+  "Psalm": "Ps"
+  "Ps": "Ps"
+  "Psa": "Ps"
+  
+  # Proverbs
+  "Proverbs": "Prov"
+  "Pr": "Prov"
+  "Pro": "Prov"
+  
+  # Ecclesiastes
+  "Ecclesiastes": "Eccl"
+  "Ec": "Eccl" 
+  "Ecc": "Eccl"
+  
+  # Song of Solomon
+  "Song of Solomon": "Song"
+  "Song": "Song"
+  "SS": "Song"
+  "Sol": "Song"
+  "SOS": "Song"
+  
+  # Isaiah
+  "Isaiah": "Isa"
+  "Is": "Isa"
+  
+  # Jeremiah
+  "Jeremiah": "Jer"
+  "Je": "Jer"
+  
+  # Lamentations
+  "Lamentations": "Lam"
+  "La": "Lam"
+  
+  # Ezekiel
+  "Ezekiel": "Ezek"
+  "Ek": "Ezek"
+  "Eze": "Ezek"
+  
+  # Daniel
+  "Daniel": "Dan"
+  "Da": "Dan"
+  
+  # Hosea
+  "Hosea": "Hos"
+  "Ho": "Hos"
+  
+  # Joel
+  "Joel": "Joel"
+  "Joe": "Joel"
+  
+  # Amos
+  "Amos": "Amos"
+  "Am": "Amos"
+  "Amo": "Amos"
+  
+  # Obadiah
+  "Obadiah": "Obad"
+  "Ob": "Obad"
+  "Oba": "Obad"
+  
+  # Jonah
+  "Jonah": "Jonah"
+  "Jon": "Jonah"
+  
+  # Micah
+  "Micah": "Mic"
+  "Mi": "Mic"
+  
+  # Nahum
+  "Nahum": "Nah"
+  "Na": "Nah"
+  
+  # Habakkuk
+  "Habakkuk": "Hab"
+  "Hb": "Hab"
+  
+  # Zephaniah
+  "Zephaniah": "Zeph"
+  "Zp": "Zeph"
+  "Zep": "Zeph"
+  
+  # Haggai
+  "Haggai": "Hag"
+  "Hg": "Hag"
+  
+  # Zechariah
+  "Zechariah": "Zech"
+  "Zc": "Zech"
+  "Zec": "Zech"
+  
+  # Malachi
+  "Malachi": "Mal"
+  "Ml": "Mal"
+  
+  # Matthew
   "Matthew": "Matt"
   "Mt": "Matt"
   "Mat": "Matt"
   "Saint Matthew": "Matt"
   "St. Matthew": "Matt"
-  # ... comprehensive mapping for all variations
+  
+  # Mark
+  "Mark": "Mark"
+  "Mk": "Mark"
+  "Mr": "Mark"
+  "Mar": "Mark"
+  
+  # Luke
+  "Luke": "Luke"
+  "Lk": "Luke"
+  "Lu": "Luke"
+  "Luk": "Luke"
+  
+  # John
+  "John": "John"
+  "Jn": "John"
+  "Joh": "John"
+  
+  # Acts
+  "Acts": "Acts"
+  "Ac": "Acts"
+  "Act": "Acts"
+  
+  # Romans
+  "Romans": "Rom"
+  "Ro": "Rom"
+  
+  # 1 Corinthians
+  "1 Corinthians": "1Cor"
+  "1Corinthians": "1Cor"
+  "I Corinthians": "1Cor"
+  "1Co": "1Cor"
+  "First Corinthians": "1Cor"
+  
+  # 2 Corinthians
+  "2 Corinthians": "2Cor"
+  "2Corinthians": "2Cor"
+  "II Corinthians": "2Cor"
+  "2Co": "2Cor"
+  "Second Corinthians": "2Cor"
+  
+  # Galatians
+  "Galatians": "Gal"
+  "Ga": "Gal"
+  
+  # Ephesians
+  "Ephesians": "Eph"
+  "Ep": "Eph"
+  
+  # Philippians
+  "Philippians": "Phil"
+  "Ph": "Phil"
+  "Php": "Phil"
+  
+  # Colossians
+  "Colossians": "Col"
+  "Co": "Col"
+  
+  # 1 Thessalonians
+  "1 Thessalonians": "1Thess"
+  "1Thessalonians": "1Thess"
+  "I Thessalonians": "1Thess"
+  "1Th": "1Thess"
+  "First Thessalonians": "1Thess"
+  
+  # 2 Thessalonians
+  "2 Thessalonians": "2Thess"
+  "2Thessalonians": "2Thess"
+  "II Thessalonians": "2Thess"
+  "2Th": "2Thess"
+  "Second Thessalonians": "2Thess"
+  
+  # 1 Timothy
+  "1 Timothy": "1Tim"
+  "1Timothy": "1Tim"
+  "I Timothy": "1Tim"
+  "1Ti": "1Tim"
+  "First Timothy": "1Tim"
+  
+  # 2 Timothy
+  "2 Timothy": "2Tim"
+  "2Timothy": "2Tim"
+  "II Timothy": "2Tim"
+  "2Ti": "2Tim"
+  "Second Timothy": "2Tim"
+  
+  # Titus
+  "Titus": "Titus"
+  "Ti": "Titus"
+  "Tit": "Titus"
+  
+  # Philemon
+  "Philemon": "Phlm"
+  "Pm": "Phlm"
+  "Phm": "Phlm"
+  
+  # Hebrews
+  "Hebrews": "Heb"
+  "He": "Heb"
+  
+  # James
+  "James": "Jas"
+  "Ja": "Jas"
+  
+  # 1 Peter
+  "1 Peter": "1Pet"
+  "1Peter": "1Pet"
+  "I Peter": "1Pet"
+  "1Pe": "1Pet"
+  "First Peter": "1Pet"
+  
+  # 2 Peter
+  "2 Peter": "2Pet"
+  "2Peter": "2Pet"
+  "II Peter": "2Pet"
+  "2Pe": "2Pet"
+  "Second Peter": "2Pet"
+  
+  # 1 John
+  "1 John": "1John"
+  "1John": "1John"
+  "I John": "1John"
+  "1Jo": "1John"
+  "First John": "1John"
+  
+  # 2 John
+  "2 John": "2John"
+  "2John": "2John"
+  "II John": "2John"
+  "2Jo": "2John"
+  "Second John": "2John"
+  
+  # 3 John
+  "3 John": "3John"
+  "3John": "3John"
+  "III John": "3John"
+  "3Jo": "3John"
+  "Third John": "3John"
+  
+  # Jude
+  "Jude": "Jude"
+  "Ju": "Jude"
+  "Jud": "Jude"
+  
+  # Revelation
+  "Revelation": "Rev"
+  "Re": "Rev"
+  "Rv": "Rev"
 
 # Verse Reference Patterns for Parsing
 verse_patterns:
