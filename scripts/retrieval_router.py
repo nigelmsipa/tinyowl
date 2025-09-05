@@ -48,6 +48,15 @@ class RetrievalRouter:
         self.verse_patterns = self._compile_verse_patterns()
         self.sop_patterns = self._compile_sop_patterns()
         self.doctrinal_keywords = self._load_doctrinal_keywords()
+        # Map logical layers to actual Chroma collections in the live DB
+        # These can be overridden by caller if needed.
+        self.layer_to_collections = {
+            'theology_verses': ['kjv_verses', 'web_verses'],
+            'theology_pericopes': ['kjv_pericopes', 'web_pericopes'],
+            'theology_chapters': ['kjv_chapters', 'web_chapters'],
+            # SOP not yet present; keep placeholder for future sources
+            'sop': []
+        }
         
     def _compile_verse_patterns(self) -> List[re.Pattern]:
         """Compile verse reference detection patterns"""
@@ -304,23 +313,28 @@ class RetrievalRouter:
         results_by_layer = {}
         for layer in plan.layers:
             k_for_layer = plan.k_values[layer]
-            layer_results = retrieval_function(layer, query, k_for_layer)
-            
-            # Convert to SearchResult format if needed
-            if layer_results and not isinstance(layer_results[0], SearchResult):
-                layer_results = [
-                    SearchResult(
-                        id=r.get('id', ''),
-                        osis_id=r.get('metadata', {}).get('osis_id'),
-                        content=r.get('content', ''),
-                        score=r.get('score', 0.0),
-                        source_layer=layer,
-                        metadata=r.get('metadata', {})
-                    )
-                    for r in layer_results
-                ]
-            
-            results_by_layer[layer] = layer_results
+            merged_results: List[SearchResult] = []
+            collections = self.layer_to_collections.get(layer, [layer])
+
+            for col in collections:
+                sub_results = retrieval_function(col, query, max(1, k_for_layer // max(1, len(collections))))
+
+                # Convert to SearchResult format if needed
+                if sub_results and not isinstance(sub_results[0], SearchResult):
+                    sub_results = [
+                        SearchResult(
+                            id=r.get('id', ''),
+                            osis_id=r.get('metadata', {}).get('osis_id'),
+                            content=r.get('content', ''),
+                            score=r.get('score', 0.0),
+                            source_layer=layer,
+                            metadata=r.get('metadata', {})
+                        )
+                        for r in sub_results
+                    ]
+                merged_results.extend(sub_results or [])
+
+            results_by_layer[layer] = merged_results
         
         # Apply RRF fusion
         fused_results = self.reciprocal_rank_fusion(

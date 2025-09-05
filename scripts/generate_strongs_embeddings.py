@@ -10,7 +10,7 @@ import time
 import os
 import argparse
 
-def generate_all_strongs_embeddings():
+def generate_all_strongs_embeddings(force: bool = False):
     """Generate embeddings for all Strong's concordance chunk files"""
     
     print("🦉 TinyOwl Strong's Concordance Embedding Pipeline")
@@ -50,18 +50,39 @@ def generate_all_strongs_embeddings():
         
         print(f"   📄 Loaded {len(chunks):,} chunks")
         
-        # Create/get collection
+        # Create/get collection with safety
+        existing = None
+        existing_count = 0
         try:
-            client.delete_collection(collection_name)  # Clear existing
-            print(f"🗑️ Cleared existing collection: {collection_name}")
-        except:
-            print(f"📂 Creating new collection: {collection_name}")
-            pass
-        
-        collection = client.create_collection(
-            name=collection_name,
-            metadata={"description": f"Strong's Concordance with BGE-large embeddings"}
-        )
+            existing = client.get_collection(collection_name)
+            try:
+                existing_count = existing.count()
+            except Exception:
+                existing_count = 0
+        except Exception:
+            existing = None
+
+        if existing and existing_count > 0 and not force:
+            print(f"⚠️  Collection '{collection_name}' already has {existing_count} items. Skipping (use --force to overwrite).")
+            continue
+
+        if existing and existing_count > 0 and force:
+            try:
+                client.delete_collection(collection_name)
+                print(f"🗑️ Cleared existing collection: {collection_name}")
+            except Exception as e:
+                print(f"❌ Failed to clear collection {collection_name}: {e}")
+                continue
+
+        if existing and existing_count == 0:
+            collection = existing
+            print(f"📂 Using existing empty collection: {collection_name}")
+        else:
+            collection = client.create_collection(
+                name=collection_name,
+                metadata={"description": f"Strong's Concordance with BGE-large embeddings"}
+            )
+            print(f"📂 Created new collection: {collection_name}")
         
         # Batch process embeddings
         batch_size = 100
@@ -153,7 +174,10 @@ def generate_all_strongs_embeddings():
 
 
 def main():
-    generate_all_strongs_embeddings()
+    parser = argparse.ArgumentParser(description="Generate Strong's embeddings safely")
+    parser.add_argument("--force", action="store_true", help="Overwrite existing non-empty collections")
+    args = parser.parse_args()
+    generate_all_strongs_embeddings(force=args.force)
 
 
 if __name__ == "__main__":

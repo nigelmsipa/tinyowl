@@ -76,22 +76,59 @@ vector_db:
   distance_function: "cosine"  # Use cosine similarity
   
   collections:
+    # Legacy logical groupings (kept for backward compatibility)
     theology:
       name: "theology"
-      description: "Biblical texts and commentary"
+      description: "Legacy logical collection (not used by live DB)"
       embedding_model: "BAAI/bge-large-en-v1.5"
-    
+
     theology_verses:
       name: "theology_verses"
-      description: "Layer A: Single verse chunks for precise citations"
+      description: "Legacy verses collection (unused)"
       embedding_model: "BAAI/bge-large-en-v1.5"
-    
+
     theology_pericopes:
-      name: "theology_pericopes"  
-      description: "Layer B: Pericope chunks (3-7 verses) for main retrieval"
+      name: "theology_pericopes"
+      description: "Legacy pericopes collection (unused)"
       embedding_model: "BAAI/bge-large-en-v1.5"
-      
+
     theology_chapters:
       name: "theology_chapters"
-      description: "Layer C: Chapter-level chunks for broad context"
+      description: "Legacy chapters collection (unused)"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+
+    # Live DB collections (actual names in vectordb)
+    kjv_verses:
+      name: "kjv_verses"
+      description: "KJV Layer A: Single verse chunks"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+
+    kjv_pericopes:
+      name: "kjv_pericopes"
+      description: "KJV Layer B: Pericope chunks (3-7 verses)"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+
+    kjv_chapters:
+      name: "kjv_chapters"
+      description: "KJV Layer C: Chapter-level chunks"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+
+    web_verses:
+      name: "web_verses"
+      description: "WEB Layer A: Single verse chunks"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+
+    web_pericopes:
+      name: "web_pericopes"
+      description: "WEB Layer B: Pericope chunks (3-7 verses)"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+
+    web_chapters:
+      name: "web_chapters"
+      description: "WEB Layer C: Chapter-level chunks"
+      embedding_model: "BAAI/bge-large-en-v1.5"
+
+    strongs_concordance_entries:
+      name: "strongs_concordance_entries"
+      description: "Strong's concordance word-verse entries"
       embedding_model: "BAAI/bge-large-en-v1.5"
