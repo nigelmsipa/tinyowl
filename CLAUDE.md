@@ -1,5 +1,21 @@
 # TinyOwl Theological Library - Hierarchical RAG Strategy
 
+## 🚨 CRITICAL RULE: SYSTEMATIC APPROACH MANDATORY
+
+**ABSOLUTE REQUIREMENT**: When encountering ANY issue, ALWAYS:
+
+1. **STOP** - Do not rush ahead or make immediate changes
+2. **ANALYZE** - Systematically examine all angles and root causes  
+3. **DIAGNOSE** - Test theories methodically before implementing solutions
+4. **VALIDATE** - Confirm the actual problem before taking action
+5. **PROTECT** - Never delete working data without thorough backup and confirmation
+
+**Even if it takes more time, even if it takes more credits - systematic analysis is NON-NEGOTIABLE.**
+
+**The cost of patience is always less than the cost of reconstruction.**
+
+---
+
 ## BREAKTHROUGH: 3-Layer Hierarchical Chunking (Aug 31, 2025)
 
 ### ✅ Major Strategy Shift - Quality Over Quantity
