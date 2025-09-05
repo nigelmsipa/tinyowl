@@ -121,7 +121,27 @@ class TinyOwlQuery:
     def strong_lookup(self, number: str, max_results: int = 10) -> Dict[str, Any]:
         """Lookup Strong's number definition and related verses"""
         if "strongs_numbers" not in self.collections:
-            return {}
+            # Fallback: filter concordance entries by strong_number if definitions unavailable
+            fallback = { 'strong_number': number, 'definition': None, 'related_verses': [] }
+            if "strongs_concordance_entries" in self.collections:
+                try:
+                    concordance_col = self.collections["strongs_concordance_entries"]
+                    # Use embedding model for retrieval plus metadata filter
+                    verse_query_embedding = self.model.encode([number])
+                    verse_results = concordance_col.query(
+                        query_embeddings=verse_query_embedding.tolist(),
+                        n_results=max_results,
+                        where={"strong_number": number}
+                    )
+                    for i in range(len(verse_results['ids'][0])):
+                        fallback['related_verses'].append({
+                            'content': verse_results['documents'][0][i],
+                            'metadata': verse_results['metadatas'][0][i],
+                            'distance': verse_results['distances'][0][i] if 'distances' in verse_results else 0.0
+                        })
+                except Exception as e:
+                    pass
+            return fallback
         
         collection = self.collections["strongs_numbers"]
         
