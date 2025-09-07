@@ -14,7 +14,7 @@ import chromadb
 def backup_collection(vectordb_path: str, collection_name: str, backup_dir: str) -> Path:
     client = chromadb.PersistentClient(path=vectordb_path)
     col = client.get_collection(collection_name)
-    result = col.get(include=["documents", "metadatas", "ids"])  # omit embeddings by default
+    result = col.get(include=["documents", "metadatas"])  # ids always returned
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_dir = Path(backup_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -86,4 +86,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
