@@ -14,40 +14,44 @@ def check_embeddings_status():
     try:
         client = chromadb.PersistentClient(path="vectordb")
         collections = client.list_collections()
-        
+
         print(f"📊 Found {len(collections)} collections:")
-        
+
+        counts = {}
         total_embedded = 0
-        
         for collection in collections:
             try:
                 count = collection.count()
                 total_embedded += count
+                counts[collection.name] = count
                 print(f"   📚 {collection.name}: {count:,} embeddings")
             except Exception as e:
                 print(f"   ❌ {collection.name}: Error - {e}")
-        
-        print(f"\n🎯 TOTAL EMBEDDED: {total_embedded:,} chunks")
-        print(f"🎯 TARGET: 42,259 KJV chunks")
-        print(f"📈 PROGRESS: {(total_embedded/42259)*100:.1f}% complete")
-        
-        # Expected breakdown
-        expected = {
-            'kjv_verses': 31102,
-            'kjv_pericopes': 9968, 
-            'kjv_chapters': 1189
-        }
-        
-        print(f"\n📋 Expected vs Actual:")
-        for name, exp_count in expected.items():
-            try:
-                actual_collection = client.get_collection(name)
-                actual_count = actual_collection.count()
-                status = "✅" if actual_count == exp_count else "⚠️"
-                print(f"   {status} {name}: {actual_count:,}/{exp_count:,}")
-            except Exception as e:
-                print(f"   ❌ {name}: Not found or error")
-        
+
+        # KJV/WEB layer completeness
+        expected_kjv = {'kjv_verses': 31102, 'kjv_pericopes': 9968, 'kjv_chapters': 1189}
+        expected_web = {'web_verses': 31098, 'web_pericopes': 9967, 'web_chapters': 1189}
+
+        print("\n📋 KJV status:")
+        for k, exp in expected_kjv.items():
+            act = counts.get(k, 0)
+            status = "✅" if act == exp else ("⚠️" if act > 0 else "❌")
+            print(f"   {status} {k}: {act:,}/{exp:,}")
+
+        print("\n📋 WEB status:")
+        for k, exp in expected_web.items():
+            act = counts.get(k, 0)
+            status = "✅" if act == exp else ("⚠️" if act > 0 else "❌")
+            print(f"   {status} {k}: {act:,}/{exp:,}")
+
+        print("\n📋 Strong's status:")
+        for k in ('strongs_concordance_entries', 'strongs_numbers', 'strongs_word_summaries'):
+            act = counts.get(k, 0)
+            status = "✅" if act > 0 else "❌"
+            print(f"   {status} {k}: {act:,}")
+
+        print(f"\n📊 TOTAL EMBEDDED across all collections: {total_embedded:,}")
+
     except Exception as e:
         print(f"❌ ChromaDB Error: {e}")
 

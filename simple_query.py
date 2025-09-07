@@ -37,9 +37,10 @@ from typing import Optional
 class SimpleTheologyQuery:
     """Simple interface to query ChromaDB and get OpenAI-powered answers"""
     
-    def __init__(self, db_path: str = "vectordb", collection_name: str = "theology"):
+    def __init__(self, db_path: str = "vectordb", collection_name: str = None):
         """Initialize the query system"""
         self.db_path = db_path
+        # Prefer live collections; fall back to legacy
         self.collection_name = collection_name
         self.collection = None
         self.client = None
@@ -59,7 +60,19 @@ class SimpleTheologyQuery:
         """Connect to the ChromaDB database"""
         try:
             self.client = chromadb.PersistentClient(path=self.db_path)
-            self.collection = self.client.get_collection(self.collection_name)
+            if not self.collection_name:
+                # Try KJV/WEB verses first, then legacy 'theology'
+                for cand in ("kjv_verses", "web_verses", "theology"):
+                    try:
+                        self.collection = self.client.get_collection(cand)
+                        self.collection_name = cand
+                        break
+                    except Exception:
+                        continue
+                if not self.collection:
+                    raise ValueError("No suitable collection found (kjv_verses/web_verses/theology)")
+            else:
+                self.collection = self.client.get_collection(self.collection_name)
             doc_count = self.collection.count()
             print(f"Connected to {self.collection_name} database ({doc_count} documents)")
         except Exception as e:

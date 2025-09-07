@@ -47,17 +47,30 @@ def generate_embeddings():
         chunks = chunk_data['chunks']  # Extract nested chunks
         print(f"   📄 Loaded {len(chunks):,} chunks")
         
-        # Create/get collection
+        # Create/get collection (non-destructive)
         collection_name = f"kjv_{layer_name}"
+        collection = None
         try:
-            client.delete_collection(collection_name)  # Clear existing
-        except:
-            pass
-        
-        collection = client.create_collection(
-            name=collection_name,
-            metadata={"description": f"KJV {layer_name} with BGE-large embeddings"}
-        )
+            existing = client.get_collection(collection_name)
+            try:
+                existing_count = existing.count()
+            except Exception:
+                existing_count = None
+            if existing_count is not None and existing_count > 0:
+                print(f"⚠️  Collection '{collection_name}' already has {existing_count} items. Skipping to avoid overwrite.")
+                total_embedded += 0
+                continue
+            else:
+                # Use existing empty collection
+                collection = existing
+                print(f"📂 Using existing empty collection: {collection_name}")
+        except Exception:
+            # Create new collection
+            collection = client.create_collection(
+                name=collection_name,
+                metadata={"description": f"KJV {layer_name} with BGE-large embeddings"}
+            )
+            print(f"📂 Created new collection: {collection_name}")
         
         # Batch process embeddings
         batch_size = 100

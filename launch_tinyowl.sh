@@ -25,11 +25,11 @@ echo "========================"
 # Get script directory
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-# Check if we're in the right directory
-if [ ! -f "$SCRIPT_DIR/chat_interface.py" ]; then
-    echo -e "${RED}Error: chat_interface.py not found in $SCRIPT_DIR${NC}"
-    echo "Make sure you're running this from the tinyowl directory"
-    exit 1
+# Determine entrypoint
+ENTRY="chat_interface.py"
+if [ ! -f "$SCRIPT_DIR/$ENTRY" ]; then
+    echo -e "${YELLOW}Note: $ENTRY not found; falling back to scripts/chat.py${NC}"
+    ENTRY="scripts/chat.py"
 fi
 
 # Check if virtual environment exists
@@ -43,20 +43,21 @@ if [ ! -d "$SCRIPT_DIR/venv" ]; then
     pip install -r "$SCRIPT_DIR/requirements.txt"
 fi
 
-# Check if Ollama is running
-echo -e "${BLUE}Checking Ollama status...${NC}"
-if ! curl -s http://localhost:11434/api/tags > /dev/null; then
-    echo -e "${RED}Error: Ollama is not running${NC}"
-    echo "Please start Ollama first:"
-    echo "  ollama serve"
-    echo ""
-    echo "Then make sure you have some models installed:"
-    echo "  ollama pull qwen2.5-coder:3b"
-    echo "  ollama pull mistral:latest"
-    exit 1
+# If using local chat_interface.py, we might rely on Ollama; for scripts/chat.py we skip this check
+if [ "$ENTRY" = "chat_interface.py" ]; then
+  echo -e "${BLUE}Checking Ollama status...${NC}"
+  if ! curl -s http://localhost:11434/api/tags > /dev/null; then
+      echo -e "${RED}Error: Ollama is not running${NC}"
+      echo "Please start Ollama first:"
+      echo "  ollama serve"
+      echo ""
+      echo "Then make sure you have some models installed:"
+      echo "  ollama pull qwen2.5-coder:3b"
+      echo "  ollama pull mistral:latest"
+      exit 1
+  fi
+  echo -e "${GREEN}✓ Ollama is running${NC}"
 fi
-
-echo -e "${GREEN}✓ Ollama is running${NC}"
 
 # Activate virtual environment
 echo -e "${BLUE}Activating virtual environment...${NC}"
@@ -79,9 +80,8 @@ if [ ! -z "$OPENAI_KEY" ]; then
     export OPENAI_API_KEY="$OPENAI_KEY"
     echo -e "${GREEN}✓ OpenAI API key loaded (length: ${#OPENAI_API_KEY})${NC}"
 else
-    # Hardcode as fallback since bashrc parsing is failing
-    export OPENAI_API_KEY="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"
-    echo -e "${GREEN}✓ OpenAI API key set directly${NC}"
+    echo -e "${YELLOW}Warning: OPENAI_API_KEY not found in environment${NC}"
+    echo "Set it in your shell profile or export before launching if needed."
 fi
 
 # Check if ChromaDB exists
@@ -95,6 +95,6 @@ echo -e "${GREEN}✓ Vector database found${NC}"
 echo -e "${GREEN}✓ Starting TinyOwl Chat...${NC}"
 echo ""
 
-# Launch the chat interface
+# Launch
 cd "$SCRIPT_DIR"
-python chat_interface.py
+python "$ENTRY"
