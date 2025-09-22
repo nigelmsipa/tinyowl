@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import os
 import json
+import time
 from typing import Dict, Any, Optional
 
 import readline  # Provides history + tab completion
@@ -122,7 +123,10 @@ def main() -> None:
 
     typeahead = TypeaheadEngine()
     db = DatabaseManager()
-    db.load_fast_lookup()
+    start_load = time.perf_counter()
+    with console.status("Initializing lookup indexes…", spinner="dots"):
+        db.load_fast_lookup()
+    console.print(f"[dim]Ready in {(time.perf_counter()-start_load)*1000:.0f} ms[/dim]")
     osis = OsisHelper()
     history = ChatHistory()
 
@@ -203,7 +207,8 @@ def main() -> None:
                     )
                     continue
                 if action == "models":
-                    models = list_models()
+                    with console.status("Querying Ollama for models…", spinner="dots"):
+                        models = list_models()
                     if not models:
                         console.print("No models found or Ollama unavailable.")
                     else:
@@ -309,10 +314,12 @@ def main() -> None:
 
             word = val
             if not typeahead.loaded:
-                typeahead.load()
+                with console.status("Loading concordance index…", spinner="dots"):
+                    typeahead.load()
             sugs = typeahead.suggest(word, limit=10)
             print_suggestions([{"term": s.term, "count": s.count} for s in sugs])
-            occ = typeahead.occurrences(word, limit=100)
+            with console.status("Scanning occurrences…", spinner="dots"):
+                occ = typeahead.occurrences(word, limit=100)
             print_concordance_results(word, occ, show=5)
             last_results_cache = {"kind": "concordance", "word": word, "items": occ, "shown": 5}
             history.add_message(session_id, "user", f"@{word}")
@@ -321,7 +328,8 @@ def main() -> None:
         # '!' keyword lexical search across KJV/WEB verses
         if parsed.kind == "bang":
             term = parsed.value
-            items = db.lexical_search(term)
+            with console.status("Keyword search…", spinner="dots"):
+                items = db.lexical_search(term)
             print_keyword_results(term, items, show=10)
             last_results_cache = {"kind": "lexical", "term": term, "items": items, "shown": 10}
             history.add_message(session_id, "user", f"!{term}")
@@ -333,7 +341,8 @@ def main() -> None:
             if not osid:
                 print_error("Could not parse verse reference. Try 'John 3:16'.")
                 continue
-            verses = db.verse_lookup(osid)
+            with console.status("Retrieving verses…", spinner="dots"):
+                verses = db.verse_lookup(osid)
             if not verses:
                 print_error(f"No verse found for {osid}")
                 continue
@@ -345,7 +354,8 @@ def main() -> None:
 
         if parsed.kind == "hash":
             q = parsed.value
-            results = db.routed_search(q)
+            with console.status("Searching across sources…", spinner="dots"):
+                results = db.routed_search(q)
             print_router_results(q, results, show=5)
             history.add_message(session_id, "user", f"#{q}")
             if ai_enabled and check_ollama():
@@ -356,8 +366,22 @@ def main() -> None:
                 )
                 console.print("\n[bold green]AI-enhanced summary (streaming):[/bold green]")
                 ai_text = []
+                it = generate_stream(prompt, model=ai_model)
+                first_chunk: Optional[str] = None
+                # Show spinner until first token arrives
+                with console.status(f"AI ({ai_model}) composing…", spinner="dots"):
+                    try:
+                        first_chunk = next(it)
+                    except StopIteration:
+                        first_chunk = None
+                    except KeyboardInterrupt:
+                        console.print("\n[dim]AI streaming interrupted by user[/dim]")
+                        first_chunk = None
+                if first_chunk:
+                    ai_text.append(first_chunk)
+                    console.print(first_chunk, end="")
                 try:
-                    for chunk in generate_stream(prompt, model=ai_model):
+                    for chunk in it:
                         ai_text.append(chunk)
                         console.print(chunk, end="")
                     console.print("")
@@ -387,7 +411,8 @@ def main() -> None:
                     continue
 
             q = parsed.value
-            results = db.routed_search(q)
+            with console.status("Searching across sources…", spinner="dots"):
+                results = db.routed_search(q)
             print_router_results(q, results, show=5)
             history.add_message(session_id, "user", q)
             if ai_enabled and check_ollama():
@@ -398,8 +423,21 @@ def main() -> None:
                 )
                 console.print("\n[bold green]AI-enhanced summary (streaming):[/bold green]")
                 ai_text = []
+                it = generate_stream(prompt, model=ai_model)
+                first_chunk: Optional[str] = None
+                with console.status(f"AI ({ai_model}) composing…", spinner="dots"):
+                    try:
+                        first_chunk = next(it)
+                    except StopIteration:
+                        first_chunk = None
+                    except KeyboardInterrupt:
+                        console.print("\n[dim]AI streaming interrupted by user[/dim]")
+                        first_chunk = None
+                if first_chunk:
+                    ai_text.append(first_chunk)
+                    console.print(first_chunk, end="")
                 try:
-                    for chunk in generate_stream(prompt, model=ai_model):
+                    for chunk in it:
                         ai_text.append(chunk)
                         console.print(chunk, end="")
                     console.print("")
