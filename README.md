@@ -94,7 +94,7 @@ Personal use only. All content rights belong to their respective owners.
 ## Chat CLI + Ollama
 
 - Launch: `python -m chat_app.main`
-- Quick model switch: `/model` (interactive picker) or `/ai model <name|#|partial>`
+- Quick model switch: `/model` (interactive picker with ↑/↓ + Enter) or `/ai model <name|#|partial>`
 - AI commands:
   - `/ai status` — show AI toggle, Ollama availability, and model
   - `/ai on` | `/ai off` | `/ai toggle` — control enhancement

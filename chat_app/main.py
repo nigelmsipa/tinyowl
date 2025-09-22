@@ -3,10 +3,15 @@ from __future__ import annotations
 
 import os
 import json
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 import readline  # Provides history + tab completion
 from rich.console import Console
+import sys
+try:
+    import curses  # for arrow-key interactive selection
+except Exception:  # pragma: no cover
+    curses = None  # type: ignore
 
 from .config import APP_DATA_DIR, HISTORY_FILE_PATH, DEFAULT_AI_MODEL, OLLAMA_HOST
 from .settings import load_settings, save_settings
@@ -59,6 +64,52 @@ class Completer:
 def ensure_dirs() -> None:
     APP_DATA_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_FILE_PATH.touch(exist_ok=True)
+
+
+def interactive_model_picker(models: list[str], current: Optional[str] = None) -> Optional[str]:
+    """Interactive arrow-key picker using curses. Returns selected model, or None if cancelled.
+
+    Falls back to None if curses or TTY is unavailable.
+    """
+    if not models:
+        return None
+    if curses is None or not sys.stdin.isatty() or not sys.stdout.isatty():
+        return None
+
+    def _ui(stdscr):
+        curses.curs_set(0)
+        stdscr.nodelay(False)
+        stdscr.keypad(True)
+        sel = 0
+        if current and current in models:
+            sel = models.index(current)
+        while True:
+            stdscr.clear()
+            h, w = stdscr.getmaxyx()
+            title = "Select Ollama Model (↑/↓, Enter=confirm, Esc=cancel)"
+            stdscr.addnstr(0, 0, title, w - 1, curses.A_BOLD)
+            for i, m in enumerate(models):
+                marker = "→ " if i == sel else "  "
+                suffix = "  (current)" if current and m == current else ""
+                line = f"{marker}{m}{suffix}"
+                attr = curses.A_REVERSE if i == sel else curses.A_NORMAL
+                if 1 + i < h - 1:
+                    stdscr.addnstr(1 + i, 0, line, w - 1, attr)
+            stdscr.refresh()
+            ch = stdscr.getch()
+            if ch in (curses.KEY_UP, ord('k')):
+                sel = (sel - 1) % len(models)
+            elif ch in (curses.KEY_DOWN, ord('j')):
+                sel = (sel + 1) % len(models)
+            elif ch in (curses.KEY_ENTER, 10, 13):
+                return models[sel]
+            elif ch in (27, ord('q')):
+                return None
+
+    try:
+        return curses.wrapper(_ui)
+    except Exception:
+        return None
 
 
 def main() -> None:
@@ -164,21 +215,23 @@ def main() -> None:
                     if not models:
                         console.print("No models found or Ollama unavailable.")
                         continue
-                    # If no argument, present interactive picker
+                    # If no argument, try interactive picker first
                     if len(sub) < 3:
-                        lines = [f"[{i+1}] {m}{'  (current)' if m == ai_model else ''}" for i, m in enumerate(models)]
-                        console.print("Select a model by number or name:\n" + "\n".join(lines))
-                        try:
-                            choice = input("Model > ").strip()
-                        except (EOFError, KeyboardInterrupt):
-                            console.print("\n[dim]Cancelled[/dim]")
-                            continue
+                        choice = interactive_model_picker(models, current=ai_model)
+                        if not choice:
+                            lines = [f"[{i+1}] {m}{'  (current)' if m == ai_model else ''}" for i, m in enumerate(models)]
+                            console.print("Select a model by number or name:\n" + "\n".join(lines))
+                            try:
+                                choice = input("Model > ").strip()
+                            except (EOFError, KeyboardInterrupt):
+                                console.print("\n[dim]Cancelled[/dim]")
+                                continue
                     else:
                         choice = " ".join(sub[2:]).strip()
 
                     # Allow numeric index
                     new_model = None
-                    if choice.isdigit():
+                    if choice and choice.isdigit():
                         idx = int(choice) - 1
                         if 0 <= idx < len(models):
                             new_model = models[idx]
