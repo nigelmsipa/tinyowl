@@ -94,11 +94,12 @@ Personal use only. All content rights belong to their respective owners.
 ## Chat CLI + Ollama
 
 - Launch: `python -m chat_app.main`
+- Quick model switch: `/model` (interactive picker) or `/ai model <name|#|partial>`
 - AI commands:
   - `/ai status` — show AI toggle, Ollama availability, and model
   - `/ai on` | `/ai off` | `/ai toggle` — control enhancement
-  - `/ai models` — list installed Ollama models
-  - `/ai model <name>` — switch model (must be installed in Ollama)
+  - `/ai models` — list installed Ollama models (numbered)
+  - `/ai default [name]` — save default model and enabled flag for future sessions
 - Env overrides:
   - `TINYOWL_OLLAMA_HOST` (default `http://localhost:11434`)
   - `TINYOWL_OLLAMA_MODEL` (default `mistral:latest`)

@@ -9,6 +9,7 @@ import readline  # Provides history + tab completion
 from rich.console import Console
 
 from .config import APP_DATA_DIR, HISTORY_FILE_PATH, DEFAULT_AI_MODEL, OLLAMA_HOST
+from .settings import load_settings, save_settings
 from .typeahead_engine import TypeaheadEngine
 from .database_manager import DatabaseManager
 from .response_formatter import (
@@ -41,7 +42,9 @@ class Completer:
             self.current_suggestions = [f"@{s.term}" for s in sugs]
         elif buffer.startswith("/"):
             cmds = [
-                "/help", "/history", "/export", "/clear", "/stats", "/ai toggle",
+                "/help", "/history", "/export", "/clear", "/stats",
+                "/ai status", "/ai on", "/ai off", "/ai toggle", "/ai models",
+                "/ai model", "/ai help", "/ai default", "/model",
             ]
             self.current_suggestions = [c for c in cmds if c.startswith(buffer)]
         else:
@@ -72,8 +75,10 @@ def main() -> None:
     osis = OsisHelper()
     history = ChatHistory()
 
-    ai_enabled = check_ollama()
-    ai_model = DEFAULT_AI_MODEL
+    settings = load_settings()
+    # Default to saved settings; if none, start with Ollama availability and default model
+    ai_enabled = settings.get("default_ai_enabled", check_ollama())
+    ai_model = settings.get("default_ai_model", DEFAULT_AI_MODEL)
     session_id = history.create_session(ai_enabled=ai_enabled, ai_model=ai_model)
 
     comp = Completer(typeahead)
@@ -103,9 +108,12 @@ def main() -> None:
             cmd = parsed.value
             if cmd in ("help",):
                 console.print(
-                    "Commands: /help, /history, /export, /clear, /stats, /ai on|off|toggle|status|models|model <name>|help"
+                    "Commands: /help, /history, /export, /clear, /stats, /ai on|off|toggle|status|models|model <name>|default|help, /model"
                 )
                 continue
+            # Short alias for model switching: `/model` acts like `/ai model`
+            if cmd == "model" or cmd.startswith("model "):
+                cmd = "ai model" + (" " + cmd[len("model"):].strip() if len(cmd) > len("model") else "")
             if cmd.startswith("ai"):
                 sub = cmd.split()
                 action = sub[1] if len(sub) > 1 else "status"
@@ -115,8 +123,10 @@ def main() -> None:
 /ai help            Show this help
 /ai status          Show AI toggle, Ollama availability, and current model
 /ai on|off|toggle   Control AI enhancement
-/ai models          List installed models from Ollama
-/ai model <name>    Switch model (must be installed)
+/ai models          List installed models (numbered; marks current)
+/ai model <name>    Switch model (name, number, or partial)
+/ai model           Pick interactively (enter number or name)
+/ai default [name]  Save defaults for future sessions (current or given name)
                         """.strip()
                     )
                     continue
@@ -146,20 +156,60 @@ def main() -> None:
                     if not models:
                         console.print("No models found or Ollama unavailable.")
                     else:
-                        console.print("Available models:\n- " + "\n- ".join(models))
+                        lines = [f"[{i+1}] {m}{'  (current)' if m == ai_model else ''}" for i, m in enumerate(models)]
+                        console.print("Available models:\n" + "\n".join(lines))
                     continue
                 if action == "model":
-                    if len(sub) < 3:
-                        console.print("Usage: /ai model <name>")
-                        continue
-                    new_model = " ".join(sub[2:])
                     models = list_models()
-                    if new_model not in models:
-                        console.print(f"Model not available: {new_model}")
+                    if not models:
+                        console.print("No models found or Ollama unavailable.")
+                        continue
+                    # If no argument, present interactive picker
+                    if len(sub) < 3:
+                        lines = [f"[{i+1}] {m}{'  (current)' if m == ai_model else ''}" for i, m in enumerate(models)]
+                        console.print("Select a model by number or name:\n" + "\n".join(lines))
+                        try:
+                            choice = input("Model > ").strip()
+                        except (EOFError, KeyboardInterrupt):
+                            console.print("\n[dim]Cancelled[/dim]")
+                            continue
+                    else:
+                        choice = " ".join(sub[2:]).strip()
+
+                    # Allow numeric index
+                    new_model = None
+                    if choice.isdigit():
+                        idx = int(choice) - 1
+                        if 0 <= idx < len(models):
+                            new_model = models[idx]
+                    # Try exact match
+                    if new_model is None and choice in models:
+                        new_model = choice
+                    # Fuzzy: case-insensitive substring, prefer unique
+                    if new_model is None and choice:
+                        matches = [m for m in models if choice.lower() in m.lower()]
+                        if len(matches) == 1:
+                            new_model = matches[0]
+                        elif len(matches) > 1:
+                            console.print("Ambiguous model name. Matches:\n- " + "\n- ".join(matches))
+                            continue
+                    if not new_model:
+                        console.print("Model not found.")
                         continue
                     ai_model = new_model
                     history.update_session_ai_model(session_id, ai_model)
                     console.print(f"AI model set to: {ai_model}")
+                    continue
+                if action == "default":
+                    # Persist current or provided model and enabled flag for future sessions
+                    desired = ai_model
+                    if len(sub) >= 3:
+                        desired = " ".join(sub[2:]).strip()
+                    # Save without strict validation to allow setting before pulling
+                    settings["default_ai_model"] = desired
+                    settings["default_ai_enabled"] = ai_enabled
+                    save_settings(settings)
+                    console.print(f"Saved defaults: model={desired}, enabled={'ON' if ai_enabled else 'OFF'}")
                     continue
                 console.print("Unknown /ai subcommand. Try /ai status")
                 continue

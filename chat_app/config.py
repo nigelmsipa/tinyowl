@@ -22,6 +22,7 @@ APP_DATA_DIR: Path = ROOT / "chat-app"
 HISTORY_DB_PATH: Path = APP_DATA_DIR / "history.sqlite3"
 HISTORY_FILE_PATH: Path = APP_DATA_DIR / ".tinyowl_history"
 EXPORTS_DIR: Path = APP_DATA_DIR / "exports"
+SETTINGS_FILE_PATH: Path = APP_DATA_DIR / "settings.json"
 
 # Defaults
 DEFAULT_MAX_RESULTS = 10
