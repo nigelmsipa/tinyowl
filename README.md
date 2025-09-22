@@ -29,8 +29,8 @@ pip install -r requirements.txt
 # Run ingestion
 python scripts/ingest.py --config configs/sources.yaml
 
-# Start the chat interface
-python scripts/chat.py
+# Start the chat interface (CLI)
+python -m chat_app.main
 ```
 
 ## Project Structure
@@ -90,3 +90,17 @@ This is a personal project, but suggestions and ideas are welcome.
 ## License
 
 Personal use only. All content rights belong to their respective owners.
+
+## Chat CLI + Ollama
+
+- Launch: `python -m chat_app.main`
+- AI commands:
+  - `/ai status` — show AI toggle, Ollama availability, and model
+  - `/ai on` | `/ai off` | `/ai toggle` — control enhancement
+  - `/ai models` — list installed Ollama models
+  - `/ai model <name>` — switch model (must be installed in Ollama)
+- Env overrides:
+  - `TINYOWL_OLLAMA_HOST` (default `http://localhost:11434`)
+  - `TINYOWL_OLLAMA_MODEL` (default `mistral:latest`)
+- Behavior:
+  - If Ollama is unavailable, chat features still work; AI enhancements are skipped gracefully.
