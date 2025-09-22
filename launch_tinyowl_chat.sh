@@ -16,7 +16,7 @@ fi
 exec kitty --title="TinyOwl Chat" --working-directory="$TINYOWL_DIR" bash -c "
     source '$VENV_PATH/bin/activate' &&
     echo 'Welcome to TinyOwl Chat - Professional Biblical Research Tool' &&
-    echo 'Commands: @aaron (concordance), @strong:175 (Strong'\''s), &john3:16 (verses), #prophecy (topical), /ai status|models|model <name>|on|off|toggle' &&
+    echo 'Commands: @aaron (concordance), @strong:175 (Strong'\''s), &john3:16 (verses), #prophecy (topical), /ai status|models|model <name>|on|off|toggle|help' &&
     echo '' &&
     python -m chat_app.main
 "

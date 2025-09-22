@@ -8,7 +8,7 @@ from typing import Dict, Any
 import readline  # Provides history + tab completion
 from rich.console import Console
 
-from .config import APP_DATA_DIR, HISTORY_FILE_PATH, DEFAULT_AI_MODEL
+from .config import APP_DATA_DIR, HISTORY_FILE_PATH, DEFAULT_AI_MODEL, OLLAMA_HOST
 from .typeahead_engine import TypeaheadEngine
 from .database_manager import DatabaseManager
 from .response_formatter import (
@@ -83,6 +83,7 @@ def main() -> None:
     console.print("TinyOwl Chat (CLI)")
     console.print("Type '/help' for commands. 'Ctrl+C' to exit.")
     console.print(f"AI enhancement: {'ON' if ai_enabled else 'OFF'} (model: {ai_model})")
+    console.print(f"Ollama: {'YES' if check_ollama() else 'NO'} at {OLLAMA_HOST}")
 
     last_results_cache: Dict[str, Any] = {}
 
@@ -102,12 +103,23 @@ def main() -> None:
             cmd = parsed.value
             if cmd in ("help",):
                 console.print(
-                    "Commands: /help, /history, /export, /clear, /stats, /ai on|off|toggle|status|models|model <name>"
+                    "Commands: /help, /history, /export, /clear, /stats, /ai on|off|toggle|status|models|model <name>|help"
                 )
                 continue
             if cmd.startswith("ai"):
                 sub = cmd.split()
                 action = sub[1] if len(sub) > 1 else "status"
+                if action == "help":
+                    console.print(
+                        """
+/ai help            Show this help
+/ai status          Show AI toggle, Ollama availability, and current model
+/ai on|off|toggle   Control AI enhancement
+/ai models          List installed models from Ollama
+/ai model <name>    Switch model (must be installed)
+                        """.strip()
+                    )
+                    continue
                 if action == "toggle":
                     ai_enabled = not ai_enabled
                     history.update_session_ai_enabled(session_id, ai_enabled)
