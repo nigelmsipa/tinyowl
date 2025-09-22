@@ -142,8 +142,11 @@ def main() -> None:
 
     console.print("TinyOwl Chat (CLI)")
     console.print("Type '/help' for commands. 'Ctrl+C' to exit.")
-    console.print(f"AI enhancement: {'ON' if ai_enabled else 'OFF'} (model: {ai_model})")
-    console.print(f"Ollama: {'YES' if check_ollama() else 'NO'} at {OLLAMA_HOST}")
+    def show_status() -> None:
+        console.print(
+            f"[dim]AI: {'ON' if ai_enabled else 'OFF'} | Model: {ai_model} | Ollama: {'YES' if check_ollama() else 'NO'} @ {OLLAMA_HOST}[/dim]"
+        )
+    show_status()
 
     last_results_cache: Dict[str, Any] = {}
 
@@ -188,23 +191,20 @@ def main() -> None:
                 if action == "toggle":
                     ai_enabled = not ai_enabled
                     history.update_session_ai_enabled(session_id, ai_enabled)
-                    console.print(f"AI enhancement: {'ON' if ai_enabled else 'OFF'} (model: {ai_model})")
+                    show_status()
                     continue
                 if action == "on":
                     ai_enabled = True
                     history.update_session_ai_enabled(session_id, True)
-                    console.print(f"AI enhancement: ON (model: {ai_model})")
+                    show_status()
                     continue
                 if action == "off":
                     ai_enabled = False
                     history.update_session_ai_enabled(session_id, False)
-                    console.print("AI enhancement: OFF")
+                    show_status()
                     continue
                 if action == "status":
-                    available = check_ollama()
-                    console.print(
-                        f"AI enhancement: {'ON' if ai_enabled else 'OFF'} | Ollama available: {'YES' if available else 'NO'} | model: {ai_model}"
-                    )
+                    show_status()
                     continue
                 if action == "models":
                     with console.status("Querying Ollama for models…", spinner="dots"):
@@ -257,6 +257,7 @@ def main() -> None:
                     ai_model = new_model
                     history.update_session_ai_model(session_id, ai_model)
                     console.print(f"AI model set to: {ai_model}")
+                    show_status()
                     continue
                 if action == "default":
                     # Persist current or provided model and enabled flag for future sessions
@@ -268,24 +269,30 @@ def main() -> None:
                     settings["default_ai_enabled"] = ai_enabled
                     save_settings(settings)
                     console.print(f"Saved defaults: model={desired}, enabled={'ON' if ai_enabled else 'OFF'}")
+                    show_status()
                     continue
                 console.print("Unknown /ai subcommand. Try /ai status")
                 continue
             if cmd == "history":
-                sessions = history.recent_sessions(limit=10)
+                start = time.perf_counter()
+                with console.status("Loading history…", spinner="dots"):
+                    sessions = history.recent_sessions(limit=10)
                 for sid, created, ai in sessions:
                     console.print(f"Session {sid} — {created} — AI={'ON' if ai else 'OFF'}")
+                console.print(f"[dim]Loaded in {(time.perf_counter()-start)*1000:.0f} ms[/dim]")
                 continue
             if cmd.startswith("export"):
                 from .config import EXPORTS_DIR
                 EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
-                msgs = history.get_session_messages(session_id)
+                with console.status("Exporting…", spinner="dots"):
+                    msgs = history.get_session_messages(session_id)
                 out = []
                 for role, content, ts in msgs:
                     out.append({"role": role, "content": content, "time": ts})
                 path = EXPORTS_DIR / f"session_{session_id}.json"
+                start = time.perf_counter()
                 path.write_text(json.dumps(out, indent=2))
-                console.print(f"Exported to {path}")
+                console.print(f"Exported to {path} [dim]{(time.perf_counter()-start)*1000:.0f} ms[/dim]")
                 continue
             if cmd == "clear":
                 os.system("clear")
@@ -399,6 +406,8 @@ def main() -> None:
                     items = last_results_cache.get("items", [])
                     shown = last_results_cache.get("shown", 0)
                     show_next = min(shown + 5, len(items))
+                    with console.status("Loading more matches…", spinner="dots"):
+                        pass
                     print_concordance_results(last_results_cache.get("word", ""), items, show=show_next)
                     last_results_cache["shown"] = show_next
                     continue
@@ -406,6 +415,8 @@ def main() -> None:
                     items = last_results_cache.get("items", [])
                     shown = last_results_cache.get("shown", 0)
                     show_next = min(shown + 10, len(items))
+                    with console.status("Loading more results…", spinner="dots"):
+                        pass
                     print_keyword_results(last_results_cache.get("term", ""), items, show=show_next)
                     last_results_cache["shown"] = show_next
                     continue
