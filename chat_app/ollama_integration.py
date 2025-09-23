@@ -5,6 +5,7 @@ import json
 import requests
 
 from .config import DEFAULT_AI_MODEL, OLLAMA_HOST
+import os
 
 
 def check_ollama(timeout: float = 1.5, host: Optional[str] = None) -> bool:
@@ -17,6 +18,20 @@ def check_ollama(timeout: float = 1.5, host: Optional[str] = None) -> bool:
         return False
 
 
+def _ollama_options_from_env() -> dict:
+    opts = {}
+    num_gpu = os.environ.get("TINYOWL_OLLAMA_NUM_GPU") or os.environ.get("OLLAMA_NUM_GPU")
+    if num_gpu and num_gpu.isdigit():
+        opts["num_gpu"] = int(num_gpu)
+    raw = os.environ.get("TINYOWL_OLLAMA_OPTIONS")
+    if raw:
+        try:
+            opts.update(json.loads(raw))
+        except Exception:
+            pass
+    return opts
+
+
 def enhance_with_ai(
     prompt: str,
     model: Optional[str] = None,
@@ -27,9 +42,13 @@ def enhance_with_ai(
     mdl = model or DEFAULT_AI_MODEL
     base = host or OLLAMA_HOST
     try:
+        payload = {"model": mdl, "prompt": prompt, "stream": False}
+        opts = _ollama_options_from_env()
+        if opts:
+            payload["options"] = opts
         r = requests.post(
             f"{base}/api/generate",
-            json={"model": mdl, "prompt": prompt, "stream": False},
+            json=payload,
             timeout=timeout,
         )
         if r.status_code == 200:
@@ -75,9 +94,13 @@ def generate_stream(
     mdl = model or DEFAULT_AI_MODEL
     base = host or OLLAMA_HOST
     try:
+        opts = _ollama_options_from_env()
+        payload = {"model": mdl, "prompt": prompt, "stream": True}
+        if opts:
+            payload["options"] = opts
         with requests.post(
             f"{base}/api/generate",
-            json={"model": mdl, "prompt": prompt, "stream": True},
+            json=payload,
             stream=True,
             timeout=timeout,
         ) as r:

@@ -1,5 +1,6 @@
 # Vector database
 vectordb/
+vectordb_backup_*/
 
 # Raw and processed data files
 domains/*/raw/*
@@ -30,9 +31,20 @@ wheels/
 *.egg
 
 # Virtual Environment
+.venv/
+.venv311/
 venv/
 env/
 ENV/
+
+# Database files
+*.sqlite3
+*.db
+
+# Chat history and backups
+*.history
+.tinyowl_history
+backups/
 
 # IDE specific files
 .idea/
@@ -59,4 +71,5 @@ logs/
 *.pt
 *.bin
 *.onnx
+*.safetensors
 .aider*

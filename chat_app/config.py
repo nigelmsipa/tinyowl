@@ -16,6 +16,7 @@ KJV_VERSES_JSON: Path = CHUNKS_DIR / "kjv_verses_chunks.json"
 WEB_VERSES_JSON: Path = CHUNKS_DIR / "web_verses_chunks.json"
 STRONGS_CONCORDANCE_JSON: Path = CHUNKS_DIR / "strongs_concordance_entries_chunks.json"
 STRONGS_NUMBERS_JSON: Path = CHUNKS_DIR / "strongs_strongs_numbers_chunks_with_defs.json"
+STRONGS_WORD_SUMMARIES_JSON: Path = CHUNKS_DIR / "strongs_word_summaries_chunks.json"
 
 # App state (store runtime artifacts under 'chat-app' to match spec)
 APP_DATA_DIR: Path = ROOT / "chat-app"
