@@ -170,9 +170,9 @@ class RetrievalRouter:
         else:  # TOPICAL
             return RetrievalPlan(
                 query_type=query_type,
-                layers=['theology_pericopes', 'theology_chapters'],
-                k_values={'theology_pericopes': 10, 'theology_chapters': 6},
-                weights={'theology_pericopes': 0.6, 'theology_chapters': 0.4},
+                layers=['naves_topic_entries', 'theology_pericopes', 'theology_chapters'],
+                k_values={'naves_topic_entries': 8, 'theology_pericopes': 8, 'theology_chapters': 4},
+                weights={'naves_topic_entries': 0.5, 'theology_pericopes': 0.3, 'theology_chapters': 0.2},
                 rerank_top_k=16
             )
     

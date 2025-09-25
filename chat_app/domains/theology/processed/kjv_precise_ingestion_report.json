@@ -1,0 +1,3492 @@
+{
+  "translation_id": "kjv",
+  "source_file": "/home/nigel/Downloads/TheHolyBibleKJV.txt",
+  "start_time": 1756751140.9840071,
+  "stages": {
+    "stage_1": {
+      "name": "Precise KJV Parsing",
+      "verses_processed": 28646,
+      "books_found": 77,
+      "books_list": [
+        "Gen",
+        "Exod",
+        "Lev",
+        "Num",
+        "Deut",
+        "Josh",
+        "Judg",
+        "Ruth",
+        "1Sam",
+        "2Sam",
+        "1Kgs",
+        "2Kgs",
+        "1Chr",
+        "2Chr",
+        "Ezra",
+        "Neh",
+        "Esth",
+        "Job",
+        "Ps",
+        "Prov",
+        "Eccl",
+        "Song",
+        "Isa",
+        "Jer",
+        "Ezek",
+        "Dan",
+        "Hos",
+        "Joel",
+        "Amos",
+        "Obad",
+        "Jonah",
+        "Mic",
+        "Nah",
+        "Hab",
+        "Zeph",
+        "Hag",
+        "Zech",
+        "Mal",
+        "Matt",
+        "Mark",
+        "Luke",
+        "John",
+        "Acts",
+        "Rom",
+        "1Cor",
+        "2Cor",
+        "Gal",
+        "Eph",
+        "Phil",
+        "Col",
+        "1Thess",
+        "2Thess",
+        "1Tim",
+        "2Tim",
+        "Titus",
+        "Phlm",
+        "Heb",
+        "Jas",
+        "1Pet",
+        "2Pet",
+        "1John",
+        "2John",
+        "Jude",
+        "Rev",
+        "Ezra",
+        "Eccl",
+        "Hos",
+        "Joel",
+        "Amos",
+        "Jonah",
+        "Mic",
+        "Nah",
+        "Hab",
+        "Zeph",
+        "Hag",
+        "Zech",
+        "Mal"
+      ],
+      "time_seconds": 0.34481191635131836
+    },
+    "stage_2": {
+      "name": "Canonical Validation",
+      "coverage_percentage": 97.65917602996255,
+      "is_valid": false,
+      "error_count": 226,
+      "validation_report": {
+        "summary": {
+          "is_valid": false,
+          "total_verses_found": 9387,
+          "total_verses_expected": 9612,
+          "coverage_percentage": 97.65917602996255,
+          "error_count": 226,
+          "warning_count": 298
+        },
+        "missing_content": {
+          "books": [],
+          "chapters": [],
+          "verses": [
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 19,
+              "osis_id": "Gen.13.019"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 20,
+              "osis_id": "Gen.13.020"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 21,
+              "osis_id": "Gen.13.021"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 22,
+              "osis_id": "Gen.13.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 23,
+              "osis_id": "Gen.13.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 24,
+              "osis_id": "Gen.13.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 25,
+              "osis_id": "Gen.13.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 26,
+              "osis_id": "Gen.13.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 27,
+              "osis_id": "Gen.13.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 28,
+              "osis_id": "Gen.13.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 13,
+              "verse": 29,
+              "osis_id": "Gen.13.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 15,
+              "verse": 22,
+              "osis_id": "Gen.15.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 15,
+              "verse": 23,
+              "osis_id": "Gen.15.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 16,
+              "verse": 17,
+              "osis_id": "Gen.16.017"
+            },
+            {
+              "book": "Gen",
+              "chapter": 16,
+              "verse": 18,
+              "osis_id": "Gen.16.018"
+            },
+            {
+              "book": "Gen",
+              "chapter": 16,
+              "verse": 19,
+              "osis_id": "Gen.16.019"
+            },
+            {
+              "book": "Gen",
+              "chapter": 16,
+              "verse": 20,
+              "osis_id": "Gen.16.020"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 25,
+              "osis_id": "Gen.22.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 26,
+              "osis_id": "Gen.22.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 27,
+              "osis_id": "Gen.22.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 28,
+              "osis_id": "Gen.22.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 29,
+              "osis_id": "Gen.22.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 30,
+              "osis_id": "Gen.22.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 31,
+              "osis_id": "Gen.22.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 32,
+              "osis_id": "Gen.22.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 22,
+              "verse": 33,
+              "osis_id": "Gen.22.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 21,
+              "osis_id": "Gen.23.021"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 22,
+              "osis_id": "Gen.23.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 23,
+              "osis_id": "Gen.23.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 24,
+              "osis_id": "Gen.23.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 25,
+              "osis_id": "Gen.23.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 26,
+              "osis_id": "Gen.23.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 27,
+              "osis_id": "Gen.23.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 28,
+              "osis_id": "Gen.23.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 29,
+              "osis_id": "Gen.23.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 30,
+              "osis_id": "Gen.23.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 31,
+              "osis_id": "Gen.23.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 32,
+              "osis_id": "Gen.23.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 33,
+              "osis_id": "Gen.23.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 34,
+              "osis_id": "Gen.23.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 35,
+              "osis_id": "Gen.23.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 36,
+              "osis_id": "Gen.23.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 37,
+              "osis_id": "Gen.23.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 23,
+              "verse": 38,
+              "osis_id": "Gen.23.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 23,
+              "osis_id": "Gen.28.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 24,
+              "osis_id": "Gen.28.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 25,
+              "osis_id": "Gen.28.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 26,
+              "osis_id": "Gen.28.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 27,
+              "osis_id": "Gen.28.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 28,
+              "osis_id": "Gen.28.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 29,
+              "osis_id": "Gen.28.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 30,
+              "osis_id": "Gen.28.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 31,
+              "osis_id": "Gen.28.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 32,
+              "osis_id": "Gen.28.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 33,
+              "osis_id": "Gen.28.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 34,
+              "osis_id": "Gen.28.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 35,
+              "osis_id": "Gen.28.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 36,
+              "osis_id": "Gen.28.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 37,
+              "osis_id": "Gen.28.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 38,
+              "osis_id": "Gen.28.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 39,
+              "osis_id": "Gen.28.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 40,
+              "osis_id": "Gen.28.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 41,
+              "osis_id": "Gen.28.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 42,
+              "osis_id": "Gen.28.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 43,
+              "osis_id": "Gen.28.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 44,
+              "osis_id": "Gen.28.044"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 45,
+              "osis_id": "Gen.28.045"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 46,
+              "osis_id": "Gen.28.046"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 47,
+              "osis_id": "Gen.28.047"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 48,
+              "osis_id": "Gen.28.048"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 49,
+              "osis_id": "Gen.28.049"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 50,
+              "osis_id": "Gen.28.050"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 51,
+              "osis_id": "Gen.28.051"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 52,
+              "osis_id": "Gen.28.052"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 53,
+              "osis_id": "Gen.28.053"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 54,
+              "osis_id": "Gen.28.054"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 55,
+              "osis_id": "Gen.28.055"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 56,
+              "osis_id": "Gen.28.056"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 57,
+              "osis_id": "Gen.28.057"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 58,
+              "osis_id": "Gen.28.058"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 59,
+              "osis_id": "Gen.28.059"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 60,
+              "osis_id": "Gen.28.060"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 61,
+              "osis_id": "Gen.28.061"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 62,
+              "osis_id": "Gen.28.062"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 63,
+              "osis_id": "Gen.28.063"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 64,
+              "osis_id": "Gen.28.064"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 65,
+              "osis_id": "Gen.28.065"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 66,
+              "osis_id": "Gen.28.066"
+            },
+            {
+              "book": "Gen",
+              "chapter": 28,
+              "verse": 67,
+              "osis_id": "Gen.28.067"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 21,
+              "osis_id": "Gen.33.021"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 22,
+              "osis_id": "Gen.33.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 23,
+              "osis_id": "Gen.33.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 24,
+              "osis_id": "Gen.33.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 25,
+              "osis_id": "Gen.33.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 26,
+              "osis_id": "Gen.33.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 27,
+              "osis_id": "Gen.33.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 28,
+              "osis_id": "Gen.33.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 29,
+              "osis_id": "Gen.33.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 30,
+              "osis_id": "Gen.33.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 31,
+              "osis_id": "Gen.33.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 32,
+              "osis_id": "Gen.33.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 33,
+              "osis_id": "Gen.33.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 34,
+              "osis_id": "Gen.33.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 33,
+              "verse": 35,
+              "osis_id": "Gen.33.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 32,
+              "osis_id": "Gen.34.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 33,
+              "osis_id": "Gen.34.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 34,
+              "osis_id": "Gen.34.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 35,
+              "osis_id": "Gen.34.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 36,
+              "osis_id": "Gen.34.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 37,
+              "osis_id": "Gen.34.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 38,
+              "osis_id": "Gen.34.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 39,
+              "osis_id": "Gen.34.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 40,
+              "osis_id": "Gen.34.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 41,
+              "osis_id": "Gen.34.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 42,
+              "osis_id": "Gen.34.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 34,
+              "verse": 43,
+              "osis_id": "Gen.34.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 30,
+              "osis_id": "Gen.35.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 31,
+              "osis_id": "Gen.35.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 32,
+              "osis_id": "Gen.35.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 33,
+              "osis_id": "Gen.35.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 34,
+              "osis_id": "Gen.35.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 35,
+              "osis_id": "Gen.35.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 36,
+              "osis_id": "Gen.35.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 37,
+              "osis_id": "Gen.35.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 38,
+              "osis_id": "Gen.35.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 39,
+              "osis_id": "Gen.35.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 40,
+              "osis_id": "Gen.35.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 41,
+              "osis_id": "Gen.35.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 42,
+              "osis_id": "Gen.35.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 43,
+              "osis_id": "Gen.35.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 44,
+              "osis_id": "Gen.35.044"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 45,
+              "osis_id": "Gen.35.045"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 46,
+              "osis_id": "Gen.35.046"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 47,
+              "osis_id": "Gen.35.047"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 48,
+              "osis_id": "Gen.35.048"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 49,
+              "osis_id": "Gen.35.049"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 50,
+              "osis_id": "Gen.35.050"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 51,
+              "osis_id": "Gen.35.051"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 52,
+              "osis_id": "Gen.35.052"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 53,
+              "osis_id": "Gen.35.053"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 54,
+              "osis_id": "Gen.35.054"
+            },
+            {
+              "book": "Gen",
+              "chapter": 35,
+              "verse": 55,
+              "osis_id": "Gen.35.055"
+            },
+            {
+              "book": "Gen",
+              "chapter": 38,
+              "verse": 31,
+              "osis_id": "Gen.38.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 39,
+              "verse": 24,
+              "osis_id": "Gen.39.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 39,
+              "verse": 25,
+              "osis_id": "Gen.39.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 39,
+              "verse": 26,
+              "osis_id": "Gen.39.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 39,
+              "verse": 27,
+              "osis_id": "Gen.39.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 39,
+              "verse": 28,
+              "osis_id": "Gen.39.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 39,
+              "verse": 29,
+              "osis_id": "Gen.39.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 24,
+              "osis_id": "Gen.40.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 25,
+              "osis_id": "Gen.40.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 26,
+              "osis_id": "Gen.40.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 27,
+              "osis_id": "Gen.40.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 28,
+              "osis_id": "Gen.40.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 29,
+              "osis_id": "Gen.40.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 30,
+              "osis_id": "Gen.40.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 31,
+              "osis_id": "Gen.40.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 32,
+              "osis_id": "Gen.40.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 33,
+              "osis_id": "Gen.40.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 34,
+              "osis_id": "Gen.40.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 35,
+              "osis_id": "Gen.40.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 36,
+              "osis_id": "Gen.40.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 37,
+              "osis_id": "Gen.40.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 38,
+              "osis_id": "Gen.40.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 39,
+              "osis_id": "Gen.40.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 40,
+              "osis_id": "Gen.40.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 41,
+              "osis_id": "Gen.40.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 42,
+              "osis_id": "Gen.40.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 40,
+              "verse": 43,
+              "osis_id": "Gen.40.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 29,
+              "osis_id": "Gen.45.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 30,
+              "osis_id": "Gen.45.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 31,
+              "osis_id": "Gen.45.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 32,
+              "osis_id": "Gen.45.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 33,
+              "osis_id": "Gen.45.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 34,
+              "osis_id": "Gen.45.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 35,
+              "osis_id": "Gen.45.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 36,
+              "osis_id": "Gen.45.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 37,
+              "osis_id": "Gen.45.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 38,
+              "osis_id": "Gen.45.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 39,
+              "osis_id": "Gen.45.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 40,
+              "osis_id": "Gen.45.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 41,
+              "osis_id": "Gen.45.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 42,
+              "osis_id": "Gen.45.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 43,
+              "osis_id": "Gen.45.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 44,
+              "osis_id": "Gen.45.044"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 45,
+              "osis_id": "Gen.45.045"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 46,
+              "osis_id": "Gen.45.046"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 47,
+              "osis_id": "Gen.45.047"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 48,
+              "osis_id": "Gen.45.048"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 49,
+              "osis_id": "Gen.45.049"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 50,
+              "osis_id": "Gen.45.050"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 51,
+              "osis_id": "Gen.45.051"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 52,
+              "osis_id": "Gen.45.052"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 53,
+              "osis_id": "Gen.45.053"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 54,
+              "osis_id": "Gen.45.054"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 55,
+              "osis_id": "Gen.45.055"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 56,
+              "osis_id": "Gen.45.056"
+            },
+            {
+              "book": "Gen",
+              "chapter": 45,
+              "verse": 57,
+              "osis_id": "Gen.45.057"
+            },
+            {
+              "book": "Gen",
+              "chapter": 46,
+              "verse": 35,
+              "osis_id": "Gen.46.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 46,
+              "verse": 36,
+              "osis_id": "Gen.46.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 46,
+              "verse": 37,
+              "osis_id": "Gen.46.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 46,
+              "verse": 38,
+              "osis_id": "Gen.46.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 47,
+              "verse": 32,
+              "osis_id": "Gen.47.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 47,
+              "verse": 33,
+              "osis_id": "Gen.47.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 47,
+              "verse": 34,
+              "osis_id": "Gen.47.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 23,
+              "osis_id": "Gen.48.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 24,
+              "osis_id": "Gen.48.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 25,
+              "osis_id": "Gen.48.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 26,
+              "osis_id": "Gen.48.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 27,
+              "osis_id": "Gen.48.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 28,
+              "osis_id": "Gen.48.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 29,
+              "osis_id": "Gen.48.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 30,
+              "osis_id": "Gen.48.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 31,
+              "osis_id": "Gen.48.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 32,
+              "osis_id": "Gen.48.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 33,
+              "osis_id": "Gen.48.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 48,
+              "verse": 34,
+              "osis_id": "Gen.48.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 27,
+              "osis_id": "Gen.50.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 28,
+              "osis_id": "Gen.50.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 29,
+              "osis_id": "Gen.50.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 30,
+              "osis_id": "Gen.50.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 31,
+              "osis_id": "Gen.50.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 32,
+              "osis_id": "Gen.50.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 33,
+              "osis_id": "Gen.50.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 50,
+              "verse": 34,
+              "osis_id": "Gen.50.034"
+            }
+          ]
+        },
+        "extra_content": {
+          "verses": [
+            {
+              "book": "Gen",
+              "chapter": 12,
+              "verse": 19,
+              "osis_id": "Gen.12.019"
+            },
+            {
+              "book": "Gen",
+              "chapter": 12,
+              "verse": 20,
+              "osis_id": "Gen.12.020"
+            },
+            {
+              "book": "Gen",
+              "chapter": 14,
+              "verse": 24,
+              "osis_id": "Gen.14.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 19,
+              "osis_id": "Gen.17.019"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 20,
+              "osis_id": "Gen.17.020"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 21,
+              "osis_id": "Gen.17.021"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 22,
+              "osis_id": "Gen.17.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 23,
+              "osis_id": "Gen.17.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 24,
+              "osis_id": "Gen.17.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 25,
+              "osis_id": "Gen.17.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 26,
+              "osis_id": "Gen.17.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 17,
+              "verse": 27,
+              "osis_id": "Gen.17.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 25,
+              "osis_id": "Gen.18.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 26,
+              "osis_id": "Gen.18.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 27,
+              "osis_id": "Gen.18.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 28,
+              "osis_id": "Gen.18.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 29,
+              "osis_id": "Gen.18.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 30,
+              "osis_id": "Gen.18.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 31,
+              "osis_id": "Gen.18.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 32,
+              "osis_id": "Gen.18.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 18,
+              "verse": 33,
+              "osis_id": "Gen.18.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 22,
+              "osis_id": "Gen.19.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 23,
+              "osis_id": "Gen.19.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 24,
+              "osis_id": "Gen.19.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 25,
+              "osis_id": "Gen.19.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 26,
+              "osis_id": "Gen.19.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 27,
+              "osis_id": "Gen.19.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 28,
+              "osis_id": "Gen.19.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 29,
+              "osis_id": "Gen.19.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 30,
+              "osis_id": "Gen.19.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 31,
+              "osis_id": "Gen.19.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 32,
+              "osis_id": "Gen.19.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 33,
+              "osis_id": "Gen.19.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 34,
+              "osis_id": "Gen.19.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 35,
+              "osis_id": "Gen.19.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 36,
+              "osis_id": "Gen.19.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 37,
+              "osis_id": "Gen.19.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 19,
+              "verse": 38,
+              "osis_id": "Gen.19.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 20,
+              "verse": 17,
+              "osis_id": "Gen.20.017"
+            },
+            {
+              "book": "Gen",
+              "chapter": 20,
+              "verse": 18,
+              "osis_id": "Gen.20.018"
+            },
+            {
+              "book": "Gen",
+              "chapter": 21,
+              "verse": 28,
+              "osis_id": "Gen.21.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 21,
+              "verse": 29,
+              "osis_id": "Gen.21.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 21,
+              "verse": 30,
+              "osis_id": "Gen.21.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 21,
+              "verse": 31,
+              "osis_id": "Gen.21.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 21,
+              "verse": 32,
+              "osis_id": "Gen.21.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 21,
+              "verse": 33,
+              "osis_id": "Gen.21.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 21,
+              "verse": 34,
+              "osis_id": "Gen.21.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 19,
+              "osis_id": "Gen.24.019"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 20,
+              "osis_id": "Gen.24.020"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 21,
+              "osis_id": "Gen.24.021"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 22,
+              "osis_id": "Gen.24.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 23,
+              "osis_id": "Gen.24.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 24,
+              "osis_id": "Gen.24.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 25,
+              "osis_id": "Gen.24.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 26,
+              "osis_id": "Gen.24.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 27,
+              "osis_id": "Gen.24.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 28,
+              "osis_id": "Gen.24.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 29,
+              "osis_id": "Gen.24.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 30,
+              "osis_id": "Gen.24.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 31,
+              "osis_id": "Gen.24.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 32,
+              "osis_id": "Gen.24.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 33,
+              "osis_id": "Gen.24.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 34,
+              "osis_id": "Gen.24.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 35,
+              "osis_id": "Gen.24.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 36,
+              "osis_id": "Gen.24.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 37,
+              "osis_id": "Gen.24.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 38,
+              "osis_id": "Gen.24.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 39,
+              "osis_id": "Gen.24.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 40,
+              "osis_id": "Gen.24.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 41,
+              "osis_id": "Gen.24.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 42,
+              "osis_id": "Gen.24.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 43,
+              "osis_id": "Gen.24.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 44,
+              "osis_id": "Gen.24.044"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 45,
+              "osis_id": "Gen.24.045"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 46,
+              "osis_id": "Gen.24.046"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 47,
+              "osis_id": "Gen.24.047"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 48,
+              "osis_id": "Gen.24.048"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 49,
+              "osis_id": "Gen.24.049"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 50,
+              "osis_id": "Gen.24.050"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 51,
+              "osis_id": "Gen.24.051"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 52,
+              "osis_id": "Gen.24.052"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 53,
+              "osis_id": "Gen.24.053"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 54,
+              "osis_id": "Gen.24.054"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 55,
+              "osis_id": "Gen.24.055"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 56,
+              "osis_id": "Gen.24.056"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 57,
+              "osis_id": "Gen.24.057"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 58,
+              "osis_id": "Gen.24.058"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 59,
+              "osis_id": "Gen.24.059"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 60,
+              "osis_id": "Gen.24.060"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 61,
+              "osis_id": "Gen.24.061"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 62,
+              "osis_id": "Gen.24.062"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 63,
+              "osis_id": "Gen.24.063"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 64,
+              "osis_id": "Gen.24.064"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 65,
+              "osis_id": "Gen.24.065"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 66,
+              "osis_id": "Gen.24.066"
+            },
+            {
+              "book": "Gen",
+              "chapter": 24,
+              "verse": 67,
+              "osis_id": "Gen.24.067"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 25,
+              "osis_id": "Gen.26.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 26,
+              "osis_id": "Gen.26.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 27,
+              "osis_id": "Gen.26.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 28,
+              "osis_id": "Gen.26.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 29,
+              "osis_id": "Gen.26.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 30,
+              "osis_id": "Gen.26.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 31,
+              "osis_id": "Gen.26.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 32,
+              "osis_id": "Gen.26.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 33,
+              "osis_id": "Gen.26.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 34,
+              "osis_id": "Gen.26.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 26,
+              "verse": 35,
+              "osis_id": "Gen.26.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 21,
+              "osis_id": "Gen.27.021"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 22,
+              "osis_id": "Gen.27.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 23,
+              "osis_id": "Gen.27.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 24,
+              "osis_id": "Gen.27.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 25,
+              "osis_id": "Gen.27.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 26,
+              "osis_id": "Gen.27.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 27,
+              "osis_id": "Gen.27.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 28,
+              "osis_id": "Gen.27.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 29,
+              "osis_id": "Gen.27.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 30,
+              "osis_id": "Gen.27.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 31,
+              "osis_id": "Gen.27.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 32,
+              "osis_id": "Gen.27.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 33,
+              "osis_id": "Gen.27.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 34,
+              "osis_id": "Gen.27.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 35,
+              "osis_id": "Gen.27.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 36,
+              "osis_id": "Gen.27.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 37,
+              "osis_id": "Gen.27.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 38,
+              "osis_id": "Gen.27.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 39,
+              "osis_id": "Gen.27.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 40,
+              "osis_id": "Gen.27.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 41,
+              "osis_id": "Gen.27.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 42,
+              "osis_id": "Gen.27.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 43,
+              "osis_id": "Gen.27.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 44,
+              "osis_id": "Gen.27.044"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 45,
+              "osis_id": "Gen.27.045"
+            },
+            {
+              "book": "Gen",
+              "chapter": 27,
+              "verse": 46,
+              "osis_id": "Gen.27.046"
+            },
+            {
+              "book": "Gen",
+              "chapter": 29,
+              "verse": 35,
+              "osis_id": "Gen.29.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 36,
+              "osis_id": "Gen.30.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 37,
+              "osis_id": "Gen.30.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 38,
+              "osis_id": "Gen.30.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 39,
+              "osis_id": "Gen.30.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 40,
+              "osis_id": "Gen.30.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 41,
+              "osis_id": "Gen.30.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 42,
+              "osis_id": "Gen.30.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 30,
+              "verse": 43,
+              "osis_id": "Gen.30.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 47,
+              "osis_id": "Gen.31.047"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 48,
+              "osis_id": "Gen.31.048"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 49,
+              "osis_id": "Gen.31.049"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 50,
+              "osis_id": "Gen.31.050"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 51,
+              "osis_id": "Gen.31.051"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 52,
+              "osis_id": "Gen.31.052"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 53,
+              "osis_id": "Gen.31.053"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 54,
+              "osis_id": "Gen.31.054"
+            },
+            {
+              "book": "Gen",
+              "chapter": 31,
+              "verse": 55,
+              "osis_id": "Gen.31.055"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 23,
+              "osis_id": "Gen.32.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 24,
+              "osis_id": "Gen.32.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 25,
+              "osis_id": "Gen.32.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 26,
+              "osis_id": "Gen.32.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 27,
+              "osis_id": "Gen.32.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 28,
+              "osis_id": "Gen.32.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 29,
+              "osis_id": "Gen.32.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 30,
+              "osis_id": "Gen.32.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 31,
+              "osis_id": "Gen.32.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 32,
+              "verse": 32,
+              "osis_id": "Gen.32.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 33,
+              "osis_id": "Gen.36.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 34,
+              "osis_id": "Gen.36.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 35,
+              "osis_id": "Gen.36.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 36,
+              "osis_id": "Gen.36.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 37,
+              "osis_id": "Gen.36.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 38,
+              "osis_id": "Gen.36.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 39,
+              "osis_id": "Gen.36.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 40,
+              "osis_id": "Gen.36.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 41,
+              "osis_id": "Gen.36.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 42,
+              "osis_id": "Gen.36.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 36,
+              "verse": 43,
+              "osis_id": "Gen.36.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 21,
+              "osis_id": "Gen.37.021"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 22,
+              "osis_id": "Gen.37.022"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 23,
+              "osis_id": "Gen.37.023"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 24,
+              "osis_id": "Gen.37.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 25,
+              "osis_id": "Gen.37.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 26,
+              "osis_id": "Gen.37.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 27,
+              "osis_id": "Gen.37.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 28,
+              "osis_id": "Gen.37.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 29,
+              "osis_id": "Gen.37.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 30,
+              "osis_id": "Gen.37.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 31,
+              "osis_id": "Gen.37.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 32,
+              "osis_id": "Gen.37.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 33,
+              "osis_id": "Gen.37.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 34,
+              "osis_id": "Gen.37.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 35,
+              "osis_id": "Gen.37.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 37,
+              "verse": 36,
+              "osis_id": "Gen.37.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 37,
+              "osis_id": "Gen.41.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 38,
+              "osis_id": "Gen.41.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 39,
+              "osis_id": "Gen.41.039"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 40,
+              "osis_id": "Gen.41.040"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 41,
+              "osis_id": "Gen.41.041"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 42,
+              "osis_id": "Gen.41.042"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 43,
+              "osis_id": "Gen.41.043"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 44,
+              "osis_id": "Gen.41.044"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 45,
+              "osis_id": "Gen.41.045"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 46,
+              "osis_id": "Gen.41.046"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 47,
+              "osis_id": "Gen.41.047"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 48,
+              "osis_id": "Gen.41.048"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 49,
+              "osis_id": "Gen.41.049"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 50,
+              "osis_id": "Gen.41.050"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 51,
+              "osis_id": "Gen.41.051"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 52,
+              "osis_id": "Gen.41.052"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 53,
+              "osis_id": "Gen.41.053"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 54,
+              "osis_id": "Gen.41.054"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 55,
+              "osis_id": "Gen.41.055"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 56,
+              "osis_id": "Gen.41.056"
+            },
+            {
+              "book": "Gen",
+              "chapter": 41,
+              "verse": 57,
+              "osis_id": "Gen.41.057"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 31,
+              "osis_id": "Gen.42.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 32,
+              "osis_id": "Gen.42.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 33,
+              "osis_id": "Gen.42.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 34,
+              "osis_id": "Gen.42.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 35,
+              "osis_id": "Gen.42.035"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 36,
+              "osis_id": "Gen.42.036"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 37,
+              "osis_id": "Gen.42.037"
+            },
+            {
+              "book": "Gen",
+              "chapter": 42,
+              "verse": 38,
+              "osis_id": "Gen.42.038"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 24,
+              "osis_id": "Gen.43.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 25,
+              "osis_id": "Gen.43.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 26,
+              "osis_id": "Gen.43.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 27,
+              "osis_id": "Gen.43.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 28,
+              "osis_id": "Gen.43.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 29,
+              "osis_id": "Gen.43.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 30,
+              "osis_id": "Gen.43.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 31,
+              "osis_id": "Gen.43.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 32,
+              "osis_id": "Gen.43.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 33,
+              "osis_id": "Gen.43.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 43,
+              "verse": 34,
+              "osis_id": "Gen.43.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 24,
+              "osis_id": "Gen.44.024"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 25,
+              "osis_id": "Gen.44.025"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 26,
+              "osis_id": "Gen.44.026"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 27,
+              "osis_id": "Gen.44.027"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 28,
+              "osis_id": "Gen.44.028"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 29,
+              "osis_id": "Gen.44.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 30,
+              "osis_id": "Gen.44.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 31,
+              "osis_id": "Gen.44.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 32,
+              "osis_id": "Gen.44.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 33,
+              "osis_id": "Gen.44.033"
+            },
+            {
+              "book": "Gen",
+              "chapter": 44,
+              "verse": 34,
+              "osis_id": "Gen.44.034"
+            },
+            {
+              "book": "Gen",
+              "chapter": 49,
+              "verse": 29,
+              "osis_id": "Gen.49.029"
+            },
+            {
+              "book": "Gen",
+              "chapter": 49,
+              "verse": 30,
+              "osis_id": "Gen.49.030"
+            },
+            {
+              "book": "Gen",
+              "chapter": 49,
+              "verse": 31,
+              "osis_id": "Gen.49.031"
+            },
+            {
+              "book": "Gen",
+              "chapter": 49,
+              "verse": 32,
+              "osis_id": "Gen.49.032"
+            },
+            {
+              "book": "Gen",
+              "chapter": 49,
+              "verse": 33,
+              "osis_id": "Gen.49.033"
+            }
+          ]
+        },
+        "quality_issues": {
+          "duplicates": []
+        },
+        "errors": [
+          "Missing verse: Gen.13.019",
+          "Missing verse: Gen.13.020",
+          "Missing verse: Gen.13.021",
+          "Missing verse: Gen.13.022",
+          "Missing verse: Gen.13.023",
+          "Missing verse: Gen.13.024",
+          "Missing verse: Gen.13.025",
+          "Missing verse: Gen.13.026",
+          "Missing verse: Gen.13.027",
+          "Missing verse: Gen.13.028",
+          "Missing verse: Gen.13.029",
+          "Missing verse: Gen.15.022",
+          "Missing verse: Gen.15.023",
+          "Missing verse: Gen.16.017",
+          "Missing verse: Gen.16.018",
+          "Missing verse: Gen.16.019",
+          "Missing verse: Gen.16.020",
+          "Missing verse: Gen.22.025",
+          "Missing verse: Gen.22.026",
+          "Missing verse: Gen.22.027",
+          "Missing verse: Gen.22.028",
+          "Missing verse: Gen.22.029",
+          "Missing verse: Gen.22.030",
+          "Missing verse: Gen.22.031",
+          "Missing verse: Gen.22.032",
+          "Missing verse: Gen.22.033",
+          "Missing verse: Gen.23.021",
+          "Missing verse: Gen.23.022",
+          "Missing verse: Gen.23.023",
+          "Missing verse: Gen.23.024",
+          "Missing verse: Gen.23.025",
+          "Missing verse: Gen.23.026",
+          "Missing verse: Gen.23.027",
+          "Missing verse: Gen.23.028",
+          "Missing verse: Gen.23.029",
+          "Missing verse: Gen.23.030",
+          "Missing verse: Gen.23.031",
+          "Missing verse: Gen.23.032",
+          "Missing verse: Gen.23.033",
+          "Missing verse: Gen.23.034",
+          "Missing verse: Gen.23.035",
+          "Missing verse: Gen.23.036",
+          "Missing verse: Gen.23.037",
+          "Missing verse: Gen.23.038",
+          "Missing verse: Gen.28.023",
+          "Missing verse: Gen.28.024",
+          "Missing verse: Gen.28.025",
+          "Missing verse: Gen.28.026",
+          "Missing verse: Gen.28.027",
+          "Missing verse: Gen.28.028",
+          "Missing verse: Gen.28.029",
+          "Missing verse: Gen.28.030",
+          "Missing verse: Gen.28.031",
+          "Missing verse: Gen.28.032",
+          "Missing verse: Gen.28.033",
+          "Missing verse: Gen.28.034",
+          "Missing verse: Gen.28.035",
+          "Missing verse: Gen.28.036",
+          "Missing verse: Gen.28.037",
+          "Missing verse: Gen.28.038",
+          "Missing verse: Gen.28.039",
+          "Missing verse: Gen.28.040",
+          "Missing verse: Gen.28.041",
+          "Missing verse: Gen.28.042",
+          "Missing verse: Gen.28.043",
+          "Missing verse: Gen.28.044",
+          "Missing verse: Gen.28.045",
+          "Missing verse: Gen.28.046",
+          "Missing verse: Gen.28.047",
+          "Missing verse: Gen.28.048",
+          "Missing verse: Gen.28.049",
+          "Missing verse: Gen.28.050",
+          "Missing verse: Gen.28.051",
+          "Missing verse: Gen.28.052",
+          "Missing verse: Gen.28.053",
+          "Missing verse: Gen.28.054",
+          "Missing verse: Gen.28.055",
+          "Missing verse: Gen.28.056",
+          "Missing verse: Gen.28.057",
+          "Missing verse: Gen.28.058",
+          "Missing verse: Gen.28.059",
+          "Missing verse: Gen.28.060",
+          "Missing verse: Gen.28.061",
+          "Missing verse: Gen.28.062",
+          "Missing verse: Gen.28.063",
+          "Missing verse: Gen.28.064",
+          "Missing verse: Gen.28.065",
+          "Missing verse: Gen.28.066",
+          "Missing verse: Gen.28.067",
+          "Missing verse: Gen.33.021",
+          "Missing verse: Gen.33.022",
+          "Missing verse: Gen.33.023",
+          "Missing verse: Gen.33.024",
+          "Missing verse: Gen.33.025",
+          "Missing verse: Gen.33.026",
+          "Missing verse: Gen.33.027",
+          "Missing verse: Gen.33.028",
+          "Missing verse: Gen.33.029",
+          "Missing verse: Gen.33.030",
+          "Missing verse: Gen.33.031",
+          "Missing verse: Gen.33.032",
+          "Missing verse: Gen.33.033",
+          "Missing verse: Gen.33.034",
+          "Missing verse: Gen.33.035",
+          "Missing verse: Gen.34.032",
+          "Missing verse: Gen.34.033",
+          "Missing verse: Gen.34.034",
+          "Missing verse: Gen.34.035",
+          "Missing verse: Gen.34.036",
+          "Missing verse: Gen.34.037",
+          "Missing verse: Gen.34.038",
+          "Missing verse: Gen.34.039",
+          "Missing verse: Gen.34.040",
+          "Missing verse: Gen.34.041",
+          "Missing verse: Gen.34.042",
+          "Missing verse: Gen.34.043",
+          "Missing verse: Gen.35.030",
+          "Missing verse: Gen.35.031",
+          "Missing verse: Gen.35.032",
+          "Missing verse: Gen.35.033",
+          "Missing verse: Gen.35.034",
+          "Missing verse: Gen.35.035",
+          "Missing verse: Gen.35.036",
+          "Missing verse: Gen.35.037",
+          "Missing verse: Gen.35.038",
+          "Missing verse: Gen.35.039",
+          "Missing verse: Gen.35.040",
+          "Missing verse: Gen.35.041",
+          "Missing verse: Gen.35.042",
+          "Missing verse: Gen.35.043",
+          "Missing verse: Gen.35.044",
+          "Missing verse: Gen.35.045",
+          "Missing verse: Gen.35.046",
+          "Missing verse: Gen.35.047",
+          "Missing verse: Gen.35.048",
+          "Missing verse: Gen.35.049",
+          "Missing verse: Gen.35.050",
+          "Missing verse: Gen.35.051",
+          "Missing verse: Gen.35.052",
+          "Missing verse: Gen.35.053",
+          "Missing verse: Gen.35.054",
+          "Missing verse: Gen.35.055",
+          "Missing verse: Gen.38.031",
+          "Missing verse: Gen.39.024",
+          "Missing verse: Gen.39.025",
+          "Missing verse: Gen.39.026",
+          "Missing verse: Gen.39.027",
+          "Missing verse: Gen.39.028",
+          "Missing verse: Gen.39.029",
+          "Missing verse: Gen.40.024",
+          "Missing verse: Gen.40.025",
+          "Missing verse: Gen.40.026",
+          "Missing verse: Gen.40.027",
+          "Missing verse: Gen.40.028",
+          "Missing verse: Gen.40.029",
+          "Missing verse: Gen.40.030",
+          "Missing verse: Gen.40.031",
+          "Missing verse: Gen.40.032",
+          "Missing verse: Gen.40.033",
+          "Missing verse: Gen.40.034",
+          "Missing verse: Gen.40.035",
+          "Missing verse: Gen.40.036",
+          "Missing verse: Gen.40.037",
+          "Missing verse: Gen.40.038",
+          "Missing verse: Gen.40.039",
+          "Missing verse: Gen.40.040",
+          "Missing verse: Gen.40.041",
+          "Missing verse: Gen.40.042",
+          "Missing verse: Gen.40.043",
+          "Missing verse: Gen.45.029",
+          "Missing verse: Gen.45.030",
+          "Missing verse: Gen.45.031",
+          "Missing verse: Gen.45.032",
+          "Missing verse: Gen.45.033",
+          "Missing verse: Gen.45.034",
+          "Missing verse: Gen.45.035",
+          "Missing verse: Gen.45.036",
+          "Missing verse: Gen.45.037",
+          "Missing verse: Gen.45.038",
+          "Missing verse: Gen.45.039",
+          "Missing verse: Gen.45.040",
+          "Missing verse: Gen.45.041",
+          "Missing verse: Gen.45.042",
+          "Missing verse: Gen.45.043",
+          "Missing verse: Gen.45.044",
+          "Missing verse: Gen.45.045",
+          "Missing verse: Gen.45.046",
+          "Missing verse: Gen.45.047",
+          "Missing verse: Gen.45.048",
+          "Missing verse: Gen.45.049",
+          "Missing verse: Gen.45.050",
+          "Missing verse: Gen.45.051",
+          "Missing verse: Gen.45.052",
+          "Missing verse: Gen.45.053",
+          "Missing verse: Gen.45.054",
+          "Missing verse: Gen.45.055",
+          "Missing verse: Gen.45.056",
+          "Missing verse: Gen.45.057",
+          "Missing verse: Gen.46.035",
+          "Missing verse: Gen.46.036",
+          "Missing verse: Gen.46.037",
+          "Missing verse: Gen.46.038",
+          "Missing verse: Gen.47.032",
+          "Missing verse: Gen.47.033",
+          "Missing verse: Gen.47.034",
+          "Missing verse: Gen.48.023",
+          "Missing verse: Gen.48.024",
+          "Missing verse: Gen.48.025",
+          "Missing verse: Gen.48.026",
+          "Missing verse: Gen.48.027",
+          "Missing verse: Gen.48.028",
+          "Missing verse: Gen.48.029",
+          "Missing verse: Gen.48.030",
+          "Missing verse: Gen.48.031",
+          "Missing verse: Gen.48.032",
+          "Missing verse: Gen.48.033",
+          "Missing verse: Gen.48.034",
+          "Missing verse: Gen.50.027",
+          "Missing verse: Gen.50.028",
+          "Missing verse: Gen.50.029",
+          "Missing verse: Gen.50.030",
+          "Missing verse: Gen.50.031",
+          "Missing verse: Gen.50.032",
+          "Missing verse: Gen.50.033",
+          "Missing verse: Gen.50.034",
+          "Missing 225 verses total"
+        ],
+        "warnings": [
+          "Extra verse: Gen.12.019",
+          "Extra verse: Gen.12.020",
+          "Extra verse: Gen.14.024",
+          "Extra verse: Gen.17.019",
+          "Extra verse: Gen.17.020",
+          "Extra verse: Gen.17.021",
+          "Extra verse: Gen.17.022",
+          "Extra verse: Gen.17.023",
+          "Extra verse: Gen.17.024",
+          "Extra verse: Gen.17.025",
+          "Extra verse: Gen.17.026",
+          "Extra verse: Gen.17.027",
+          "Extra verse: Gen.18.025",
+          "Extra verse: Gen.18.026",
+          "Extra verse: Gen.18.027",
+          "Extra verse: Gen.18.028",
+          "Extra verse: Gen.18.029",
+          "Extra verse: Gen.18.030",
+          "Extra verse: Gen.18.031",
+          "Extra verse: Gen.18.032",
+          "Extra verse: Gen.18.033",
+          "Extra verse: Gen.19.022",
+          "Extra verse: Gen.19.023",
+          "Extra verse: Gen.19.024",
+          "Extra verse: Gen.19.025",
+          "Extra verse: Gen.19.026",
+          "Extra verse: Gen.19.027",
+          "Extra verse: Gen.19.028",
+          "Extra verse: Gen.19.029",
+          "Extra verse: Gen.19.030",
+          "Extra verse: Gen.19.031",
+          "Extra verse: Gen.19.032",
+          "Extra verse: Gen.19.033",
+          "Extra verse: Gen.19.034",
+          "Extra verse: Gen.19.035",
+          "Extra verse: Gen.19.036",
+          "Extra verse: Gen.19.037",
+          "Extra verse: Gen.19.038",
+          "Extra verse: Gen.20.017",
+          "Extra verse: Gen.20.018",
+          "Extra verse: Gen.21.028",
+          "Extra verse: Gen.21.029",
+          "Extra verse: Gen.21.030",
+          "Extra verse: Gen.21.031",
+          "Extra verse: Gen.21.032",
+          "Extra verse: Gen.21.033",
+          "Extra verse: Gen.21.034",
+          "Extra verse: Gen.24.019",
+          "Extra verse: Gen.24.020",
+          "Extra verse: Gen.24.021",
+          "Extra verse: Gen.24.022",
+          "Extra verse: Gen.24.023",
+          "Extra verse: Gen.24.024",
+          "Extra verse: Gen.24.025",
+          "Extra verse: Gen.24.026",
+          "Extra verse: Gen.24.027",
+          "Extra verse: Gen.24.028",
+          "Extra verse: Gen.24.029",
+          "Extra verse: Gen.24.030",
+          "Extra verse: Gen.24.031",
+          "Extra verse: Gen.24.032",
+          "Extra verse: Gen.24.033",
+          "Extra verse: Gen.24.034",
+          "Extra verse: Gen.24.035",
+          "Extra verse: Gen.24.036",
+          "Extra verse: Gen.24.037",
+          "Extra verse: Gen.24.038",
+          "Extra verse: Gen.24.039",
+          "Extra verse: Gen.24.040",
+          "Extra verse: Gen.24.041",
+          "Extra verse: Gen.24.042",
+          "Extra verse: Gen.24.043",
+          "Extra verse: Gen.24.044",
+          "Extra verse: Gen.24.045",
+          "Extra verse: Gen.24.046",
+          "Extra verse: Gen.24.047",
+          "Extra verse: Gen.24.048",
+          "Extra verse: Gen.24.049",
+          "Extra verse: Gen.24.050",
+          "Extra verse: Gen.24.051",
+          "Extra verse: Gen.24.052",
+          "Extra verse: Gen.24.053",
+          "Extra verse: Gen.24.054",
+          "Extra verse: Gen.24.055",
+          "Extra verse: Gen.24.056",
+          "Extra verse: Gen.24.057",
+          "Extra verse: Gen.24.058",
+          "Extra verse: Gen.24.059",
+          "Extra verse: Gen.24.060",
+          "Extra verse: Gen.24.061",
+          "Extra verse: Gen.24.062",
+          "Extra verse: Gen.24.063",
+          "Extra verse: Gen.24.064",
+          "Extra verse: Gen.24.065",
+          "Extra verse: Gen.24.066",
+          "Extra verse: Gen.24.067",
+          "Extra verse: Gen.26.025",
+          "Extra verse: Gen.26.026",
+          "Extra verse: Gen.26.027",
+          "Extra verse: Gen.26.028",
+          "Extra verse: Gen.26.029",
+          "Extra verse: Gen.26.030",
+          "Extra verse: Gen.26.031",
+          "Extra verse: Gen.26.032",
+          "Extra verse: Gen.26.033",
+          "Extra verse: Gen.26.034",
+          "Extra verse: Gen.26.035",
+          "Extra verse: Gen.27.021",
+          "Extra verse: Gen.27.022",
+          "Extra verse: Gen.27.023",
+          "Extra verse: Gen.27.024",
+          "Extra verse: Gen.27.025",
+          "Extra verse: Gen.27.026",
+          "Extra verse: Gen.27.027",
+          "Extra verse: Gen.27.028",
+          "Extra verse: Gen.27.029",
+          "Extra verse: Gen.27.030",
+          "Extra verse: Gen.27.031",
+          "Extra verse: Gen.27.032",
+          "Extra verse: Gen.27.033",
+          "Extra verse: Gen.27.034",
+          "Extra verse: Gen.27.035",
+          "Extra verse: Gen.27.036",
+          "Extra verse: Gen.27.037",
+          "Extra verse: Gen.27.038",
+          "Extra verse: Gen.27.039",
+          "Extra verse: Gen.27.040",
+          "Extra verse: Gen.27.041",
+          "Extra verse: Gen.27.042",
+          "Extra verse: Gen.27.043",
+          "Extra verse: Gen.27.044",
+          "Extra verse: Gen.27.045",
+          "Extra verse: Gen.27.046",
+          "Extra verse: Gen.29.035",
+          "Extra verse: Gen.30.036",
+          "Extra verse: Gen.30.037",
+          "Extra verse: Gen.30.038",
+          "Extra verse: Gen.30.039",
+          "Extra verse: Gen.30.040",
+          "Extra verse: Gen.30.041",
+          "Extra verse: Gen.30.042",
+          "Extra verse: Gen.30.043",
+          "Extra verse: Gen.31.047",
+          "Extra verse: Gen.31.048",
+          "Extra verse: Gen.31.049",
+          "Extra verse: Gen.31.050",
+          "Extra verse: Gen.31.051",
+          "Extra verse: Gen.31.052",
+          "Extra verse: Gen.31.053",
+          "Extra verse: Gen.31.054",
+          "Extra verse: Gen.31.055",
+          "Extra verse: Gen.32.023",
+          "Extra verse: Gen.32.024",
+          "Extra verse: Gen.32.025",
+          "Extra verse: Gen.32.026",
+          "Extra verse: Gen.32.027",
+          "Extra verse: Gen.32.028",
+          "Extra verse: Gen.32.029",
+          "Extra verse: Gen.32.030",
+          "Extra verse: Gen.32.031",
+          "Extra verse: Gen.32.032",
+          "Extra verse: Gen.36.033",
+          "Extra verse: Gen.36.034",
+          "Extra verse: Gen.36.035",
+          "Extra verse: Gen.36.036",
+          "Extra verse: Gen.36.037",
+          "Extra verse: Gen.36.038",
+          "Extra verse: Gen.36.039",
+          "Extra verse: Gen.36.040",
+          "Extra verse: Gen.36.041",
+          "Extra verse: Gen.36.042",
+          "Extra verse: Gen.36.043",
+          "Extra verse: Gen.37.021",
+          "Extra verse: Gen.37.022",
+          "Extra verse: Gen.37.023",
+          "Extra verse: Gen.37.024",
+          "Extra verse: Gen.37.025",
+          "Extra verse: Gen.37.026",
+          "Extra verse: Gen.37.027",
+          "Extra verse: Gen.37.028",
+          "Extra verse: Gen.37.029",
+          "Extra verse: Gen.37.030",
+          "Extra verse: Gen.37.031",
+          "Extra verse: Gen.37.032",
+          "Extra verse: Gen.37.033",
+          "Extra verse: Gen.37.034",
+          "Extra verse: Gen.37.035",
+          "Extra verse: Gen.37.036",
+          "Extra verse: Gen.41.037",
+          "Extra verse: Gen.41.038",
+          "Extra verse: Gen.41.039",
+          "Extra verse: Gen.41.040",
+          "Extra verse: Gen.41.041",
+          "Extra verse: Gen.41.042",
+          "Extra verse: Gen.41.043",
+          "Extra verse: Gen.41.044",
+          "Extra verse: Gen.41.045",
+          "Extra verse: Gen.41.046",
+          "Extra verse: Gen.41.047",
+          "Extra verse: Gen.41.048",
+          "Extra verse: Gen.41.049",
+          "Extra verse: Gen.41.050",
+          "Extra verse: Gen.41.051",
+          "Extra verse: Gen.41.052",
+          "Extra verse: Gen.41.053",
+          "Extra verse: Gen.41.054",
+          "Extra verse: Gen.41.055",
+          "Extra verse: Gen.41.056",
+          "Extra verse: Gen.41.057",
+          "Extra verse: Gen.42.031",
+          "Extra verse: Gen.42.032",
+          "Extra verse: Gen.42.033",
+          "Extra verse: Gen.42.034",
+          "Extra verse: Gen.42.035",
+          "Extra verse: Gen.42.036",
+          "Extra verse: Gen.42.037",
+          "Extra verse: Gen.42.038",
+          "Extra verse: Gen.43.024",
+          "Extra verse: Gen.43.025",
+          "Extra verse: Gen.43.026",
+          "Extra verse: Gen.43.027",
+          "Extra verse: Gen.43.028",
+          "Extra verse: Gen.43.029",
+          "Extra verse: Gen.43.030",
+          "Extra verse: Gen.43.031",
+          "Extra verse: Gen.43.032",
+          "Extra verse: Gen.43.033",
+          "Extra verse: Gen.43.034",
+          "Extra verse: Gen.44.024",
+          "Extra verse: Gen.44.025",
+          "Extra verse: Gen.44.026",
+          "Extra verse: Gen.44.027",
+          "Extra verse: Gen.44.028",
+          "Extra verse: Gen.44.029",
+          "Extra verse: Gen.44.030",
+          "Extra verse: Gen.44.031",
+          "Extra verse: Gen.44.032",
+          "Extra verse: Gen.44.033",
+          "Extra verse: Gen.44.034",
+          "Extra verse: Gen.49.029",
+          "Extra verse: Gen.49.030",
+          "Extra verse: Gen.49.031",
+          "Extra verse: Gen.49.032",
+          "Extra verse: Gen.49.033",
+          "Extra book found: Josh",
+          "Extra book found: Judg",
+          "Extra book found: Ruth",
+          "Extra book found: 1Sam",
+          "Extra book found: 2Sam",
+          "Extra book found: 1Kgs",
+          "Extra book found: 2Kgs",
+          "Extra book found: 1Chr",
+          "Extra book found: 2Chr",
+          "Extra book found: Ezra",
+          "Extra book found: Neh",
+          "Extra book found: Esth",
+          "Extra book found: Job",
+          "Extra book found: Prov",
+          "Extra book found: Eccl",
+          "Extra book found: Song",
+          "Extra book found: Isa",
+          "Extra book found: Jer",
+          "Extra book found: Ezek",
+          "Extra book found: Dan",
+          "Extra book found: Hos",
+          "Extra book found: Joel",
+          "Extra book found: Amos",
+          "Extra book found: Obad",
+          "Extra book found: Jonah",
+          "Extra book found: Mic",
+          "Extra book found: Nah",
+          "Extra book found: Hab",
+          "Extra book found: Zeph",
+          "Extra book found: Hag",
+          "Extra book found: Zech",
+          "Extra book found: Mal",
+          "Extra book found: Acts",
+          "Extra book found: Rom",
+          "Extra book found: 1Cor",
+          "Extra book found: 2Cor",
+          "Extra book found: Gal",
+          "Extra book found: Eph",
+          "Extra book found: Phil",
+          "Extra book found: Col",
+          "Extra book found: 1Thess",
+          "Extra book found: 2Thess",
+          "Extra book found: 1Tim",
+          "Extra book found: 2Tim",
+          "Extra book found: Titus",
+          "Extra book found: Phlm",
+          "Extra book found: Heb",
+          "Extra book found: Jas",
+          "Extra book found: 1Pet",
+          "Extra book found: 2Pet",
+          "Extra book found: 1John",
+          "Extra book found: 2John",
+          "Extra book found: Jude",
+          "Extra book found: Rev"
+        ],
+        "recommendations": [
+          "CRITICAL: 225 missing verses. Check source text quality.",
+          "WARNING: 244 extra verses. Verify source accuracy.",
+          "Coverage at 97.66%. Aim for 100% before embedding.",
+          "\u274c Fix all CRITICAL errors before proceeding to embedding."
+        ]
+      },
+      "time_seconds": 0.006694793701171875
+    },
+    "stage_3": {
+      "name": "Hierarchical Chunking",
+      "verse_chunks": 28517,
+      "pericope_chunks": 9161,
+      "chapter_chunks": 1033,
+      "total_chunks": 38711,
+      "time_seconds": 0.06700778007507324
+    },
+    "stage_4": {
+      "name": "Save Chunks",
+      "files_created": 3,
+      "time_seconds": 0.44806504249572754
+    },
+    "stage_5": {
+      "name": "Quality Assessment",
+      "quality_score": 0,
+      "coverage_quality": 91.68863738666325,
+      "total_chunks": 38711,
+      "time_seconds": 1.4066696166992188e-05
+    }
+  },
+  "success": true,
+  "total_time": 0.8678674697875977
+}
