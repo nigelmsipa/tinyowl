@@ -177,8 +177,14 @@ def load_scope(scope: str) -> List[Path]:
                 files.append(p)
     else:
         seen: set[str] = set()
-        # from raw dir
-        for p in RAW_DIR.glob("*.pdf"):
+        # Put COA first in a consistent order
+        for name in COA_FILES:
+            p = RAW_DIR / name
+            if p.exists():
+                files.append(p)
+                seen.add(p.name.lower())
+        # then from raw dir (excluding COA)
+        for p in sorted(RAW_DIR.glob("*.pdf")):
             key = p.name.lower()
             if key in seen:
                 continue
@@ -186,7 +192,7 @@ def load_scope(scope: str) -> List[Path]:
             files.append(p)
         # from downloads SOP dir
         if DL_SOP_DIR.exists():
-            for p in DL_SOP_DIR.glob("*.pdf"):
+            for p in sorted(DL_SOP_DIR.glob("*.pdf")):
                 key = p.name.lower()
                 if key in seen:
                     continue
@@ -229,6 +235,8 @@ def add_docs(col, docs: List[str], metas: List[Dict], batch: int = 96, start_ind
 def main() -> None:
     ap = argparse.ArgumentParser(description="Ingest SOP PDFs into paragraph/chapter collections")
     ap.add_argument("--scope", choices=["coa", "all"], default="coa")
+    ap.add_argument("--recreate", action="store_true", help="Backup + recreate SOP collections before embedding")
+    ap.add_argument("--batch", type=int, default=int(__import__('os').environ.get('TINYOWL_SOP_BATCH', '96')), help="Embedding batch size (default from env TINYOWL_SOP_BATCH or 96)")
     args = ap.parse_args()
 
     files = load_scope(args.scope)
@@ -240,25 +248,32 @@ def main() -> None:
     client = chromadb.PersistentClient(path=VDB_PATH)
 
     print("\n🗃️  Preparing collections…")
-    # Resume-aware get/create
-    def get_or_create_resume(name: str):
-        try:
-            col = client.get_collection(name)
+    if args.recreate:
+        print("  ♻️  Recreate mode enabled")
+        col_par = recreate(client, "sop_paragraphs", bge_ef)
+        col_chp = recreate(client, "sop_chapters", bge_ef)
+        par_existing = 0
+        chp_existing = 0
+    else:
+        # Resume-aware get/create
+        def get_or_create_resume(name: str):
             try:
-                existing = col.count()
+                col = client.get_collection(name)
+                try:
+                    existing = col.count()
+                except Exception:
+                    existing = 0
+                print(f"  ⚠️ {name} exists with {existing} items (resume)")
+                return col, existing
             except Exception:
-                existing = 0
-            print(f"  ⚠️ {name} exists with {existing} items (resume)")
-            return col, existing
-        except Exception:
-            pass
-        # create new
-        col = client.create_collection(name=name, embedding_function=bge_ef, metadata={"description": name})
-        print(f"  ✅ Created {name}")
-        return col, 0
+                pass
+            # create new
+            col = client.create_collection(name=name, embedding_function=bge_ef, metadata={"description": name})
+            print(f"  ✅ Created {name}")
+            return col, 0
 
-    col_par, par_existing = get_or_create_resume("sop_paragraphs")
-    col_chp, chp_existing = get_or_create_resume("sop_chapters")
+        col_par, par_existing = get_or_create_resume("sop_paragraphs")
+        col_chp, chp_existing = get_or_create_resume("sop_chapters")
 
     all_par_docs: List[str] = []
     all_par_meta: List[Dict] = []
@@ -315,12 +330,12 @@ def main() -> None:
     print("\n⚙️  Embedding paragraphs…")
     if par_existing < len(all_par_docs):
         # resume from par_existing
-        add_docs(col_par, all_par_docs[par_existing:], all_par_meta[par_existing:], start_index=par_existing)
+        add_docs(col_par, all_par_docs[par_existing:], all_par_meta[par_existing:], batch=args.batch, start_index=par_existing)
     else:
         print("  ✅ Up-to-date")
     print("⚙️  Embedding chapters…")
     if chp_existing < len(all_chp_docs):
-        add_docs(col_chp, all_chp_docs[chp_existing:], all_chp_meta[chp_existing:])
+        add_docs(col_chp, all_chp_docs[chp_existing:], all_chp_meta[chp_existing:], batch=args.batch, start_index=chp_existing)
     else:
         print("  ✅ Up-to-date")
 
