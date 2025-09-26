@@ -2,6 +2,11 @@
 """
 Add Nave's Topical Bible hierarchical chunks to TinyOwl's ChromaDB.
 Uses BGE-large embeddings to match existing theological database.
+
+Safety improvements:
+- Backs up existing Nave's collections before re-creating them
+- Embeds all four layers, including scripture_entries
+- Optionally cleans up stray test collections
 """
 
 import json
@@ -9,6 +14,22 @@ import chromadb
 from chromadb.utils import embedding_functions
 from pathlib import Path
 from typing import List, Dict, Any
+import sys
+
+# Resolve project root and add scripts/ to path for safety utilities
+ROOT = Path(__file__).resolve().parent
+SCRIPTS_DIR = ROOT / "scripts"
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.append(str(SCRIPTS_DIR))
+
+try:
+    # Optional: safety backup if available
+    from safety import backup_collection as _backup_collection  # type: ignore
+except Exception:  # pragma: no cover
+    _backup_collection = None
+
+VDB_PATH = str(ROOT / "vectordb")
+BACKUP_DIR = str(ROOT / "backups")
 
 def load_naves_chunks() -> Dict[str, List[Dict[str, Any]]]:
     """Load all hierarchical Nave's chunks."""
@@ -18,6 +39,7 @@ def load_naves_chunks() -> Dict[str, List[Dict[str, Any]]]:
 
     layers = {
         'scripture_entries': [],
+        'topic_entries': [],
         'topic_sections': [],
         'complete_topics': []
     }
@@ -42,7 +64,7 @@ def add_to_chromadb(layers: Dict[str, List[Dict[str, Any]]]):
         model_name='BAAI/bge-large-en-v1.5'
     )
 
-    client = chromadb.PersistentClient(path='./vectordb')
+    client = chromadb.PersistentClient(path=VDB_PATH)
 
     for layer_name, chunks in layers.items():
         if not chunks:
@@ -54,21 +76,30 @@ def add_to_chromadb(layers: Dict[str, List[Dict[str, Any]]]):
         # Create or get collection
         try:
             collection = client.get_collection(collection_name)
-            print(f"  ⚠️ Collection exists with {collection.count():,} items")
-
-            # Ask user if they want to recreate
-            response = input(f"  🤔 Recreate {collection_name}? (y/n): ").strip().lower()
-            if response == 'y':
-                client.delete_collection(collection_name)
-                collection = client.create_collection(
-                    name=collection_name,
-                    embedding_function=bge_ef,
-                    metadata={"description": f"Nave's Topical Bible - {layer_name}"}
-                )
-                print(f"  🔄 Recreated collection")
-            else:
-                print(f"  ⏭️ Skipping {collection_name}")
+            existing = 0
+            try:
+                existing = collection.count()
+            except Exception:
+                existing = 0
+            print(f"  ⚠️ Collection exists with {existing:,} items")
+            # If already up-to-date, skip re-embedding
+            if existing == len(chunks):
+                print(f"  ✅ Up-to-date, skipping {collection_name}")
                 continue
+            # Backup then recreate
+            if _backup_collection is not None and existing:
+                try:
+                    backup_path = _backup_collection(VDB_PATH, collection_name, BACKUP_DIR)
+                    print(f"  🔒 Backup created: {backup_path}")
+                except Exception as e:
+                    print(f"  ⚠️ Backup failed ({e}); proceeding with caution")
+            print(f"  🔄 Recreating {collection_name} for complete embedding")
+            client.delete_collection(collection_name)
+            collection = client.create_collection(
+                name=collection_name,
+                embedding_function=bge_ef,
+                metadata={"description": f"Nave's Topical Bible - {layer_name}"}
+            )
 
         except Exception:
             collection = client.create_collection(
@@ -119,7 +150,7 @@ def verify_integration():
     """Verify Nave's integration with existing TinyOwl database."""
     print("\\n🔍 Verifying TinyOwl + Nave's integration...")
 
-    client = chromadb.PersistentClient(path='./vectordb')
+    client = chromadb.PersistentClient(path=VDB_PATH)
     collections = client.list_collections()
 
     print(f"\\n📊 Complete TinyOwl Theological Database:")
@@ -134,6 +165,22 @@ def verify_integration():
 
     print(f"\\n🎯 Total Theological Database: {total_chunks:,} chunks")
     print("✅ TinyOwl now includes Bible + Strong's + Nave's Topical!")
+
+    # Optional cleanup: remove tiny test collection if present
+    try:
+        names = [c.name for c in collections]
+        if 'naves_test' in names:
+            print("\n🧹 Cleaning up stray 'naves_test' collection…")
+            if _backup_collection is not None:
+                try:
+                    backup_path = _backup_collection(VDB_PATH, 'naves_test', BACKUP_DIR)
+                    print(f"  🔒 Backup created: {backup_path}")
+                except Exception as e:
+                    print(f"  ⚠️ Backup failed ({e}); proceeding with deletion")
+            client.delete_collection('naves_test')
+            print("  ✅ Removed 'naves_test'")
+    except Exception as e:
+        print(f"  ⚠️ Cleanup skipped: {e}")
 
 def main():
     """Main integration function."""

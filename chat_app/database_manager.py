@@ -218,6 +218,7 @@ class DatabaseManager:
                 "kjv_verses", "kjv_pericopes", "kjv_chapters",
                 "web_verses", "web_pericopes", "web_chapters",
                 "strongs_concordance_entries",
+                "sop_paragraphs", "sop_chapters",
             ]:
                 try:
                     col = self.client.get_collection(name)

@@ -55,7 +55,7 @@ class RetrievalRouter:
             'theology_pericopes': ['kjv_pericopes', 'web_pericopes'],
             'theology_chapters': ['kjv_chapters', 'web_chapters'],
             # SOP not yet present; keep placeholder for future sources
-            'sop': []
+            'sop': ['sop_paragraphs', 'sop_chapters']
         }
         
     def _compile_verse_patterns(self) -> List[re.Pattern]:
