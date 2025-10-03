@@ -26,6 +26,7 @@ from .response_formatter import (
     print_keyword_results,
     print_error,
     print_strongs_root,
+    print_semantic_similarity,
 )
 from .command_parser import parse_command
 from .chat_history import ChatHistory
@@ -231,7 +232,7 @@ def main() -> None:
             return True
         # auto heuristic: short, keyword-centric prompts, not commands
         s = (query or "").strip()
-        if not s or s[0] in ("/", "@", "#", "&", "!"):
+        if not s or s[0] in ("/", "@", "#", "&", "!", "~"):
             return False
         toks = [t.strip(".,!?;:\"'()[]{}").lower() for t in s.split() if t.strip()]
         if len(toks) <= 1:
@@ -266,7 +267,17 @@ def main() -> None:
             cmd = parsed.value
             if cmd in ("help",):
                 console.print(
-                    "Commands: /help, /history, /export, /clear, /stats, /mode [name|help|status|default], /ai on|off|toggle|status|models|model <name>|default|help, /model, /prompt [emoji|abbr|none]"
+                    "Commands:\n"
+                    "  /help, /history, /export, /clear, /stats\n"
+                    "  /mode [name|help|status|default], /ai on|off|toggle|status|models|model <name>|default|help\n"
+                    "  /model, /prompt [emoji|abbr|none]\n"
+                    "\nSearches:\n"
+                    "  @word      - Concordance lookup\n"
+                    "  @strong:N  - Strong's number lookup\n"
+                    "  &verse     - Direct verse reference (e.g., &John 3:16)\n"
+                    "  #topic     - Semantic topical search\n"
+                    "  !keyword   - Lexical keyword search\n"
+                    "  ~word      - Find semantically similar words"
                 )
                 continue
             # Short alias for model switching: `/model` acts like `/ai model`
@@ -638,6 +649,14 @@ def main() -> None:
                 {"source": v.source, "osis_id": v.osis_id, "text": v.text} for v in verses
             ])
             history.add_message(session_id, "user", f"&{ref}")
+            continue
+
+        if parsed.kind == "tilde":
+            word = parsed.value
+            with console.status("Finding semantically similar words…", spinner="dots"):
+                similar = db.semantic_word_search(word, limit=10)
+            print_semantic_similarity(word, similar)
+            history.add_message(session_id, "user", f"~{word}")
             continue
 
         if parsed.kind == "hash":

@@ -108,3 +108,31 @@ def print_strongs_root(word: str, entries: List[Dict[str, Any]]) -> None:
             e.get("definition", ""),
         )
     console.print(table)
+
+
+def print_semantic_similarity(word: str, similar_words: List[Dict[str, Any]]) -> None:
+    """Display semantically similar words ranked by vector similarity.
+
+    similar_words: list of {word, similarity}
+    """
+    title = f"Words semantically similar to '{word}'"
+    console.print(Panel.fit(title, title="Semantic Similarity", style="bold magenta"))
+
+    if not similar_words:
+        console.print("[dim]No similar words found[/dim]")
+        return
+
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column("#", style="dim", no_wrap=True)
+    table.add_column("Word", style="cyan", no_wrap=False)
+    table.add_column("Similarity", style="green", no_wrap=True)
+
+    for idx, item in enumerate(similar_words, 1):
+        table.add_row(
+            str(idx),
+            item.get("word", ""),
+            f"{item.get('similarity', 0):.3f}"
+        )
+
+    console.print(table)
+    console.print("\n[dim]💡 Tip: Use @word for concordance or #word for topical search[/dim]")

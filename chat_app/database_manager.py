@@ -323,3 +323,81 @@ class DatabaseManager:
                 "definition": snippet,
             })
         return out
+
+    def semantic_word_search(self, word: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """Find semantically similar words using vector embeddings.
+
+        Returns a list of words ranked by semantic similarity with their similarity scores.
+        """
+        if not self.client:
+            self.connect()
+        if self.client is None:
+            return []
+
+        try:
+            # Ensure we have the embedding model loaded
+            if not self.embedding_model:
+                from sentence_transformers import SentenceTransformer  # type: ignore
+                self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=self.device)
+
+            # Get concordance collection (without specifying embedding function)
+            col = self.client.get_collection(name="strongs_concordance_entries")
+
+            # Manually encode the query with BGE-large (1024 dimensions)
+            query_embedding = self.embedding_model.encode([word], show_progress_bar=False)[0]
+
+            # Query with the embedding vector
+            results = col.query(
+                query_embeddings=[query_embedding.tolist()],
+                n_results=min(200, col.count()),  # Get top 200 results
+                include=["documents", "distances", "metadatas"]
+            )
+
+            if not results or not results.get("documents"):
+                return []
+
+            # Extract unique words from results
+            word_scores: Dict[str, float] = {}
+            stop_words = {"the", "and", "of", "to", "in", "a", "is", "that", "it", "for",
+                         "be", "with", "as", "by", "on", "not", "he", "this", "from",
+                         "but", "they", "have", "was", "his", "which", "their", "said",
+                         "if", "will", "all", "were", "when", "there", "been", "has",
+                         "or", "an", "had", "are", "you", "her", "them", "him", "me",
+                         "my", "i", "she", "your", "we", "so", "at", "one", "into"}
+
+            # Process results to extract meaningful words
+            for doc_list, dist_list, meta_list in zip(
+                results.get("documents", [[]]),
+                results.get("distances", [[]]),
+                results.get("metadatas", [[]])
+            ):
+                for doc, dist, meta in zip(doc_list, dist_list, meta_list):
+                    # Extract the main word from metadata or document
+                    candidate_word = meta.get("word", "").lower().strip()
+
+                    if not candidate_word or candidate_word == word.lower():
+                        continue
+
+                    # Filter out stop words and short words
+                    if candidate_word in stop_words or len(candidate_word) < 3:
+                        continue
+
+                    # Convert distance to similarity (lower distance = higher similarity)
+                    # ChromaDB uses squared L2 distance, so we normalize it
+                    similarity = 1 / (1 + dist)
+
+                    # Keep the highest similarity for each word
+                    if candidate_word not in word_scores or similarity > word_scores[candidate_word]:
+                        word_scores[candidate_word] = similarity
+
+            # Sort by similarity score (descending)
+            sorted_words = sorted(word_scores.items(), key=lambda x: x[1], reverse=True)
+
+            # Return top N results
+            return [
+                {"word": w, "similarity": round(score, 3)}
+                for w, score in sorted_words[:limit]
+            ]
+
+        except Exception:
+            return []

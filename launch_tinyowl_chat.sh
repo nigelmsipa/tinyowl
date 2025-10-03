@@ -11,9 +11,9 @@ TINYOWL_DIR="/home/nigel/tinyowl"
 # Prefer local venvs; fall back to a common path if present
 VENV_PATH=""
 for cand in \
-  "$TINYOWL_DIR/.venv311" \
-  "$TINYOWL_DIR/.venv" \
   "$TINYOWL_DIR/venv" \
+  "$TINYOWL_DIR/.venv" \
+  "$TINYOWL_DIR/.venv311" \
   "$HOME/tinyowl/venv"
 do
   if [[ -d "$cand" ]]; then VENV_PATH="$cand"; break; fi

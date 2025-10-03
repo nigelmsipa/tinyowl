@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 @dataclass
 class ParsedCommand:
-    kind: str  # 'at', 'amp', 'hash', 'slash', 'text'
+    kind: str  # 'at', 'amp', 'hash', 'slash', 'bang', 'tilde', 'text'
     value: str
 
 
@@ -23,4 +23,6 @@ def parse_command(line: str) -> ParsedCommand:
         return ParsedCommand(kind="amp", value=s[1:].strip())
     if s.startswith("#"):
         return ParsedCommand(kind="hash", value=s[1:].strip())
+    if s.startswith("~"):
+        return ParsedCommand(kind="tilde", value=s[1:].strip())
     return ParsedCommand(kind="text", value=s)
