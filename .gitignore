@@ -73,3 +73,9 @@ logs/
 *.onnx
 *.safetensors
 .aider*
+
+# Large chunk files (>10MB) - too big for GitHub
+domains/theology/chunks/sop_*.json
+domains/theology/chunks/secrets_unsealed_*.json
+domains/theology/chunks/*_paragraphs.json
+domains/theology/chunks/*_chapters.json

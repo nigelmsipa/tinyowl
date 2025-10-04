@@ -136,3 +136,67 @@ def print_semantic_similarity(word: str, similar_words: List[Dict[str, Any]]) ->
 
     console.print(table)
     console.print("\n[dim]💡 Tip: Use @word for concordance or #word for topical search[/dim]")
+
+
+def print_concept_similarity(expression: str, payload: Dict[str, Any]) -> None:
+    """Display concept-vector neighbours with seed word details."""
+    title = f"Concept vector for '{expression}'"
+    console.print(Panel.fit(title, title="Concept Vector", style="bold magenta"))
+
+    positives = [w.lower() for w in payload.get("positives", []) if w]
+    negatives = [w.lower() for w in payload.get("negatives", []) if w]
+    results = payload.get("results", [])
+
+    if positives:
+        console.print(f"[cyan]Positive seeds:[/cyan] {', '.join(positives)}")
+    if negatives:
+        console.print(f"[cyan]Negative seeds:[/cyan] {', '.join(negatives)}")
+
+    if not results:
+        console.print("[dim]No neighbouring words found[/dim]")
+        return
+
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column("#", style="dim", no_wrap=True)
+    table.add_column("Word", style="cyan", no_wrap=False)
+    table.add_column("Similarity", style="green", no_wrap=True)
+
+    for idx, item in enumerate(results, 1):
+        table.add_row(
+            str(idx),
+            item.get("word", ""),
+            f"{item.get('similarity', 0):.3f}"
+        )
+
+    console.print(table)
+    console.print("\n[dim]💡 Tip: Mix positives and negatives, e.g., ~concept love+mercy-judgment[/dim]")
+
+
+def print_analogy_results(expression: str, payload: Dict[str, Any]) -> None:
+    """Present analogy-style vector results."""
+    title = f"Analogy vector for '{expression}'"
+    console.print(Panel.fit(title, title="Analogy", style="bold magenta"))
+
+    positives = [w.lower() for w in payload.get("positives", []) if w]
+    negatives = [w.lower() for w in payload.get("negatives", []) if w]
+    results = payload.get("results", [])
+
+    if positives:
+        console.print(f"[cyan]Add:[/cyan] {', '.join(positives)}")
+    if negatives:
+        console.print(f"[cyan]Subtract:[/cyan] {', '.join(negatives)}")
+
+    if not results:
+        console.print("[dim]No candidate words found[/dim]")
+        return
+
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column("#", style="dim", no_wrap=True)
+    table.add_column("Candidate", style="cyan", no_wrap=False)
+    table.add_column("Similarity", style="green", no_wrap=True)
+
+    for idx, item in enumerate(results, 1):
+        table.add_row(str(idx), item.get("word", ""), f"{item.get('similarity', 0):.3f}")
+
+    console.print(table)
+    console.print("\n[dim]💡 Tip: Try patterns like king-man+woman or faith-grace+obedience[/dim]")

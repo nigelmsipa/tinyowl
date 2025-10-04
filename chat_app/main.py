@@ -27,6 +27,8 @@ from .response_formatter import (
     print_error,
     print_strongs_root,
     print_semantic_similarity,
+    print_concept_similarity,
+    print_analogy_results,
 )
 from .command_parser import parse_command
 from .chat_history import ChatHistory
@@ -277,7 +279,9 @@ def main() -> None:
                     "  &verse     - Direct verse reference (e.g., &John 3:16)\n"
                     "  #topic     - Semantic topical search\n"
                     "  !keyword   - Lexical keyword search\n"
-                    "  ~word      - Find semantically similar words"
+                    "  ~word      - Find semantically similar words\n"
+                    "  ~concept A+B-C - Concept vector (positives minus negatives)\n"
+                    "  ~analogy A-B+C - Analogy-style vector math"
                 )
                 continue
             # Short alias for model switching: `/model` acts like `/ai model`
@@ -652,11 +656,41 @@ def main() -> None:
             continue
 
         if parsed.kind == "tilde":
-            word = parsed.value
-            with console.status("Finding semantically similar words…", spinner="dots"):
-                similar = db.semantic_word_search(word, limit=10)
-            print_semantic_similarity(word, similar)
-            history.add_message(session_id, "user", f"~{word}")
+            expr = parsed.value.strip()
+            expr_lower = expr.lower()
+            is_concept = False
+            is_analogy = False
+            concept_expr = expr
+
+            for prefix in ("analogy ", "concept ", "vector "):
+                if expr_lower.startswith(prefix):
+                    is_concept = True
+                    if prefix == "analogy ":
+                        is_analogy = True
+                    concept_expr = expr[len(prefix):].strip()
+                    break
+
+            if not is_concept and any(sym in expr for sym in ('+', '-', ',')):
+                is_concept = True
+
+            if is_concept:
+                if not concept_expr:
+                    print_error("Provide at least one word for concept vector (e.g., ~concept love+mercy).")
+                    continue
+                with console.status("Composing concept vector…", spinner="dots"):
+                    concept = db.concept_word_search(concept_expr, limit=10)
+                if is_analogy or expr_lower.startswith("analogy "):
+                    print_analogy_results(concept_expr, concept)
+                    history.add_message(session_id, "user", f"~analogy {concept_expr}")
+                else:
+                    print_concept_similarity(concept_expr, concept)
+                    history.add_message(session_id, "user", f"~concept {concept_expr}")
+            else:
+                word = expr
+                with console.status("Finding semantically similar words…", spinner="dots"):
+                    similar = db.semantic_word_search(word, limit=10)
+                print_semantic_similarity(word, similar)
+                history.add_message(session_id, "user", f"~{word}")
             continue
 
         if parsed.kind == "hash":

@@ -141,11 +141,12 @@ class RetrievalRouter:
             )
         
         elif query_type == QueryType.DOCTRINAL:
+            # Bias toward SOP for doctrinal questions while keeping Scripture context
             return RetrievalPlan(
                 query_type=query_type,
                 layers=['theology_pericopes', 'theology_chapters', 'sop'],
-                k_values={'theology_pericopes': 8, 'theology_chapters': 4, 'sop': 3},
-                weights={'theology_pericopes': 0.4, 'theology_chapters': 0.3, 'sop': 0.3},
+                k_values={'theology_pericopes': 8, 'theology_chapters': 4, 'sop': 4},
+                weights={'theology_pericopes': 0.30, 'theology_chapters': 0.25, 'sop': 0.45},
                 rerank_top_k=15
             )
         
@@ -341,7 +342,9 @@ class RetrievalRouter:
             results_by_layer, 
             plan.weights
         )
-        
+        # Apply preference boost for key SOP books when available
+        fused_results = self._apply_sop_book_boost(plan.query_type, fused_results)
+
         # Final reranking
         final_results = self.simple_reranker(
             query, 
@@ -350,6 +353,44 @@ class RetrievalRouter:
         )
         
         return final_results
+
+    def _apply_sop_book_boost(self, query_type: QueryType, results: List[SearchResult]) -> List[SearchResult]:
+        """Boost Conflict of the Ages series and Steps to Christ within SOP results.
+
+        Applies a modest additive boost to fused scores for preferred books so they surface more often,
+        without drowning out strong Bible results.
+        """
+        if not results:
+            return results
+
+        # Only boost for doctrinal or explicit SOP queries
+        if query_type not in (QueryType.DOCTRINAL, QueryType.SOP_SPECIFIC):
+            return results
+
+        preferred_keywords = (
+            'patriarchs and prophets',
+            'prophets and kings',
+            'desire of ages',
+            'acts of the apostles',
+            'great controversy',
+            'steps to christ',
+        )
+
+        for r in results:
+            try:
+                if r.source_layer != 'sop':
+                    continue
+                book = ''
+                if isinstance(r.metadata, dict):
+                    book = (r.metadata.get('book') or '').strip()
+                book_lc = book.lower()
+                if any(k in book_lc for k in preferred_keywords):
+                    # Add a small boost; keep it conservative
+                    r.score += 0.15
+            except Exception:
+                # Best-effort only
+                continue
+        return results
 
 
 def test_retrieval_router():

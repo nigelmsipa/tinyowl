@@ -7,6 +7,9 @@ import json
 import sys
 
 import os
+import re
+
+import numpy as np
 
 from .config import (
     DB_PATH,
@@ -41,6 +44,7 @@ class DatabaseManager:
         self.web_by_osis: Dict[str, Dict] = {}
         self.strongs_by_num: Dict[str, Dict] = {}
         self.word_to_strongs: Dict[str, List[str]] = {}
+        self.word_summary_docs: Dict[str, str] = {}
         self.embedding_model: Optional[Any] = None
         self.device: str = "cpu"
         # Try to prepare an embedding model, but don't crash if unavailable
@@ -101,7 +105,6 @@ class DatabaseManager:
                     for item in json.load(f):
                         content = (item.get("content") or "").strip()
                         # Expect patterns like: "Word 'FAITH' — ... Top Strong's: Hxxxx, Gxxxx"
-                        import re
                         mword = re.search(r"Word\s+'([^']+)'", content)
                         mtop = re.search(r"Top Strong's:\s*([HG]\d+(?:\s*,\s*[HG]?\d+)*)", content)
                         if mword and mtop:
@@ -118,6 +121,8 @@ class DatabaseManager:
                                 norm.append(n)
                             if norm:
                                 self.word_to_strongs[w] = norm
+                            if content:
+                                self.word_summary_docs[w] = content
             except Exception:
                 # Non-fatal
                 pass
@@ -340,60 +345,65 @@ class DatabaseManager:
                 from sentence_transformers import SentenceTransformer  # type: ignore
                 self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=self.device)
 
-            # Get concordance collection (without specifying embedding function)
-            col = self.client.get_collection(name="strongs_concordance_entries")
-
-            # Manually encode the query with BGE-large (1024 dimensions)
             query_embedding = self.embedding_model.encode([word], show_progress_bar=False)[0]
 
-            # Query with the embedding vector
-            results = col.query(
-                query_embeddings=[query_embedding.tolist()],
-                n_results=min(200, col.count()),  # Get top 200 results
-                include=["documents", "distances", "metadatas"]
-            )
+            # Prefer definitional summaries; fall back to concordance if unavailable
+            collections_to_try = [
+                "strongs_word_summaries",
+                "strongs_concordance_entries",
+            ]
 
-            if not results or not results.get("documents"):
-                return []
-
-            # Extract unique words from results
-            word_scores: Dict[str, float] = {}
             stop_words = {"the", "and", "of", "to", "in", "a", "is", "that", "it", "for",
-                         "be", "with", "as", "by", "on", "not", "he", "this", "from",
-                         "but", "they", "have", "was", "his", "which", "their", "said",
-                         "if", "will", "all", "were", "when", "there", "been", "has",
-                         "or", "an", "had", "are", "you", "her", "them", "him", "me",
-                         "my", "i", "she", "your", "we", "so", "at", "one", "into"}
+                          "be", "with", "as", "by", "on", "not", "he", "this", "from",
+                          "but", "they", "have", "was", "his", "which", "their", "said",
+                          "if", "will", "all", "were", "when", "there", "been", "has",
+                          "or", "an", "had", "are", "you", "her", "them", "him", "me",
+                          "my", "i", "she", "your", "we", "so", "at", "one", "into"}
 
-            # Process results to extract meaningful words
-            for doc_list, dist_list, meta_list in zip(
-                results.get("documents", [[]]),
-                results.get("distances", [[]]),
-                results.get("metadatas", [[]])
-            ):
-                for doc, dist, meta in zip(doc_list, dist_list, meta_list):
-                    # Extract the main word from metadata or document
-                    candidate_word = meta.get("word", "").lower().strip()
+            word_scores: Dict[str, float] = {}
 
-                    if not candidate_word or candidate_word == word.lower():
-                        continue
+            for collection_name in collections_to_try:
+                try:
+                    col = self.client.get_collection(name=collection_name)
+                except Exception:
+                    continue
 
-                    # Filter out stop words and short words
-                    if candidate_word in stop_words or len(candidate_word) < 3:
-                        continue
+                try:
+                    results = col.query(
+                        query_embeddings=[query_embedding.tolist()],
+                        n_results=min(200, col.count()),
+                        include=["documents", "distances", "metadatas"],
+                    )
+                except Exception:
+                    continue
 
-                    # Convert distance to similarity (lower distance = higher similarity)
-                    # ChromaDB uses squared L2 distance, so we normalize it
-                    similarity = 1 / (1 + dist)
+                found_any = False
+                for doc_list, dist_list, meta_list in zip(
+                    results.get("documents", [[]]),
+                    results.get("distances", [[]]),
+                    results.get("metadatas", [[]])
+                ):
+                    for doc, dist, meta in zip(doc_list, dist_list, meta_list):
+                        candidate_word = meta.get("word", "").lower().strip()
 
-                    # Keep the highest similarity for each word
-                    if candidate_word not in word_scores or similarity > word_scores[candidate_word]:
-                        word_scores[candidate_word] = similarity
+                        if not candidate_word or candidate_word == word.lower():
+                            continue
 
-            # Sort by similarity score (descending)
+                        if candidate_word in stop_words or len(candidate_word) < 3:
+                            continue
+
+                        similarity = 1 / (1 + dist)
+
+                        if candidate_word not in word_scores or similarity > word_scores[candidate_word]:
+                            word_scores[candidate_word] = similarity
+                            found_any = True
+
+                if found_any and collection_name == "strongs_word_summaries":
+                    # Prefer definitional summaries; stop once we have matches from this layer
+                    break
+
             sorted_words = sorted(word_scores.items(), key=lambda x: x[1], reverse=True)
 
-            # Return top N results
             return [
                 {"word": w, "similarity": round(score, 3)}
                 for w, score in sorted_words[:limit]
@@ -401,3 +411,160 @@ class DatabaseManager:
 
         except Exception:
             return []
+
+    def concept_word_search(self, expression: str, limit: int = 10) -> Dict[str, Any]:
+        """Compute a concept vector from +/- words and return nearest definitional neighbours."""
+        if not self.client:
+            self.connect()
+        if self.client is None:
+            return {"results": [], "positives": [], "negatives": []}
+
+        if not self.embedding_model:
+            try:
+                from sentence_transformers import SentenceTransformer  # type: ignore
+                self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=self.device)
+            except Exception:
+                return {"results": [], "positives": [], "negatives": []}
+
+        tokens = re.findall(r'([+-]?)\s*([^,]+)', expression.replace(',', ' '))
+
+        positives: List[str] = []
+        negatives: List[str] = []
+
+        def add_token(sign_char: str, token: str) -> None:
+            token = token.strip()
+            if not token:
+                return
+            normalized = token.upper()
+            if normalized in self.word_summary_docs or normalized in self.word_to_strongs:
+                if sign_char == '-':
+                    negatives.append(normalized)
+                else:
+                    positives.append(normalized)
+                return
+
+            inner_parts = re.split(r'([+-])', token)
+            if len(inner_parts) > 1:
+                current_sign = sign_char if sign_char in ('+', '-') else '+'
+                buffer = ''
+                for part in inner_parts:
+                    if part in ('+', '-'):
+                        if buffer.strip():
+                            add_token(current_sign, buffer)
+                        current_sign = part
+                        buffer = ''
+                    else:
+                        buffer += part
+                if buffer.strip():
+                    add_token(current_sign, buffer)
+                return
+
+            filtered = re.sub(r"[^A-Za-z0-9'\-]+", '', token)
+            if not filtered:
+                return
+            final = filtered.upper()
+            if final in self.word_summary_docs or final in self.word_to_strongs:
+                if sign_char == '-':
+                    negatives.append(final)
+                else:
+                    positives.append(final)
+                return
+            if sign_char == '-':
+                negatives.append(final)
+            else:
+                positives.append(final)
+
+        if not tokens:
+            add_token('+', expression)
+        else:
+            for sign, token in tokens:
+                add_token('-' if sign == '-' else '+', token)
+
+        def dedupe(seq: List[str]) -> List[str]:
+            seen = set()
+            out = []
+            for item in seq:
+                if item in seen:
+                    continue
+                seen.add(item)
+                out.append(item)
+            return out
+
+        positives = dedupe(positives)
+        negatives = dedupe(negatives)
+
+        if not positives and not negatives:
+            return {"results": [], "positives": [], "negatives": []}
+
+        def lookup_text(word: str) -> str:
+            return self.word_summary_docs.get(word.upper(), word)
+
+        def encode_words(words: List[str]) -> Optional[np.ndarray]:
+            if not words:
+                return None
+            texts = [lookup_text(w) for w in words]
+            try:
+                vecs = self.embedding_model.encode(texts, show_progress_bar=False)
+                return np.asarray(vecs, dtype=np.float32)
+            except Exception:
+                return None
+
+        pos_vecs = encode_words(positives)
+        neg_vecs = encode_words(negatives)
+
+        if pos_vecs is None and neg_vecs is None:
+            return {"results": [], "positives": positives, "negatives": negatives}
+
+        concept_vec: Optional[np.ndarray] = None
+        if pos_vecs is not None:
+            concept_vec = pos_vecs.mean(axis=0)
+        if neg_vecs is not None:
+            neg_mean = neg_vecs.mean(axis=0)
+            concept_vec = -neg_mean if concept_vec is None else concept_vec - neg_mean
+
+        if concept_vec is None:
+            return {"results": [], "positives": positives, "negatives": negatives}
+
+        try:
+            collection = self.client.get_collection(name="strongs_word_summaries")
+        except Exception:
+            return {"results": [], "positives": positives, "negatives": negatives}
+
+        try:
+            results = collection.query(
+                query_embeddings=[concept_vec.tolist()],
+                n_results=min(200, collection.count()),
+                include=["documents", "distances", "metadatas"],
+            )
+        except Exception:
+            return {"results": [], "positives": positives, "negatives": negatives}
+
+        pos_set = {w.lower() for w in positives}
+        neg_set = {w.lower() for w in negatives}
+
+        candidates: Dict[str, Dict[str, Any]] = {}
+
+        for doc_list, dist_list, meta_list in zip(
+            results.get("documents", [[]]),
+            results.get("distances", [[]]),
+            results.get("metadatas", [[]])
+        ):
+            for doc, dist, meta in zip(doc_list, dist_list, meta_list):
+                candidate = meta.get("word", "").lower().strip()
+                if not candidate or candidate in pos_set or candidate in neg_set:
+                    continue
+                similarity = 1 / (1 + dist)
+                existing = candidates.get(candidate)
+                if not existing or similarity > existing["similarity"]:
+                    candidates[candidate] = {
+                        "word": candidate,
+                        "similarity": round(similarity, 3),
+                    }
+
+        sorted_items = sorted(candidates.values(), key=lambda x: x["similarity"], reverse=True)
+
+        return {
+            "results": sorted_items[:limit],
+            "positives": positives,
+            "negatives": negatives,
+        }
