@@ -46,6 +46,7 @@ class DatabaseManager:
         self.word_to_strongs: Dict[str, List[str]] = {}
         self.word_summary_docs: Dict[str, str] = {}
         self.embedding_model: Optional[Any] = None
+        self.reranker: Optional[Any] = None  # Cross-encoder for reranking
         self.device: str = "cpu"
         # Try to prepare an embedding model, but don't crash if unavailable
         try:
@@ -183,8 +184,25 @@ class DatabaseManager:
             })
         return info
 
-    def routed_search(self, query: str) -> List[Dict[str, Any]]:
-        results = self.router.route_query(query, self._retrieve_from_collection)
+    def routed_search(self, query: str, use_reranking: bool = True) -> List[Dict[str, Any]]:
+        """
+        Execute routed search with query enhancement, hybrid search, and reranking
+
+        Args:
+            query: User query
+            use_reranking: Whether to use cross-encoder reranking (slower but better)
+
+        Returns:
+            List of ranked search results
+        """
+        # Pass hybrid search and reranking functions to router
+        results = self.router.route_query(
+            query,
+            self._retrieve_from_collection,
+            hybrid_search_function=self.hybrid_search,
+            rerank_function=self.rerank_with_cross_encoder if use_reranking else None
+        )
+
         out = []
         for r in results:
             out.append({
@@ -411,6 +429,145 @@ class DatabaseManager:
 
         except Exception:
             return []
+
+    def hybrid_search(self, query: str, collection_name: str = "kjv_verses", k: int = 10) -> List[Dict[str, Any]]:
+        """
+        Hybrid search combining semantic vector search + keyword matching
+
+        Best for biblical phrases and specific terms where exact matching matters.
+
+        Args:
+            query: Search query
+            collection_name: ChromaDB collection to search
+            k: Number of results to return
+
+        Returns:
+            Merged and reranked results from both methods
+        """
+        # Get semantic results from vector search
+        semantic_results = self._retrieve_from_collection(collection_name, query, k)
+
+        # Get keyword results from lexical search
+        keyword_results = self.lexical_search(query)[:k]
+
+        # Convert keyword results to same format as semantic results
+        keyword_formatted = []
+        for i, kr in enumerate(keyword_results):
+            keyword_formatted.append({
+                "id": kr.get("osis_id", f"keyword_{i}"),
+                "content": kr.get("text", ""),
+                "score": 0.8,  # High base score for exact keyword matches
+                "metadata": {"osis_id": kr.get("osis_id"), "source": kr.get("source")},
+            })
+
+        # Merge using RRF (Reciprocal Rank Fusion)
+        return self._merge_results_rrf(semantic_results, keyword_formatted, k)
+
+    def _merge_results_rrf(self,
+                          semantic_results: List[Dict[str, Any]],
+                          keyword_results: List[Dict[str, Any]],
+                          top_k: int,
+                          k: int = 60) -> List[Dict[str, Any]]:
+        """
+        Merge semantic and keyword results using Reciprocal Rank Fusion
+
+        Args:
+            semantic_results: Results from vector search
+            keyword_results: Results from keyword search
+            top_k: Number of results to return
+            k: RRF parameter (typically 60)
+
+        Returns:
+            Merged and reranked results
+        """
+        fused_scores: Dict[str, float] = {}
+        all_results: Dict[str, Dict[str, Any]] = {}
+
+        # Weight semantic results
+        for rank, result in enumerate(semantic_results):
+            result_id = result.get("id", "")
+            if not result_id:
+                continue
+
+            all_results[result_id] = result
+            rrf_score = 0.6 * (1.0 / (k + rank + 1))  # 60% weight to semantic
+            fused_scores[result_id] = fused_scores.get(result_id, 0) + rrf_score
+
+        # Weight keyword results (higher for exact matches)
+        for rank, result in enumerate(keyword_results):
+            result_id = result.get("id", "")
+            if not result_id:
+                continue
+
+            if result_id not in all_results:
+                all_results[result_id] = result
+
+            rrf_score = 0.4 * (1.0 / (k + rank + 1))  # 40% weight to keyword
+            fused_scores[result_id] = fused_scores.get(result_id, 0) + rrf_score
+
+        # Sort by fused score
+        sorted_ids = sorted(fused_scores.keys(), key=lambda x: fused_scores[x], reverse=True)
+
+        # Build final results
+        merged = []
+        for result_id in sorted_ids[:top_k]:
+            result = all_results[result_id]
+            result["score"] = fused_scores[result_id]
+            merged.append(result)
+
+        return merged
+
+    def rerank_with_cross_encoder(self, query: str, results: List[Dict[str, Any]], top_k: int = 5) -> List[Dict[str, Any]]:
+        """
+        Rerank results using cross-encoder for better relevance
+
+        Much more accurate than bi-encoder (BGE) but slower.
+        Use after initial retrieval to refine top results.
+
+        Args:
+            query: Original query
+            results: Initial retrieval results
+            top_k: Number of results to return after reranking
+
+        Returns:
+            Reranked results with cross-encoder scores
+        """
+        if not results:
+            return []
+
+        # Lazy load cross-encoder
+        if self.reranker is None:
+            try:
+                from sentence_transformers import CrossEncoder  # type: ignore
+                # Use lightweight cross-encoder (40MB model)
+                self.reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+            except Exception:
+                # Fall back to original results if cross-encoder unavailable
+                return results[:top_k]
+
+        try:
+            # Prepare query-document pairs for reranking
+            pairs = []
+            for r in results[:20]:  # Only rerank top 20 to save time
+                content = r.get("content", "")[:512]  # Limit length for speed
+                pairs.append([query, content])
+
+            # Get cross-encoder scores
+            scores = self.reranker.predict(pairs)
+
+            # Update scores
+            for i, r in enumerate(results[:20]):
+                r["rerank_score"] = float(scores[i])
+                r["original_score"] = r.get("score", 0.0)
+
+            # Sort by reranked scores
+            results[:20] = sorted(results[:20], key=lambda x: x.get("rerank_score", 0), reverse=True)
+
+            return results[:top_k]
+
+        except Exception:
+            # Fall back to original results on error
+            return results[:top_k]
 
     def concept_word_search(self, expression: str, limit: int = 10) -> Dict[str, Any]:
         """Compute a concept vector from +/- words and return nearest definitional neighbours."""

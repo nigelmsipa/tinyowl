@@ -5,10 +5,26 @@ Implements intelligent query routing across hierarchical layers
 """
 
 import re
-from typing import Dict, List, Tuple, Optional, Set
+from typing import Dict, List, Tuple, Optional, Set, Callable, Any
 from dataclasses import dataclass
 from enum import Enum
 import numpy as np
+
+# Import query enhancement utilities
+import sys
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))
+
+try:
+    from chat_app.query_enhancement import expand_biblical_query, should_use_hybrid_search
+except ImportError:
+    # Fallback if query_enhancement not available
+    def expand_biblical_query(query: str) -> str:
+        return query
+    def should_use_hybrid_search(query: str) -> bool:
+        return False
 
 
 class QueryType(Enum):
@@ -54,8 +70,23 @@ class RetrievalRouter:
             'theology_verses': ['kjv_verses', 'web_verses'],
             'theology_pericopes': ['kjv_pericopes', 'web_pericopes'],
             'theology_chapters': ['kjv_chapters', 'web_chapters'],
-            # SOP not yet present; keep placeholder for future sources
-            'sop': ['sop_paragraphs', 'sop_chapters']
+            # Commentary/corpus layers (EGW, SOP, supporting ministries)
+            'sop': ['sop_paragraphs', 'sop_chapters'],
+            'commentary_paras': [
+                'sop_paragraphs',
+                'secrets_paragraphs',
+                'amazing_paragraphs',
+                'threeabn_paragraphs',
+                'onslaught_paragraphs',
+            ],
+            'commentary_chapters': [
+                'sop_chapters',
+                'secrets_chapters',
+                'amazing_chapters',
+                'threeabn_chapters',
+                # Total Onslaught coarse layer uses lectures
+                'onslaught_lectures',
+            ],
         }
         
     def _compile_verse_patterns(self) -> List[re.Pattern]:
@@ -75,7 +106,10 @@ class RetrievalRouter:
         patterns = [
             re.compile(r'\b(?:according\s+to\s+)?(?:ellen\s+white|spirit\s+of\s+prophecy|sop)\b', re.IGNORECASE),
             re.compile(r'\b(?:great\s+controversy|desire\s+of\s+ages|patriarchs\s+and\s+prophets)\b', re.IGNORECASE),
-            re.compile(r'\b(?:testimonies|steps\s+to\s+christ|early\s+writings)\b', re.IGNORECASE)
+            re.compile(r'\b(?:testimonies|steps\s+to\s+christ|early\s+writings)\b', re.IGNORECASE),
+            # Supporting ministries / series
+            re.compile(r'\b(?:secrets\s+unsealed|amazing\s+facts|3\s*abn|3abn)\b', re.IGNORECASE),
+            re.compile(r'\b(?:walter\s+veith|total\s+onslaught|doug\s+batchelor|joe\s+crews)\b', re.IGNORECASE),
         ]
         return patterns
     
@@ -86,18 +120,23 @@ class RetrievalRouter:
             'sanctuary', 'investigative judgment', 'sabbath', 'second coming',
             'state of the dead', 'remnant church', 'prophetic gift',
             'health message', 'tithing', 'baptism', 'lord\'s supper',
-            
-            # General Theological Terms  
+
+            # General Theological Terms
             'salvation', 'justification', 'sanctification', 'atonement',
             'redemption', 'grace', 'faith', 'works', 'law', 'gospel',
             'sin', 'righteousness', 'repentance', 'forgiveness',
             'trinity', 'incarnation', 'resurrection', 'eschatology',
             'prophecy', 'covenant', 'creation', 'judgment',
-            
+
             # Biblical Topics
             'unpardonable sin', 'blasphemy', 'holy spirit', 'prayer',
             'worship', 'church', 'ministry', 'discipleship',
-            'stewardship', 'mission', 'evangelism'
+            'stewardship', 'mission', 'evangelism',
+
+            # Messianic & Divine Titles
+            'glory', 'king of glory', 'messiah', 'christ', 'lord',
+            'son of god', 'son of man', 'lamb of god', 'bread of life',
+            'good shepherd', 'alpha omega', 'emmanuel', 'savior'
         }
     
     def classify_query(self, query: str) -> QueryType:
@@ -141,22 +180,23 @@ class RetrievalRouter:
             )
         
         elif query_type == QueryType.DOCTRINAL:
-            # Bias toward SOP for doctrinal questions while keeping Scripture context
+            # BIBLE-FIRST: Prioritize Scripture, then commentary for context
             return RetrievalPlan(
                 query_type=query_type,
-                layers=['theology_pericopes', 'theology_chapters', 'sop'],
-                k_values={'theology_pericopes': 8, 'theology_chapters': 4, 'sop': 4},
-                weights={'theology_pericopes': 0.30, 'theology_chapters': 0.25, 'sop': 0.45},
-                rerank_top_k=15
+                layers=['theology_verses', 'theology_pericopes', 'theology_chapters', 'commentary_paras'],
+                k_values={'theology_verses': 6, 'theology_pericopes': 8, 'theology_chapters': 4, 'commentary_paras': 4},
+                weights={'theology_verses': 0.40, 'theology_pericopes': 0.30, 'theology_chapters': 0.20, 'commentary_paras': 0.10},
+                rerank_top_k=18
             )
         
         elif query_type == QueryType.SOP_SPECIFIC:
+            # Heavily favor commentary/parapraphs + chapters, keep some Scripture context
             return RetrievalPlan(
                 query_type=query_type,
-                layers=['sop', 'theology_pericopes'],
-                k_values={'sop': 8, 'theology_pericopes': 4},
-                weights={'sop': 0.7, 'theology_pericopes': 0.3},
-                rerank_top_k=12
+                layers=['commentary_paras', 'commentary_chapters', 'theology_pericopes'],
+                k_values={'commentary_paras': 10, 'commentary_chapters': 6, 'theology_pericopes': 4},
+                weights={'commentary_paras': 0.55, 'commentary_chapters': 0.25, 'theology_pericopes': 0.20},
+                rerank_top_k=16
             )
         
         elif query_type == QueryType.CROSS_REFERENCE:
@@ -169,11 +209,12 @@ class RetrievalRouter:
             )
         
         else:  # TOPICAL
+            # BIBLE-FIRST: Prioritize Scripture verses, then topical index, then commentary
             return RetrievalPlan(
                 query_type=query_type,
-                layers=['naves_topic_entries', 'theology_pericopes', 'theology_chapters'],
-                k_values={'naves_topic_entries': 8, 'theology_pericopes': 8, 'theology_chapters': 4},
-                weights={'naves_topic_entries': 0.5, 'theology_pericopes': 0.3, 'theology_chapters': 0.2},
+                layers=['theology_verses', 'theology_pericopes', 'naves_topic_entries', 'theology_chapters'],
+                k_values={'theology_verses': 6, 'theology_pericopes': 8, 'naves_topic_entries': 6, 'theology_chapters': 4},
+                weights={'theology_verses': 0.35, 'theology_pericopes': 0.30, 'naves_topic_entries': 0.25, 'theology_chapters': 0.10},
                 rerank_top_k=16
             )
     
@@ -293,20 +334,33 @@ class RetrievalRouter:
         
         return book_names
     
-    def route_query(self, 
-                   query: str, 
-                   retrieval_function) -> List[SearchResult]:
+    def route_query(self,
+                   query: str,
+                   retrieval_function,
+                   hybrid_search_function: Optional[Callable[[str, str, int], List[Any]]] = None,
+                   rerank_function: Optional[Callable[[str, List[Any], int], List[Any]]] = None) -> List[SearchResult]:
         """
         Main routing function - orchestrates the entire retrieval process
-        
+
         Args:
             query: User query
             retrieval_function: Function to perform actual vector search
                                Should accept (collection_name, query, k) and return results
-        
+            hybrid_search_function: Optional function for hybrid search (semantic + keyword)
+            rerank_function: Optional function for cross-encoder reranking
+
         Returns:
             Final ranked results ready for response generation
         """
+        # Expand query with biblical phrases if applicable
+        expanded_query = expand_biblical_query(query)
+
+        # Use expanded query for retrieval
+        search_query = expanded_query
+
+        # Determine if we should use hybrid search
+        use_hybrid = should_use_hybrid_search(query) and hybrid_search_function is not None
+
         # Create retrieval plan
         plan = self.create_retrieval_plan(query)
         
@@ -318,7 +372,12 @@ class RetrievalRouter:
             collections = self.layer_to_collections.get(layer, [layer])
 
             for col in collections:
-                sub_results = retrieval_function(col, query, max(1, k_for_layer // max(1, len(collections))))
+                # Use hybrid search for Bible verse layers (better for exact phrase matching)
+                bible_verse_collections = {'theology_verses', 'kjv_verses', 'web_verses', 'kjv_pericopes', 'web_pericopes'}
+                if use_hybrid and col in bible_verse_collections and hybrid_search_function:
+                    sub_results = hybrid_search_function(search_query, col, max(1, k_for_layer // max(1, len(collections))))
+                else:
+                    sub_results = retrieval_function(col, search_query, max(1, k_for_layer // max(1, len(collections))))
 
                 # Convert to SearchResult format if needed
                 if sub_results and not isinstance(sub_results[0], SearchResult):
@@ -339,7 +398,7 @@ class RetrievalRouter:
         
         # Apply RRF fusion
         fused_results = self.reciprocal_rank_fusion(
-            results_by_layer, 
+            results_by_layer,
             plan.weights
         )
         # Apply preference boost for key SOP books when available
@@ -347,11 +406,39 @@ class RetrievalRouter:
 
         # Final reranking
         final_results = self.simple_reranker(
-            query, 
-            fused_results, 
+            query,
+            fused_results,
             plan.rerank_top_k
         )
-        
+
+        # Apply cross-encoder reranking if available (for even better relevance)
+        if rerank_function and final_results:
+            # Convert SearchResult objects to dicts for reranking
+            results_as_dicts = [
+                {
+                    "id": r.id,
+                    "content": r.content,
+                    "score": r.score,
+                    "metadata": r.metadata,
+                }
+                for r in final_results
+            ]
+
+            # Rerank and convert back
+            reranked_dicts = rerank_function(query, results_as_dicts, min(5, len(final_results)))
+
+            final_results = [
+                SearchResult(
+                    id=r.get("id", ""),
+                    osis_id=r.get("metadata", {}).get("osis_id"),
+                    content=r.get("content", ""),
+                    score=r.get("rerank_score", r.get("score", 0.0)),
+                    source_layer=final_results[i].source_layer if i < len(final_results) else "",
+                    metadata=r.get("metadata", {})
+                )
+                for i, r in enumerate(reranked_dicts)
+            ]
+
         return final_results
 
     def _apply_sop_book_boost(self, query_type: QueryType, results: List[SearchResult]) -> List[SearchResult]:
