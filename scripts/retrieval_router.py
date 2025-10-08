@@ -65,28 +65,17 @@ class RetrievalRouter:
         self.sop_patterns = self._compile_sop_patterns()
         self.doctrinal_keywords = self._load_doctrinal_keywords()
         # Map logical layers to actual Chroma collections in the live DB
-        # These can be overridden by caller if needed.
+        # Only include collections that actually exist!
         self.layer_to_collections = {
             'theology_verses': ['kjv_verses', 'web_verses'],
             'theology_pericopes': ['kjv_pericopes', 'web_pericopes'],
             'theology_chapters': ['kjv_chapters', 'web_chapters'],
-            # Commentary/corpus layers (EGW, SOP, supporting ministries)
-            'sop': ['sop_paragraphs', 'sop_chapters'],
-            'commentary_paras': [
-                'sop_paragraphs',
-                'secrets_paragraphs',
-                'amazing_paragraphs',
-                'threeabn_paragraphs',
-                'onslaught_paragraphs',
-            ],
-            'commentary_chapters': [
-                'sop_chapters',
-                'secrets_chapters',
-                'amazing_chapters',
-                'threeabn_chapters',
-                # Total Onslaught coarse layer uses lectures
-                'onslaught_lectures',
-            ],
+            # Spirit of Prophecy (Ellen G. White)
+            'sop_paragraphs': ['sop_paragraphs'],
+            'sop_chapters': ['sop_chapters'],
+            # NOTE: Collections below don't exist yet - commented out until ingested
+            # 'commentary_paras': ['sop_paragraphs', 'secrets_paragraphs', 'amazing_paragraphs', 'threeabn_paragraphs'],
+            # 'naves_topic_entries': ['naves_topic_entries'],
         }
         
     def _compile_verse_patterns(self) -> List[re.Pattern]:
@@ -180,22 +169,22 @@ class RetrievalRouter:
             )
         
         elif query_type == QueryType.DOCTRINAL:
-            # BIBLE-FIRST: Prioritize Scripture, then commentary for context
+            # BIBLE-FIRST: Scripture primary, then Spirit of Prophecy for theological context
             return RetrievalPlan(
                 query_type=query_type,
-                layers=['theology_verses', 'theology_pericopes', 'theology_chapters', 'commentary_paras'],
-                k_values={'theology_verses': 6, 'theology_pericopes': 8, 'theology_chapters': 4, 'commentary_paras': 4},
-                weights={'theology_verses': 0.40, 'theology_pericopes': 0.30, 'theology_chapters': 0.20, 'commentary_paras': 0.10},
+                layers=['theology_verses', 'theology_pericopes', 'sop_paragraphs', 'theology_chapters'],
+                k_values={'theology_verses': 6, 'theology_pericopes': 8, 'sop_paragraphs': 6, 'theology_chapters': 4},
+                weights={'theology_verses': 0.35, 'theology_pericopes': 0.30, 'sop_paragraphs': 0.25, 'theology_chapters': 0.10},
                 rerank_top_k=18
             )
         
         elif query_type == QueryType.SOP_SPECIFIC:
-            # Heavily favor commentary/parapraphs + chapters, keep some Scripture context
+            # SOP-FIRST: Spirit of Prophecy primary, Scripture for biblical foundation
             return RetrievalPlan(
                 query_type=query_type,
-                layers=['commentary_paras', 'commentary_chapters', 'theology_pericopes'],
-                k_values={'commentary_paras': 10, 'commentary_chapters': 6, 'theology_pericopes': 4},
-                weights={'commentary_paras': 0.55, 'commentary_chapters': 0.25, 'theology_pericopes': 0.20},
+                layers=['sop_paragraphs', 'sop_chapters', 'theology_pericopes', 'theology_verses'],
+                k_values={'sop_paragraphs': 10, 'sop_chapters': 6, 'theology_pericopes': 4, 'theology_verses': 4},
+                weights={'sop_paragraphs': 0.50, 'sop_chapters': 0.25, 'theology_pericopes': 0.15, 'theology_verses': 0.10},
                 rerank_top_k=16
             )
         
@@ -209,12 +198,12 @@ class RetrievalRouter:
             )
         
         else:  # TOPICAL
-            # BIBLE-FIRST: Prioritize Scripture verses, then topical index, then commentary
+            # BIBLE+SOP: Scripture primary, Spirit of Prophecy for theological connections
             return RetrievalPlan(
                 query_type=query_type,
-                layers=['theology_verses', 'theology_pericopes', 'naves_topic_entries', 'theology_chapters'],
-                k_values={'theology_verses': 6, 'theology_pericopes': 8, 'naves_topic_entries': 6, 'theology_chapters': 4},
-                weights={'theology_verses': 0.35, 'theology_pericopes': 0.30, 'naves_topic_entries': 0.25, 'theology_chapters': 0.10},
+                layers=['theology_verses', 'theology_pericopes', 'sop_paragraphs', 'theology_chapters'],
+                k_values={'theology_verses': 6, 'theology_pericopes': 8, 'sop_paragraphs': 6, 'theology_chapters': 4},
+                weights={'theology_verses': 0.35, 'theology_pericopes': 0.30, 'sop_paragraphs': 0.25, 'theology_chapters': 0.10},
                 rerank_top_k=16
             )
     
