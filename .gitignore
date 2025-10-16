@@ -79,3 +79,15 @@ domains/theology/chunks/sop_*.json
 domains/theology/chunks/secrets_unsealed_*.json
 domains/theology/chunks/*_paragraphs.json
 domains/theology/chunks/*_chapters.json
+
+# Packaging
+packaging/dist/
+packaging/build/
+packaging/llama.cpp/
+packaging/models/
+content/
+training_data/
+*.zip
+
+# Large app images
+*.AppImage
