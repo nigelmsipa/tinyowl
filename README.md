@@ -1,4 +1,4 @@
-# TinyOwl 🦉
+sdf# TinyOwl 🦉
 
 A personal knowledge AI system that starts with RAG (Retrieval-Augmented Generation) and evolves to fine-tuning TinyLlama on a curated library of essential books. 
 
