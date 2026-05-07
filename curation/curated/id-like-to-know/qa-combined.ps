@@ -1,0 +1,3096 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 36 54 559 788
+%%Title: Enscript Output
+%%For: nigel
+%%Creator: GNU Enscript 1.6.6
+%%CreationDate: Wed Apr 29 22:59:36 2026
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 6
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 6
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Palatino-Roman
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Palatino-Roman /F-gs-font MF
+/F-gs-font 12 12 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [595 842] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-simple 1.6 6
+
+/do_header {	% print default simple header
+  gsave
+    d_header_x d_header_y HFpt_h 3 div add translate
+
+    HF setfont
+    user_header_p {
+      5 0 moveto user_header_left_str show
+
+      d_header_w user_header_center_str stringwidth pop sub 2 div
+      0 moveto user_header_center_str show
+
+      d_header_w user_header_right_str stringwidth pop sub 5 sub
+      0 moveto user_header_right_str show
+    } {
+      5 0 moveto fname show
+      45 0 rmoveto fmodstr show
+      45 0 rmoveto pagenumstr show
+    } ifelse
+
+  grestore
+} def
+%%EndResource
+/d_page_w 523 def
+/d_page_h 734 def
+/d_header_x 0 def
+/d_header_y 719 def
+/d_header_w 523 def
+/d_header_h 15 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 523 def
+/d_footer_h 0 def
+/d_output_w 523 def
+/d_output_h 719 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 1 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (1) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(What does \342\\200\\234present truth\342\\200\\235 or \342\\200\\234truth for this time\342\\200\\235 mean?) s
+5 678 M
+(Present truth is not a different gospel. It is the truth God's people especially need for the time ) s
+5 665 M
+(they are living in.) s
+5 639 M
+(Ask first what phase of God's work is at the center in a given period. Ellen White's own point is ) s
+5 626 M
+(that there are many precious truths in the Word of God, but present truth is what the flock ) s
+5 613 M
+(needs now. So the question is not whether other doctrines are true. The question is which truths ) s
+5 600 M
+(are especially urgent for the hour God's people are living in.) s
+5 574 M
+(Walk through redemptive history. When Christ was born, present truth was that the Messiah ) s
+5 561 M
+(had come. When John the Baptist announced Christ's ministry, that was present truth for that ) s
+5 548 M
+(hour. At Pentecost, present truth centered on Christ entering His priestly work. In 1844, present ) s
+5 535 M
+(truth centered on the cleansing of the sanctuary. Each stage had truth for that time because each ) s
+5 522 M
+(stage highlighted what Christ was then doing.) s
+5 496 M
+(So for the present time, the governing center is what Jesus is doing now in the heavenly ) s
+5 483 M
+(sanctuary, especially in the most holy place. That is why the sanctuary in connection with the ) s
+5 470 M
+(2300 days, the commandments of God, the faith of Jesus, the Sabbath, the state of the dead, and ) s
+5 457 M
+(the judgment are treated as present truth. These truths explain the Advent movement, show ) s
+5 444 M
+(where God's people stand, steady the doubting, and give certainty about what lies ahead.) s
+5 418 M
+(That does not make the rest of Scripture unimportant. All truth is precious. But the burden of ) s
+5 405 M
+(the message must stay on the truths the flock needs now, not on side subjects that pull attention ) s
+5 392 M
+(away from what unites God's people and sanctifies the soul.) s
+5 366 M
+(Will both immature and mature believers be sealed before probation closes?) s
+5 340 M
+(Yes, but the source does not answer that by opening a sealing passage and walking through it ) s
+5 327 M
+(verse by verse. It answers it from the end-time situation they are assuming.) s
+5 301 M
+(Start with that setting. God will still call people out of Babylon near the end, and many of them ) s
+5 288 M
+(will not have had long years to mature inside the church before the close of probation. That is ) s
+5 275 M
+(why 11th-hour workers matter here. Some people will come in late.) s
+5 249 M
+(But late is not the same thing as shallow. Their point is that these believers may be latecomers in ) s
+5 236 M
+(time and still grow faithfully with the light they receive. By God's grace they can accept the ) s
+5 223 M
+(Sabbath truth, submit to God's authority, and reject a counterfeit system of worship.) s
+5 197 M
+(That is where the final test comes in. The issue is loyalty, not seniority. The world will be ) s
+5 184 M
+(pressed to choose between God's authority and a counterfeit Christianity enforcing Sunday in ) s
+5 171 M
+(place of the Sabbath. On that logic, those who are sealed are not measured mainly by how many ) s
+5 158 M
+(years they have been in the church, but by whether they have surrendered and obeyed what ) s
+5 145 M
+(Christ has shown them.) s
+5 119 M
+(So there will be 11th-hour workers, and their growth can be accelerated under the stress of the ) s
+5 106 M
+(final crisis and the power of the loud cry. Some who come in late may grow faster than people ) s
+5 93 M
+(who have been in the church a long time. Maturity, as they are using the idea here, is not ) s
+5 80 M
+(measured by calendar time but by the depth of surrender and obedience to known truth.) s
+5 54 M
+(What does 1 Timothy 5:22 mean about not sharing in the sins of others?) s
+5 28 M
+(The verse is about ordaining church leaders, not about praying for others.) s
+5 2 M
+(Read it in context. From 1 Timothy 5:17 onward, Paul is giving Timothy instructions on elders ) s
+_R
+S
+%%Page: (2) 2
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 2 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (2) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(\342\\200\\224 how they are to be examined, honored, rebuked, and set apart. Verses 21 and 22 sit ) s
+5 691 M
+(inside that block. "Do not lay hands on anyone hastily, nor share in other people's sins. Keep ) s
+5 678 M
+(yourself pure." The laying on of hands here is ordination. Paul is warning Timothy that if he ) s
+5 665 M
+(commissions a man who is not ready or not qualified, Timothy becomes responsible for the sins ) s
+5 652 M
+(and failures that follow. That is how a person "shares in the sins of others" in this passage. ) s
+5 639 M
+(Keeping yourself pure, in this context, means not contaminating yourself by a hasty or political ) s
+5 626 M
+(appointment.) s
+5 600 M
+(The qualifications themselves are strict enough to show why haste is dangerous. In 1 Timothy 3, ) s
+5 587 M
+(a bishop must be blameless, the husband of one wife, temperate, sober-minded, hospitable, able ) s
+5 574 M
+(to teach, not given to wine, not violent, not greedy, gentle, not quarrelsome, not covetous, ) s
+5 561 M
+(ruling his own house well. Titus 1 repeats the same kind of list for elders: blameless, not ) s
+5 548 M
+(self-willed, not quick-tempered, not given to wine, not violent, not greedy, hospitable, a lover of ) s
+5 535 M
+(good, sober-minded, just, holy, self-controlled, holding fast the faithful word. You cannot ) s
+5 522 M
+(evaluate a person against that list in five minutes. It takes a trajectory of observed life and ) s
+5 509 M
+(proven fruit.) s
+5 483 M
+(So Paul is telling Timothy: do not be pressured into ordaining someone because people like ) s
+5 470 M
+(him, or because he has money or standing, or because you want to fill a slot. Do not get pulled ) s
+5 457 M
+(into the politics of the thing. Examine the life. Look at the fruit. Wait until the man has actually ) s
+5 444 M
+(proven himself.) s
+5 418 M
+(That same caution applies to baptism. You cannot form a Christian in two or three weeks, much ) s
+5 405 M
+(less an Adventist. When candidates are rushed into the water before they have grown in ) s
+5 392 M
+(knowledge and surrender, the church inherits the problems. The pattern in Scripture is ) s
+5 379 M
+(gestation before birth, and real care after birth. Evangelism that neglects either of those stages ) s
+5 366 M
+(fills the church with people who are not ready and leaves new believers to fend for themselves. ) s
+5 353 M
+(The same principle that governs ordaining an elder governs baptizing a new member: do not be ) s
+5 340 M
+(hasty, and do not take on the sins that your haste creates.) s
+5 314 M
+(There is one further angle in the same family of texts. Romans 1:32 says of certain people that, ) s
+5 301 M
+(knowing the righteous judgment of God, they "not only do the same but also approve of those ) s
+5 288 M
+(who practice them." So sharing in the sins of others is not only done by ordaining the wrong ) s
+5 275 M
+(man or baptizing the wrong candidate. It is also done by approving and condoning others in ) s
+5 262 M
+(their sin. God holds the one who approves accountable along with the one who practices.) s
+5 236 M
+(What does it mean to heap coals of fire on an enemy's head in Proverbs 25:21-22?) s
+5 210 M
+(Heaping coals of fire on an enemy's head is not a hidden way to punish him. It is a Hebrew ) s
+5 197 M
+(idiom for the burning shame and moral awakening that comes over someone when he is met ) s
+5 184 M
+(with unexpected good instead of the evil he has been doing.) s
+5 158 M
+(Proverbs 25:21-22 says, "If your enemy is hungry, give him bread to eat; and if he is thirsty, give ) s
+5 145 M
+(him water to drink: for so you will heap coals of fire upon his head, and the Lord will reward ) s
+5 132 M
+(you." The instruction is straightforward. Do not repay evil with evil. Repay evil with good. Feed ) s
+5 119 M
+(the one who opposes you. Meet his need. Serve him. The "coals of fire" are what that kindness ) s
+5 106 M
+(produces in him, not a secret revenge dressed up as love. It is not passive aggression. It is not ) s
+5 93 M
+(covert vengeance. It is the piercing conviction that settles on a man when his hostility is ) s
+5 80 M
+(answered with mercy.) s
+5 54 M
+(First Samuel 24 shows the pattern in action. Saul with three thousand men was hunting David. ) s
+5 41 M
+(Saul went into a cave where David was hiding. David had every opportunity to kill him. ) s
+5 28 M
+(Instead David cut off the border of Saul's garment, let him leave unharmed, and then called out ) s
+5 15 M
+(to him publicly and showed him the evidence of the mercy he had just received. Saul's ) s
+5 2 M
+(response, in verses 16 and 17, is exactly the shame-and-awakening the proverb describes: "Is ) s
+_R
+S
+%%Page: (3) 3
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 3 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (3) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(this your voice, my son David? And Saul lifted up his voice, and wept. And he said to David, ) s
+5 691 M
+(You are more righteous than I: for you have rewarded me good, whereas I have rewarded you ) s
+5 678 M
+(evil." That is what coals of fire on the head looks like. The enemy is convicted by the kindness.) s
+5 652 M
+(Paul takes the same proverb into the New Testament in Romans 12:19-20. "Beloved, avenge not ) s
+5 639 M
+(yourselves, but rather give place unto wrath: for it is written, Vengeance is mine; I will repay, ) s
+5 626 M
+(says the Lord. Therefore if your enemy hungers, feed him; if he thirsts, give him drink: for in so ) s
+5 613 M
+(doing you shall heap coals of fire on his head." Whatever else it means, Paul is plainly using it ) s
+5 600 M
+(to forbid personal revenge. Leave vengeance to God, and go on doing good.) s
+5 574 M
+(Some have taken the image a step further and read the fire as a symbol of the Holy Spirit ) s
+5 561 M
+(bringing conviction, so that kindness wins a friend. That is offered as an interpretation, not as ) s
+5 548 M
+(what the text itself says in so many words. What the text does say is plain enough: do not take ) s
+5 535 M
+(revenge, meet the need of the one who opposes you, and trust God to reward it. In its wider ) s
+5 522 M
+(context that is what Micah 6:8 calls for \342\\200\\224 do justly, love mercy, walk humbly with God ) s
+5 509 M
+(\342\\200\\224 even, and especially, under opposition.) s
+5 483 M
+(What is the mark of the beast according to the Bible, and is it a microchip or biometric system?) s
+5 457 M
+(The mark of the beast is not a microchip, barcode, biometric scan, or some other tracking ) s
+5 444 M
+(device. Those things may become mechanisms of control, but they are not the mark itself.) s
+5 418 M
+(Read Revelation 13 first. The chapter speaks about beasts, worship, authority, and the ) s
+5 405 M
+(enforcement of allegiance. That is why the first distinction matters so much. Separate the mark ) s
+5 392 M
+(of the beast from the mechanism used to enforce it. A cashless system, a digital control grid, or ) s
+5 379 M
+(some other technology could be used to restrict buying and selling, but that would only be the ) s
+5 366 M
+(tool used to pressure conscience. It would not itself be the mark.) s
+5 340 M
+(Then identify the powers in Revelation 13. The first beast is identified as the papal power. The ) s
+5 327 M
+(second beast is identified as the United States, which eventually raises up an image to the beast ) s
+5 314 M
+(and enforces its demands. So the issue is not mainly economics or technology. The issue is ) s
+5 301 M
+(worship and whose authority you submit to.) s
+5 275 M
+(That is where Sunday comes in. The argument is that the papacy itself claims Sunday as the ) s
+5 262 M
+(sign of its authority, because it claims power to change God's law from Sabbath to Sunday. On ) s
+5 249 M
+(that reading, Sunday observance right now is not yet the mark of the beast simply because there ) s
+5 236 M
+(has not yet been a universal legal test compelling worship on that basis. The mark becomes the ) s
+5 223 M
+(mark in the full prophetic sense when Sunday observance is enforced by law and the world is ) s
+5 210 M
+(pressed to choose between God's authority and the authority of a rival religious system.) s
+5 184 M
+(Keep that qualification in view. Not every sincere Sundaykeeper already has the mark of the ) s
+5 171 M
+(beast. They explicitly say that crisis point has not yet come, that many sincere Christians are ) s
+5 158 M
+(serving God according to the light they presently have, and that the final test comes when the ) s
+5 145 M
+(issue is made clear and conscience is forced.) s
+5 119 M
+(That turns the issue into a Bible-versus-tradition question. If a person says he goes by the Bible ) s
+5 106 M
+(only, yet keeps Sunday where Scripture does not command Sunday as the new day of worship, ) s
+5 93 M
+(then the real question becomes whose authority he is accepting. In that framework the mark of ) s
+5 80 M
+(the beast is bound up with accepting human religious authority over God's expressed will.) s
+5 54 M
+(They also set the mark over against God's sign. Quoting a statement that cites Exodus 31:13, ) s
+5 41 M
+(they identify the Sabbath as God's sign or seal, because it marks Him as Creator and Sanctifier. ) s
+5 28 M
+(In that contrast, the mark of the beast is the rival sign of rival authority. So the final issue is not ) s
+5 15 M
+(technology as such. It is worship, obedience, and whether one receives God's sign or the sign of ) s
+5 2 M
+(a power that claims the right to alter God's law.) s
+_R
+S
+%%Page: (4) 4
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 4 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (4) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 691 M
+(Where in the Bible does it say the apostolic church had practices like salutes, drills, uniforms, ) s
+5 678 M
+(and marching such as Pathfinders and AY clubs do?) s
+5 652 M
+(It does not. The apostolic church does not show salutes, drills, uniforms, or marching ) s
+5 639 M
+(\342\\200\\224 and it also does not show cooking demonstrations, health lectures, or medical cadet ) s
+5 626 M
+(corps. Absence in the New Testament is not by itself a prohibition. As long as a practice does ) s
+5 613 M
+(not contradict what the New Testament church did and is ordered toward the church's mission, ) s
+5 600 M
+(the church is free to adopt it.) s
+5 574 M
+(Pathfinders and the youth clubs work as auxiliary organizations. They give young people ) s
+5 561 M
+(constructive outlets for enormous energy, teach discipline, order, cleanliness, and cooperation, ) s
+5 548 M
+(draw families into the church through their children, and retain members over the long term. In ) s
+5 535 M
+(some parts of the world, like Panama's Mission Caleb, Pathfinders in uniform paint houses, cut ) s
+5 522 M
+(grass, and clean communities.) s
+5 496 M
+(The clubs can go off track \342\\200\\224 camporees with dancing after Sabbath has begun, clubs ) s
+5 483 M
+(that become pure entertainment, local programs that have absorbed worldly practices. That is a ) s
+5 470 M
+(real problem and it needs to be corrected. But misuse of a program does not invalidate the ) s
+5 457 M
+(program. If the local leadership is biblically sound and following the actual curriculum, the club ) s
+5 444 M
+(is a benefit to the youth and to the church. If it is drifting, it needs to be pulled back in love, not ) s
+5 431 M
+(thrown out.) s
+5 405 M
+(Based on 1 Kings 20:35-43, is it okay to use a false name and pretend to be someone else so that ) s
+5 392 M
+(an elder who has stopped responding to emails will respond?) s
+5 366 M
+(No. Tell the truth. Leave the consequences with God.) s
+5 340 M
+(The prophet's disguise in 1 Kings 20 is not a permission slip. Scripture describes many things it ) s
+5 327 M
+(does not endorse. The Gibeonites tricked Israel and saved their lives, but ended up as slaves ) s
+5 314 M
+(forever \342\\200\\224 the trick is narrated, not commended. The prophet in 1 Kings 20 was given a ) s
+5 301 M
+(specific, prophetic instruction to confront Ahab in a particular way at a particular moment. You ) s
+5 288 M
+(have not been given that instruction. Lifting the narrative out as a general license for deception ) s
+5 275 M
+(is the same kind of mishandling that produced the doctrine of baptism for the dead from 1 ) s
+5 262 M
+(Corinthians 15:29, where Paul is only describing what some were doing, not prescribing it.) s
+5 236 M
+(The principle is plain across Scripture. The Spirit is the Spirit of truth. Christ is the truth. ) s
+5 223 M
+(Nathanael is commended because there was no guile in him. Second Thessalonians says the lost ) s
+5 210 M
+(perish because they did not receive the love of the truth. No deviation from strict integrity ) s
+5 197 M
+(meets God's approval. Even under real pressure, the right move is honesty: when the Gestapo ) s
+5 184 M
+(came to Corrie ten Boom's house looking for a man she was hiding under a tablecloth, she told ) s
+5 171 M
+(them he was right under the table, and they laughed it off and left. God is able to defend. He ) s
+5 158 M
+(does not need us to take things into our own hands.) s
+5 132 M
+(Situation ethics \342\\200\\224 the idea that love sometimes requires you to lie, or even to commit ) s
+5 119 M
+(adultery, to secure a loving outcome \342\\200\\224 replaces God's law with the inclinations of the ) s
+5 106 M
+(heart, and Jeremiah 17 warns that the heart is deceitful above all things and only the Lord truly ) s
+5 93 M
+(knows it.) s
+5 67 M
+(Examine the motive here. If the elder has stopped responding, a fake name will not produce a ) s
+5 54 M
+(godly conversation; it will produce another round of the same dispute under a mask. Pray. Let ) s
+5 41 M
+(God work on the person. Consider whether your own approach needs more humility and love. ) s
+5 28 M
+(If the Spirit is leading, He will open the door honestly. Deception is not that door.) s
+5 2 M
+(How should someone transition to keeping the Sabbath after discovering the truth, without ) s
+_R
+S
+%%Page: (5) 5
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 5 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (5) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(simply turning his back on his former church?) s
+5 678 M
+(If you have become convinced from Scripture that the Sabbath is truth, then honor that truth ) s
+5 665 M
+(fully. Do not try to keep one foot in obedience and one foot in a church system that rejects the ) s
+5 652 M
+(light God has shown you.) s
+5 626 M
+(Once you decide to follow the Bible, other decisions follow. The real issue is not whether you ) s
+5 613 M
+(feel attached to your former church. The real issue is whether the Word of God is supreme, or ) s
+5 600 M
+(whether church loyalty is supreme. If your church does not teach the whole truth, then sooner ) s
+5 587 M
+(or later you have to decide whether you will accommodate error or obey God.) s
+5 561 M
+(Matthew 6:24 makes the point plainly: you cannot serve two masters. Once truth is understood, ) s
+5 548 M
+(truth calls for obedience, not partial commitment. The Sabbath is not treated as a minor point ) s
+5 535 M
+(either. Ezekiel 20:12 is used to show that God gave the Sabbath as a sign between Himself and ) s
+5 522 M
+(His people, so keeping it is part of accepting His rulership and sanctifying work in your life.) s
+5 496 M
+(So the transition should be real. You need to plant yourself where the truth is taught, not ) s
+5 483 M
+(remain settled in a body that rejects what God has shown you. This may mean severing ties ) s
+5 470 M
+(with a church as an institution.) s
+5 444 M
+(But that does not mean severing ties with people. Keep the friendships. Cherish them. Use your ) s
+5 431 M
+(influence with love and patience. Stay in contact and witness to them. Share the light you have ) s
+5 418 M
+(found. The point is not to abandon people. The point is to stop participating in a system that ) s
+5 405 M
+(continues in error while still trying to help the people inside it.) s
+5 379 M
+(Do not try to live in both worlds at once. You cannot keep Sabbath privately, then continue in a ) s
+5 366 M
+(Sunday church as though the doctrinal divide does not matter. Sooner or later a choice has to be ) s
+5 353 M
+(made. Coming to Christ means turning your back on error, not merely adding one more truth ) s
+5 340 M
+(to an otherwise unchanged life.) s
+5 314 M
+(So transition with love, but transition decisively. Obey God rather than men. Leave partial truth ) s
+5 301 M
+(behind. Keep your relationships open for witness, but do not treat membership in error as if it ) s
+5 288 M
+(were spiritually neutral.) s
+5 262 M
+(How should Christians practice tithing today, especially with fixed salaries, gross-versus-net ) s
+5 249 M
+(questions, financial strain, and concerns about how leaders use the money?) s
+5 223 M
+(Treat tithing as a faith issue before you treat it as an accounting puzzle.) s
+5 197 M
+(Tithe is not presented mainly as a financial technique but as an act of trust. If you only pay tithe ) s
+5 184 M
+(when the numbers already feel comfortable, then the whole faith element disappears. Tithing is ) s
+5 171 M
+(meant to say, Lord, what I have has come from You, and I trust You enough to return what You ) s
+5 158 M
+(claim as Yours.) s
+5 132 M
+(On that basis, reject the idea that a salaried person should tithe only on the raise or only on ) s
+5 119 M
+(occasional increase beyond regular wages. Each paycheck is increase when you receive it. So the ) s
+5 106 M
+(tenth is taken from the salary itself, not merely from some later bump above your normal ) s
+5 93 M
+(earnings.) s
+5 67 M
+(Return tithe on the gross, not on what remains after taxes, bills, and deductions. If you wait ) s
+5 54 M
+(until everything else is paid first, then God is being treated as the leftover claimant instead of ) s
+5 41 M
+(the first claimant. The reasoning is simple: the tithe belongs to God before you start arranging ) s
+5 28 M
+(the rest of your spending.) s
+5 2 M
+(Hard circumstances do not remove the principle. In fact, the very pressure of limited income is ) s
+_R
+S
+%%Page: (6) 6
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 6 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (6) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(where the trust element becomes real. God invites His people to prove Him, and tithing ) s
+5 691 M
+(becomes one of the practical places where that trust is exercised.) s
+5 665 M
+(Do not make another person's conduct the measure of your own faithfulness. In their Adventist ) s
+5 652 M
+(frame, tithe is handled through a broader church structure rather than simply handed over as a ) s
+5 639 M
+(private gift to enrich a local pastor. And even where abuses may exist elsewhere, your duty is ) s
+5 626 M
+(still to return to God what is His.) s
+5 600 M
+(When you pay tithe, you are not giving God a gift in the strict sense. You are returning what He ) s
+5 587 M
+(already claims as His own. Offerings are what go beyond that. Tithe is the baseline return; ) s
+5 574 M
+(offerings are the additional gift.) s
+5 548 M
+(Does 1 Corinthians 7:14 \342\\200\\224 that the children of a mixed marriage "would be unclean, ) s
+5 535 M
+(but now they are holy" \342\\200\\224 mean children are born with a sinful nature?) s
+5 509 M
+(No, this is not a text about a child's nature at birth. It is about the home.) s
+5 483 M
+(Paul is addressing a couple who were both unbelievers when they married and then one spouse ) s
+5 470 M
+(came to faith. He is not addressing the question of whether to enter an unequally yoked ) s
+5 457 M
+(marriage. His point is that the believing spouse should not automatically divorce. The believing ) s
+5 444 M
+(spouse does not become defiled by the unbelieving one; the opposite moves in. The unbelieving ) s
+5 431 M
+(spouse is sanctified by the believing one, and that holy influence spills over onto the children, ) s
+5 418 M
+(so that they are called holy rather than unclean. If the marriage were torn up, that sanctifying ) s
+5 405 M
+(influence on the home and on the children would be lost.) s
+5 379 M
+(So "unclean" and "holy" here describe standing inside the covenant household under the ) s
+5 366 M
+(influence of a believing parent, not the ontological condition of the child. The passage is not ) s
+5 353 M
+(saying anything about sinful nature in either direction.) s
+5 327 M
+(How does the seventh commandment apply to angels and other non-human beings who do not ) s
+5 314 M
+(marry? And why do animals procreate if they are not repopulating heaven?) s
+5 288 M
+(The ten commandments are eternal in principle and adapted in expression. The fourth ) s
+5 275 M
+(commandment, for example, mentions the manservant and maidservant \342\\200\\224 that is a ) s
+5 262 M
+(human application of an eternal principle. The seventh commandment works the same way.) s
+5 236 M
+(At the principle level, adultery and fornication are disloyalty. A pure woman in Scripture ) s
+5 223 M
+(stands for a faithful church; a harlot stands for a church that has abandoned Christ and joined ) s
+5 210 M
+(herself to the kings of the earth. Revelation's harlot committing fornication with the kings is ) s
+5 197 M
+(that union of church and state \342\\200\\224 and it is a violation of the seventh commandment in ) s
+5 184 M
+(principle. Paul uses the same logic when he tells believers not to be unequally yoked with ) s
+5 171 M
+(unbelievers. Lucifer is the original fornicator in that sense: he forsook Christ and fell in love ) s
+5 158 M
+(with himself, coveted a position that was not his, and in principle broke every one of the ten ) s
+5 145 M
+(commandments. So the seventh commandment applies to every moral being in the universe. It ) s
+5 132 M
+(governs loyalty, not only human sexuality.) s
+5 106 M
+(On animals: they procreate because the ecosystem of this world requires it. God created animals ) s
+5 93 M
+(for the life of the earth, foresaw sin and death entering, and gave them the capacity to replenish ) s
+5 80 M
+(so that the order of nature would continue. Genesis 1:28, where God tells the humans to be ) s
+5 67 M
+(fruitful and multiply and have dominion, sets up the human-animal relationship as ) s
+5 54 M
+(stewardship, not exploitation. Animals multiply to serve nature's balance and to serve ) s
+5 41 M
+(humanity's life on earth. That is the purpose; repopulating heaven is not.) s
+5 15 M
+(Can you show from the Bible only that the saints will hear the day and hour of Christ's coming?) s
+_R
+S
+%%Page: (7) 7
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 7 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (7) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(There is no single Bible verse that states, "God will announce the day and the hour." The ) s
+5 691 M
+(speakers acknowledge that directly. What the Bible does give is the surrounding scene, and the ) s
+5 678 M
+(announcement fits inside it.) s
+5 652 M
+(This is after the close of probation, at the very end of the time of trouble, when every case is ) s
+5 639 M
+(already decided. Revelation 16:17-18 places us there: the seventh angel pours out the last ) s
+5 626 M
+(plague, a loud voice comes out of the temple from the throne saying, "It is done," and there are ) s
+5 613 M
+(noises, thunderings, lightnings, and the greatest earthquake in human history. Whenever ) s
+5 600 M
+(Scripture describes thundering, lightnings, and earthquake together, God is about to say ) s
+5 587 M
+(something weighty \342\\200\\224 Sinai at the giving of the ten commandments is the pattern. So ) s
+5 574 M
+(the moment in Revelation 16 is already a moment in which God speaks.) s
+5 548 M
+(Inside that scene, the living righteous are glorified, and there is a special resurrection \342\\200\\224 ) s
+5 535 M
+(those who pierced Him, and those who died in the faith of the third angel's message, which ) s
+5 522 M
+(Revelation 14:13 marks with "blessed are those who die in the Lord from now on." Then Christ ) s
+5 509 M
+(comes, and when He is above the earth the general resurrection of those who died before 1844 ) s
+5 496 M
+(takes place, which Daniel 12:1-2 describes as the awakening of those who sleep in the dust.) s
+5 470 M
+(So when Ellen White says in The Great Controversy that the voice from heaven announces the ) s
+5 457 M
+(day and the hour, she is filling in a detail inside a sequence the Bible already gives. It does not ) s
+5 444 M
+(contradict Christ's "no man knows the day or the hour," because that statement refers to our ) s
+5 431 M
+(current knowledge before probation closes. After "It is done," the living righteous hear it ) s
+5 418 M
+(because the decision has already been made and the deliverance is underway.) s
+5 392 M
+(Is it wrong to crochet on Sabbath while listening to Bibles or sermons to keep my hands busy, if ) s
+5 379 M
+(it is not to sell?) s
+5 353 M
+(No moral issue here. Do not build lists of Sabbath rules that Scripture does not build. The ) s
+5 340 M
+(biblical principles are plain \342\\200\\224 do not buy or sell, do not engage in secular work ) s
+5 327 M
+(\342\\200\\224 and inside those principles God has given you a conscience. A sanctified conscience ) s
+5 314 M
+(is the instrument that leads you to the right answer in your own case.) s
+5 288 M
+(The question already carries its own answer. You are not doing this for gain; you are doing it ) s
+5 275 M
+(because your hands need something to do in order for your mind to stay focused on the Word. ) s
+5 262 M
+(That is not secular work; it is an aid to worship. If the crocheting were producing items to sell it ) s
+5 249 M
+(would be a different question. If the items are a blessing to someone else \342\\200\\224 sweaters ) s
+5 236 M
+(for the homeless or people in need \342\\200\\224 that is service, not labor.) s
+5 210 M
+(Do not let others become your conscience. Ask the Lord to show you, keep the Sabbath holy ) s
+5 197 M
+(from the heart, and do what actually helps you hear the Word.) s
+5 171 M
+(Why did the veil separating the holy and most holy place in the heavenly sanctuary continue to ) s
+5 158 M
+(exist until 1844? How do we reconcile the rending of the earthly veil at the cross with Christ's ) s
+5 145 M
+(two-phase priestly ministry in heaven?) s
+5 119 M
+(The rending of the veil at Christ's death signified the end of the earthly sanctuary system, not ) s
+5 106 M
+(the abolition of the heavenly sanctuary or its phases. Hebrews 8 says the earthly tabernacle was ) s
+5 93 M
+(only a type and shadow of the true heavenly reality. When Jesus died, the veil of His flesh was ) s
+5 80 M
+(torn, putting an end to the validity of earthly animal sacrifices in the sense explained by Daniel ) s
+5 67 M
+(9 and opening direct access to God through Christ.) s
+5 41 M
+(However, the heavenly sanctuary still operates with two distinct apartments. The book of ) s
+5 28 M
+(Revelation shows Jesus first ministering in the holy place, walking among the candlesticks and ) s
+5 15 M
+(standing at the altar of incense. Later, in 1844, Revelation 3 describes a door being closed \(the ) s
+5 2 M
+(holy place\) and an open door being placed before the church \(the most holy place\), ) s
+_R
+S
+%%Page: (8) 8
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 8 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (8) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(transitioning Christ's ministry to the final phase of judgment where the Ark of His Testament is ) s
+5 691 M
+(seen \(Revelation 11:19\). The torn veil on earth simply meant the shadow had met its reality in ) s
+5 678 M
+(the death of the Son of God; it did not collapse the sequential ministry Christ was about to ) s
+5 665 M
+(begin in heaven.) s
+5 639 M
+(Who served as the high priest in the heavenly sanctuary before Jesus's inauguration as our high ) s
+5 626 M
+(priest at His ascension?) s
+5 600 M
+(Strictly speaking, no one served as a fully inaugurated high priest before Christ, because the ) s
+5 587 M
+(blood of bulls and goats could not actually remove sin. In the Old Testament, God passed over ) s
+5 574 M
+(sins on credit, as Romans 3:25 explains. Salvation was always through faith in the coming ) s
+5 561 M
+(Savior, whose future sacrifice guaranteed their pardon.) s
+5 535 M
+(Jesus was the designated intercessor in God's plan even before sin existed, and He began ) s
+5 522 M
+(interceding for humanity the moment Adam and Eve fell. However, to officially become the ) s
+5 509 M
+(High Priest, He had to meet specific qualifications: He had to become human, experience our ) s
+5 496 M
+(weaknesses, and offer a real, effective sacrifice for sin, which is the point made in Hebrews 5. ) s
+5 483 M
+(Only after dying on the cross could He ascend to heaven with His own blood to formally anoint ) s
+5 470 M
+(the heavenly sanctuary, in line with Daniel 9:24, and be inaugurated as our High Priest, turning ) s
+5 457 M
+(the promise of Old Testament salvation into a paid reality.) s
+5 431 M
+(If the ten northern tribes lost their pure lineage in the Assyrian captivity, how could Elizabeth ) s
+5 418 M
+(be identified as from the tribe of Levi and Anna as from the tribe of Asher?) s
+5 392 M
+(Not every Israelite in the northern tribes lost their identity. A good portion intermarried with ) s
+5 379 M
+(the Assyrians and the surrounding pagan nations \342\\200\\224 that is the origin of the Samaritans ) s
+5 366 M
+(\342\\200\\224 but a remnant in each tribe remained faithful and kept the line. Josiah's reformation ) s
+5 353 M
+(shows it clearly: when he reached into the territory of the northern tribes, there were people ) s
+5 340 M
+(there who returned to the Lord.) s
+5 314 M
+(Levi is the easiest case, because the tribe of Levi was tied to the sanctuary service in Judah. ) s
+5 301 M
+(Many Levites returned with the post-exilic community to Jerusalem, so Elizabeth's Levitical ) s
+5 288 M
+(descent in the New Testament is not a surprise. Anna from the tribe of Asher is the harder case, ) s
+5 275 M
+(but the same principle applies: some remained, kept records, and preserved their tribal identity ) s
+5 262 M
+(through the captivity and after. By the New Testament period, tribal identity also does not ) s
+5 249 M
+(necessarily imply pure blood. Paul calls himself a Benjamite while living in Gentile territory. ) s
+5 236 M
+(Intermarriage happened throughout the Old Testament and people still counted as Israelites. So ) s
+5 223 M
+(Elizabeth and Anna being named from their tribes reflects a preserved line, not a claim of ) s
+5 210 M
+(genetic purity across seven centuries.) s
+5 184 M
+(How can God sanction one nation attacking and killing another, as with Israel and the Moabites ) s
+5 171 M
+(in 2 Kings 3?) s
+5 145 M
+(God does not destroy a nation arbitrarily. He destroys it when it has gone beyond the point of ) s
+5 132 M
+(no return, and only He knows when that line is crossed.) s
+5 106 M
+(Genesis 15 sets the pattern. God promised Abraham the land but delayed its possession by four ) s
+5 93 M
+(hundred years "because the iniquity of the Amorite is not yet full." Probation, in effect, had not ) s
+5 80 M
+(closed on them. By the time of Moses, several generations later, that fullness had been reached. ) s
+5 67 M
+(That is when the judgment falls. The same principle governs the Flood, Sodom and Gomorrah, ) s
+5 54 M
+(and the final destruction of the wicked at Christ's coming. If destroying the wicked at the end is ) s
+5 41 M
+(consistent with divine justice \342\\200\\224 and Scripture says it is \342\\200\\224 then the Old ) s
+5 28 M
+(Testament judgments follow the same logic.) s
+5 2 M
+(God's preferred method was not military conquest. Exodus 23 promised to drive the Canaanites ) s
+_R
+S
+%%Page: (9) 9
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 9 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (9) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(out little by little through the hornet and the wild beasts of the land. That plan required faith. ) s
+5 691 M
+(Israel's unbelief forced the transition to war; God still worked through them at the level they ) s
+5 678 M
+(were on. So the warfare is not a picture of God's first will but of God meeting His people in ) s
+5 665 M
+(their weakness while still protecting His name among the nations. In that cultural world, ) s
+5 652 M
+(whichever god's people won was believed to be the stronger god, so when Israel was mocked ) s
+5 639 M
+(and attacked, God's name itself was at stake.) s
+5 613 M
+(Moab is a good example of timing. When Israel first passed through on the way to the Jordan, ) s
+5 600 M
+(God told Moses not to fight Moab, Edom, or Ammon \342\\200\\224 they were kin through Lot and ) s
+5 587 M
+(Abraham, and their cup was not yet full. Later those same nations hardened further, and only ) s
+5 574 M
+(then do we see the wars of 2 Kings 3 and others.) s
+5 548 M
+(Nations can commit the unpardonable sin, just as individuals can. Babylon was told, "You have ) s
+5 535 M
+(been weighed in the balances and found wanting." At the end, the wicked themselves will ask ) s
+5 522 M
+(to be destroyed because they cannot stand to live in the presence of the God they have learned ) s
+5 509 M
+(to despise. God is simply giving them the full result of the choice they have been making. That ) s
+5 496 M
+(is the frame for Old Testament holy war: divine patience first, judgment only when the line has ) s
+5 483 M
+(been crossed, and the choice always respected.) s
+5 457 M
+(If wars seem fewer now than in Old Testament times, what did Jesus mean in Matthew 24 about ) s
+5 444 M
+(wars and rumors of wars as a sign of the end?) s
+5 418 M
+(The sign is not that there are wars for the first time. Wars have always existed. What Jesus is ) s
+5 405 M
+(describing is a convergence \342\\200\\224 wars on a worldwide scale, more bloody, more ) s
+5 392 M
+(repetitive, combined with all the other signs.) s
+5 366 M
+(Matthew 24 does not begin with wars. It begins with deception \342\\200\\224 false Christs, ) s
+5 353 M
+(counterfeit spiritual manifestations, angels pretending to be Christ. When those deceptions rise, ) s
+5 340 M
+(the other signs \342\\200\\224 wars, pestilences, earthquakes \342\\200\\224 are already being fulfilled, ) s
+5 327 M
+(but now in greater intensity and frequency. The First and Second World Wars are a pattern the ) s
+5 314 M
+(ancient world never saw. Old Testament wars were regional, largely confined to Asia and later ) s
+5 301 M
+(Europe. Today the contest is global, with the major powers drawing the nations into their ) s
+5 288 M
+(alignment.) s
+5 262 M
+(And Matthew 24 is not the only list. Revelation adds the ascent of the United States in global ) s
+5 249 M
+(power, the healing of the wound of the papacy, and more. Ellen White observes in The Great ) s
+5 236 M
+(Controversy \(pages 589-590\) that the disasters God allows will become more frequent and more ) s
+5 223 M
+(severe as the end nears. It is the accumulation \342\\200\\224 wars, natural disasters, social unrest, ) s
+5 210 M
+(deceptions, political and religious realignments \342\\200\\224 all intensifying at the same time that ) s
+5 197 M
+(constitutes the sign. That is the perfect storm Jesus is pointing at, not any single war in isolation.) s
+5 171 M
+(Why did Ellen White call the 1888 message "the third angel's message in verity," and if it had ) s
+5 158 M
+(been accepted at Minneapolis would it have brought the latter rain and finished the work?) s
+5 132 M
+(Yes. Had the message been received, it would have brought the latter rain and finished the ) s
+5 119 M
+(work.) s
+5 93 M
+(The reason Ellen White called the 1888 message the third angel's message in verity is that it ) s
+5 80 M
+(restored the missing half of Revelation 14:12. The third angel ends with, "Here is the patience of ) s
+5 67 M
+(the saints; here are they that keep the commandments of God and the faith of Jesus." Adventism ) s
+5 54 M
+(had dwelt heavily on the commandments of God, but had not preached the faith of Jesus with ) s
+5 41 M
+(the same weight. Salvation had been drifting toward works. At Minneapolis, the older pioneers ) s
+5 28 M
+(accused Jones and Waggoner of undermining the law. Ellen White's response was the opposite: ) s
+5 15 M
+(they were giving the law its right place by putting the faith of Jesus back where it belonged, ) s
+5 2 M
+(because it is through the faith of Jesus that the commandments of God are kept.) s
+_R
+S
+%%Page: (10) 10
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 10 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (10) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 691 M
+(She captured the message in Testimonies to Ministers pages 91-92: the 1888 message presented ) s
+5 678 M
+(justification through faith in the Surety, Christ as the Surety, inviting people to receive the ) s
+5 665 M
+(righteousness of Christ \342\\200\\224 a justification that is made manifest in obedience to all the ) s
+5 652 M
+(commandments of God. And in Review and Herald, June 4, 1895, she wrote: "Righteousness ) s
+5 639 M
+(within is testified by righteousness without. The righteousness by which we are justified is ) s
+5 626 M
+(imputed. The righteousness by which we are sanctified is imparted. The first is our title to ) s
+5 613 M
+(heaven. The second is our fitness for heaven." You do not go to heaven with only one. The 1888 ) s
+5 600 M
+(message held both together. Rejecting it did not simply delay a revival; it delayed the third ) s
+5 587 M
+(angel's message in its fullness and with it the latter rain.) s
+5 561 M
+(What is the meaning of Revelation 9?) s
+5 535 M
+(Revelation 9 should be read as part of the historicist unfolding of the trumpets, not as a chapter ) s
+5 522 M
+(pushed wholesale into the future. The chapter contains the fifth and sixth trumpets, and the ) s
+5 509 M
+(speakers insist that the trumpets, like the churches and the seals, move through history step by ) s
+5 496 M
+(step from John's time to the end.) s
+5 470 M
+(They do not claim every detail of Revelation 9 is settled beyond dispute. They explicitly say ) s
+5 457 M
+(there are variations among Adventist interpreters on particular trumpet fulfillments. But they ) s
+5 444 M
+(treat one point as non-negotiable: the trumpets are not to be read as entirely future. In their ) s
+5 431 M
+(reasoning, Revelation 10 stands inside the sixth trumpet as a parenthesis, and Revelation 10 ) s
+5 418 M
+(applies to the Millerite movement and 1844. Because that section reaches into the sixth trumpet, ) s
+5 405 M
+(the sixth trumpet cannot belong only to the future. And because Revelation 11 presents the ) s
+5 392 M
+(seventh trumpet as the final takeover of the kingdoms of this world by the Father and Christ, ) s
+5 379 M
+(the sequence is still moving toward its climax.) s
+5 353 M
+(So the meaning of Revelation 9, in the way they answer it here, is not a full symbol-by-symbol ) s
+5 340 M
+(decoding of locusts and horsemen. It is that the fifth and sixth trumpets belong to the historic ) s
+5 327 M
+(course of redemptive history, that their fulfillment stretches through past events rather than ) s
+5 314 M
+(waiting entirely ahead, and that interpreters should stay with that historicist framework even ) s
+5 301 M
+(where they differ on some particulars.) s
+5 275 M
+(Is the "one hour" in Revelation 17:12 a literal time prophecy?) s
+5 249 M
+(No. The "one hour" in Revelation 17:12 is treated here as a short but indefinite period, not as a ) s
+5 236 M
+(literal prophetic time calculation.) s
+5 210 M
+(The first reason is the immediate context. Revelation 17:10 says the seventh king continues only ) s
+5 197 M
+("a short time," and verse 12 describes the ten kings receiving authority with the beast for "one ) s
+5 184 M
+(hour." The speakers treat those expressions as parallel. In other words, "one hour" is John's way ) s
+5 171 M
+(of describing brevity, not of supplying a calculable prophetic unit.) s
+5 145 M
+(The second reason is how Revelation itself uses the expression. In Revelation 18 Babylon's ) s
+5 132 M
+(judgment and destruction come in "one hour," but the point there is suddenness and rapid ) s
+5 119 M
+(collapse, not a literal sixty-minute destruction. They make the same point from Revelation 14:7: ) s
+5 106 M
+("the hour of his judgment has come" does not mean the judgment lasts only sixty minutes.) s
+5 80 M
+(The third reason is John's broader vocabulary. In the Gospel of John, Jesus says, "My hour has ) s
+5 67 M
+(not yet come," "the hour is coming," and later, "the hour has come" for the Son of Man to be ) s
+5 54 M
+(glorified. In those passages hour means an appointed time, season, or decisive moment. The ) s
+5 41 M
+(speakers say Revelation uses the term the same way here.) s
+5 15 M
+(So the ten kings receive authority with the beast for a brief, divinely noted period whose exact ) s
+5 2 M
+(limits are not specified in the text. The emphasis is on short duration, not on a literal time ) s
+_R
+S
+%%Page: (11) 11
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 11 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (11) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(prophecy to be mathematically computed.) s
+5 678 M
+(Does the sixth commandment forbid self-defense?) s
+5 652 M
+(The sixth commandment forbids willful, violent, intentional taking of life. The speakers do not ) s
+5 639 M
+(flatten every case of death into the same category. They say Scripture itself distinguishes ) s
+5 626 M
+(between premeditated murder, accidental killing, vengeance, and cases where a death happens ) s
+5 613 M
+(without lying in wait.) s
+5 587 M
+(That is why they turn to Exodus 21 and Numbers 35. Exodus 21 says the person who strikes ) s
+5 574 M
+(another so that he dies is to be put to death, but it also makes room for a case where the person ) s
+5 561 M
+(did not lie in wait and may flee to the appointed place of refuge. Numbers 35 develops that ) s
+5 548 M
+(distinction further. If the death was not driven by enmity or premeditation, the congregation ) s
+5 535 M
+(had to investigate the case and the person could remain in the city of refuge rather than being ) s
+5 522 M
+(treated as a murderer. If it was premeditated murder, the person was delivered up. In their ) s
+5 509 M
+(answer, that distinction is the key.) s
+5 483 M
+(So they do not give a hard absolutist statement that every act of self-defense is automatically ) s
+5 470 M
+(sinful, and they do not give blanket approval either. They say a sudden life-or-death defense in ) s
+5 457 M
+(which someone is harmed or even killed may fall under the category of a non-premeditated act ) s
+5 444 M
+(rather than murder. At the same time, they openly admit they do not find a direct biblical ) s
+5 431 M
+(treatment of self-defense itself.) s
+5 405 M
+(They also add a pastoral caution. A believer should not be eager to take justice into his own ) s
+5 392 M
+(hands, because vengeance belongs to God, not to us. They point to Jesus' refusal to defend ) s
+5 379 M
+(Himself and raise the question whether we trust the Lord to deliver us without taking ) s
+5 366 M
+(vengeance ourselves. So the answer they give is restrained: premeditation and vengeance are ) s
+5 353 M
+(condemned; Scripture allows distinctions where intent and circumstance matter; and ) s
+5 340 M
+(self-defense remains a serious, complex question that should not be turned into a license for ) s
+5 327 M
+(revenge.) s
+5 301 M
+(Why is the Holy Spirit sometimes referred to as "he" and other times as "it" in Scripture, as in ) s
+5 288 M
+(Romans 8:26-27 and John 14-16?) s
+5 262 M
+(The variation between "he" and "it" is a grammar issue, not a theology issue. In Greek, the word ) s
+5 249 M
+(for spirit \342\\200\\224 pneuma \342\\200\\224 is grammatically neuter, and the article that goes with ) s
+5 236 M
+(it is the neuter article. A literal translation can render that as "it." But when the context makes ) s
+5 223 M
+(plain that the subject is the Holy Spirit and the Holy Spirit is a person, translators shift to "he" to ) s
+5 210 M
+(reflect the referent rather than the grammatical gender. That is why the same translator can use ) s
+5 197 M
+(both within a few verses. Nothing in the Greek requires reading the Holy Spirit as an ) s
+5 184 M
+(impersonal force.) s
+5 158 M
+(The personhood itself is settled elsewhere. The Holy Spirit is the third person of the Godhead. ) s
+5 145 M
+(Ellen White wrote in Bible Training School, March 1, 1906, "There are three living persons of the ) s
+5 132 M
+(heavenly trio; in the name of these three," naming Father, Son, and Holy Ghost \342\\200\\224 and ) s
+5 119 M
+(that statement is from her directly, not a compilation. So three persons is the plain teaching, ) s
+5 106 M
+(even where the Greek article happens to be neuter.) s
+5 80 M
+(Beyond that, restraint is right. Ellen White also warns in Acts of the Apostles, page 52, that the ) s
+5 67 M
+(nature of the Holy Spirit is a mystery men cannot explain because the Lord has not revealed it; ) s
+5 54 M
+(bringing together passages to construct a human theory on something God has left unrevealed ) s
+5 41 M
+(will not strengthen the church. Silence is golden on the how. It is also worth noting that the ) s
+5 28 M
+(metaphors used for the Spirit \342\\200\\224 oil, rain, fire, dove, outpouring in the latter rain ) s
+5 15 M
+(\342\\200\\224 describe function, not substance. The Spirit is not literally a liquid being poured in; ) s
+5 2 M
+(those images picture what He does. And the Holy Spirit is not simply the divine nature of ) s
+_R
+S
+%%Page: (12) 12
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 12 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (12) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(Christ transferred down to earth, because Christ's divinity and humanity are not separable in ) s
+5 691 M
+(that way. The Holy Spirit is His own person.) s
+5 665 M
+(If heaven has no sin or sadness, how will we remember loved ones who did not make it?) s
+5 639 M
+(The premise needs one correction before the answer. It is not quite right to say heaven has ) s
+5 626 M
+(never had sin or sadness. Sin originated in heaven, in a perfect place. And sadness is not sin ) s
+5 613 M
+(\342\\200\\224 the angels stopped their singing and laid down their harps during Christ's passion, ) s
+5 600 M
+(and God Himself sorrows when people reject Him. What is true is that heaven now has no sin, ) s
+5 587 M
+(because the devil has been cast out, and in the new earth there will be no more pain.) s
+5 561 M
+(On the memory itself, start with the placement of Revelation 21:4. Revelation 20 ends with the ) s
+5 548 M
+(wicked cast into the lake of fire. Revelation 21:1 is the climax of that scene: new heavens, new ) s
+5 535 M
+(earth, the old passed away. Then verse 2 begins a new cycle that loops back before the ) s
+5 522 M
+(destruction \342\\200\\224 the New Jerusalem descending after the millennium, before the wicked ) s
+5 509 M
+(are destroyed. Inside that earlier window comes verse 4: "And God will wipe away every tear ) s
+5 496 M
+(from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there ) s
+5 483 M
+(be any more pain." Every verb in the surrounding passage is future from that point, and death ) s
+5 470 M
+(is still present because the wicked have not yet been destroyed. So the tears God wipes away ) s
+5 457 M
+(are real tears, shed by the saints inside the city over those outside the city. There will be grief. ) s
+5 444 M
+(God does not pretend otherwise.) s
+5 418 M
+(After that, the memory is not preserved as ongoing torment. Isaiah 65:17 is plain: "Behold, I ) s
+5 405 M
+(create new heavens and a new earth: and the former shall not be remembered, nor come into ) s
+5 392 M
+(mind." Psalm 37:34 says that when the wicked are cut off, you shall see it \342\\200\\224 the saints ) s
+5 379 M
+(will witness the judgment \342\\200\\224 but the carrying of that memory does not belong to them ) s
+5 366 M
+(forever. That is where God's promise to wipe away the tear becomes an erasure, not a ) s
+5 353 M
+(suppression. The pain of who is not there is borne eternally in the heart of God, not in ours.) s
+5 327 M
+(Ellen White was shown this in vision. In Early Writings page 17 she was carried forward to the ) s
+5 314 M
+(kingdom and met two of the 1844 pioneers who had died, Fitch and Stockman, who asked what ) s
+5 301 M
+(the living had passed through. "We tried to call up our greatest trials, but they looked so small ) s
+5 288 M
+(compared with a far more exceeding and eternal weight of glory that surrounded us that we ) s
+5 275 M
+(could not speak them out, and we all cried out, 'Hallelujah! heaven is cheap enough'; and we ) s
+5 262 M
+(touched our glorious harps and made heaven's arches ring." Heaven will be so glorious that the ) s
+5 249 M
+(memory of the former things will not rise to mind. The answer is not that we forget by effort ) s
+5 236 M
+(but that glory and the presence of Christ displace the old.) s
+5 210 M
+(Is the Filioque how they supplant Jesus Christ with the pope?) s
+5 184 M
+(The premise behind the question does not hold up, and the speakers say so directly. They do ) s
+5 171 M
+(not see how the Filioque is connected to supplanting Christ with the pope.) s
+5 145 M
+(What the Filioque actually is: the Latin word filioque means "and from the Son." The original ) s
+5 132 M
+(creed said the Holy Spirit proceeds from the Father. Later the Western church added "and the ) s
+5 119 M
+(Son," so that the Spirit proceeds from the Father and the Son. The Eastern church did not accept ) s
+5 106 M
+(that addition and considered it a corruption of the doctrine of the Godhead. That dispute was ) s
+5 93 M
+(one of the major factors in the schism between the Eastern and Western churches. It is a serious ) s
+5 80 M
+(theological and ecclesial controversy in its own right, but it is not the mechanism by which the ) s
+5 67 M
+(papacy substitutes itself for Christ.) s
+5 41 M
+(Should Christians follow the Gregorian calendar?) s
+5 15 M
+(Using the Gregorian calendar for daily life and business is perfectly acceptable and does not ) s
+5 2 M
+(violate biblical principles. The calendar is a civil framework, an ordinance of men that ) s
+_R
+S
+%%Page: (13) 13
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 13 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (13) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(Christians can freely navigate to maintain order in society, which is the principle drawn from 1 ) s
+5 691 M
+(Peter 2.) s
+5 665 M
+(While the names of the days may have pagan origins and the secular world operates from ) s
+5 652 M
+(midnight to midnight, the actual seven-day sequential cycle established at creation remains ) s
+5 639 M
+(completely unbroken. Historical calendar adjustments, such as the shift from the Julian to the ) s
+5 626 M
+(Gregorian calendar in 1582, changed the dates to correct astronomical drift but never ) s
+5 613 M
+(interrupted the continuous cycle of the week itself.) s
+5 587 M
+(Therefore, you do not need to superimpose biblical timekeeping onto secular interactions. You ) s
+5 574 M
+(have discretion over how you manage the six working days. The only requirement is to render ) s
+5 561 M
+(to God what is God's: when Friday sundown arrives, you step out of the secular framework to ) s
+5 548 M
+(faithfully observe the seventh-day Sabbath until Saturday sundown.) s
+5 522 M
+(What is the SDA Church\342\\200\\231s position on White Christian Nationalism?) s
+5 496 M
+(The Seventh-day Adventist Church is completely against Christian nationalism. Any ideology ) s
+5 483 M
+(that attempts to merge church and state to create a "Christian nation" or use political authority ) s
+5 470 M
+(to enforce religion is entirely antithetical to Adventist theology and core values. ) s
+5 444 M
+(The church\342\\200\\231s historical and official stance mandates a strict separation of church and ) s
+5 431 M
+(state. The church and its representatives will not align with any political party, nor will they use ) s
+5 418 M
+(civil influence to advance their faith or inhibit the faith of others. True moral change cannot be ) s
+5 405 M
+(achieved through legislation or political force; it only comes through the work of the Holy Spirit ) s
+5 392 M
+(in the human heart.) s
+5 366 M
+(Furthermore, leading any movement with racial designations like "white" or "black" introduces ) s
+5 353 M
+(an artificial, demonic division into the human family. God is no respecter of persons. When ) s
+5 340 M
+(believers divest themselves of the desire for superiority, these racial divisions lose their power. ) s
+5 327 M
+(The church's mandate is to preach the gospel to all people, not to seize the levers of government ) s
+5 314 M
+(to enforce a national religion.) s
+5 288 M
+(Does Jesus see what is happening on earth directly, or through the Holy Spirit? Is He only ) s
+5 275 M
+(relying on foreknowledge, and how does this relate to the Godhead and the ministry of angels?) s
+5 249 M
+(Christ does not need to leave heaven and become locally present on earth in order to know ) s
+5 236 M
+(what is happening here. God knows everything from eternity, and Christ shares that divine ) s
+5 223 M
+(knowledge. At the same time, heaven does not operate in a flat, undifferentiated way. God ) s
+5 210 M
+(works through an ordered administration.) s
+5 184 M
+(That is why Revelation 1 is the starting point. The revelation is given by the Father to Jesus ) s
+5 171 M
+(Christ, then passed along through an angel to John, then to the churches, and from there to the ) s
+5 158 M
+(world. The Holy Spirit belongs in that line as Christ's representative on earth, because ) s
+5 145 M
+(Revelation repeatedly says, "Hear what the Spirit says to the churches." The point is not that ) s
+5 132 M
+(Christ is ignorant unless someone informs Him. The point is that heaven works through ) s
+5 119 M
+(delegated responsibility and active communication.) s
+5 93 M
+(Foreknowledge is not predetermination. God knew from eternity what choices would be made, ) s
+5 80 M
+(but His knowing did not force those choices. He does not determine the acts and then simply ) s
+5 67 M
+(watch them happen. He knows them because nothing is hidden from Him.) s
+5 41 M
+(Psalm 139 is used to make that distinction. The psalm is not treated as teaching that God is a ) s
+5 28 M
+(substance diffused through everything. It is treated as teaching that God knows everything. He ) s
+5 15 M
+(knows your sitting down and rising up, your thoughts afar off, and your words before you ) s
+5 2 M
+(speak them. So when the psalm says there is nowhere to flee from His presence, the point is that ) s
+_R
+S
+%%Page: (14) 14
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 14 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (14) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(there is nowhere outside His knowledge, reach, and government, not that God is physically ) s
+5 691 M
+(spread through every corner of creation.) s
+5 665 M
+(On that basis, the Father remains enthroned in heaven, Christ remains in heaven interceding, ) s
+5 652 M
+(and the Holy Spirit works on earth through the ministry of angels. The centurion's servant ) s
+5 639 M
+(illustrates the principle: authority can act effectively at a distance through delegated agents. In ) s
+5 626 M
+(the same way, God ministers to humanity through the Spirit and angels without ceasing to be ) s
+5 613 M
+(the God who reigns from heaven.) s
+5 587 M
+(So Jesus knows all that happens on earth, not because He must be bodily present everywhere, ) s
+5 574 M
+(but because divine omniscience sees all things and because the Godhead works through an ) s
+5 561 M
+(ordered chain of communication and agency. The Holy Spirit and the angels are not ) s
+5 548 M
+(replacements for divine knowledge. They are the means by which heaven actively ministers ) s
+5 535 M
+(and carries out God's will in the world.) s
+5 509 M
+(Does Armageddon happen before or after the Millennium?) s
+5 483 M
+(Armageddon, strictly speaking, takes place before the second coming, not after the millennium.) s
+5 457 M
+(The plagues are before the second coming, and Armageddon is tied to the sixth and seventh ) s
+5 444 M
+(plagues. The sixth plague is the preparation for the battle, and the seventh plague is the battle ) s
+5 431 M
+(itself when Christ comes with the armies of heaven. In that setting, the battle is the wicked ) s
+5 418 M
+(gathering against God's people. Because God's people represent Him, it is a battle against God ) s
+5 405 M
+(in the person of His people.) s
+5 379 M
+(So Armageddon is not the post-millennial attack on the New Jerusalem. It is the pre-advent ) s
+5 366 M
+(crisis in which the powers of earth unite against the remnant under the last-plague setting, and ) s
+5 353 M
+(God's people are delivered before Christ appears.) s
+5 327 M
+(An important distinction still has to be kept in view. After the millennium, Satan does gather ) s
+5 314 M
+(the wicked around the city. He deceives them, rallies them, and prepares them to attack the ) s
+5 301 M
+(New Jerusalem. In that sense, there is a pattern after the millennium that resembles what ) s
+5 288 M
+(happened before the second coming. The multitudes had already turned against the harlot and ) s
+5 275 M
+(the religious leaders before the advent, and after the millennium they finally turn against Satan ) s
+5 262 M
+(himself when the true history is displayed and his deception is exposed.) s
+5 236 M
+(That resemblance is what causes confusion. What happens after the millennium can be spoken ) s
+5 223 M
+(of loosely as a second stage or parallel to Armageddon. But technically speaking, Armageddon ) s
+5 210 M
+(is before the second coming, when the deceived wicked turn against the religious powers and ) s
+5 197 M
+(move against God's people under the sixth and seventh plagues.) s
+5 171 M
+(So if the question is asked precisely, Armageddon belongs to the closing conflict before Christ ) s
+5 158 M
+(returns. The post-millennial assault on the city is real, but it should be distinguished from ) s
+5 145 M
+(Armageddon proper.) s
+5 119 M
+(Is it wrong to show physical affection \342\\200\\224 stroking, holding \342\\200\\224 during church ) s
+5 106 M
+(service, and how should people conduct themselves in the house of God?) s
+5 80 M
+(The purpose of the worship service is to focus on God \342\\200\\224 to pray, sing, hear the Word, ) s
+5 67 M
+(and direct attention upward. Anything that pulls that focus away, whether from the person ) s
+5 54 M
+(doing it or those sitting nearby, is out of place. 1 Corinthians 14:40 is the standard: "Let all ) s
+5 41 M
+(things be done decently and in order.") s
+5 15 M
+(Physical affection between spouses is not wrong. The place for it is not the sanctuary. Carrying ) s
+5 2 M
+(private expressions of intimacy into the house of God dishonors the Lord and distracts the ) s
+_R
+S
+%%Page: (15) 15
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 15 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (15) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(congregation. The same applies to texting, feeding children snacks during service, or anything ) s
+5 691 M
+(else that makes the common crowd out the holy. Reverence takes different forms across cultures ) s
+5 678 M
+(\342\\200\\224 some churches say amen aloud, others sit in silence \342\\200\\224 but mishandling ) s
+5 665 M
+(your spouse in the pew is out of bounds everywhere. The house of God is a house of worship.) s
+5 639 M
+(In Revelation 5:6, Jesus is described as having seven eyes which are the seven spirits of God. ) s
+5 626 M
+(Does this mean Jesus sees what is happening on earth through the Holy Spirit? And is the Holy ) s
+5 613 M
+(Spirit a person or a force or energy coming from the Father and the Son?) s
+5 587 M
+(On personhood there is no ambiguity. Ellen White names three living persons of the heavenly ) s
+5 574 M
+(trio \342\\200\\224 Father, Son, and Holy Spirit \342\\200\\224 in Bible Training School, March 1, 1906. ) s
+5 561 M
+(The Holy Spirit has intelligence, can be grieved, and is volitional; John 3:8 says the Spirit blows ) s
+5 548 M
+(where he wills. He convicts, sanctifies, gives gifts. He is a person.) s
+5 522 M
+(On the nature of the Holy Spirit, restraint is right. Ellen White writes in Acts of the Apostles ) s
+5 509 M
+(pages 51-52 that "the nature of the Holy Spirit is a mystery. Men cannot explain it because the ) s
+5 496 M
+(Lord has not revealed it to them." Silence is golden on the how.) s
+5 470 M
+(On the seven eyes in Revelation 5:6: the image is figurative. Seven is the number of ) s
+5 457 M
+(completeness or fullness throughout Revelation, and the seven eyes symbolizing the seven ) s
+5 444 M
+(spirits of God express that Christ sees and knows all things fully \342\\200\\224 they are not a claim ) s
+5 431 M
+(that he perceives the earth only through the Holy Spirit as a separate sensory organ he lacks. ) s
+5 418 M
+(John 16:7 puts it from Christ's own mouth: "If I do not go away, the Helper will not come to ) s
+5 405 M
+(you; but if I depart, I will send him to you." The Spirit's presence on earth is Christ's sending, ) s
+5 392 M
+(not a sign of Christ's limitation.) s
+5 366 M
+(As for how the Father and Son remain aware of all things while the Spirit ministers on earth: ) s
+5 353 M
+(Ellen White in Ministry of Healing page 417 writes that God is not inert on his throne but ) s
+5 340 M
+(surrounded by tens of thousands of holy beings waiting to do his will; "through these ) s
+5 327 M
+(messengers he is in active communication with every part of his dominion. By his spirit, he is ) s
+5 314 M
+(everywhere present." The angels extend divine communication throughout creation; the Spirit ) s
+5 301 M
+(is everywhere. Desire of Ages page 352 similarly places all the intelligences of heaven in ) s
+5 288 M
+(Christ's army. The scenario the questioner fears \342\\200\\224 that Jesus is effectively blind to the ) s
+5 275 M
+(earth while interceding \342\\200\\224 does not hold. He is the interceding high priest in the ) s
+5 262 M
+(heavenly sanctuary, the Spirit is his sent representative on earth, and the angelic host carries ) s
+5 249 M
+(awareness throughout creation. These are distinct roles operating in concert, not a division that ) s
+5 236 M
+(leaves any part of the creation unseen.) s
+5 210 M
+(Is "Immanuel" in Isaiah 7:14 really about Jesus, and how do we explain the time-bound ) s
+5 197 M
+(prophecy of verse 16?) s
+5 171 M
+(This prophecy must be understood through biblical typology, where a historical "type" \(a ) s
+5 158 M
+(shadow or pattern\) points to a future "antitype" \(the perfect, ultimate reality\). ) s
+5 132 M
+(Verse 16 had a direct, historical fulfillment in Isaiah's day: within a couple of years, the kings of ) s
+5 119 M
+(Syria and Samaria \(Rezin and Pekah\) were killed, bringing deliverance to Judah. However, the ) s
+5 106 M
+(historical type does not perfectly encompass all the details of the prophecy. Verse 14 explicitly ) s
+5 93 M
+(speaks of a virgin conceiving\342\\200\\224a biological impossibility without divine intervention. ) s
+5 80 M
+(This specific sign could only find its true, perfect fulfillment in Jesus Christ.) s
+5 54 M
+(The Old Testament frequently uses such dual applications. For example, "Out of Egypt I called ) s
+5 41 M
+(my son" initially referred to the nation of Israel, but the New Testament applies it perfectly to ) s
+5 28 M
+(Christ. Likewise, while Isaiah 7 had a local context, the promise of a miraculously born "God ) s
+5 15 M
+(with us" points ultimately to the Messiah taking on human flesh to become our perfect Savior.) s
+_R
+S
+%%Page: (16) 16
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 16 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (16) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(How do we interpret the institution of slavery in ancient Israel, especially the lifelong servitude ) s
+5 691 M
+(of non-Israelites?) s
+5 665 M
+(Biblical slavery cannot be equated with Greco-Roman slavery or modern colonial slavery. Those ) s
+5 652 M
+(later systems treated human beings as mere property to be exploited with "rigor"\342\\200\\224the ) s
+5 639 M
+(exact kind of abusive bondage Israel suffered in Egypt, which God condemned. In fact, God ) s
+5 626 M
+(punished the United States for the high crime of slavery.) s
+5 600 M
+(In ancient Israel, the system functioned more like indentured servitude or a social welfare ) s
+5 587 M
+(system for debt relief. Even when foreigners became permanent servants \(like the Gibeonites ) s
+5 574 M
+(who tricked Joshua\), they were not abused. They lived with their families, possessed land, and ) s
+5 561 M
+(were grafted into Israel. ) s
+5 535 M
+(God's laws heavily regulated the practice to protect human dignity. Slaves were explicitly ) s
+5 522 M
+(granted Sabbath rest and could not be worked seven days a week. Furthermore, Deuteronomy ) s
+5 509 M
+(23 explicitly commanded that if a slave escaped from an abusive master, they were not to be ) s
+5 496 M
+(returned\342\\200\\224a law that completely contradicts modern fugitive slave laws. While the ) s
+5 483 M
+(system allowed for foreign servitude, it strictly forbade cruelty, exploitation, and ruling over ) s
+5 470 M
+(anyone with "rigor.") s
+5 444 M
+(What is the difference between nephesh in Genesis 2:7 and ruach in Ecclesiastes 12:7, and if they ) s
+5 431 M
+(are different words why do we still say that no conscious part of a person goes to God at death?) s
+5 405 M
+(`Nephesh` and `ruach` are not the same word, but they are not describing two conscious parts of ) s
+5 392 M
+(a human being either.) s
+5 366 M
+(`Ruach` is the breath of life, the life-giving power from God that animates the body. That is why ) s
+5 353 M
+(Job 33:4 and James 2:26 are brought in. The spirit or breath is what gives life to the body. When ) s
+5 340 M
+(that breath is absent, the body is dead.) s
+5 314 M
+(`Nephesh` is the living person that results when the dust body is animated by that breath. ) s
+5 301 M
+(Genesis 2:7 is treated as the composition text: dust plus breath equals a living soul, that is, a ) s
+5 288 M
+(living being or person. So man does not have a soul as a detachable conscious entity. Man is a ) s
+5 275 M
+(soul.) s
+5 249 M
+(Ecclesiastes 12:7 gives the reversal of Genesis 2:7. The dust returns to the earth, the breath ) s
+5 236 M
+(returns to God who gave it, and the living person no longer exists as a functioning whole. That ) s
+5 223 M
+(is death. So the two texts are not fighting each other. One explains how a human being becomes ) s
+5 210 M
+(alive, and the other explains what happens when that life-process is undone.) s
+5 184 M
+(Scripture also uses `nephesh` in a broader way. It can mean life, person, self, or living being. ) s
+5 171 M
+(Abram acquired `nephesh` in Genesis 12:5, meaning people. The blood is called the `nephesh` in ) s
+5 158 M
+(Deuteronomy 12:23 in the sense of life. In the parable of the rich fool, speaking to his "soul" is ) s
+5 145 M
+(simply speaking to himself. The point is that the word does not automatically mean an ) s
+5 132 M
+(immortal conscious entity living inside the body.) s
+5 106 M
+(So when the spirit returns to God in Ecclesiastes 12:7, what returns is not a conscious person ) s
+5 93 M
+(traveling to heaven. It is the life that came from God. The conscious person was the composite ) s
+5 80 M
+(whole produced by body and breath together.) s
+5 54 M
+(That is why the thief on the cross is raised near the end. If Jesus had meant that the thief would ) s
+5 41 M
+(be with Him in paradise that same day, the rest of the biblical evidence would be broken, ) s
+5 28 M
+(because Jesus later said, `I have not yet ascended to My Father.` So the statement is taken with ) s
+5 15 M
+(the punctuation placed differently: Jesus was making the promise that day, not saying the thief ) s
+5 2 M
+(entered paradise that day.) s
+_R
+S
+%%Page: (17) 17
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 17 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (17) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 691 M
+(So the difference is real: `ruach` is the animating life-breath from God, while `nephesh` is the ) s
+5 678 M
+(living person produced by that breath and the body together. But that difference does not create ) s
+5 665 M
+(room for a conscious immortal soul leaving the body at death. It actually explains why the ) s
+5 652 M
+(person ceases to live until the resurrection.) s
+5 626 M
+(Was Ezekiel 9 fulfilled historically when Babylon destroyed Jerusalem, or is it only a future ) s
+5 613 M
+(end-time prophecy?) s
+5 587 M
+(Ezekiel 9 had a real historical fulfillment, and it also has a typological end-time application. You ) s
+5 574 M
+(do not have to choose one and deny the other.) s
+5 548 M
+(The historical side is tied to the Babylonian destruction of Jerusalem. The scene in Ezekiel is a ) s
+5 535 M
+(real judgment on apostate Jerusalem in which the faithful are marked out and the unfaithful are ) s
+5 522 M
+(destroyed. In that sense, the prophecy belongs to its own historical setting.) s
+5 496 M
+(But historical events in Scripture are often used typologically. What happened locally with ) s
+5 483 M
+(literal Jerusalem and literal Babylon becomes a pattern for the end of time.) s
+5 457 M
+(That is why Revelation 7 is brought alongside Ezekiel 9. In Ezekiel 9 there is a mark on the ) s
+5 444 M
+(forehead. In Revelation 7 there is a seal on the forehead. In both scenes there are two classes. ) s
+5 431 M
+(One group is identified as God's faithful people and preserved through judgment, while the ) s
+5 418 M
+(other faces destruction.) s
+5 392 M
+(So the historical fulfillment does not cancel the future application, and the future application ) s
+5 379 M
+(does not erase the historical one. The past event is the type; the end-time sealing and judgment ) s
+5 366 M
+(are the antitype.) s
+5 340 M
+(There is no contradiction between Ellen White statements that apply the passage to the ) s
+5 327 M
+(destruction under Babylon and statements that apply it to the final crisis. Both uses fit once you ) s
+5 314 M
+(recognize the prophetic pattern.) s
+5 288 M
+(So Ezekiel 9 is not only about the past, and it is not only about the future. It first described a ) s
+5 275 M
+(historical judgment on Jerusalem, and then that same pattern is carried forward typologically ) s
+5 262 M
+(into the last-day sealing of God's people and the destruction of the unfaithful.) s
+5 236 M
+(How can I understand the prophecies of Daniel 1\342\\200\\22311 and the book of Revelation?) s
+5 210 M
+(To understand the prophetic books, you must study them in sequence and recognize their deep ) s
+5 197 M
+(interconnectedness. Revelation is the key that unlocks the culmination of Daniel, but Daniel ) s
+5 184 M
+(lays the foundation. You cannot study the complexities of Revelation without first mastering ) s
+5 171 M
+(Daniel, just as you cannot study trigonometry without first studying basic math.) s
+5 145 M
+(Start by reading the historical section of Daniel \(chapters 1\342\\200\\2236\). These chapters are not ) s
+5 132 M
+(just moral stories; they contain prophetic elements and typological lessons for the last days \(for ) s
+5 119 M
+(example, Daniel 2 is a foundational prophecy\). Once you grasp these basic patterns, move to the ) s
+5 106 M
+(purely prophetic sections \(chapters 7\342\\200\\22312\). ) s
+5 80 M
+(As you progress into Revelation, you will discover the prophetic principle of "repeat and ) s
+5 67 M
+(enlarge." The visions do not necessarily stack chronologically on top of each other; rather, they ) s
+5 54 M
+(return to the same overarching timeline\342\\200\\224the great controversy between good and ) s
+5 41 M
+(evil\342\\200\\224and expand upon it with new details and broader vision. By tracing this sequence ) s
+5 28 M
+(from Daniel 2 and 7 through Revelation 12, 13, and finally 17, the full prophetic picture of the ) s
+5 15 M
+(end times becomes clear.) s
+_R
+S
+%%Page: (18) 18
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 18 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (18) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(What did Jesus mean when He said \342\\200\\234Touch Me Not\342\\200\\235 in John 20:17?) s
+5 678 M
+(When Jesus told Mary "touch me not," a better translation from the Greek is "do not cling to me" ) s
+5 665 M
+(or "do not detain me." Jesus was not forbidding physical contact entirely\342\\200\\224He allowed ) s
+5 652 M
+(it later\342\\200\\224but He could not be delayed at that specific moment. He had to make a quick ) s
+5 639 M
+(ascension to the heavenly courts to present Himself before the Father.) s
+5 613 M
+(This action was the fulfillment of the Old Testament sanctuary typology. Just as the Passover ) s
+5 600 M
+(lamb represented His death and the unleavened bread His burial, the Feast of Firstfruits ) s
+5 587 M
+(represented His resurrection. On that day, the priest would wave a sheaf of barley at the ) s
+5 574 M
+(entrance to the sanctuary. In fulfillment of this, Jesus went to the entrance of the heavenly ) s
+5 561 M
+(sanctuary to present Himself as the firstfruits of the redeemed. ) s
+5 535 M
+(He needed absolute assurance from the Father that His sacrifice was accepted and the covenant ) s
+5 522 M
+(ratified. Once God affirmed that His atonement was ample, Jesus received all authority in ) s
+5 509 M
+(heaven and on earth. He then returned to earth the very same day to spend 40 days ministering ) s
+5 496 M
+(to His disciples and preparing them for their mission, before His final ascension to begin His ) s
+5 483 M
+(high priestly ministry.) s
+5 457 M
+(When a sinner comes to repentance and turns their life around, is that person still labeled a ) s
+5 444 M
+(sinner?) s
+5 418 M
+(Technically yes and no \342\\200\\224 and that tension is the heart of justification by faith. Romans ) s
+5 405 M
+(5:1 is the ground: "Having been justified by faith, we have peace with God through our Lord ) s
+5 392 M
+(Jesus Christ." Justification means God looks at the repentant, believing sinner and declares them ) s
+5 379 M
+(righteous \342\\200\\224 not because sin has ceased, but because Christ's righteousness is credited ) s
+5 366 M
+(to their account. Romans 8:1 says it from the other direction: "There is therefore now no ) s
+5 353 M
+(condemnation to those who are in Christ Jesus.") s
+5 327 M
+(Luther captured the paradox in Latin: simul iustus et peccator \342\\200\\224 at the same time ) s
+5 314 M
+(righteous, at the same time a sinner. When is the last time you sinned? You are technically still a ) s
+5 301 M
+(sinner. Yet God does not see you through your record; he sees you through Christ, who is your ) s
+5 288 M
+(representative and advocate. Romans 4:3 and Galatians 3:5-6 confirm the pattern: Abraham ) s
+5 275 M
+(believed God and it was credited to him for righteousness. The credit is real, given in advance ) s
+5 262 M
+(of completion.) s
+5 236 M
+(That is justification. Sanctification is the ongoing process of God making real what he has ) s
+5 223 M
+(declared. A new believer is like a child learning to walk \342\\200\\224 falls are expected; the ) s
+5 210 M
+(question is whether they get up. 1 John 2:1 is the safety net: "If any man sins, we have an ) s
+5 197 M
+(advocate with the Father, Jesus Christ the righteous." That sits alongside 1 John 3:6 and 3:9, ) s
+5 184 M
+(which say those in Christ do not sin \342\\200\\224 meaning they do not practice sin, do not wallow ) s
+5 171 M
+(in it, do not return to it as a way of life. The two are not in conflict: the Christian falls; the ) s
+5 158 M
+(Christian gets up; the Christian is not defined by the fall.) s
+5 132 M
+(Assurance is not a reward for sinlessness. As long as you cling to Christ, hate sin, and keep ) s
+5 119 M
+(repenting \342\\200\\224 genuine repentance, not escape from punishment but sorrow that sin ) s
+5 106 M
+(offended God and drove Christ to the cross \342\\200\\224 the declaration of righteousness stands. ) s
+5 93 M
+(You are accepted in the beloved.) s
+5 67 M
+(Who are the people who claim to be Jews and are not, and what is the synagogue of Satan in ) s
+5 54 M
+(Revelation 2:9?) s
+5 28 M
+(The phrase appears in exactly two places: Revelation 2:9, the letter to Smyrna, and Revelation ) s
+5 15 M
+(3:9, the letter to Philadelphia. Both say the same thing \342\\200\\224 "those who say they are Jews ) s
+5 2 M
+(and are not, but are a synagogue of Satan." Reading this as a reference to ethnic Jewish people is ) s
+_R
+S
+%%Page: (19) 19
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 19 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (19) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(to misread the book of Revelation, which is saturated with Old Testament Jewish terminology ) s
+5 691 M
+(applied to the church age: Balaam, Jezebel, the synagogue itself \342\\200\\224 all Old Testament ) s
+5 678 M
+(names and institutions applied to conditions within the Christian church.) s
+5 652 M
+(The question is then: who is a Jew in the church age? Paul answers it directly. Romans 2:28-29: ) s
+5 639 M
+("He is not a Jew who is one outwardly... but he is a Jew who is one inwardly, and circumcision ) s
+5 626 M
+(is that of the heart, in the spirit." Romans 9:6-8: "They are not all Israel who are of Israel." ) s
+5 613 M
+(Galatians 3:29: "If you are Christ's, then you are Abraham's seed and heirs according to the ) s
+5 600 M
+(promise." A true Jew is one who has received Jesus Christ as Savior and Lord.) s
+5 574 M
+(John 1:47-49 shows the positive case. Jesus sees Nathanael approaching and says, "Behold, an ) s
+5 561 M
+(Israelite indeed in whom there is no deceit" \342\\200\\224 and Nathanael confesses him as Son of ) s
+5 548 M
+(God, King of Israel. That confession is what makes a true Israelite. John 8:39-44 shows the ) s
+5 535 M
+(negative case at full length: Jesus tells the Jewish religious leaders that Abraham is their ) s
+5 522 M
+(biological ancestor but not their spiritual father. "If you were Abraham's children, you would ) s
+5 509 M
+(do the works of Abraham." They seek to kill him. Their father is the devil. Physical descent is ) s
+5 496 M
+(not the issue; doing the works of Abraham \342\\200\\224 which includes receiving the Messiah ) s
+5 483 M
+(\342\\200\\224 is.) s
+5 457 M
+(The synagogue of Satan is therefore not a building or a formal organization. It is a disposition ) s
+5 444 M
+(and a mindset. In the context of the seven churches, Smyrna is the persecuted church. Those ) s
+5 431 M
+(who claim to be God's people \342\\200\\224 to hold the truth, to be in the covenant \342\\200\\224 but ) s
+5 418 M
+(reject Christ and align themselves with those opposing the church are the synagogue of Satan. ) s
+5 405 M
+(They claim to be Jews; they are not. The lie is the claim.) s
+5 379 M
+(I am an Adventist who wants to tithe, but my non-Christian husband forbids it and controls our ) s
+5 366 M
+(household income. The Bible says to submit to a husband, but also to obey God rather than ) s
+5 353 M
+(man. Am I accountable for not tithing? Am I at risk of losing salvation over this?) s
+5 327 M
+(Submission to a husband does not extend to disobeying God. Ephesians 5:22 says "wives submit ) s
+5 314 M
+(yourselves unto your own husbands as unto the Lord" \342\\200\\224 the qualifier matters. The ) s
+5 301 M
+(submission is modeled on the wife's submission to the Lord, which means it cannot require ) s
+5 288 M
+(what the Lord himself forbids. There is a ceiling on spousal authority, and "obey God rather ) s
+5 275 M
+(than man" is that ceiling.) s
+5 249 M
+(On guilt and salvation: she should not feel condemned. Her heart is right \342\\200\\224 she wants ) s
+5 236 M
+(to tithe and would if she could. If she has no control whatsoever over the money, God will hold ) s
+5 223 M
+(the husband accountable, not her. Accountability tracks with control.) s
+5 197 M
+(The practical guidance is to pay tithe on what she does control. Both spouses receive separate ) s
+5 184 M
+(social security checks; her check is hers. If he gives her money for groceries or household ) s
+5 171 M
+(expenses, she can tithe on what passes through her hands. Start there and trust Malachi 3: ) s
+5 158 M
+("Prove me now herewith \342\\200\\224 I will open the windows of heaven and pour out a blessing ) s
+5 145 M
+(till you have no room to receive it." Bohr illustrates with the widow of Zarephath, who gave ) s
+5 132 M
+(Elijah the last of her oil and flour first, and the jar did not run out until rain came. The test of ) s
+5 119 M
+(faith has to be made before the balance sheet balances \342\\200\\224 that is the whole point.) s
+5 93 M
+(She should keep speaking to her husband, persistently and with grace. One case was shared ) s
+5 80 M
+(where a wife's steady witness over several months wore down a resistant husband; when they ) s
+5 67 M
+(began tithing together they saw clear blessings and he eventually came to the church. The ) s
+5 54 M
+(principle of the persistent widow applies: consistent, loving appeal, not nagging but earnest ) s
+5 41 M
+(witness, often accomplishes what a single confrontation cannot.) s
+5 15 M
+(In Revelation 17:10, five heads have fallen, one is, and the other has not yet come. If the fifth ) s
+5 2 M
+(head is papal Rome and John's vision was written before papal Rome, how is John viewing this ) s
+_R
+S
+%%Page: (20) 20
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 20 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (20) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(after the fifth head has already fallen?) s
+5 678 M
+(The answer is in the vantage point of the vision. Revelation 17:1-2 opens with one of the seven ) s
+5 665 M
+(bowl angels saying to John, "Come, I will show you the judgment of the great harlot who sits on ) s
+5 652 M
+(many waters." John is not viewing this from his own time in the first century. He is being ) s
+5 639 M
+(transported to the end time \342\\200\\224 to the period when the papacy has recovered from its ) s
+5 626 M
+(deadly wound and the multitudes, nations, and tongues are once again supporting her.) s
+5 600 M
+(From that end-time vantage point, five have already fallen: Babylon, Medo-Persia, Greece, ) s
+5 587 M
+(pagan Rome, and papal Rome in its first phase \(the phase that ended with the deadly wound\). ) s
+5 574 M
+(The sixth \342\\200\\224 the papacy in its wounded and diminished state \342\\200\\224 "is" in the flow ) s
+5 561 M
+(of history between the wound and the healing. The seventh, which "has not yet come" and ) s
+5 548 M
+("must continue a short time," is the fully healed papacy of the final period. John is not confused ) s
+5 535 M
+(about chronology; he is simply standing at the end and looking back.) s
+5 509 M
+(Revelation is not in chronological order. It moves in cycles \342\\200\\224 forward to the end, then ) s
+5 496 M
+(back to lay the frame of reference, then forward again. To understand Revelation 17, Bohr ) s
+5 483 M
+(argues you must work the layered structure: Daniel 2 is the foundation; Daniel 7 expands it; ) s
+5 470 M
+(Revelation 12 expands further; Revelation 13 builds on 12; Revelation 17 is the final and fullest ) s
+5 457 M
+(expansion. The waters the harlot sits on in Revelation 17 parallel the dragon's flood in ) s
+5 444 M
+(Revelation 12 \342\\200\\224 the same persecuting power at different stages of history. Only when ) s
+5 431 M
+(you see that building pattern does the placement of "five have fallen" make sense \342\\200\\224 ) s
+5 418 M
+(because you know which sequence of empires has already run its course before the end-time ) s
+5 405 M
+(scene.) s
+5 379 M
+(Are church manuals and books of order replacing the Bible? Are we in danger of putting more ) s
+5 366 M
+(authority in them than the Bible, hindering the Protestant principle of Scripture alone by ) s
+5 353 M
+(teaching the commandments of men \(Matthew 15:3-9\)?) s
+5 327 M
+(The Seventh-day Adventist Church maintains the firm Protestant position of the Bible and the ) s
+5 314 M
+(Bible alone as its supreme authority. The Church Manual and other policy books do not replace, ) s
+5 301 M
+(contradict, or supersede Scripture. They are only legitimate insofar as they harmonize with the ) s
+5 288 M
+(Word of God.) s
+5 262 M
+(The purpose of the Church Manual is not to establish new doctrines, but to serve as an ) s
+5 249 M
+(operational guide to maintain order, protect sound doctrine, prevent the abuse of authority, and ) s
+5 236 M
+(promote global unity. It provides the practical "nuts and bolts" for how the church ) s
+5 223 M
+(operates\342\\200\\224defining the roles of pastors, elders, and deacons, outlining how to conduct ) s
+5 210 M
+(elections and ceremonies, and explaining how to handle church discipline biblically. ) s
+5 184 M
+(There is a clear distinction between the Bible and these manuals. The Church Manual can only ) s
+5 171 M
+(be amended by a vote of the full global delegation at a General Conference Session, ensuring ) s
+5 158 M
+(broad consensus rather than arbitrary top-down decrees. There are also working policies for ) s
+5 145 M
+(day-to-day administration \(like salaries and properties\) and a Minister's Manual for conducting ) s
+5 132 M
+(ceremonies. Problems only arise when these manuals are applied unevenly\342\\200\\224such as ) s
+5 119 M
+(when local conferences ignore global policies or invent rules to ban speakers improperly. When ) s
+5 106 M
+(applied correctly and kept subordinate to the Bible, the manuals are a necessary blessing that ) s
+5 93 M
+(keeps a global movement united and functioning smoothly.) s
+5 67 M
+(I want to tithe, but my non-Christian husband forbids it and controls our combined retirement ) s
+5 54 M
+(income. I know a wife should submit to her husband, but we must also obey God rather than ) s
+5 41 M
+(men. Am I disobeying God, and will I lose my salvation over this issue?) s
+5 15 M
+(This is a serious and difficult situation. The governing biblical principle when human authority ) s
+5 2 M
+(contradicts God\342\\200\\231s commands is found in Acts 5:29: "We ought to obey God rather ) s
+_R
+S
+%%Page: (21) 21
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 21 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (21) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(than men." ) s
+5 678 M
+(One approach is to persistently pray and lovingly but firmly talk to your husband, explaining ) s
+5 665 M
+(that withholding the tithe robs God and blocks the financial and spiritual blessings He wants to ) s
+5 652 M
+(pour out on your household. Sometimes, a non-believing spouse will eventually relent, allow ) s
+5 639 M
+(the tithe to be paid, and subsequently witness God's blessing\342\\200\\224which can even lead to ) s
+5 626 M
+(their conversion. ) s
+5 600 M
+(However, even if a husband never sees the light, the biblical requirement to be faithful remains. ) s
+5 587 M
+(We are approaching a time in earth's history when believers will have to make incredibly tough ) s
+5 574 M
+(decisions\342\\200\\224choosing whether to serve God or face severe consequences, even the loss of ) s
+5 561 M
+(life. If we compromise our faithfulness now under pressure, we are not preparing our ) s
+5 548 M
+(characters for the ultimate crunch time ahead.) s
+5 522 M
+(If the sun stood still for a whole day in Joshua 10:13, would the weekly cycle have been thrown ) s
+5 509 M
+(off, making the next Sabbath fall a day late?) s
+5 483 M
+(The weekly cycle has not been broken since creation week. That is not negotiable. The question ) s
+5 470 M
+(is how to account for Joshua's extra day without disrupting the count \342\\200\\224 and the ) s
+5 457 M
+(answer lies in how God defines a day.) s
+5 431 M
+(Ellen White in Testimonies to Ministers page 135 writes that God means "the day of 24 hours ) s
+5 418 M
+(which he has marked off by the rising and setting of the sun." On the day of Joshua's battle the ) s
+5 405 M
+(sun did not go down and the moon did not move. No sunrise opened it; no sunset closed it. By ) s
+5 392 M
+(God's own definition, that interval was not a day. It falls outside the week's count the same way ) s
+5 379 M
+(a fraction of time that has no rising and setting simply does not register as a day. The weekly ) s
+5 366 M
+(cycle was not interrupted; it ran continuously alongside a period that did not qualify as a day at ) s
+5 353 M
+(all.) s
+5 327 M
+(Ellen White in Signs of the Times, March 20, 1879, confirms the continuity: "The first week in ) s
+5 314 M
+(which God performed the work of creation... was just like every other week. The great God in ) s
+5 301 M
+(his days of creation and day of rest measured off the first cycle as a sample for successive weeks ) s
+5 288 M
+(till the close of time. The weekly cycle of seven literal days... has been preserved and brought ) s
+5 275 M
+(down through Bible history." She does not name Joshua as an exception. The cycle held.) s
+5 249 M
+(Ellen White adds in Patriarchs and Prophets page 509 that this miracle "testifies that the ) s
+5 236 M
+(creation is under the control of the creator" \342\\200\\224 it was a demonstration of divine ) s
+5 223 M
+(authority, not a disruption of divine order.) s
+5 197 M
+(A practical point on doubt: if Sunday-keepers maintain that the day they keep is the same day ) s
+5 184 M
+(Christ rose \342\\200\\224 trusting the continuity of the weekly cycle across the centuries \342\\200\\224 ) s
+5 171 M
+(then the Sabbath must be equally intact. You cannot hold the resurrection-day continuous and ) s
+5 158 M
+(the creation-Sabbath scrambled by the same count.) s
+5 132 M
+(Do 1 Corinthians 10:16 and 1 Corinthians 11:27-29 justify consubstantiation?) s
+5 106 M
+(The two texts the questioner cites do not prove consubstantiation, and neither does the rest of ) s
+5 93 M
+(Scripture.) s
+5 67 M
+(1 Corinthians 10:16 asks, "Is it not the communion of the blood of Christ... the communion of ) s
+5 54 M
+(the body of Christ?" The word is communion \342\\200\\224 participation, memorial identification ) s
+5 41 M
+(\342\\200\\224 not literalized flesh and blood. 1 Corinthians 11:27-29 warns against eating "in an ) s
+5 28 M
+(unworthy manner" and "not discerning the Lord's body." The unworthiness in context is about ) s
+5 15 M
+(self-examination, unconfessed sin, and failing to grasp what the symbols represent \342\\200\\224 ) s
+5 2 M
+(not about failing to chew literal flesh.) s
+_R
+S
+%%Page: (22) 22
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 22 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (22) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 691 M
+(John 6 is the decisive passage. When Jesus said "unless you eat my flesh and drink my blood, ) s
+5 678 M
+(you have no life in you," many disciples heard it literally and were offended. He clarified in ) s
+5 665 M
+(verse 63: "It is the spirit who gives life; the flesh profits nothing. The words that I speak to you ) s
+5 652 M
+(are spirit and they are life." Physical eating is explicitly not what he meant. He means receiving ) s
+5 639 M
+(him through his word \342\\200\\224 assimilating his character and life through Scripture. John 6:66 ) s
+5 626 M
+(records that those who refused this interpretation and took it literally walked away and never ) s
+5 613 M
+(returned. The literalist reading produced apostasy.) s
+5 587 M
+(Jesus himself named the Supper a memorial: "Do this in remembrance of me." That is his own ) s
+5 574 M
+(definition of the act. Nothing in 1 Corinthians overrides it.) s
+5 548 M
+(Hebrews 10:10 closes the argument: "By that will we have been sanctified through the offering ) s
+5 535 M
+(of the body of Jesus Christ once for all." Christ was offered once. Both transubstantiation and ) s
+5 522 M
+(consubstantiation implicitly re-present that sacrifice at every table. The typology of Moses and ) s
+5 509 M
+(the rock makes the point concrete: Moses was told to speak to the rock the second time but ) s
+5 496 M
+(struck it instead \342\\200\\224 and Ellen White says he ruined the type, because the rock ) s
+5 483 M
+(\(representing Christ\) was to fall under the rod of judgment only once. The once-for-all sacrifice ) s
+5 470 M
+(of Calvary cannot and need not be repeated.) s
+5 444 M
+(What is your position on deliverance ministry? Is there a rightful place for this within the ) s
+5 431 M
+(church?) s
+5 405 M
+(Deliverance ministry has a legitimate place in the church, but the term requires careful ) s
+5 392 M
+(definition. In its broadest sense all ministry is deliverance ministry: when a person surrenders ) s
+5 379 M
+(to Christ, Romans 6:14-16 declares that sin no longer has dominion, and 2 Corinthians 5:17 ) s
+5 366 M
+(confirms that former things pass away \342\\200\\224 the power of sin is broken. This progressive ) s
+5 353 M
+(freedom from sin's power, and eventually its presence, is the biblical shape of deliverance.) s
+5 327 M
+(The charismatic form \342\\200\\224 directly confronting and conversing with demons in others ) s
+5 314 M
+(\342\\200\\224 does not match the biblical pattern. Acts 19:11-16 is instructive: God worked ) s
+5 301 M
+(extraordinary miracles through Paul, but when the seven sons of Sceva attempted to cast out ) s
+5 288 M
+(demons using Jesus' name without a personal relationship with him, the evil spirit answered ) s
+5 275 M
+("Jesus I know, and Paul I know \342\\200\\224 but who are you?" and overpowered them. The ) s
+5 262 M
+(lesson is not that exorcism never occurs but that it requires one's own life to be in order with the ) s
+5 249 M
+(Lord and a specific assignment from Christ.) s
+5 223 M
+(Mark 1:21-27 shows Jesus casting out an unclean spirit with direct authority. The biblical model ) s
+5 210 M
+(for ordinary believers is not seeking out demonic confrontations. Through prayer, communion, ) s
+5 197 M
+(the anointing of elders, and ongoing relationship with Christ the enemy flees. Deliverance ) s
+5 184 M
+(comes through sanctification, not through circuit-riding demon-chasing.) s
+5 158 M
+(What does buying and selling mean in Revelation 13:17 \342\\200\\224 is it literal or spiritual?) s
+5 132 M
+(Revelation 13:16-17 states plainly that no one may buy or sell except those who bear the mark of ) s
+5 119 M
+(the beast. The restriction is literal: commerce will be closed to those who refuse the mark. But ) s
+5 106 M
+(the question of why \342\\200\\224 the spiritual condition that triggers the literal consequence ) s
+5 93 M
+(\342\\200\\224 is what Proverbs 23:23 unlocks.) s
+5 67 M
+("Buy the truth and sell it not," Proverbs says. In the final crisis the truth at stake is the Sabbath ) s
+5 54 M
+(\342\\200\\224 God's seal \342\\200\\224 versus the mark of the beast, which is knowingly keeping ) s
+5 41 M
+(Sunday when the Sabbath is the day of rest. Those who buy the truth embrace God's seal and ) s
+5 28 M
+(accept the economic death decree that follows. Those who sell the truth accept the mark and ) s
+5 15 M
+(gain commercial access. As Bohr puts it: you can buy the truth and be under a death decree, or ) s
+5 2 M
+(you can sell the truth and be spared the death decree.) s
+_R
+S
+%%Page: (23) 23
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 23 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (23) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 691 M
+(The answer is therefore not either/or \342\\200\\224 it is both/and. The commercial restriction is ) s
+5 678 M
+(real and literal. The reason for it is spiritual. The two levels are inseparable: the literal buying ) s
+5 665 M
+(and selling maps directly onto a spiritual transaction over the truth.) s
+5 639 M
+(Who is the woman clothed with the sun in Revelation 12, and what do the moon and the 12 ) s
+5 626 M
+(stars on her head represent?) s
+5 600 M
+(In Revelation 12:1-2 a woman appears clothed with the sun, the moon under her feet, and a ) s
+5 587 M
+(crown of twelve stars \342\\200\\224 she is in labor. The woman in Revelation represents the ) s
+5 574 M
+(church. A pregnant church births only one thing: Christ.) s
+5 548 M
+(The twelve stars represent the twelve foundational figures of God's people across both ) s
+5 535 M
+(Testaments \342\\200\\224 the twelve patriarchs who founded the Old Testament church, and the ) s
+5 522 M
+(twelve apostles who founded the New Testament church. The number twelve spans all of ) s
+5 509 M
+(redemptive history. Ellen White confirms this at Acts of the Apostles page 16: "As in the Old ) s
+5 496 M
+(Testament, the twelve patriarchs stood as representatives of Israel, so the twelve apostles stand ) s
+5 483 M
+(as representatives of the gospel church." And at page 18: "It was at the ordination of the twelve ) s
+5 470 M
+(that the first step was taken in the organization of the church that after Christ's departure was ) s
+5 457 M
+(to carry on his work on the earth.") s
+5 431 M
+(The sun the woman wears represents the fulfillment of the Old Testament \342\\200\\224 Christ as ) s
+5 418 M
+(the greater light. The moon under her feet represents the Old Testament itself, a reflected light ) s
+5 405 M
+(whose shadows and types pointed forward to the sun. The Old Testament bore witness to the ) s
+5 392 M
+(light; the New Testament is that light's arrival. Jesus Christ is the chief cornerstone on which ) s
+5 379 M
+(both the twelve patriarchs and the twelve apostles rest.) s
+5 353 M
+(If Adam and Eve were perfectly created in a perfect garden, why would God ask them to tend ) s
+5 340 M
+(and keep it? How does one maintain something already perfect?) s
+5 314 M
+(Perfection does not mean maintenance-free. The garden of Eden required tending \342\\200\\224 ) s
+5 301 M
+(pruning branches, planting, care \342\\200\\224 but the work was pleasant and invigorating, not ) s
+5 288 M
+(burdensome.) s
+5 262 M
+(This labor was God's gift to Adam for three reasons. First, it gave him purpose and occupation. ) s
+5 249 M
+(Murray notes that every creature of God has a purpose; idleness is not a blessing. Second, it ) s
+5 236 M
+(kept him engaged and delighted. Ellen White \(Story of Redemption, page 21\) writes: "A portion ) s
+5 223 M
+(of their time was to be occupied in the happy employment of dressing the garden. Their labor ) s
+5 210 M
+(was not wearisome but pleasant and invigorating." Third, employment was how Adam could ) s
+5 197 M
+(exercise his capacities and find happiness \342\\200\\224 to "call into exercise the wonderful organs ) s
+5 184 M
+(of the body" \(Our High Calling, page 223\).) s
+5 158 M
+(The key distinction is between pre-sin and post-sin labor. Genesis 3:19 establishes the post-Fall ) s
+5 145 M
+(curse: "in the sweat of thy face shall you eat bread." Before sin, the same work \342\\200\\224 ) s
+5 132 M
+(pruning, beautifying, maintaining \342\\200\\224 was pleasant. After sin it became toilsome. Eden's ) s
+5 119 M
+(labor was intentional stewardship of what was perfect, keeping it in pristine condition.) s
+5 93 M
+(Even in the eternal ages to come, occupations continue. As Revelation 16:15 says we must keep ) s
+5 80 M
+(our garments clean, so Adam and Eve kept the garden \342\\200\\224 perfect, if you please. ) s
+5 67 M
+(Maintaining perfection is an active responsibility, not an oxymoron.) s
+5 41 M
+(Why do Adventists teach that the little horn of Daniel 8 is not Antiochus Epiphanes, especially ) s
+5 28 M
+(given that Jesus himself attended the feast of dedication \(John 10:22\) commemorating the Jews' ) s
+5 15 M
+(deliverance from Antiochus and restoration of the sanctuary?) s
+_R
+S
+%%Page: (24) 24
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 24 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (24) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(The identification of Daniel 8's little horn as Antiochus Epiphanes fails on theological, ) s
+5 691 M
+(chronological, and exegetical grounds.) s
+5 665 M
+(The little horn of Daniel 8 is the same little horn of Daniel 7 \342\\200\\224 not a horn emerging ) s
+5 652 M
+(from one of the four Greek kingdoms themselves. Bohr argues that the traditional identification ) s
+5 639 M
+(of the four horns as Alexander's four generals is incorrect: one of those four horns is actually ) s
+5 626 M
+(Pergamum, located in Asia Minor, which was the historical origin of pagan Rome and later ) s
+5 613 M
+(papal Rome. The little horn of Daniel 8 therefore represents Roman power growing out of ) s
+5 600 M
+(Pergamum, not a Seleucid king.) s
+5 574 M
+(The sanctuary in Daniel 8:14 to be "cleansed" cannot be the earthly temple in Jerusalem. That ) s
+5 561 M
+(temple was destroyed in AD 70. By the end of the 2300-day prophecy no physical sanctuary ) s
+5 548 M
+(would exist to cleanse. The sanctuary in view is the heavenly one, which operates during the ) s
+5 535 M
+(Christian dispensation. Jesus's attendance at the feast of dedication \(John 10:22\) \342\\200\\224 ) s
+5 522 M
+(commemorating Antiochus's overthrow and the temple rededication \342\\200\\224 is merely a ) s
+5 509 M
+(historical fact about what feast Jesus attended. It does not establish that the little horn prophecy ) s
+5 496 M
+(refers to Antiochus.) s
+5 470 M
+(The 2300 "evenings and mornings" cannot be literal 24-hour days. Applied literally they lead ) s
+5 457 M
+(nowhere prophetically \342\\200\\224 they just stop. The year-day principle supported in Numbers ) s
+5 444 M
+(4, Ezekiel 4, and Numbers 14 must apply. Since the 70 weeks cut off from the 2300 days are ) s
+5 431 M
+(themselves weeks of years and not literal weeks, the entire prophecy operates on the year-day ) s
+5 418 M
+(scale.) s
+5 392 M
+(Finally, the vision explicitly extends to "the time of the end" \342\\200\\224 a scope too broad to fit ) s
+5 379 M
+(within a few centuries of the prophecy's writing. Antiochus Epiphanes was historically one of ) s
+5 366 M
+(the weaker Seleucid rulers, not the super-powerful horn the prophecy describes. While ) s
+5 353 M
+(Josephus interpreted the horn as Antiochus, 2,000 more years of theological study has refined ) s
+5 340 M
+(understanding well beyond ancient sources.) s
+5 314 M
+(As Adventists we believe the judgment began in 1844. Others \342\\200\\224 evangelicals and some ) s
+5 301 M
+(former Adventists such as Desmond Ford \342\\200\\224 believe the judgment begins right after the ) s
+5 288 M
+(resurrection of Christ in 31 AD. Can you reconcile these two ideas with biblical text? Which one ) s
+5 275 M
+(is true?) s
+5 249 M
+(A trial has three stages: investigation of the evidence, verdict or sentence, and execution of the ) s
+5 236 M
+(sentence. God\342\\200\\231s judgment follows that biblical pattern. He does not simply declare ) s
+5 223 M
+(someone saved or lost; there is a universe to convince that God has been right in every case, and ) s
+5 210 M
+(that must happen before the second coming.) s
+5 184 M
+(The judgment is future. Revelation 14:7 declares, \342\\200\\234fear God and give glory to him, for ) s
+5 171 M
+(the hour of his judgment has come\342\\200\\235 \342\\200\\224 and right after that message you see ) s
+5 158 M
+(Jesus coming in the second coming. The judgment did not take place in New Testament times. ) s
+5 145 M
+(Paul in Acts 17:31 says, \342\\200\\234because he has appointed a day on which he will judge the ) s
+5 132 M
+(world in righteousness by the man whom he has ordained. He has given assurance of this to all ) s
+5 119 M
+(by raising him from the dead.\342\\200\\235 So there is a day when he will judge the world, and ) s
+5 106 M
+(that day had not yet arrived in the apostles\342\\200\\231 day.) s
+5 80 M
+(Ellen White tells us that judgment would take place 300 years after Luther. The sanctuary ) s
+5 67 M
+(message brings the picture of how and when judgment happens, and Daniel helps us ) s
+5 54 M
+(understand where, why, and when.) s
+5 28 M
+(The Bible is full of the concept of investigative judgment. It begins in the Garden of Eden: after ) s
+5 15 M
+(Adam and Eve sinned, God comes and says, \342\\200\\234Where are you?\342\\200\\235 He knew ) s
+5 2 M
+(where Adam was \342\\200\\224 he is calling him to the judgment seat. \342\\200\\234Have you eaten ) s
+_R
+S
+%%Page: (25) 25
+%%BeginPageSetup
+_S
+36 54 translate
+/pagenum 25 def
+/fname (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know/qa-combined.txt) def
+/fdir (/home/nigel/Downloads/tinyowl/curation/curated/id-like-to-know) def
+/ftail (qa-combined.txt) def
+% User defined strings:
+/fmodstr (Wed Apr 29 22:59:36 2026) def
+/pagenumstr (25) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 704 M
+(from the tree?\342\\200\\235 The examination is being made. Then God pronounces the sentence. ) s
+5 691 M
+(The Tower of Babel: God says, \342\\200\\234let\342\\200\\231s go down and see if they have gone too ) s
+5 678 M
+(far.\342\\200\\235 God knew, but he is teaching us the way judgment is performed. Genesis 18: ) s
+5 665 M
+(Abraham intercedes, \342\\200\\234Will not the judge of the earth do what is right?\342\\200\\235 God ) s
+5 652 M
+(says, \342\\200\\234I\342\\200\\231m going to go down and see if the cities have gone too ) s
+5 639 M
+(far.\342\\200\\235 Once again, an investigation of the case.) s
+5 613 M
+(In the New Testament, the man who came to the party without the wedding garment, the good ) s
+5 600 M
+(and bad fish, the wheat and tares, the wise and foolish virgins, and the forgiveness that can be ) s
+5 587 M
+(revoked all illustrate that judgment examines works to prove the reality of commitment.) s
+5 561 M
+(The judgment takes place in three stages. First, the pre\342\\200\\221advent investigative judgment ) s
+5 548 M
+(\342\\200\\224 only those who claim the name of Jesus, who claim to have the righteousness of ) s
+5 535 M
+(Christ, are examined before the second coming. Jesus must determine whom he has a right to ) s
+5 522 M
+(take to heaven before he comes. Second, the millennial judgment \342\\200\\224 all the wicked are ) s
+5 509 M
+(dead on earth, Satan and his angels are bound, and God proves to the righteous in heaven that ) s
+5 496 M
+(he was correct in leaving everyone behind. Third, after the millennium, God opens the books in ) s
+5 483 M
+(panoramic view and shows the wicked why they are lost, including the full history of Satan and ) s
+5 470 M
+(his angels. When it is over, every knee bows and every tongue confesses that God did it right. ) s
+5 457 M
+(Only at that moment can God destroy sin and sinners.) s
+5 431 M
+(Concerning Revelation 1:7 \342\\200\\224 \342\\200\\234every eye will see him, even those that pierced ) s
+5 418 M
+(him.\342\\200\\235 We believe those who crucified Christ will be resurrected to see his coming. ) s
+5 405 M
+(When they receive the second death, will it actually be their third death? This verse says ) s
+5 392 M
+(\342\\200\\234every eye will see him\342\\200\\235 \342\\200\\224 will the righteous dead see Jesus ) s
+5 379 M
+(approaching with the clouds, or only once he arrives and is in the clouds?) s
+5 353 M
+(The Bible does not speak of a third death. It speaks of first death \342\\200\\224 physical death, ) s
+5 340 M
+(which everyone will suffer except the end\342\\200\\221time generation \342\\200\\224 and second ) s
+5 327 M
+(death, which is everlasting death. Physical death is not eternal. In the case of the second ) s
+5 314 M
+(coming, several groups must be kept in mind. Those who are alive will see Jesus come in the ) s
+5 301 M
+(clouds. There is also a specialized group of dead \342\\200\\224 those who pierced him \342\\200\\224 ) s
+5 288 M
+(who will resurrect. And there is a group of righteous people \342\\200\\224 those who died in the ) s
+5 275 M
+(faith of the third angel\342\\200\\231s message \342\\200\\224 who resurrect at the voice of God before ) s
+5 262 M
+(Jesus even begins his second coming. Then when Jesus is above the earth, the other righteous ) s
+5 249 M
+(dead resurrect. They are not going to see the entire second coming from beginning to end.) s
+5 223 M
+(In short, this special group of wicked people who pierced Christ will have three deaths in ) s
+5 210 M
+(sequence: they died before the second coming, they resurrect in the special resurrection, they ) s
+5 197 M
+(die again, and then after the panoramic view they suffer the second death. Even though we ) s
+5 184 M
+(might say technically it is a third death in sequence, in the biblical definition it is second death ) s
+5 171 M
+(because it is death from which there will be no resurrection.) s
+5 145 M
+(Regarding whether they will see Jesus approaching \342\\200\\224 they will see him when Jesus is ) s
+5 132 M
+(about to begin his second coming. Ellen White makes it clear this special group resurrects under ) s
+5 119 M
+(the seventh plague, at the voice of God. Then Jesus begins his second coming. Christ told them ) s
+5 106 M
+(prophetically what they would see: according to Matthew 26:64, Jesus said to Caiaphas, ) s
+5 93 M
+(\342\\200\\234From now on I tell you that you will see the Son of Man coming on the clouds of ) s
+5 80 M
+(heaven with power and glory.\342\\200\\235 So yes, they will see him approach and realize that ) s
+5 67 M
+(Christ was indeed the Messiah, the King of kings.) s
+_R
+S
+%%Trailer
+%%Pages: 25
+%%DocumentNeededResources: font Courier-Bold Palatino-Roman 
+%%EOF

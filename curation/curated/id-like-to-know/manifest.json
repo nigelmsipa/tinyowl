@@ -1,0 +1,2079 @@
+{
+  "source_id": "id-like-to-know",
+  "title": "I'd Like to Know",
+  "speaker": "Stephen Bohr",
+  "total_items": 230,
+  "status": "in_progress",
+  "items": [
+    {
+      "id": "ilk-001",
+      "sequence": 1,
+      "title": "2300 Year Prophecy_ _ I_d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/2300 Year Prophecy_ _ I_d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/2300 Year Prophecy_ _ I_d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-001.md"
+    },
+    {
+      "id": "ilk-002",
+      "sequence": 2,
+      "title": "666 and USA_ _ I_d Like to Know_",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/666 and USA_ _ I_d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/666 and USA_ _ I_d Like to Know_ metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-002.md"
+    },
+    {
+      "id": "ilk-003",
+      "sequence": 3,
+      "title": "9. I_d Like To Know - Pr. Stephen Bohr and Pr.",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/9. I_d Like To Know - Pr. Stephen Bohr and Pr..html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/9. I_d Like To Know - Pr. Stephen Bohr and Pr..json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-003.md"
+    },
+    {
+      "id": "ilk-004",
+      "sequence": 4,
+      "title": "A Special Resurrection During the Crucifixion_",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/A Special Resurrection During the Crucifixion_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/A Special Resurrection During the Crucifixion_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-004.md"
+    },
+    {
+      "id": "ilk-005",
+      "sequence": 5,
+      "title": "Aborted Babies Going to Heaven_ _ I’d Like to",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Aborted Babies Going to Heaven_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Aborted Babies Going to Heaven_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-005.md"
+    },
+    {
+      "id": "ilk-006",
+      "sequence": 6,
+      "title": "ABORTION in extreme circumstances_ _ I_d like",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/ABORTION in extreme circumstances_ _ I_d like.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/ABORTION in extreme circumstances_ _ I_d like.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-006.md"
+    },
+    {
+      "id": "ilk-007",
+      "sequence": 7,
+      "title": "Abuse on Women in the Old Testament_ _ I’d Li",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Abuse on Women in the Old Testament_ _ I’d Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Abuse on Women in the Old Testament_ _ I’d Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-007.md"
+    },
+    {
+      "id": "ilk-008",
+      "sequence": 8,
+      "title": "Allowed to Procrastinate_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Allowed to Procrastinate_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Allowed to Procrastinate_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-008.md"
+    },
+    {
+      "id": "ilk-009",
+      "sequence": 9,
+      "title": "Angelic Heredity Possible_  _ I_d Like to Kno",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Angelic Heredity Possible_  _ I_d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Angelic Heredity Possible_  _ I_d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-009.md"
+    },
+    {
+      "id": "ilk-010",
+      "sequence": 10,
+      "title": "Angels Using Golden Cards_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Angels Using Golden Cards_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Angels Using Golden Cards_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-010.md"
+    },
+    {
+      "id": "ilk-011",
+      "sequence": 11,
+      "title": "Are Drums Good_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Drums Good_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Drums Good_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-011.md"
+    },
+    {
+      "id": "ilk-012",
+      "sequence": 12,
+      "title": "Are Prophets for Today_ _ I_d Like to Know wi",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Prophets for Today_ _ I_d Like to Know wi.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Prophets for Today_ _ I_d Like to Know wi.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-012.md"
+    },
+    {
+      "id": "ilk-013",
+      "sequence": 13,
+      "title": "Are Sabbath Games Okay_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Sabbath Games Okay_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Sabbath Games Okay_ _ I’d Like to Know me.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-013.md"
+    },
+    {
+      "id": "ilk-014",
+      "sequence": 14,
+      "title": "Are the 24 Elders Literal or Symbolic_ _ I_d ",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are the 24 Elders Literal or Symbolic_ _ I_d .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are the 24 Elders Literal or Symbolic_ _ I_d .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-014.md"
+    },
+    {
+      "id": "ilk-015",
+      "sequence": 15,
+      "title": "Are Vaccines the Mark of the Beasts_ _ I’d Li",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Vaccines the Mark of the Beasts_ _ I’d Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are Vaccines the Mark of the Beasts_ _ I’d Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-015.md"
+    },
+    {
+      "id": "ilk-016",
+      "sequence": 16,
+      "title": "Are We Born Sinners_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are We Born Sinners_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are We Born Sinners_ _ I’d Like to Know metad.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-016.md"
+    },
+    {
+      "id": "ilk-017",
+      "sequence": 17,
+      "title": "Are We Taking Messianic Prophecies Out of Cont",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are We Taking Messianic Prophecies Out of Cont.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Are We Taking Messianic Prophecies Out of Cont.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-017.md"
+    },
+    {
+      "id": "ilk-018",
+      "sequence": 18,
+      "title": "Ark of the Covenant Lost_ _ I_d Like to Know_",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ark of the Covenant Lost_ _ I_d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ark of the Covenant Lost_ _ I_d Like to Know_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-018.md"
+    },
+    {
+      "id": "ilk-019",
+      "sequence": 19,
+      "title": "Babies not going to Heaven_ _ I’d Like to Kno",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Babies not going to Heaven_ _ I’d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Babies not going to Heaven_ _ I’d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-019.md"
+    },
+    {
+      "id": "ilk-020",
+      "sequence": 20,
+      "title": "Baptism in the Sea of Glass_ _ I’d Like to Kn",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Baptism in the Sea of Glass_ _ I’d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Baptism in the Sea of Glass_ _ I’d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-020.md"
+    },
+    {
+      "id": "ilk-021",
+      "sequence": 21,
+      "title": "Biblical Facts on Black Slavery_ _ I’d Like t",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Biblical Facts on Black Slavery_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Biblical Facts on Black Slavery_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-021.md"
+    },
+    {
+      "id": "ilk-022",
+      "sequence": 22,
+      "title": "Biking During the Sabbath_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Biking During the Sabbath_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Biking During the Sabbath_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-022.md"
+    },
+    {
+      "id": "ilk-023",
+      "sequence": 23,
+      "title": "Blood That Talks_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Blood That Talks_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Blood That Talks_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-023.md"
+    },
+    {
+      "id": "ilk-024",
+      "sequence": 24,
+      "title": "Body, Soul, and Spirit_ _ I’d Like to Know",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Body, Soul, and Spirit_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Body, Soul, and Spirit_ _ I’d Like to Know me.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-024.md"
+    },
+    {
+      "id": "ilk-025",
+      "sequence": 25,
+      "title": "Breaking the Sabbath in Jericho_ _ I’d Like t",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Breaking the Sabbath in Jericho_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Breaking the Sabbath in Jericho_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-025.md"
+    },
+    {
+      "id": "ilk-026",
+      "sequence": 26,
+      "title": "Buying and Selling Literal or Symbolic_ _ I’d",
+      "status": "curated",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Buying and Selling Literal or Symbolic_ _ I’d.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Buying and Selling Literal or Symbolic_ _ I’d.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-026.md"
+    },
+    {
+      "id": "ilk-027",
+      "sequence": 27,
+      "title": "Can I Perform Christian Meditation_ _ I’d Lik",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can I Perform Christian Meditation_ _ I’d Lik.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can I Perform Christian Meditation_ _ I’d Lik.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-027.md"
+    },
+    {
+      "id": "ilk-028",
+      "sequence": 28,
+      "title": "Can Pastors Cast Out Demons_ _ I’d Like to Kn",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Pastors Cast Out Demons_ _ I’d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Pastors Cast Out Demons_ _ I’d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-028.md"
+    },
+    {
+      "id": "ilk-029",
+      "sequence": 29,
+      "title": "Can Tares be Converted to Wheat_ _ I’d Like t",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Tares be Converted to Wheat_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Tares be Converted to Wheat_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-029.md"
+    },
+    {
+      "id": "ilk-030",
+      "sequence": 30,
+      "title": "Can Tithe Be Used for Retirement_ _ I’d Like ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Tithe Be Used for Retirement_ _ I’d Like .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Tithe Be Used for Retirement_ _ I’d Like .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-030.md"
+    },
+    {
+      "id": "ilk-031",
+      "sequence": 31,
+      "title": "Can Women Give a Sermon_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Women Give a Sermon_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-031.md"
+    },
+    {
+      "id": "ilk-032",
+      "sequence": 32,
+      "title": "Can Women Wear Pants_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Women Wear Pants_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Can Women Wear Pants_ _ I’d Like to Know meta.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-032.md"
+    },
+    {
+      "id": "ilk-033",
+      "sequence": 33,
+      "title": "Celebrating Easter is Okay_ _ I’d Like to Kno",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Celebrating Easter is Okay_ _ I’d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Celebrating Easter is Okay_ _ I’d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-033.md"
+    },
+    {
+      "id": "ilk-034",
+      "sequence": 34,
+      "title": "Ceremonial Laws in the NT_ Wicked at the Resur",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ceremonial Laws in the NT_ Wicked at the Resur.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ceremonial Laws in the NT_ Wicked at the Resur.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-034.md"
+    },
+    {
+      "id": "ilk-035",
+      "sequence": 35,
+      "title": "Christianity Keeping People in Poverty_ _ I’d",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Christianity Keeping People in Poverty_ _ I’d.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Christianity Keeping People in Poverty_ _ I’d.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-035.md"
+    },
+    {
+      "id": "ilk-036",
+      "sequence": 36,
+      "title": "Christians Involved in Sports_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Christians Involved in Sports_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Christians Involved in Sports_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-036.md"
+    },
+    {
+      "id": "ilk-037",
+      "sequence": 37,
+      "title": "Coffee Drinkers Going to Hell_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Coffee Drinkers Going to Hell_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Coffee Drinkers Going to Hell_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-037.md"
+    },
+    {
+      "id": "ilk-038",
+      "sequence": 38,
+      "title": "Cross Dressing_ Is It Sinful_ _ I’d Like to K",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Cross Dressing_ Is It Sinful_ _ I’d Like to K.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Cross Dressing_ Is It Sinful_ _ I’d Like to K.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-038.md"
+    },
+    {
+      "id": "ilk-039",
+      "sequence": 39,
+      "title": "Dancing Displeasing to God_ _ I’d Like to Kno",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Dancing Displeasing to God_ _ I’d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Dancing Displeasing to God_ _ I’d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-039.md"
+    },
+    {
+      "id": "ilk-040",
+      "sequence": 40,
+      "title": "Dancing on the Sabbath_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Dancing on the Sabbath_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-040.md"
+    },
+    {
+      "id": "ilk-041",
+      "sequence": 41,
+      "title": "Dealing with CHURCH MEMBERS_ _ I_d Like to Kn",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Dealing with CHURCH MEMBERS_ _ I_d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Dealing with CHURCH MEMBERS_ _ I_d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-041.md"
+    },
+    {
+      "id": "ilk-042",
+      "sequence": 42,
+      "title": "Defining Daybreak_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Defining Daybreak_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-042.md"
+    },
+    {
+      "id": "ilk-043",
+      "sequence": 43,
+      "title": "Desmond Ford Issues_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Desmond Ford Issues_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-043.md"
+    },
+    {
+      "id": "ilk-044",
+      "sequence": 44,
+      "title": "Did God Call Jacob After Changing His Name_ _ ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did God Call Jacob After Changing His Name_ _ .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did God Call Jacob After Changing His Name_ _ .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-044.md"
+    },
+    {
+      "id": "ilk-045",
+      "sequence": 45,
+      "title": "Did God Create Evil_ - Pastor Stephen Bohr _ I",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did God Create Evil_ - Pastor Stephen Bohr _ I.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did God Create Evil_ - Pastor Stephen Bohr _ I.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-045.md"
+    },
+    {
+      "id": "ilk-046",
+      "sequence": 46,
+      "title": "Did God Create Satan_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did God Create Satan_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did God Create Satan_ _ I’d Like to Know meta.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-046.md"
+    },
+    {
+      "id": "ilk-047",
+      "sequence": 47,
+      "title": "Did Jesus Contradict the State of the Dead_ _",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Contradict the State of the Dead_ _.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Contradict the State of the Dead_ _.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-047.md"
+    },
+    {
+      "id": "ilk-048",
+      "sequence": 48,
+      "title": "Did Jesus Experience Addictions_ _ I’d Like t",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Experience Addictions_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Experience Addictions_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-048.md"
+    },
+    {
+      "id": "ilk-049",
+      "sequence": 49,
+      "title": "Did Jesus Have an Advantage Over Us_ _ I’d Li",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Have an Advantage Over Us_ _ I’d Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Have an Advantage Over Us_ _ I’d Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-049.md"
+    },
+    {
+      "id": "ilk-050",
+      "sequence": 50,
+      "title": "Did Jesus Keep the Passover Day Literally_ _ ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Keep the Passover Day Literally_ _ .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Keep the Passover Day Literally_ _ .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-050.md"
+    },
+    {
+      "id": "ilk-051",
+      "sequence": 51,
+      "title": "Did Jesus Pay Tithe_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Jesus Pay Tithe_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-051.md"
+    },
+    {
+      "id": "ilk-052",
+      "sequence": 52,
+      "title": "Did Lot_s Wife Have a Name_ _ I’d Like to Kno",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Lot_s Wife Have a Name_ _ I’d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did Lot_s Wife Have a Name_ _ I’d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-052.md"
+    },
+    {
+      "id": "ilk-053",
+      "sequence": 53,
+      "title": "Did the Catholic Church Compile the Bible_ _ I",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did the Catholic Church Compile the Bible_ _ I.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did the Catholic Church Compile the Bible_ _ I.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-053.md"
+    },
+    {
+      "id": "ilk-054",
+      "sequence": 54,
+      "title": "Did William Miller Preach a Lie_ Rejoice or We",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did William Miller Preach a Lie_ Rejoice or We.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Did William Miller Preach a Lie_ Rejoice or We.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-054.md"
+    },
+    {
+      "id": "ilk-055",
+      "sequence": 55,
+      "title": "Disregarding Biblical Principles_  _ I’d Like",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Disregarding Biblical Principles_  _ I’d Like.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Disregarding Biblical Principles_  _ I’d Like.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-055.md"
+    },
+    {
+      "id": "ilk-056",
+      "sequence": 56,
+      "title": "Do I Tithe Borrowed Money_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Do I Tithe Borrowed Money_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Do I Tithe Borrowed Money_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-056.md"
+    },
+    {
+      "id": "ilk-057",
+      "sequence": 57,
+      "title": "Do Not Eat Meat_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Do Not Eat Meat_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Do Not Eat Meat_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-057.md"
+    },
+    {
+      "id": "ilk-058",
+      "sequence": 58,
+      "title": "Does God Allow Hardships_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does God Allow Hardships_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does God Allow Hardships_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-058.md"
+    },
+    {
+      "id": "ilk-059",
+      "sequence": 59,
+      "title": "Does God Kill_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does God Kill_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does God Kill_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-059.md"
+    },
+    {
+      "id": "ilk-060",
+      "sequence": 60,
+      "title": "Does Satan Still Visit Heaven_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does Satan Still Visit Heaven_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does Satan Still Visit Heaven_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-060.md"
+    },
+    {
+      "id": "ilk-061",
+      "sequence": 61,
+      "title": "Does the Bible Forbid Nature Photography on Sa",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does the Bible Forbid Nature Photography on Sa.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does the Bible Forbid Nature Photography on Sa.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-061.md"
+    },
+    {
+      "id": "ilk-062",
+      "sequence": 62,
+      "title": "Does The Book of Jasper Exist_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does The Book of Jasper Exist_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does The Book of Jasper Exist_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-062.md"
+    },
+    {
+      "id": "ilk-063",
+      "sequence": 63,
+      "title": "Does the Holy Spirit work through angels_ Why ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does the Holy Spirit work through angels_ Why .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Does the Holy Spirit work through angels_ Why .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-063.md"
+    },
+    {
+      "id": "ilk-064",
+      "sequence": 64,
+      "title": "Earth_ Headquarters of the Universe_ _ I’d Li",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Earth_ Headquarters of the Universe_ _ I’d Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Earth_ Headquarters of the Universe_ _ I’d Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-064.md"
+    },
+    {
+      "id": "ilk-065",
+      "sequence": 65,
+      "title": "Eating Fish with Jesus_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Eating Fish with Jesus_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-065.md"
+    },
+    {
+      "id": "ilk-066",
+      "sequence": 66,
+      "title": "Ellen G. White_ ARE ALL HER WRITINGS INSPIRED_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ellen G. White_ ARE ALL HER WRITINGS INSPIRED_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ellen G. White_ ARE ALL HER WRITINGS INSPIRED_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-066.md"
+    },
+    {
+      "id": "ilk-067",
+      "sequence": 67,
+      "title": "Ellen White & Christmas Trees_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ellen White & Christmas Trees_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ellen White & Christmas Trees_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-067.md"
+    },
+    {
+      "id": "ilk-068",
+      "sequence": 68,
+      "title": "Ellen White and the Bible_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ellen White and the Bible_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Ellen White and the Bible_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-068.md"
+    },
+    {
+      "id": "ilk-069",
+      "sequence": 69,
+      "title": "Eucharistic Congress_ A Sign of the Last Days_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Eucharistic Congress_ A Sign of the Last Days_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Eucharistic Congress_ A Sign of the Last Days_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-069.md"
+    },
+    {
+      "id": "ilk-070",
+      "sequence": 70,
+      "title": "Euphrates dried up symbolic_ Revelation 16_12_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Euphrates dried up symbolic_ Revelation 16_12_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Euphrates dried up symbolic_ Revelation 16_12_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-070.md"
+    },
+    {
+      "id": "ilk-071",
+      "sequence": 71,
+      "title": "Evolution Evidence in the Bible_ _ I’d Like t",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Evolution Evidence in the Bible_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Evolution Evidence in the Bible_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-071.md"
+    },
+    {
+      "id": "ilk-072",
+      "sequence": 72,
+      "title": "Fallen Angels and Demons_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Fallen Angels and Demons_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Fallen Angels and Demons_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-072.md"
+    },
+    {
+      "id": "ilk-073",
+      "sequence": 73,
+      "title": "Farmers on Sabbath_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Farmers on Sabbath_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Farmers on Sabbath_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-073.md"
+    },
+    {
+      "id": "ilk-074",
+      "sequence": 74,
+      "title": "Financial Stewardship_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Financial Stewardship_ _ I_d Like to Know_.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-074.md"
+    },
+    {
+      "id": "ilk-075",
+      "sequence": 75,
+      "title": "Flat Earth a Salvational Issue_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Flat Earth a Salvational Issue_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Flat Earth a Salvational Issue_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-075.md"
+    },
+    {
+      "id": "ilk-076",
+      "sequence": 76,
+      "title": "Following God_s Law and Sin_s Law_ _ I’d Like",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Following God_s Law and Sin_s Law_ _ I’d Like.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Following God_s Law and Sin_s Law_ _ I’d Like.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-076.md"
+    },
+    {
+      "id": "ilk-077",
+      "sequence": 77,
+      "title": "France, the Papacy & the Seven Heads _ I_d Li",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/France, the Papacy & the Seven Heads _ I_d Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/France, the Papacy & the Seven Heads _ I_d Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-077.md"
+    },
+    {
+      "id": "ilk-078",
+      "sequence": 78,
+      "title": "Free Choice in the New Earth_ _ I’d Like to K",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Free Choice in the New Earth_ _ I’d Like to K.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Free Choice in the New Earth_ _ I’d Like to K.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-078.md"
+    },
+    {
+      "id": "ilk-079",
+      "sequence": 79,
+      "title": "God Created Lucifer_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God Created Lucifer_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-079.md"
+    },
+    {
+      "id": "ilk-080",
+      "sequence": 80,
+      "title": "God Hardens Hearts_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God Hardens Hearts_ _ I_d Like to Know_.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-080.md"
+    },
+    {
+      "id": "ilk-081",
+      "sequence": 81,
+      "title": "God Knows My Fate_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God Knows My Fate_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-081.md"
+    },
+    {
+      "id": "ilk-082",
+      "sequence": 82,
+      "title": "God Leaves You Alone_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God Leaves You Alone_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God Leaves You Alone_ _ I’d Like to Know meta.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-082.md"
+    },
+    {
+      "id": "ilk-083",
+      "sequence": 83,
+      "title": "God Made the Devil_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God Made the Devil_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God Made the Devil_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-083.md"
+    },
+    {
+      "id": "ilk-084",
+      "sequence": 84,
+      "title": "God_s Killing Orders Justified_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God_s Killing Orders Justified_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/God_s Killing Orders Justified_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-084.md"
+    },
+    {
+      "id": "ilk-085",
+      "sequence": 85,
+      "title": "Hebrews 7_11-1 EXPLAINED _ Does the Bible say ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Hebrews 7_11-1 EXPLAINED _ Does the Bible say .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Hebrews 7_11-1 EXPLAINED _ Does the Bible say .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-085.md"
+    },
+    {
+      "id": "ilk-086",
+      "sequence": 86,
+      "title": "Historical Facts Explained_ _ I_d Like to Kno",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Historical Facts Explained_ _ I_d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Historical Facts Explained_ _ I_d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-086.md"
+    },
+    {
+      "id": "ilk-087",
+      "sequence": 87,
+      "title": "Holy Spirit or Sabbath_  Practical Prep for Li",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Holy Spirit or Sabbath_  Practical Prep for Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Holy Spirit or Sabbath_  Practical Prep for Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-087.md"
+    },
+    {
+      "id": "ilk-088",
+      "sequence": 88,
+      "title": "How Can I Truly Follow Jesus_ _ I_d Like to K",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Can I Truly Follow Jesus_ _ I_d Like to K.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Can I Truly Follow Jesus_ _ I_d Like to K.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-088.md"
+    },
+    {
+      "id": "ilk-089",
+      "sequence": 89,
+      "title": "How Do I Get Involved in Ministry_ _ I’d Like",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Do I Get Involved in Ministry_ _ I’d Like.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Do I Get Involved in Ministry_ _ I’d Like.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-089.md"
+    },
+    {
+      "id": "ilk-090",
+      "sequence": 90,
+      "title": "How Do I Honor My Fake Christian Parents_ _ I",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Do I Honor My Fake Christian Parents_ _ I.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Do I Honor My Fake Christian Parents_ _ I.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-090.md"
+    },
+    {
+      "id": "ilk-091",
+      "sequence": 91,
+      "title": "How Many Genders_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Many Genders_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Many Genders_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-091.md"
+    },
+    {
+      "id": "ilk-092",
+      "sequence": 92,
+      "title": "How Old is The Earth_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Old is The Earth_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How Old is The Earth_ _ I’d Like to Know meta.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-092.md"
+    },
+    {
+      "id": "ilk-093",
+      "sequence": 93,
+      "title": "How to prove the 1844 judgment from Scripture ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How to prove the 1844 judgment from Scripture .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How to prove the 1844 judgment from Scripture .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-093.md"
+    },
+    {
+      "id": "ilk-094",
+      "sequence": 94,
+      "title": "How to Study the Bible_ _ I_d Like to Know wit",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How to Study the Bible_ _ I_d Like to Know wit.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/How to Study the Bible_ _ I_d Like to Know wit.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-094.md"
+    },
+    {
+      "id": "ilk-095",
+      "sequence": 95,
+      "title": "HOW WAS ADAM THE IMAGE OF GOD_ ¿Should Adventi",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/HOW WAS ADAM THE IMAGE OF GOD_ ¿Should Adventi.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/HOW WAS ADAM THE IMAGE OF GOD_ ¿Should Adventi.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-095.md"
+    },
+    {
+      "id": "ilk-096",
+      "sequence": 96,
+      "title": "Human_s Can_t Procreate with Immortal Bodies_ ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Human_s Can_t Procreate with Immortal Bodies_ .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Human_s Can_t Procreate with Immortal Bodies_ .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-096.md"
+    },
+    {
+      "id": "ilk-097",
+      "sequence": 97,
+      "title": "I_m Not Forgiven_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/I_m Not Forgiven_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/I_m Not Forgiven_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-097.md"
+    },
+    {
+      "id": "ilk-098",
+      "sequence": 98,
+      "title": "I_m Not Living the Baptized Life_ _ I’d Like ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/I_m Not Living the Baptized Life_ _ I’d Like .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/I_m Not Living the Baptized Life_ _ I’d Like .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-098.md"
+    },
+    {
+      "id": "ilk-099",
+      "sequence": 99,
+      "title": "Is Artificial Insemination Still God_s Creatio",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Artificial Insemination Still God_s Creatio.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Artificial Insemination Still God_s Creatio.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-099.md"
+    },
+    {
+      "id": "ilk-100",
+      "sequence": 100,
+      "title": "Is Christmas Offering Pagan_ _ I’d Like to Kn",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Christmas Offering Pagan_ _ I’d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Christmas Offering Pagan_ _ I’d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-100.md"
+    },
+    {
+      "id": "ilk-101",
+      "sequence": 101,
+      "title": "Is Coffee Dangerous_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Coffee Dangerous_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-101.md"
+    },
+    {
+      "id": "ilk-102",
+      "sequence": 102,
+      "title": "Is Cremation Biblical_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Cremation Biblical_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-102.md"
+    },
+    {
+      "id": "ilk-103",
+      "sequence": 103,
+      "title": "Is Fasting Bad_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Fasting Bad_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Fasting Bad_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-103.md"
+    },
+    {
+      "id": "ilk-104",
+      "sequence": 104,
+      "title": "Is God Against Polygamy_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is God Against Polygamy_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-104.md"
+    },
+    {
+      "id": "ilk-105",
+      "sequence": 105,
+      "title": "Is God Against Socialism_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is God Against Socialism_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is God Against Socialism_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-105.md"
+    },
+    {
+      "id": "ilk-106",
+      "sequence": 106,
+      "title": "Is God Really Trinity_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is God Really Trinity_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-106.md"
+    },
+    {
+      "id": "ilk-107",
+      "sequence": 107,
+      "title": "Is God_s Name Jehovah or Yahweh_ _ I’d Like t",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is God_s Name Jehovah or Yahweh_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is God_s Name Jehovah or Yahweh_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-107.md"
+    },
+    {
+      "id": "ilk-108",
+      "sequence": 108,
+      "title": "Is It Wrong to Question God_ 🤔 End Time Quest",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is It Wrong to Question God_ 🤔 End Time Quest.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is It Wrong to Question God_ 🤔 End Time Quest.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-108.md"
+    },
+    {
+      "id": "ilk-109",
+      "sequence": 109,
+      "title": "Is KJV Reliable_ _ I’d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is KJV Reliable_ _ I’d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is KJV Reliable_ _ I’d Like to Know_ metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-109.md"
+    },
+    {
+      "id": "ilk-110",
+      "sequence": 110,
+      "title": "Is Last Generation Theology denying Christ_s s",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Last Generation Theology denying Christ_s s.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Last Generation Theology denying Christ_s s.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-110.md"
+    },
+    {
+      "id": "ilk-111",
+      "sequence": 111,
+      "title": "Is Love a Decision or a Mindset_ _ I’d Like t",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Love a Decision or a Mindset_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Love a Decision or a Mindset_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-111.md"
+    },
+    {
+      "id": "ilk-112",
+      "sequence": 112,
+      "title": "Is Loving God Self-Centered Love_ _ I_d Like ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Loving God Self-Centered Love_ _ I_d Like .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Loving God Self-Centered Love_ _ I_d Like .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-112.md"
+    },
+    {
+      "id": "ilk-113",
+      "sequence": 113,
+      "title": "Is Satan Immortal_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is Satan Immortal_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-113.md"
+    },
+    {
+      "id": "ilk-114",
+      "sequence": 114,
+      "title": "Is The Health Message Important_ _ I’d Like t",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is The Health Message Important_ _ I’d Like t.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is The Health Message Important_ _ I’d Like t.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-114.md"
+    },
+    {
+      "id": "ilk-115",
+      "sequence": 115,
+      "title": "Is the Judgement Day Important_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is the Judgement Day Important_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Is the Judgement Day Important_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-115.md"
+    },
+    {
+      "id": "ilk-116",
+      "sequence": 116,
+      "title": "IS THE SABBATH UNIVERSAL_ _ I_d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/IS THE SABBATH UNIVERSAL_ _ I_d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/IS THE SABBATH UNIVERSAL_ _ I_d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-116.md"
+    },
+    {
+      "id": "ilk-117",
+      "sequence": 117,
+      "title": "Jesus Forever Human_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Jesus Forever Human_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-117.md"
+    },
+    {
+      "id": "ilk-118",
+      "sequence": 118,
+      "title": "Jesus the Only Way_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Jesus the Only Way_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Jesus the Only Way_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-118.md"
+    },
+    {
+      "id": "ilk-119",
+      "sequence": 119,
+      "title": "Jesus Was Born Sinful_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Jesus Was Born Sinful_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-119.md"
+    },
+    {
+      "id": "ilk-120",
+      "sequence": 120,
+      "title": "Jewish Nation and Jesus_ _ I’d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Jewish Nation and Jesus_ _ I’d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Jewish Nation and Jesus_ _ I’d Like to Know_ .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-120.md"
+    },
+    {
+      "id": "ilk-121",
+      "sequence": 121,
+      "title": "John 5_21 — Who Raises the Dead_ _ _Sabbaton_ ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/John 5_21 — Who Raises the Dead_ _ _Sabbaton_ .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/John 5_21 — Who Raises the Dead_ _ _Sabbaton_ .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-121.md"
+    },
+    {
+      "id": "ilk-122",
+      "sequence": 122,
+      "title": "Justification in the Bible_ Legal vs. Experien",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Justification in the Bible_ Legal vs. Experien.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Justification in the Bible_ Legal vs. Experien.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-122.md"
+    },
+    {
+      "id": "ilk-123",
+      "sequence": 123,
+      "title": "Keys to Heaven_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Keys to Heaven_ _ I_d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Keys to Heaven_ _ I_d Like to Know_ metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-123.md"
+    },
+    {
+      "id": "ilk-124",
+      "sequence": 124,
+      "title": "Kitchen Work on Sabbath_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Kitchen Work on Sabbath_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-124.md"
+    },
+    {
+      "id": "ilk-125",
+      "sequence": 125,
+      "title": "Laborious Sabbath Laws_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Laborious Sabbath Laws_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-125.md"
+    },
+    {
+      "id": "ilk-126",
+      "sequence": 126,
+      "title": "Life Insurance & Adventists_ What Ellen White ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Life Insurance & Adventists_ What Ellen White .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Life Insurance & Adventists_ What Ellen White .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-126.md"
+    },
+    {
+      "id": "ilk-127",
+      "sequence": 127,
+      "title": "Living Under Grace and the Law_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Living Under Grace and the Law_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Living Under Grace and the Law_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-127.md"
+    },
+    {
+      "id": "ilk-128",
+      "sequence": 128,
+      "title": "Lucifer on Earth Before Creation_ _ I’d Like ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Lucifer on Earth Before Creation_ _ I’d Like .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Lucifer on Earth Before Creation_ _ I’d Like .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-128.md"
+    },
+    {
+      "id": "ilk-129",
+      "sequence": 129,
+      "title": "Lucifer_s Rank in Heaven_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Lucifer_s Rank in Heaven_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Lucifer_s Rank in Heaven_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-129.md"
+    },
+    {
+      "id": "ilk-130",
+      "sequence": 130,
+      "title": "Making Money on Sabbath_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Making Money on Sabbath_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-130.md"
+    },
+    {
+      "id": "ilk-131",
+      "sequence": 131,
+      "title": "Mary_s LINEAGE MISSING_ _ I_d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Mary_s LINEAGE MISSING_ _ I_d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-131.md"
+    },
+    {
+      "id": "ilk-132",
+      "sequence": 132,
+      "title": "More Worlds Out There_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/More Worlds Out There_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-132.md"
+    },
+    {
+      "id": "ilk-133",
+      "sequence": 133,
+      "title": "Must We Marry_ Who Are the Anointed Ones_ _ I",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Must We Marry_ Who Are the Anointed Ones_ _ I.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Must We Marry_ Who Are the Anointed Ones_ _ I.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-133.md"
+    },
+    {
+      "id": "ilk-134",
+      "sequence": 134,
+      "title": "My Name Off the Book of Life_ _ I’d Like to K",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/My Name Off the Book of Life_ _ I’d Like to K.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/My Name Off the Book of Life_ _ I’d Like to K.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-134.md"
+    },
+    {
+      "id": "ilk-135",
+      "sequence": 135,
+      "title": "New Church in The Last Days_ _ I’d Like to Kn",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/New Church in The Last Days_ _ I’d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/New Church in The Last Days_ _ I’d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-135.md"
+    },
+    {
+      "id": "ilk-136",
+      "sequence": 136,
+      "title": "No Guns for Christians_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/No Guns for Christians_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-136.md"
+    },
+    {
+      "id": "ilk-137",
+      "sequence": 137,
+      "title": "No Marriage in Heaven_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/No Marriage in Heaven_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-137.md"
+    },
+    {
+      "id": "ilk-138",
+      "sequence": 138,
+      "title": "No Weddings on Sabbath_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/No Weddings on Sabbath_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-138.md"
+    },
+    {
+      "id": "ilk-139",
+      "sequence": 139,
+      "title": "Not Allowed to Donate Organs_ _ I’d Like to K",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Not Allowed to Donate Organs_ _ I’d Like to K.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Not Allowed to Donate Organs_ _ I’d Like to K.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-139.md"
+    },
+    {
+      "id": "ilk-140",
+      "sequence": 140,
+      "title": "Not Dying for your Sins_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Not Dying for your Sins_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-140.md"
+    },
+    {
+      "id": "ilk-141",
+      "sequence": 141,
+      "title": "Only Vegetarians in Heaven_ _ I_d Like to Kno",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Only Vegetarians in Heaven_ _ I_d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Only Vegetarians in Heaven_ _ I_d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-141.md"
+    },
+    {
+      "id": "ilk-142",
+      "sequence": 142,
+      "title": "Payments During the Sabbath_ _ I’d Like to Kn",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Payments During the Sabbath_ _ I’d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Payments During the Sabbath_ _ I’d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-142.md"
+    },
+    {
+      "id": "ilk-143",
+      "sequence": 143,
+      "title": "Perfection is Not Enough_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Perfection is Not Enough_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Perfection is Not Enough_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-143.md"
+    },
+    {
+      "id": "ilk-144",
+      "sequence": 144,
+      "title": "Possible to Live Sinless_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Possible to Live Sinless_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Possible to Live Sinless_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-144.md"
+    },
+    {
+      "id": "ilk-145",
+      "sequence": 145,
+      "title": "Proper Attitude for Prayers_ _ I’d Like to Kn",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Proper Attitude for Prayers_ _ I’d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Proper Attitude for Prayers_ _ I’d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-145.md"
+    },
+    {
+      "id": "ilk-146",
+      "sequence": 146,
+      "title": "Raffle on Sabbath_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Raffle on Sabbath_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-146.md"
+    },
+    {
+      "id": "ilk-147",
+      "sequence": 147,
+      "title": "Reaching the Unreached_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Reaching the Unreached_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-147.md"
+    },
+    {
+      "id": "ilk-148",
+      "sequence": 148,
+      "title": "REVELATION 16 and 7—Angels, Churches, or Gover",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/REVELATION 16 and 7—Angels, Churches, or Gover.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/REVELATION 16 and 7—Angels, Churches, or Gover.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-148.md"
+    },
+    {
+      "id": "ilk-149",
+      "sequence": 149,
+      "title": "Sabbath Begins By Sundown_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sabbath Begins By Sundown_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sabbath Begins By Sundown_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-149.md"
+    },
+    {
+      "id": "ilk-150",
+      "sequence": 150,
+      "title": "Sabbath Commandment Exist in Heaven_ _ I’d Li",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sabbath Commandment Exist in Heaven_ _ I’d Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sabbath Commandment Exist in Heaven_ _ I’d Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-150.md"
+    },
+    {
+      "id": "ilk-151",
+      "sequence": 151,
+      "title": "Sabbath DEATH PENALTY_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sabbath DEATH PENALTY_ _ I_d Like to Know_.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-151.md"
+    },
+    {
+      "id": "ilk-152",
+      "sequence": 152,
+      "title": "Sacrificial Murder is Okay_ _ I’d Like to Kno",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sacrificial Murder is Okay_ _ I’d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sacrificial Murder is Okay_ _ I’d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-152.md"
+    },
+    {
+      "id": "ilk-153",
+      "sequence": 153,
+      "title": "Sacrificing a Bull Instead of a Lamb_ _ I’d L",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sacrificing a Bull Instead of a Lamb_ _ I’d L.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sacrificing a Bull Instead of a Lamb_ _ I’d L.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-153.md"
+    },
+    {
+      "id": "ilk-154",
+      "sequence": 154,
+      "title": "Satan Impersonating Jesus_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Satan Impersonating Jesus_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Satan Impersonating Jesus_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-154.md"
+    },
+    {
+      "id": "ilk-155",
+      "sequence": 155,
+      "title": "Satan Performing Miracles_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Satan Performing Miracles_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Satan Performing Miracles_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-155.md"
+    },
+    {
+      "id": "ilk-156",
+      "sequence": 156,
+      "title": "Second Resurrection & Judgment_ What Does Reve",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Second Resurrection & Judgment_ What Does Reve.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Second Resurrection & Judgment_ What Does Reve.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-156.md"
+    },
+    {
+      "id": "ilk-157",
+      "sequence": 157,
+      "title": "Serving God with Disabilities_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Serving God with Disabilities_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Serving God with Disabilities_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-157.md"
+    },
+    {
+      "id": "ilk-158",
+      "sequence": 158,
+      "title": "Shouting While Sharing the Message_ _ I’d Lik",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Shouting While Sharing the Message_ _ I’d Lik.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Shouting While Sharing the Message_ _ I’d Lik.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-158.md"
+    },
+    {
+      "id": "ilk-159",
+      "sequence": 159,
+      "title": "Sins in the Heavenly Sanctuary_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sins in the Heavenly Sanctuary_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Sins in the Heavenly Sanctuary_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-159.md"
+    },
+    {
+      "id": "ilk-160",
+      "sequence": 160,
+      "title": "Special vs. First Resurrection Explained _ I_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Special vs. First Resurrection Explained _ I_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Special vs. First Resurrection Explained _ I_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-160.md"
+    },
+    {
+      "id": "ilk-161",
+      "sequence": 161,
+      "title": "Spiritualism with Christianity_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Spiritualism with Christianity_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Spiritualism with Christianity_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-161.md"
+    },
+    {
+      "id": "ilk-162",
+      "sequence": 162,
+      "title": "State of the Dead, Godhead Appearances, and Ca",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/State of the Dead, Godhead Appearances, and Ca.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/State of the Dead, Godhead Appearances, and Ca.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-162.md"
+    },
+    {
+      "id": "ilk-163",
+      "sequence": 163,
+      "title": "Stay-At-Home Dad Unbiblical_ _ I’d Like to Kn",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Stay-At-Home Dad Unbiblical_ _ I’d Like to Kn.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Stay-At-Home Dad Unbiblical_ _ I’d Like to Kn.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-163.md"
+    },
+    {
+      "id": "ilk-164",
+      "sequence": 164,
+      "title": "Stealing Money for God_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Stealing Money for God_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-164.md"
+    },
+    {
+      "id": "ilk-165",
+      "sequence": 165,
+      "title": "STEPHANOS_ The crown of victory_ The Differenc",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/STEPHANOS_ The crown of victory_ The Differenc.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/STEPHANOS_ The crown of victory_ The Differenc.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-165.md"
+    },
+    {
+      "id": "ilk-166",
+      "sequence": 166,
+      "title": "Still single by 30_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Still single by 30_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Still single by 30_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-166.md"
+    },
+    {
+      "id": "ilk-167",
+      "sequence": 167,
+      "title": "Struggling with Sin _ Is it unchristian to sto",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Struggling with Sin _ Is it unchristian to sto.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Struggling with Sin _ Is it unchristian to sto.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-167.md"
+    },
+    {
+      "id": "ilk-168",
+      "sequence": 168,
+      "title": "Symbolic Meanings_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Symbolic Meanings_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-168.md"
+    },
+    {
+      "id": "ilk-169",
+      "sequence": 169,
+      "title": "The _Elect_ Will Not Be Deceived_ _ I’d Like ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The _Elect_ Will Not Be Deceived_ _ I’d Like .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The _Elect_ Will Not Be Deceived_ _ I’d Like .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-169.md"
+    },
+    {
+      "id": "ilk-170",
+      "sequence": 170,
+      "title": "The Bible Contradicting Itself_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Bible Contradicting Itself_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Bible Contradicting Itself_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-170.md"
+    },
+    {
+      "id": "ilk-171",
+      "sequence": 171,
+      "title": "The Close of Probation Closed_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Close of Probation Closed_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Close of Probation Closed_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-171.md"
+    },
+    {
+      "id": "ilk-172",
+      "sequence": 172,
+      "title": "The Devil Cast Out before Creation_ _ I’d Lik",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Devil Cast Out before Creation_ _ I’d Lik.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Devil Cast Out before Creation_ _ I’d Lik.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-172.md"
+    },
+    {
+      "id": "ilk-173",
+      "sequence": 173,
+      "title": "The Great Multitude and the 144,000_ EXPLAINED",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Great Multitude and the 144,000_ EXPLAINED.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Great Multitude and the 144,000_ EXPLAINED.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-173.md"
+    },
+    {
+      "id": "ilk-174",
+      "sequence": 174,
+      "title": "THE INVESTIGATIVE JUDGEMENT & SALVATION  _ I_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/THE INVESTIGATIVE JUDGEMENT & SALVATION  _ I_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/THE INVESTIGATIVE JUDGEMENT & SALVATION  _ I_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-174.md"
+    },
+    {
+      "id": "ilk-175",
+      "sequence": 175,
+      "title": "The Lost Still Being Punished_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Lost Still Being Punished_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Lost Still Being Punished_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-175.md"
+    },
+    {
+      "id": "ilk-176",
+      "sequence": 176,
+      "title": "The Rapture and Second Coming_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Rapture and Second Coming_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Rapture and Second Coming_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-176.md"
+    },
+    {
+      "id": "ilk-177",
+      "sequence": 177,
+      "title": "THE SABBATH and Colossians 2_16,17 _ An argume",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/THE SABBATH and Colossians 2_16,17 _ An argume.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/THE SABBATH and Colossians 2_16,17 _ An argume.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-177.md"
+    },
+    {
+      "id": "ilk-178",
+      "sequence": 178,
+      "title": "The Sabbath Before Creation_ Who Are the _Sain",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Sabbath Before Creation_ Who Are the _Sain.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Sabbath Before Creation_ Who Are the _Sain.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-178.md"
+    },
+    {
+      "id": "ilk-179",
+      "sequence": 179,
+      "title": "The Temple Still Exists_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Temple Still Exists_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-179.md"
+    },
+    {
+      "id": "ilk-180",
+      "sequence": 180,
+      "title": "The Truth Behind “Spirit” in Luke 23_46 _ Unde",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Truth Behind “Spirit” in Luke 23_46 _ Unde.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Truth Behind “Spirit” in Luke 23_46 _ Unde.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-180.md"
+    },
+    {
+      "id": "ilk-181",
+      "sequence": 181,
+      "title": "The Universality of Sin_ Daily Devotionals Nee",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Universality of Sin_ Daily Devotionals Nee.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/The Universality of Sin_ Daily Devotionals Nee.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-181.md"
+    },
+    {
+      "id": "ilk-182",
+      "sequence": 182,
+      "title": "They Saw God_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/They Saw God_ _ I_d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/They Saw God_ _ I_d Like to Know_ metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-182.md"
+    },
+    {
+      "id": "ilk-183",
+      "sequence": 183,
+      "title": "Thou Shalt Not Kill_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Thou Shalt Not Kill_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-183.md"
+    },
+    {
+      "id": "ilk-184",
+      "sequence": 184,
+      "title": "Tithing for Hidden Agendas_ _ I_d Like to Kno",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Tithing for Hidden Agendas_ _ I_d Like to Kno.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Tithing for Hidden Agendas_ _ I_d Like to Kno.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-184.md"
+    },
+    {
+      "id": "ilk-185",
+      "sequence": 185,
+      "title": "Tithing_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Tithing_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Tithing_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-185.md"
+    },
+    {
+      "id": "ilk-186",
+      "sequence": 186,
+      "title": "Unclean on the Sabbath_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Unclean on the Sabbath_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-186.md"
+    },
+    {
+      "id": "ilk-187",
+      "sequence": 187,
+      "title": "Unforgivable Sins_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Unforgivable Sins_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-187.md"
+    },
+    {
+      "id": "ilk-188",
+      "sequence": 188,
+      "title": "Violating The Sabbath With Exercise_ _ I’d Li",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Violating The Sabbath With Exercise_ _ I’d Li.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Violating The Sabbath With Exercise_ _ I’d Li.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-188.md"
+    },
+    {
+      "id": "ilk-189",
+      "sequence": 189,
+      "title": "Was Adam With Eve When She Was Tempted_ _ I’d",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Adam With Eve When She Was Tempted_ _ I’d.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Adam With Eve When She Was Tempted_ _ I’d.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-189.md"
+    },
+    {
+      "id": "ilk-190",
+      "sequence": 190,
+      "title": "Was Christ Tempted_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Christ Tempted_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Christ Tempted_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-190.md"
+    },
+    {
+      "id": "ilk-191",
+      "sequence": 191,
+      "title": "Was Jesus an SDA_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Jesus an SDA_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Jesus an SDA_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-191.md"
+    },
+    {
+      "id": "ilk-192",
+      "sequence": 192,
+      "title": "Was Jesus Created_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Jesus Created_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-192.md"
+    },
+    {
+      "id": "ilk-193",
+      "sequence": 193,
+      "title": "Was Jesus Tolerant_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Jesus Tolerant_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Jesus Tolerant_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-193.md"
+    },
+    {
+      "id": "ilk-194",
+      "sequence": 194,
+      "title": "Was Judas Saved_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Judas Saved_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Was Judas Saved_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-194.md"
+    },
+    {
+      "id": "ilk-195",
+      "sequence": 195,
+      "title": "We Are Not Sinners_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/We Are Not Sinners_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/We Are Not Sinners_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-195.md"
+    },
+    {
+      "id": "ilk-196",
+      "sequence": 196,
+      "title": "We Can_t Kill Cockroaches_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/We Can_t Kill Cockroaches_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/We Can_t Kill Cockroaches_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-196.md"
+    },
+    {
+      "id": "ilk-197",
+      "sequence": 197,
+      "title": "We_ll Be Like Angels_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/We_ll Be Like Angels_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/We_ll Be Like Angels_ _ I’d Like to Know meta.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-197.md"
+    },
+    {
+      "id": "ilk-198",
+      "sequence": 198,
+      "title": "Wearing a Hat a Sin_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Wearing a Hat a Sin_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-198.md"
+    },
+    {
+      "id": "ilk-199",
+      "sequence": 199,
+      "title": "Wedding Traditions Pagan_ White Robes, Judgmen",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Wedding Traditions Pagan_ White Robes, Judgmen.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Wedding Traditions Pagan_ White Robes, Judgmen.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-199.md"
+    },
+    {
+      "id": "ilk-200",
+      "sequence": 200,
+      "title": "What did Paul really mean in Ephesians 2_14–16",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What did Paul really mean in Ephesians 2_14–16.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What did Paul really mean in Ephesians 2_14–16.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-200.md"
+    },
+    {
+      "id": "ilk-201",
+      "sequence": 201,
+      "title": "What Does the Bible Say About Our Spirit_ God_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What Does the Bible Say About Our Spirit_ God_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What Does the Bible Say About Our Spirit_ God_.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-201.md"
+    },
+    {
+      "id": "ilk-202",
+      "sequence": 202,
+      "title": "What happened in 1888_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What happened in 1888_ _ I_d Like to Know_.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-202.md"
+    },
+    {
+      "id": "ilk-203",
+      "sequence": 203,
+      "title": "What is Our Responsibility for Our Environment",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What is Our Responsibility for Our Environment.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What is Our Responsibility for Our Environment.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-203.md"
+    },
+    {
+      "id": "ilk-204",
+      "sequence": 204,
+      "title": "What is The Bride of The Lamb_ _ I’d Like to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What is The Bride of The Lamb_ _ I’d Like to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What is The Bride of The Lamb_ _ I’d Like to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-204.md"
+    },
+    {
+      "id": "ilk-205",
+      "sequence": 205,
+      "title": "What is the Spirit of Prophecy_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What is the Spirit of Prophecy_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What is the Spirit of Prophecy_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-205.md"
+    },
+    {
+      "id": "ilk-206",
+      "sequence": 206,
+      "title": "What Should I Do During a Divorce_ _ I’d Like",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What Should I Do During a Divorce_ _ I’d Like.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What Should I Do During a Divorce_ _ I’d Like.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-206.md"
+    },
+    {
+      "id": "ilk-207",
+      "sequence": 207,
+      "title": "What the Bible Really Says About Angels, Demon",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What the Bible Really Says About Angels, Demon.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What the Bible Really Says About Angels, Demon.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-207.md"
+    },
+    {
+      "id": "ilk-208",
+      "sequence": 208,
+      "title": "What was the First Light_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What was the First Light_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/What was the First Light_ _ I’d Like to Know .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-208.md"
+    },
+    {
+      "id": "ilk-209",
+      "sequence": 209,
+      "title": "Where Did Jesus Go After Ascension_ _ I_d Lik",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Where Did Jesus Go After Ascension_ _ I_d Lik.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Where Did Jesus Go After Ascension_ _ I_d Lik.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-209.md"
+    },
+    {
+      "id": "ilk-210",
+      "sequence": 210,
+      "title": "where is God_s Kingdom_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/where is God_s Kingdom_ _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-210.md"
+    },
+    {
+      "id": "ilk-211",
+      "sequence": 211,
+      "title": "Where Was Jesus After He Resurrected_ _ I’d L",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Where Was Jesus After He Resurrected_ _ I’d L.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Where Was Jesus After He Resurrected_ _ I’d L.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-211.md"
+    },
+    {
+      "id": "ilk-212",
+      "sequence": 212,
+      "title": "Where Was Jesus After His Resurrection_ No Oc",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Where Was Jesus After His Resurrection_ No Oc.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Where Was Jesus After His Resurrection_ No Oc.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-212.md"
+    },
+    {
+      "id": "ilk-213",
+      "sequence": 213,
+      "title": "Which Ethnic Group_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Which Ethnic Group_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Which Ethnic Group_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-213.md"
+    },
+    {
+      "id": "ilk-214",
+      "sequence": 214,
+      "title": "Who Do I Pray To_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Who Do I Pray To_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Who Do I Pray To_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-214.md"
+    },
+    {
+      "id": "ilk-215",
+      "sequence": 215,
+      "title": "Who to Ask for Will Power_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Who to Ask for Will Power_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Who to Ask for Will Power_ _ I’d Like to Know.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-215.md"
+    },
+    {
+      "id": "ilk-216",
+      "sequence": 216,
+      "title": "Why Did God Not Prevent Sin from Happening_ _",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why Did God Not Prevent Sin from Happening_ _.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why Did God Not Prevent Sin from Happening_ _.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-216.md"
+    },
+    {
+      "id": "ilk-217",
+      "sequence": 217,
+      "title": "Why Did Satan Crucify Christ_ _ I’d Like to K",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why Did Satan Crucify Christ_ _ I’d Like to K.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why Did Satan Crucify Christ_ _ I’d Like to K.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-217.md"
+    },
+    {
+      "id": "ilk-218",
+      "sequence": 218,
+      "title": "Why Do We Tithe_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why Do We Tithe_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why Do We Tithe_ _ I’d Like to Know metadata.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-218.md"
+    },
+    {
+      "id": "ilk-219",
+      "sequence": 219,
+      "title": "Why is God seen as male_ _ Zechariah 13_6-7 EX",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why is God seen as male_ _ Zechariah 13_6-7 EX.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Why is God seen as male_ _ Zechariah 13_6-7 EX.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-219.md"
+    },
+    {
+      "id": "ilk-220",
+      "sequence": 220,
+      "title": "Will Atheists Be Saved_  _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Will Atheists Be Saved_  _ I’d Like to Know.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-220.md"
+    },
+    {
+      "id": "ilk-221",
+      "sequence": 221,
+      "title": "Will We Remember Our Life on Earth in Heaven_ ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Will We Remember Our Life on Earth in Heaven_ .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Will We Remember Our Life on Earth in Heaven_ .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-221.md"
+    },
+    {
+      "id": "ilk-222",
+      "sequence": 222,
+      "title": "Will Wearing Jewelry Prevent Me from Going to ",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Will Wearing Jewelry Prevent Me from Going to .html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Will Wearing Jewelry Prevent Me from Going to .json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-222.md"
+    },
+    {
+      "id": "ilk-223",
+      "sequence": 223,
+      "title": "William Miller Rejected the Truth… Will He Sti",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/William Miller Rejected the Truth… Will He Sti.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/William Miller Rejected the Truth… Will He Sti.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-223.md"
+    },
+    {
+      "id": "ilk-224",
+      "sequence": 224,
+      "title": "Wine isn_t a Salvational Issue_ _ I’d Like to",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Wine isn_t a Salvational Issue_ _ I’d Like to.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Wine isn_t a Salvational Issue_ _ I’d Like to.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-224.md"
+    },
+    {
+      "id": "ilk-225",
+      "sequence": 225,
+      "title": "Withholding Tithe_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Withholding Tithe_ _ I_d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Withholding Tithe_ _ I_d Like to Know_ metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-225.md"
+    },
+    {
+      "id": "ilk-226",
+      "sequence": 226,
+      "title": "Women_s Ordination_ _ I’d Like to Know",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Women_s Ordination_ _ I’d Like to Know.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Women_s Ordination_ _ I’d Like to Know metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-226.md"
+    },
+    {
+      "id": "ilk-227",
+      "sequence": 227,
+      "title": "Work vs Parenting_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Work vs Parenting_ _ I_d Like to Know_.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Work vs Parenting_ _ I_d Like to Know_ metada.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-227.md"
+    },
+    {
+      "id": "ilk-228",
+      "sequence": 228,
+      "title": "Working on Sabbath_ _ I_d Like to Know_",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Working on Sabbath_ _ I_d Like to Know_.html",
+      "raw_json": null,
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-228.md"
+    },
+    {
+      "id": "ilk-229",
+      "sequence": 229,
+      "title": "Worldwide Law Violating Conscience_ _ I’d Lik",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Worldwide Law Violating Conscience_ _ I’d Lik.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/Worldwide Law Violating Conscience_ _ I’d Lik.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-229.md"
+    },
+    {
+      "id": "ilk-230",
+      "sequence": 230,
+      "title": "🤔  NO BEACH FOR CHRISTIANS_  _ I_d Like to K",
+      "status": "queued",
+      "raw_html": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/🤔  NO BEACH FOR CHRISTIANS_  _ I_d Like to K.html",
+      "raw_json": "/home/nigel/NotebookLM_Extract/Takeout/NotebookLM/I_d Like to Know _ Q&A/Sources/🤔  NO BEACH FOR CHRISTIANS_  _ I_d Like to K.json",
+      "curated_output": "curation/curated/id-like-to-know/items/ilk-230.md"
+    }
+  ]
+}
