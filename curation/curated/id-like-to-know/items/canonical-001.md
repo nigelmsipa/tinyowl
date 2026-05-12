@@ -24,15 +24,29 @@
 
 ### Answer
 
-Present truth is truth tied to what Christ is doing right now.
+Present truth is truth tied to what Christ is doing right now — specifically, His high-priestly work in the Most Holy Place of the heavenly sanctuary since 1844.
 
-2 Peter 1:12 anchors the phrase biblically. Peter writes that he will not be negligent "to remind you always of these things, though you know and are established in the present truth." Murray reads this directly — it shows the apostolic church already recognized that truth has a moment-specific, pressing edge.
+**Scripture**
 
-The historical pattern makes it concrete. At Christ's birth the present truth was that the Messiah had come. At Pentecost, present truth was that Jesus had entered the holy place. Each stage had truth tied to what Christ was doing at that moment.
+2 Peter 1:12 anchors the phrase biblically: "be established in the present truth." The apostolic church already recognized that truth has a moment-specific, pressing edge — it is not timeless abstraction but tied to what Christ is actively doing.
 
-For this time, the governing anchor is Daniel 8:14 — "unto 2300 days, then shall the sanctuary be cleansed." Everything radiating from that event is present truth: the judgment, the Sabbath, the commandments, the state of the dead. Ellen White defines it precisely in Early Writings page 63: "such subjects as the sanctuary in connection with the 2300 days, the commandments of God and the faith of Jesus are perfectly calculated to explain the past advent movement and show what our present position is, establish the faith of the doubting, and give certainty to the glorious future."
+The pattern runs through history. At Christ's birth the present truth was that the Messiah had come. At Pentecost, it was that Jesus had entered the Holy Place. Each era had truth tied to Christ's current work.
 
-Present truth is not one subject among many. It is the governing center — the truth the flock needs now, not the truth that merely proves the flock is learned.
+For this time, the governing anchor is Daniel 8:14 — "unto 2300 days, then shall the sanctuary be cleansed." Everything radiating from that event is present truth: the judgment, the Sabbath, the commandments, the state of the dead.
+
+**Spirit of Prophecy**
+
+Ellen White defines it precisely in *Early Writings*, page 63: "Such subjects as the sanctuary in connection with the 2300 days, the commandments of God and the faith of Jesus are perfectly calculated to explain the past advent movement and show what our present position is, establish the faith of the doubting, and give certainty to the glorious future." She restates the urgency in *Signs of the Times*, December 27, 1899.
+
+The *Great Controversy* ("What is the Sanctuary?") supplies the doctrinal weight: the heavenly sanctuary has a two-phase ministry — daily service in the Holy Place, and a decisive annual entry into the Most Holy Place for judgment. Christ entered the Most Holy Place in 1844. That event is not background history. It is the present operational reality of heaven.
+
+**Historical / Scholarly**
+
+The year-day hermeneutic that unlocks Daniel 8:14 was not invented by William Miller or by Adventists. It was the standard Protestant approach to symbolic apocalyptic time for centuries — applied by Joachim of Fiore (12th c.), John Wycliffe, William Tyndale, and later by a broad stream of Reformation expositors. Leroy Froom's *The Prophetic Faith of Our Fathers* documents the lineage in detail. Miller was working within a centuries-old exegetical tradition, not constructing a private theory.
+
+**Pastoral**
+
+Present truth is not an academic category. To know that Christ is now in the Most Holy Place, reviewing records, and that probation has not yet closed, is the most urgent fact a living person can face. The question it forces is not "Do I understand this doctrine?" but "Am I surrendering to known truth today?"
 
 ## Entry `canonical-001b`
 
@@ -44,15 +58,27 @@ Present truth is not one subject among many. It is the governing center — the 
 
 ### Answer
 
-Yes — and the answer turns on what sealing actually requires.
+Yes — and the answer turns on what sealing actually requires. The seal is not a grade of spiritual maturity; it is a mark of ownership and allegiance.
 
-Bohr cites Jesus's parable of the laborers (Matthew 20) — those who entered the vineyard at the eleventh hour received the same wage as those who worked all day. The final generation will include people who come in under the loud cry with very little time to mature before the close of probation. That is not a disqualification.
+**Scripture**
 
-Murray draws the line precisely: "Maturity in Christ is not determined by time or years. It's the depth of surrender and obedience to what you know and what Christ has asked you to do." The close of probation is not a longevity test. It is a loyalty test — will you accept God's authority and His Sabbath, or the counterfeit Sunday enforcement imposed by the image of the beast?
+Jesus's parable of the laborers (Matthew 20) makes the point directly — those who entered the vineyard at the eleventh hour received the same wage as those who worked all day. The final generation will include people who come in under the loud cry with very little time to mature before the close of probation. That is not a disqualification.
 
-Those who come in during the loud cry will be sealed because they pass that test. Ellen White says their growth will be expedited and their zeal will surpass that of long-standing members. The shaking will drive out the lukewarm and draw in the red-hot.
+Maturity in Christ is not determined by time or years but by depth of surrender and obedience to known truth. The close of probation is not a longevity test. It is a loyalty test — will you accept God's authority and His Sabbath, or the counterfeit Sunday enforcement imposed by the image of the beast?
 
-Immature and mature alike will be sealed. What the seal marks is not years of membership but genuine surrender to known truth.
+Ezekiel 9:4 supplies the Old Testament type: the protective mark was placed on those who "sigh and cry for all the abominations" — not on those with the longest tenure, but on those with the deepest anguish over sin. Revelation 7:3 and 14:1 show the seal on the foreheads of God's servants, identifying them as His before the final judgments fall.
+
+**Spirit of Prophecy**
+
+Ellen White states that the zeal of 11th-hour workers will surpass that of long-standing members, and that their growth will be expedited (*Testimonies for the Church, vol. 8*, "The Church's Work Unfinished"). The shaking does not thin the ranks for lack of stamina — it expels the insincere and draws in the earnest. In *The Great Controversy* ("God's People Delivered"), the 144,000 who stand through the final time of trouble are identified not by their years of service but by the fact that they kept the commandments and bore the seal through the crisis.
+
+**Historical / Scholarly**
+
+The "seal" in ancient Near Eastern usage was an instrument of authentication and ownership — it identified the holder as belonging to a particular sovereign. The same concept runs through Exodus (the blood on the doorpost), Ezekiel 9 (the mark on the forehead), and Revelation 7. What marks the sealed is not depth of theological knowledge but covenantal loyalty. This is consistent with the Reformation doctrine of sola fide: acceptance before God is not based on accumulated merit or duration of membership.
+
+**Pastoral**
+
+The sealing is happening now — not at some future dramatic moment, but in the daily decisions of surrender. The question is not "Will I be mature enough when probation closes?" but "Am I yielding to the truth I already know today?" Those who do that consistently, whether they have been doing it for forty years or forty days, will be sealed.
 
 ## Fidelity notes
 

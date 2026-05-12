@@ -1,0 +1,445 @@
+# C.D. Brooks Q&A — Deep Research Plan
+
+**Source:** C.D. Brooks — Questions & Answers Series (YouTube)
+**Questions:** 99 total (cdb-001 through cdb-099)
+
+---
+
+## CDB-G01 — Sabbath: Identity, Practice, and Defense (11)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-001** — How did the days get their names oh I'm glad you asked that first of all God did not name them he only named one he numbered them first day second day Third Day fourth day fifth day sixth day and then he named the one that honors him Sabbath say it everybody Sabbath that's the only one he needs all the rest of them were numbered well where did?
+> - **cdb-002** — Mr Brooks suppose the days are all mixed up after all these centuries then how do we know which day is the Sabbath well there's that question again mixed up and beloved I've already answered it really we're not mixed up until we hear the truth and then we look for excuses part of this is understandable folk have been doing a certain thing so long and then they hear the truth you know what happened to me I was a Methodist it happened to me and my family oh dear ones God doesn't send the truth to embarrass you or to offend you but to Enlighten you and you some of you have to learn it just like I had to learn it but it's not going to change for us?
+> - **cdb-003** — Here's a person that wants to know how can so many people be wrong about the Sabbath well I've answered that so many times please let it come through this time if people went to the Bible and the Bible only every believer would be keeping the seventh day because that's the only one in here now if that's clear please say?
+> - **cdb-004** — I think I've got you how can the Bible be kept on a round world when it's Sabbath here it's Sunday someplace else can the Bible when it's Sabbath here it's suddenly somewhere else and that's true I made a trip to around the world I didn't go directly to Japan I came around to Japan and I went to church on Sabbath in Tokyo I got on a plane Saturday night flew to Honolulu and was Sabbath again and uh what did I do I enjoyed both of them in fact?
+> - **cdb-005** — Here's a person that wants to know if you read your Bible every day but you don't go to church is that person a Christian you're not a Christian by reading the Bible the devil knows this Bible from Genesis to Revelation you are a Christian when you give your heart to Jesus accept his forgiveness and his invitation to belong to him and then you begin to obey him then you will do what Jesus did a Christian is one who does what Jesus did Luke 4 16 says Jesus went to Nazareth and as his custom was his habit was his practice was he went into the church on the Sabbath day would you say?
+> - **cdb-006** — Why did they say that the Sabbath doesn't matter?
+> - **cdb-007** — Today in Sabbath School it was mentioned that Rahab and her family were saved why then when Aiken stole a wedge of gold and a Babylonian garment was his whole family destroyed please don't question the Judgment of God for your benefit don't ever fall into that trap of questioning the Judgment of God told Rahab through Joshua that if she would hang the red cord in the window she?
+> - **cdb-008** — I'm convinced that Saturday is the Sabbath of the Lord but I've been keeping Sunday so long can I keep both days well the first place how can you keep it when it's not holy to start with Sunday's the first day of the week it's a work day and if you want to play golf as your business if you go fishing that's your business but it's not holy God didn't tell you to make a day holy he already did that he told you to keep the one holy that he already made holy and in Acts 5 acts 5 and verse 29 Peter said we ought to obey God rather than man he didn't say we ought to obey God in man we ought to obey God rather instead of man we ought to obey God rather than man acts 5 and verse 29. now what you need to understand is that Sunday keeping is an offense to God you need to understand that now I'm not talking about people who don't know I'm talking about those to whom truth has come Sunday keeping is an offense to God you want me to prove it Matthew 59 in vain do they worship me teaching for doctrines the Commandments of men and this particular issue is going to be a focal issue in the last days indeed the mock of the Beast hinges on a willingness to obey God or willingness to obey man when you find era run from it?
+> - **cdb-009** — Brook someone wants to know is it wrong to have weddings or funerals on the Sabbath were there a lot of things that are not wrong they just might not be best a wedding is actually a sacred ceremony the problem is not so much with a wedding but with the expectations and the festivities that usually attend the winning you want your affection centered on Christ not on?
+> - **cdb-010** — Is there anything wrong and going to Worship the Lord on Sunday provided that you keep the Sabbath holy are you still in danger of getting the mark of the beast already discussed this?
+> - **cdb-011** — This person says I'm a Jewish Christian how do we know when the Sabbath is because man made the calendar man didn't make the days God gave them God numbered them and God gave a Sabbath God would never require you to do something you couldn't find out or figure out remember now God is intelligent and Truth is logical and reasonable and in Ecclesiastes 3 14-15?
+
+---
+
+## CDB-G02 — Law, Obedience, and Righteousness by Faith (7)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-012** — Brooks do you believe it is true that if you are once saved you can never be lost that that really is a very serious question I'll tell you why it is because it is a very pervasive idea and has become believed generally in Christendom today that once you give your heart to the Lord you cannot be saved?
+> - **cdb-013** — After hearing the plain truth put so simply why do men teach that the law of God is done away with well I I I start to say?
+> - **cdb-014** — Now which is it Pastor is it law or Grace works or faith which is it weren't we clear last night let's try one more time let me?
+> - **cdb-015** — This was a little long in Matthew 5 19 where it says shall be one of the least Commandments shall teach men so shall be called the least in Heaven will he be in heaven call the least or we'll leave you on Earth all right let's let's go to school?
+> - **cdb-016** — Brooks I wish you would explain Isaiah 42 21 doesn't this mean that Jesus would change the law I know the text it says he will magnify it and make it honorable now beloved how on Earth can we construe that to mean he's going to change it he will magnify it magnify it you know the doctor told me one day Brooks you need glasses for here and there I said do you mean bifocals he said yes the time has come and these bifocals magnify now I'm going to magnify this piece of paper and let's see if it disappears or changes no not really God said I will magnify the law and make it honorable and when you magnify a thing you make it clearer when somebody say?
+> - **cdb-017** — Why don't we practice the Jewish holidays like Passover and so forth like they did in the Old Testament didn't Jesus mean keep all of my Commandments including those no and that's a precisely the essence of that sermon of what was nailed to the cross?
+> - **cdb-018** — If Jesus did away with the law does that mean the law of the Old Testament days such as the eating of certain foods oh go ahead does it mean that we ignore that that law it's got two parts to it well let's start with that one what Jesus did away with from the Old Testament the law of Moses was that part of it that was symbolic a shadow of things to come now if Jesus told the Jews not to drink poison that's not a shadow that's for anybody poison doesn't just kill Jews it kills everybody would you say?
+
+---
+
+## CDB-G03 — State of the Dead (3)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-019** — It true that when a man dies it just had to be because his time had come you know I have heard that all over the world when you die your time has come I was in the country of Brasilia and we had an escort who took us up on top of the Senate building and there was a little narrow catwalk all the way across and maybe 12 or 15 stories high to the house building and the lady looked at me and said are you afraid to follow me across here well you know men can't take that I said of course I'm not afraid so I started across the crazy thing is that when you got halfway it did this and it was frightening in fact when I got on the other side I out of the little prayer I said Lord if you help me back across this thing you won't have to answer this prayer again ever but there was something she said that shook my confidence further she said pastor a lot of folk are afraid but?
+> - **cdb-020** — Brooks where does your spirit go when you die and you're waiting for the Rapture?
+> - **cdb-021** — If it's painful to die they go on to say I pray that I die in my sleep or at church hearing the word of God well don't worry about that beloved you leave that in the hands of the Lord one thing he said is I'll never leave you nor forsake you and if he's with you whatever it is his grace is sufficient would you say?
+
+---
+
+## CDB-G04 — Resurrection, Heaven, and the Millennium (10)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-022** — When I came in tonight I met a young man he's nine years old and he's got a hard question for you he wants to know if UFOs are real oh well now now consider that UFO stands for something very general unidentified flying objects unidentified actually a a 727 that is seen in the Sun at a certain angle it distorts itself and creates an optical illusion and many will see that and can't identify it so to call it a UFO in that case it's real there are many things that will be seen as we get closer and closer to the End of Time?
+> - **cdb-023** — You mind if I read one more I I thought it was here it's First Corinthians 6 9 and it says know ye not that the unrighteous shall not inherit the kingdom of God and then it goes on to say be not deceived neither fornicators nor idolaters nor adulterers nor effeminate nor abusers of themselves with mankind they shall not inherit the kingdom of God what was this question pastor we want to know here Pastor will we know our family members in heaven if we've all been changed oh my we're going to be changed but we're going to know one another that's what Paul said in First Corinthians 13. then shall I know even as also I am known I wouldn't want to go to heaven and not know my wife you're so quiet tonight are you quiet because the president is here why don't you say?
+> - **cdb-024** — When you die will your soul go to heaven or hell does it depend on the kind of person that you are oh that one got in there Wednesday night what the ghosts Zombies and poltergeists have to do with us today please come and listen to that on Wednesday night now if you're scared of ghosts bring somebody with you here's a young person that wants to know when did God create the months and the seasons when did God create the months and the seasons there are perhaps two answers to this first of all God created the Earth he made the sun moon and stars?
+> - **cdb-025** — What about Saul and The Witch of Endor yeah we talked about death the other night and witches and all of that and somebody has jumped to that section in the Bible where a king had so rebelled against God that God wouldn't talk to him and so he goes to a witch to try to find out what God intended now if God wouldn't talk to him why would anyone think a witch could do it on behalf of God so what Saul's sorry went over to Endor and met with a witch against the known will of God and he asked that witch to bring up Samuel now the witch brought up something first of all first of all use your mind this thing is coming from the wrong direction if Samuel was in heaven and some believe he should have come down this thing came up but that's not the end of the story before you get yourself confused read the end of the story?
+> - **cdb-026** — Is anybody in heaven now yes there are people up there Moses is there and not only that but uh Enoch is there and Elijah is there and then there's reference the Four and Twenty Elders redeemed from the earth they are there now by the way uh we don't have any guarantee of others there might be we just don't know but we do know that Moses was?
+> - **cdb-027** — What do the trees that are mentioned in Revelation 7th chapter mean they mean trees in Revelation chapter 7 the angels are holding the Four Winds and the winds are not to hurt the Earth nor the trees tell God's servants are sealed in their foreheads right now we've got a lot of stock in peace efforts and the U.N and that sort of thing and I'm?
+> - **cdb-028** — Going to go when they die are they going to go to heaven when God comes there is no record in the Bible that they will go to heaven there won't be any up there when we come back down to the new Earth We're going to have animals as they were in the Garden of Eden they don't bite they don't claw and The Lion and the bear and the calf and the fatling will each straw together?
+> - **cdb-029** — When Jesus comes you said it would be the end of time do you mean for Earth do you mean for all eternity doesn't God and Jesus live forever or won't they live forever and if there's an ending to time and God I don't understand let me try to help you?
+> - **cdb-030** — Brook someone wants to know when you pray for yourself and your family that you may live forever will God answer and can you see the words take them one at a time Pastor all right you pray for yourself that you'll live forever will God answer that all depends you got to do more than pray you got to get up off of your knees and start obeying would you say?
+> - **cdb-031** — When you feel you're ready to go to heaven and you prepare yourself and then you mess up so many times that it gets hard to straighten up can you still be sure you will be saved now listen folks sin Sinners are not going to heaven unless they overcome sin?
+
+---
+
+## CDB-G05 — Satan, Demons, and Spiritual Warfare (10)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-032** — Mr Brooks if my husband and I are separated is it all right for me to go out with someone else on a date well of course it is if your husband and you are separated and and you want to go out on a date you may go with Mrs Green Mrs Brown Mrs Jones but that isn't what you mean you want to know is it all right to have a boyfriend it's of no no you are still married and until a proper divorce is in place you do not have that right in the sight of God is that clear and you will be displeasing God and pleasing yourself where the devil can tempt you above that you might be able to bear beloved you have no right to that and?
+> - **cdb-033** — Does God punish people now if not why does he allow illness and pain and when you beg him over and over to take it away ladies and gentlemen let me speak frankly to you it was never God's will that man should know sickness pain and death our for parents disobeyed God and the curse of sin passed upon us all I read that to you and the results of sin are the things that you talk about does it always mean that that particular person sinned you remember one day Jesus healed a blind man and the disciples said who sinned this man or his parents Jesus said neither it is the condition the common lot of humanity to suffer now you might say why did God make God why does God make people suffer he doesn't don't give God credit for what the devil does don't blame God for what Satan has brought upon this Earth and much of the suffering is the result of our cooperating with Satan you go around drinking and smoking and taking drugs your health will break down you burn the candle at both ends you don't get proper rest and you are largely responsible for declension in health is that clear now why does God allow it I would like to point something out to you?
+> - **cdb-034** — Who are Guardian Angels who are they what are they and where are they well the?
+> - **cdb-035** — What are ghosts, apparitions, and poltergeists?
+> - **cdb-036** — From a young person Pastor on Halloween can we go if something holy or will we still be disobeying God oh I don't quite understand do you mean go out as a ghoul or a ghost or something on Halloween back East when my kids went to private school they went out at Halloween time and collected food for the poor you can make something good out of it Halloween is a holiday that comes from All Hallows Eve which comes from paganism it was believed that on this particular date the spirits of the Dead came now we've already cleared that up haven't we and that they tormented people and harassed folk who were not kind to them and so the church kind of went along with this it was on all hella's Eve that Martin Luther nailed his thesis to the church to Ed Wittenberg but we don't believe much in Halloween because we don't believe that spirits of dead people do anything?
+> - **cdb-037** — If a person does not know how to read what will happen to that person and then is it all right to hear songs that are not necessarily church songs if a person doesn't know how to to read there are many people who don't know how to read but who love the Lord and who follow him there's a text in the Bible where Philip was joined to the Ethiopian eunuch he didn't know how to read but he didn't know how to understand he was reading the scroll in his Chariot and Philip said understand is thou what thou read is he said how can I understand without someone to teaching me so Philip got up in the under the power the Holy Ghost and taught him now if you don't know how to read There Are Places to which God will lead you I don't believe anybody's in this Auditorium tonight by accident?
+> - **cdb-038** — Don't have any record that he did Jesus was incarnated in human flesh and thus limited by human flesh he was thought to be a ghost simply because the disciples didn't know who he was from a distance next place Pastor what if you're dating someone who is not a Believer what should we do besides pray well you're taking a big chance doing that in the first place the Bible actually forbids it I don't think people understand anymore what God really expects of them but a Christian has a prescribed course it's found in the word of God and God expects a Christian to follow that word?
+> - **cdb-039** — The other night Pastor you said that we should assemble and worship together but what if you disagree that things go with things that go on in the church even after expressing our concerns and nothing seems to be done how can I in good conscience be a part of that assembly the truth is how can you in good chance it's not be you know if we were more reasonable and thoughtful we'd understand that always wherever God's people are Satan put some folk in there to create problems go back to the children of Israel they were God's people and he said so and yet there was hardly a more honorary Bunch on Earth than they they murmured and complained and bellyached all the time they slipped into idolatry and it's recorded over and over that the people did evil in the sight of the Lord now when Jesus came he chose 12 disciples and one of them was the devil which one was it I thought you'd say that the truth is they all were until they got converted two of them were called sons of thunder they wanted to call it on fire burn up people Peter did what seems on the surface to be worse than What Judas did you see the church is not a resort full of perfect people it's a hospital where folk come to get better would you say?
+> - **cdb-040** — Is there more than one devil I'm trying to answer quickly but I'm not being Curt with you?
+> - **cdb-041** — How can we possibly overcome the devil when he has so much power?
+
+---
+
+## CDB-G06 — Sanctuary, Judgment, and Probation (2)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-042** — Brooks is the 144 000 the only ones that will be saved and is that a literal number?
+> - **cdb-043** — Can you see the mark of the beast if you or your friend or even someone you know gets it no you can't see it I talked about that last night some people expect and you hear this now that they're talking about the mark of the beast you hear that it's a computer and everybody's going to have a tattoo of that's foolishness the Bible doesn't say that?
+
+---
+
+## CDB-G07 — Final Events, Prophecy, and End Times (4)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-044** — Is it true that God compares the Fallen Church to a harlot which wears lots of makeup and jewelry you find that in Revelation chapter 17 and we're going to preach about it later on and?
+> - **cdb-045** — Where does it tell us in the Old Testament of the second coming of Jesus oh?
+> - **cdb-046** — He is a person that wants to know where was Daniel when his three friends were being thrown into the fiery furnace Daniel was prime minister in Babylon and as such he had business and they didn't have planes and helicopters then they traveled long distances he was in another Province next had he not been it would have been the four Hebrew boys not three Pastor I've been baptized three times and severely backslidden three times should I be baptized again and here's another question that's similar last night you talked about baptism please tell me what the Bible position is on re-baptism and so forth thank you now?
+> - **cdb-047** — I was baptized in the remnant church at an early age don't get me wrong I know what I was doing but I am now in my later age I'm learning more truth is it necessary to be baptized again in the same Remnant church I think I ought to say this first of all you need to talk to your pastor if you remember the church talk to?
+
+---
+
+## CDB-G08 — Christology: The Nature and Work of Christ (2)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-048** — Does Jesus have any relatives?
+> - **cdb-049** — Why doesn't God answer your prayers even though you know it's for something that he would want you don't know that a Christian prays submissive life Jesus the son of God In The Garden of Gethsemane asked his father to let the cup of suffering fast but immediately he said nevertheless not my will but thine be done a Christian is not better or?
+
+---
+
+## CDB-G09 — Baptism, Prayer, and Spiritual Disciplines (12)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-050** — Another young person Dr Brooks when we sin and we know we are doing wrong will God forgive us when we pray and when he knows we are doing wrong really what does it mean if we are sorry if we are not sorry when we pray?
+> - **cdb-051** — Brooks is it possible to be a Christian without being a member of a particular religion or group well you can't be a Christian without being a member of a particular religion because Christianity is a religion and then why would you want to be I was recently asked by a lady whom I'd never seen if I would baptize her a Caucasian lady she came to our church and I said well of course we'll do it and when we got down to it she wanted to be baptized but didn't want to join the church I said?
+> - **cdb-052** — Do you believe we should pray to Saints well no I do not believe that and?
+> - **cdb-053** — Here's a person that wants to know why don't we get all of our prayers answered all of the time you know what I say mine are answered all the time not always the way I want remember God is our father and he knows what's best for us not only that?
+> - **cdb-054** — If we choose not to come to church can we be saved if we don't want to come to church can we be saved all you need to pray about this?
+> - **cdb-055** — If I was baptized once by immersion in a Baptist Church should I be baptized again the same way in another church no we deliberately took our time with that the other night baptism is a sign of an outward an outward sign of an inward cleansing baptism says to the world this is my starting place by faith doing what the Lord wants me to do and we read to you from Acts chapter 18 where a man by the name of Apollos a man by the name of Apollos went to Ephesus and the Bible gives you a very fine Commendation concerning this man he was instructed in the way of the Lord favored in the spirit spake and taught diligently the things of the Lord but he was limited in his knowledge he knew only the baptism of John eventually as you read on down in the context Apollos left and went to Corinth and Saint Paul came to Ephesus where he had been and Paul on certain disciples?
+> - **cdb-056** — Please explain the difference between trespasses sin and iniquity I did enumerate those the other night and when David offered his prayer he named all three he said according to the multitude of thy Tender Mercies blot out my transgressions wash me throughly of my iniquities and Purge me of my sin three words they all are kin but they are varying of varying severity in the Greek the word?
+> - **cdb-057** — Who wanted the head of John the Baptist?
+> - **cdb-058** — How can we help a friend be firmly anchored in the church rather than being blown about by every wind of Doctrine the best thing to do is two things three things teach set an example and pray we cannot win souls we cannot save souls and if anybody in the church wants to be blown by every when that person is free to do so but what we can?
+> - **cdb-059** — Should we pray for something more than once and when we pray and?
+> - **cdb-060** — Brooks some people are urging our federal government to pass a law forcing teachers and students to have prayer before classes would not such a law violate the principles of separation of church and state what does the Bible say on that subject the Bible doesn't speak about separation of church and state the Bible does tell us about forced morality it is always associated with Hedonism God does not accept it he will not accept worship that is forced he says if you love me do what now?
+> - **cdb-061** — In repenting should one go to that person he or she has wronged or should they just pray to God for forgiveness?
+
+---
+
+## CDB-G10 — God's Nature, Sin, and Theodicy (1)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-062** — Why did God regret that he had made Saul King doesn't he know everything about everything so didn't he know beforehand I I wish it with all my heart and I'm saying this kindly I wish we would listen a little more carefully because we cover all of this when we talk when we talked about Saul we mentioned the fact that God's foreknowledge does not mean predestination the way?
+
+---
+
+## CDB-G12 — Tithe, Stewardship, and Giving (2)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-063** — What does God say about gambling people play Bingo and win money or prizes from Bingo is that wrong?
+> - **cdb-064** — Do we pay tithe on gifts and if so to what extent for example if someone were to give you a car for example do you estimate the price of that car and pay accordingly that's what I do anybody want to give me a hundred dollars I'll take it and then I'll pay ten dollars a Time next month our?
+
+---
+
+## CDB-G13 — Diet, Health, and Lifestyle (1)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-065** — Is it wrong for a Christian to have an occasional glass of beer to help fall asleep?
+
+---
+
+## CDB-G14 — Church Life, Worship, Music, and Ministry (6)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-066** — Is it a sin for a woman to wear pants?
+> - **cdb-067** — What does God say about healing preachers I left some names off this because we don't want to call names but if you will read well before that?
+> - **cdb-068** — Should we call our preachers father?
+> - **cdb-069** — Do you feel musical instruments are wrong in the church?
+> - **cdb-070** — A young person I'm a youth and I would like to know is it wrong to listen to music of the world to watch a soap opera or any type of movie now I'm going to answer this the way I've answered it about three times already?
+> - **cdb-071** — How come women ordained can preach the gospel when it doesn't say so in the Bible look at Revelation chapter 22 verse 18. I'm acquainted with that text it has nothing to do with this question it says if any man adds to or takes away from the writings of God that man will bear the disapproval and curse of God but if women are called?
+
+---
+
+## CDB-G15 — Marriage, Family, and Relationships (7)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-072** — Tell us what does God think of interracial relationships?
+> - **cdb-073** — My husband feels that just like a man should not dress like a woman it is wrong for a man to do housework please comment you're a husband now I don't think it would be fair for you to go and tell your husband that I said he ought to do housework the other night I preached on the home and I pointed out that if in today's economy the wife has to work then the husband has as much responsibility at home as the wife does they're both working and you shouldn't take it as one against the other it's an opportunity to be together it's an opportunity to have some of the most beautiful conversations that you can ever have I do it and I told you I don't have to do it my daughter's sitting here she knows I don't have to do it nobody makes me do anything in my own but I do it and you know what I do it well I'm a a white tornado when I come home I can really do a job on bathrooms and scrubbing and all of that it keeps my wife Young and I have I have no problem with it now if you have a problem I'm not trying to force you to do anything it's just a good choice and now if you don't want to do it just tell your wife I don't want to do that don't make up these invalid excuses?
+> - **cdb-074** — Brooks he was a young person who wants to know when should people start dating goes on to say nothing sexual just dating?
+> - **cdb-075** — Brooks Kenny man and woman who are married to other people be friends if so what kind of friends that's an interesting question sure you can be friends but not intimate friends and not romantic friends you may be platonic friends you may be friends at a distance you may be Christian friends but let us never look for permission of compromise in God's word or morality would you say?
+> - **cdb-076** — Brooks what can you tell me about soul mates is it in the Bible?
+> - **cdb-077** — Why do people always hassle me about my friends after all nobody can make me do wrong well that's true but?
+> - **cdb-078** — Is it okay to kiss a boyfriend while dating?
+
+---
+
+## CDB-G16 — Salvation, Grace, Repentance, and the Christian Walk (4)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-079** — Is there anything in the Bible Pro or Khan on cremation no there's nothing in the Bible about creation about cremation please forgive me cremation uh we uh?
+> - **cdb-080** — Another young person wants to know is it bad or should we condemn something because we hear it on the radio or a cassette tape oh no you can't condemn it like that not a blanket condemnation no we don't mean that at all there are things that are on the radio and on tapes that you shouldn't bother with um well I gave you an answer the other night I was about to say something else and maybe I won't say it what we must seek to do is to become personally acquainted with Jesus let him come into our lives and control us and believe me he will give you such Impressions such new and Noble and lofty desires that you will automatically stop listening to what you shouldn't listen to and you will learn to enjoy what you should it's not a question of is this wrong is that wrong it's a question of being converted then the Lord will rule you from within and turn you off to certain things I hope I'm being clear about that ladies and gentlemen that's what we need to see conversion a real real experience with our Lord now on the other hand if something is so close to right and so close to wrong that you don't know what?
+> - **cdb-081** — Is it true that what you don't know won't hurt you yeah I told you that?
+> - **cdb-082** — This is a sincere secret for truth saying is it true what you don't know won't hurt you I buried a man once who had a spot on his lungs and didn't know it this is a sincere Seeker for truth?
+
+---
+
+## CDB-G17 — Bible Interpretation and Difficult Texts (3)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-083** — Why is the Bible called the word of God when men wrote it oh in second Timothy 3 16?
+> - **cdb-084** — The Bible speaks of Hell who's going to hell and who is going to Purgatory please touch on this subject?
+> - **cdb-085** — What would you say about Acts 19 11 and 12 miracles and handkerchiefs aprons disease departed and evil spirits went out also the laying on of hands of the sick are we to believe in this kind of power what you really I suppose ought to be asking do we believe in Divine Healing?
+
+---
+
+## CDB-G18 — Practical Christian Living and Miscellaneous (14)
+
+**Suggested sources:** *The Great Controversy*, *Patriarchs and Prophets*, *Desire of Ages*, SDA Bible Commentary
+
+**Research prompt:**
+
+> You are producing a dedicated scripture-grounded answer for each of the following questions.
+> Do NOT write a general essay. Address each question as its own entry.
+>
+> For EACH question, provide:
+> 1. A direct declarative answer
+> 2. The scripture(s) that anchor it
+> 3. The theological argument
+> 4. Historical context where relevant
+> 5. Address the strongest counter-argument
+>
+> **Questions:**
+> - **cdb-086** — Tell me will too much religion drive you crazy I it depends on what kind of religion you have there are many religions but one Christianity and perhaps some of these others could do it but not the word of God and not Christianity would you say?
+> - **cdb-087** — How can we believe in God when we have not seen him the skeptic always asks that question you better be glad you have it for?
+> - **cdb-088** — Now Pastor my mother has lots of strange dreams she believes there are messages from another world could this be true?
+> - **cdb-089** — For this evening Pastor what about a church man who is unwilling to buy groceries and feed his children and his wife can that man be a Christian I don't see how he can be now now if the man is sick then let's cut him some slack as they say wouldn't you agree if he's sick but if he is not ill if he is capable and especially if he is working and he is so selfish that he will not feed his own family then?
+> - **cdb-090** — In Genesis when God created man is that the same as when he formed Adam and Eve?
+> - **cdb-091** — This person wants to know is it true a child is not responsible until he is 12 years of age?
+> - **cdb-092** — You ask us to have faith without seeing how can I accept what I do not understand well listen we human beings are limited creatures I I said recently in a sermons of young people that we can't even see the present we see the immediate past if I slap my hand like that you think you'll see it immediately but you don't your eyes are lenses that pick up what I do but the part of your brain that interprets it is back here called the occipital pole and your eyes are connected to this back here by optic nerves which means when I do that by the time it gets back here you see the immediate past and since we are so limited we are creatures of Faith whether we like it or not you came in here and sat down by faith how did you know these wouldn't collapse and injure your back how did you know that roof wouldn't fall in and kill you you're in here by faith go to a restaurant as some did today and they bring you your food and you just start eating by faith how do you know some nut didn't put arsenic in your food you get ready to pay Uncle Sam his income tax and you put a check in an envelope put a little stamp on it and go on some impersonal Corner drop it in some impersonal box and you say I paid my income tax no you haven't you put it in a box by faith that the postman would deliver it ladies and gentlemen we have to believe something and when we say how can?
+> - **cdb-093** — Why does a faithful church-going man that has given his life to Jesus Christ have such a negative attitude all the time he never even Smiles I know this man doesn't have in Christ in your life make you happy I'm I'm sincerely glad that you don't put names on these cards so nobody can assume I'm talking at anyone but listen Jesus came that you might have joy?
+> - **cdb-094** — I've heard of people who say folks strain at a gnat and swallow a Campbell is that in the Bible?
+> - **cdb-095** — Many words are in the Bible?
+> - **cdb-096** — You know out here Pastor Brooks we have some scorpions and rattlesnakes now if they're in your house does Thou shalt not kill include them too we get a version of this Everywhere I Go Thou shalt not kill Jesus said if you hate your brother he's talking about human beings You're a murderer and I have a little saying I usually we usually don't see anything like this they?
+> - **cdb-097** — This is signed a Jewish Christian?
+> - **cdb-098** — Brooks is there anything wrong with wearing modest small jewelry how about wedding bands and engagement rings do you really want me to fix it for you I read to you clearly from the word of God now what do you want me to do fix it I can't fix it I wouldn't fix it if it were my mother standing here asking me this you can't dilly dally?
+> - **cdb-099** — You said a Christian woman should dress modestly so not to entice or seduce what then is the cause of elderly ladies being raped when they don't entice or seduce?
+
+---
