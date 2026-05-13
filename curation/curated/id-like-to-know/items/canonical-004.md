@@ -16,42 +16,68 @@
 
 ## Entry `canonical-004a`
 
-- `question`: `Where in the Bible does it say the apostolic church had practices like salutes, drills, uniforms, and marching such as Pathfinders and AY clubs do?`
+- `question`: `Where in the Bible does it say the apostolic church had practices like salutes, drills, uniforms, and marching — as Pathfinders and AY clubs do?`
 - `scripture_basis`: ``
-- `source_scripture_usage`: `No Scripture is exposited in this answer. The reasoning is ecclesial and practical, not exegetical.`
-- `secondary_support`: ``
-- `tags`: `Pathfinders, AY-clubs, Adventurers, medical-cadet-corps, youth-ministry, apostolic-church, auxiliary-organizations, outreach, abuse-vs-use`
+- `source_scripture_usage`: `No Scripture is exposited in this answer. The reasoning is ecclesial and practical. The question is answered by arguing from the absence-is-not-prohibition principle rather than from any specific text.`
+- `secondary_support`: `Ellen G. White, Education (chapter "Recreation"); Pathfinders founded 1950 under John Hancock Measured, preceded by the Missionary Volunteer Society (1907)`
+- `tags`: `Pathfinders, AY-clubs, youth-ministry, apostolic-church, auxiliary-organizations, outreach, absence-is-not-prohibition, abuse-vs-use`
 
 ### Answer
 
-It does not. The apostolic church does not show salutes, drills, uniforms, or marching — and it also does not show cooking demonstrations, health lectures, or medical cadet corps. Absence in the New Testament is not by itself a prohibition. As long as a practice does not contradict what the New Testament church did and is ordered toward the church's mission, the church is free to adopt it.
+The question carries a false premise. It assumes that whatever the New Testament does not record, the church may not do. But the New Testament also does not mention printing presses, hospitals, schools, hymnbooks, or church buildings — and no one argues those are forbidden. Absence from the apostolic record is not prohibition. The church is free to adopt any tool not forbidden by Scripture that serves the church's mission.
 
-Pathfinders and the youth clubs work as auxiliary organizations. They give young people constructive outlets for enormous energy, teach discipline, order, cleanliness, and cooperation, draw families into the church through their children, and retain members over the long term. In some parts of the world, like Panama's Mission Caleb, Pathfinders in uniform paint houses, cut grass, and clean communities.
+**Scripture**
 
-The clubs can go off track — camporees with dancing after Sabbath has begun, clubs that become pure entertainment, local programs that have absorbed worldly practices. That is a real problem and it needs to be corrected. But misuse of a program does not invalidate the program. If the local leadership is biblically sound and following the actual curriculum, the club is a benefit to the youth and to the church. If it is drifting, it needs to be pulled back in love, not thrown out.
+No text governs this directly because it is not a doctrinal question — it is a practical one. The New Testament defines the mission; it does not prescribe the uniform. The church has freedom in method wherever Scripture does not bind.
+
+**Spirit of Prophecy**
+
+Ellen White called the church to engage young people with purposeful, structured activity. In *Education*, she describes active outdoor work, cooperative projects, and disciplined effort as the substance of character formation — precisely what Pathfinders formalizes. Idle, entertainment-driven programs are what she warned against. Organized youth service is what she wanted.
+
+**Historical / Scholarly**
+
+The Missionary Volunteer Society (1907) established the Adventist tradition of organized youth ministry; the Pathfinder Club was formalized in 1950. The curriculum — honors, community service, investiture — channels the energy of young people toward skill, service, and spiritual growth. In contexts like Panama's Mission Caleb, Pathfinder units in uniform paint houses, clean neighborhoods, and reach families the church would not otherwise reach. That is the mission.
+
+**Pastoral**
+
+This is a use-versus-abuse question, not a use-versus-prohibition question. A camporee that runs into Sabbath, a club that abandoned its curriculum and became a social event — those are local leadership failures. Correct them. Misuse of a good tool does not abolish the tool.
 
 ## Entry `canonical-004b`
 
-- `question`: `Based on 1 Kings 20:35-43, is it okay to use a false name and pretend to be someone else so that an elder who has stopped responding to emails will respond?`
+- `question`: `Based on 1 Kings 20:35-43, is it okay to use a false name and pretend to be someone else so that an unresponsive elder will reply?`
 - `scripture_basis`: `1 Kings 20:35-43; 1 Corinthians 15:29; 2 Thessalonians 2:10; Jeremiah 17:9-10`
-- `source_scripture_usage`: `1 Kings 20:35-43 is read in full on air. 1 Corinthians 15:29 is walked through as an example of misused Scripture. 2 Thessalonians ("the love of the truth") and Jeremiah 17 ("the heart is wicked above all things, who can know it… I the Lord") are paraphrased rather than read verbatim.`
-- `secondary_support`: `Ellen G. White on strict integrity; Corrie ten Boom under Gestapo interrogation; Joseph Fletcher, Situation Ethics, cited as a negative example`
+- `source_scripture_usage`: `1 Kings 20:35-43 read in full on air. 1 Corinthians 15:29 walked through on air as an example of misused scripture — "Paul is describing what some were doing, not prescribing it." 2 Thessalonians 2:10 ("the love of the truth") and Jeremiah 17:9-10 ("the heart is wicked above all things… I the Lord can know it") paraphrased on air, not read verbatim.`
+- `secondary_support`: `Corrie ten Boom, The Hiding Place (Gestapo episode); Joseph Fletcher, Situation Ethics (1966), cited on air as a negative example`
 - `tags`: `1-Kings-20, deception, integrity, honesty, disguise, situation-ethics, Corrie-ten-Boom, baptism-for-the-dead, 1-Corinthians-15, Jeremiah-17, motive, consequences-with-God`
 
 ### Answer
 
-No. Tell the truth. Leave the consequences with God.
+No. Tell the truth and leave the consequences with God.
 
-The prophet's disguise in 1 Kings 20 is not a permission slip. Scripture describes many things it does not endorse. The Gibeonites tricked Israel and saved their lives, but ended up as slaves forever — the trick is narrated, not commended. The prophet in 1 Kings 20 was given a specific, prophetic instruction to confront Ahab in a particular way at a particular moment. You have not been given that instruction. Lifting the narrative out as a general license for deception is the same kind of mishandling that produced the doctrine of baptism for the dead from 1 Corinthians 15:29, where Paul is only describing what some were doing, not prescribing it.
+**Scripture**
 
-The principle is plain across Scripture. The Spirit is the Spirit of truth. Christ is the truth. Nathanael is commended because there was no guile in him. Second Thessalonians says the lost perish because they did not receive the love of the truth. No deviation from strict integrity meets God's approval. Even under real pressure, the right move is honesty: when the Gestapo came to Corrie ten Boom's house looking for a man she was hiding under a tablecloth, she told them he was right under the table, and they laughed it off and left. God is able to defend. He does not need us to take things into our own hands.
+The prophet's disguise in 1 Kings 20 is not a permission slip for deception. Read the passage in full: a prophet is given a specific divine instruction to confront Ahab through an acted parable. This is a unique prophetic commission, not a transferable principle. You have not received that instruction. Scripture narrates many things it does not commend — the Gibeonites deceived Israel and survived, but were bound to servitude forever. Narration is not endorsement.
 
-Situation ethics — the idea that love sometimes requires you to lie, or even to commit adultery, to secure a loving outcome — replaces God's law with the inclinations of the heart, and Jeremiah 17 warns that the heart is deceitful above all things and only the Lord truly knows it.
+The same exegetical error that would license deception from 1 Kings 20 produced the doctrine of baptism for the dead from 1 Corinthians 15:29. Paul is asking a rhetorical question — "why do some of you baptize for the dead if you don't believe in the resurrection?" — he is describing a practice he is not prescribing. Taking a descriptive verse and building a prescriptive doctrine from it is precisely the kind of mishandling that produces false conclusions.
 
-Examine the motive here. If the elder has stopped responding, a fake name will not produce a godly conversation; it will produce another round of the same dispute under a mask. Pray. Let God work on the person. Consider whether your own approach needs more humility and love. If the Spirit is leading, He will open the door honestly. Deception is not that door.
+2 Thessalonians 2:10 locates the root of spiritual ruin not in ignorance but in refusing the love of the truth. Jeremiah 17:9-10 gives the diagnosis: the heart is deceitful above all things, and only God truly knows it. A person willing to bend truth for a desired outcome is not operating from a reliable guide — they are trusting exactly what Jeremiah warned them not to trust.
+
+**Spirit of Prophecy**
+
+Ellen White is unambiguous: strict integrity is non-negotiable. There is no situation in which falsehood serves God's purposes, because God is not dependent on human cleverness to accomplish His will. A person who deceives to advance what they call a good cause has placed their own judgment above God's character.
+
+**Historical / Scholarly**
+
+The situation ethics debate (Fletcher, 1966) is the modern philosophical form of the question. Fletcher argued that love is the only absolute and that any act — including lying — is justified if it produces a loving outcome. The fatal weakness of the argument is epistemological: who decides the outcome is loving? Jeremiah already answered: not the heart doing the deciding. Christian ethics, by contrast, insists that the method matters — not just the result — because God's ends are never achieved by means that contradict His character.
+
+**Pastoral**
+
+Examine the motive. If the elder has stopped responding, a fake name will not produce a godly conversation — it will produce another round of the same dispute under a mask. When he discovers the deception, he will have new grounds for disengagement. The outcome you want requires a changed heart — his or yours. Neither happens through disguise.
+
+When the Gestapo came to Corrie ten Boom's house looking for the man she was hiding under a tablecloth, she told them he was right under the table. They laughed and left. God can do more with honesty than with a well-constructed lie. Tell the truth. Pray for an opening. Let God move the person. If the Spirit is leading, He will open the door honestly. Deception is not that door.
 
 ## Fidelity notes
 
-Built from the YouTube transcript for playlist item 004. Both native questions are preserved under the exact source video. Introduction, repeated affirmations, the Pathfinder-director anecdotes, and the late-night mission-trip story were condensed while preserving the reasoning spine of each answer.
+004a: No scripture was exposited — the scripture_basis field is intentionally empty. The apostolic-church question is answered entirely from the absence-is-not-prohibition principle. SOP and historical references are curator-supplied context; the transcript argues the ecclesial and practical case without citing specific EGW works or Pathfinder history directly.
 
-Scripture usage is recorded honestly. The first answer is not biblical exposition at all — it is an ecclesial and practical defense of auxiliary youth organizations — so `scripture_basis` is left empty and `source_scripture_usage` makes that explicit rather than pasting in thematic verses that were never used. The second answer is grounded in direct reading of 1 Kings 20:35-43 and a walked example of 1 Corinthians 15:29 misuse; 2 Thessalonians and Jeremiah 17 are paraphrased rather than read, and that is noted. The Corrie ten Boom anecdote, the Ellen White "strict integrity" line, and the reference to Fletcher's Situation Ethics are kept in `secondary_support` so they are not confused with in-source scripture citation. The final counsel — examine motive, pray, do not wear a mask — preserves the source's actual pastoral thrust.
+004b: 1 Kings 20:35-43 read in full on air. 1 Corinthians 15:29 walked through on air as the misuse example. 2 Thessalonians 2:10 and Jeremiah 17:9-10 paraphrased on air — not read verbatim, noted accordingly. Joseph Fletcher's Situation Ethics named directly by a speaker. The Corrie ten Boom episode referenced on air by a speaker. Ellen White on strict integrity referenced on air without a specific work cited — not added to secondary_support as a named source.
